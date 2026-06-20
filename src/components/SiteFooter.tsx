@@ -1,0 +1,93 @@
+import { Link } from "@tanstack/react-router";
+
+export function SiteFooter() {
+  return (
+    <footer className="mt-32 bg-ink text-canvas">
+      <div className="container-page py-20">
+        <div className="grid gap-16 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="grid h-10 w-10 place-items-center rounded-lg bg-accent text-ink font-display text-lg font-semibold">
+                S
+              </div>
+              <div className="flex flex-col leading-tight">
+                <span className="font-display text-lg font-semibold">SPARKS Lab</span>
+                <span className="eyebrow text-[9px] text-canvas/50">NIT Trichy · CSE</span>
+              </div>
+            </div>
+            <p className="text-sm text-canvas/60 leading-relaxed max-w-sm">
+              Smart Platform for AI Research and Knowledge Systems. Department of Computer
+              Science & Engineering, National Institute of Technology Tiruchirappalli.
+            </p>
+            <p className="mt-6 text-xs text-canvas/40 font-mono leading-relaxed">
+              Tanjore Main Road, NH-67<br />
+              Tiruchirappalli — 620015, Tamil Nadu, India
+            </p>
+          </div>
+
+          <div>
+            <h4 className="eyebrow text-canvas/50 mb-5">Explore</h4>
+            <ul className="space-y-3 text-sm">
+              {[
+                ["/research", "Research"],
+                ["/projects", "Projects"],
+                ["/publications", "Publications"],
+                ["/patents", "Patents"],
+              ].map(([to, label]) => (
+                <li key={to}>
+                  <Link to={to} className="text-canvas/75 hover:text-accent transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="eyebrow text-canvas/50 mb-5">Lab</h4>
+            <ul className="space-y-3 text-sm">
+              {[
+                ["/founder", "Founder"],
+                ["/people", "People"],
+                ["/news", "News & Updates"],
+                ["/gallery", "Gallery"],
+                ["/contact", "Contact"],
+              ].map(([to, label]) => (
+                <li key={to}>
+                  <Link to={to} className="text-canvas/75 hover:text-accent transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="eyebrow text-canvas/50 mb-5">Newsletter</h4>
+            <p className="text-sm text-canvas/60 mb-4 leading-relaxed">
+              Monthly digest of publications, openings and breakthroughs from the lab.
+            </p>
+            <form className="flex items-center gap-2 rounded-full bg-canvas/5 ring-1 ring-canvas/10 p-1.5">
+              <input
+                type="email"
+                placeholder="you@institute.edu"
+                className="flex-1 bg-transparent px-3 py-1.5 text-sm placeholder:text-canvas/40 focus:outline-none"
+              />
+              <button className="rounded-full bg-accent text-ink px-4 py-1.5 text-xs font-semibold hover:scale-[1.03] transition-transform">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div className="mt-16 pt-8 border-t border-canvas/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <p className="eyebrow text-canvas/40">© {new Date().getFullYear()} SPARKS Lab · All rights reserved</p>
+          <div className="flex items-center gap-6 text-xs text-canvas/50 font-mono">
+            <span>v1.0 · Tiruchirappalli</span>
+            <span className="hidden md:inline">Built for the future of AI</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
