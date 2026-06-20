@@ -1,5 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { PageHeader } from "../components/PageHeader";
+import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 
 export const Route = createFileRoute("/research")({
   head: () => ({
@@ -35,51 +38,90 @@ function ResearchPage() {
         description="Our research is organized into ten domains that share methods, datasets, and scholars. We pursue both foundational questions and the systems that translate them into the world."
       >
         <div className="flex flex-wrap gap-3">
-          <Link to="/projects" className="inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-5 py-3 text-sm font-medium hover:bg-ink-dark">View projects →</Link>
-          <Link to="/publications" className="inline-flex items-center gap-2 rounded-full bg-surface ring-1 ring-border px-5 py-3 text-sm font-medium hover:bg-muted">Read papers</Link>
+          <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+            <Link to="/projects" className="inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-5 py-3 text-sm font-medium hover:bg-ink-dark shadow-md hover:shadow-lg transition-shadow">View projects →</Link>
+          </motion.div>
+          <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+            <Link to="/publications" className="inline-flex items-center gap-2 rounded-full bg-surface ring-1 ring-border px-5 py-3 text-sm font-medium hover:bg-muted">Read papers</Link>
+          </motion.div>
         </div>
       </PageHeader>
 
       <section className="container-page pb-32">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" stagger={0.05}>
           {domains.map((d, i) => (
-            <article key={d.id} className="group relative rounded-3xl bg-surface ring-1 ring-border p-8 hover:ring-ink hover:-translate-y-1 transition-all">
-              <div className="flex items-start justify-between mb-6">
-                <span className="font-mono text-[10px] text-accent">{String(i + 1).padStart(2, "0")} / 10</span>
-                <span className="size-2 rounded-full bg-accent opacity-60 group-hover:opacity-100" />
-              </div>
-              <h3 className="font-display text-2xl font-semibold leading-tight">{d.title}</h3>
-              <p className="mt-4 text-sm text-ink-soft leading-relaxed">{d.body}</p>
-              <div className="mt-6 grid grid-cols-2 gap-3 pt-5 border-t border-hairline">
-                <div>
-                  <div className="font-display text-lg font-semibold">{d.projects}</div>
-                  <div className="eyebrow text-[9px] mt-0.5">projects</div>
+            <StaggerItem key={d.id}>
+              <motion.article
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative h-full rounded-3xl bg-surface ring-1 ring-border p-8 hover:ring-ink hover:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.18)] transition-all overflow-hidden"
+              >
+                <motion.div
+                  className="absolute -top-12 -right-12 size-40 rounded-full bg-accent/0 group-hover:bg-accent/10 blur-2xl transition-colors duration-500"
+                />
+                <div className="relative">
+                  <div className="flex items-start justify-between mb-6">
+                    <span className="font-mono text-[10px] text-accent">{String(i + 1).padStart(2, "0")} / 10</span>
+                    <motion.span
+                      className="size-2 rounded-full bg-accent"
+                      animate={{ opacity: [0.4, 1, 0.4] }}
+                      transition={{ duration: 2 + i * 0.2, repeat: Infinity }}
+                    />
+                  </div>
+                  <h3 className="font-display text-2xl font-semibold leading-tight group-hover:text-accent transition-colors">{d.title}</h3>
+                  <p className="mt-4 text-sm text-ink-soft leading-relaxed">{d.body}</p>
+                  <div className="mt-6 grid grid-cols-2 gap-3 pt-5 border-t border-hairline">
+                    <div>
+                      <CountUp end={d.projects} className="font-display text-lg font-semibold" />
+                      <div className="eyebrow text-[9px] mt-0.5">projects</div>
+                    </div>
+                    <div>
+                      <CountUp end={d.papers} className="font-display text-lg font-semibold" />
+                      <div className="eyebrow text-[9px] mt-0.5">papers</div>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-display text-lg font-semibold">{d.papers}</div>
-                  <div className="eyebrow text-[9px] mt-0.5">papers</div>
-                </div>
-              </div>
-            </article>
+              </motion.article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </section>
 
       <section className="bg-ink text-canvas py-24 border-y border-canvas/5">
-        <div className="container-page grid lg:grid-cols-3 gap-10">
-          {[
-            ["Open datasets", "12+", "Curated, documented datasets released under permissive licenses for the global research community."],
-            ["Open-source releases", "24+", "Production-grade libraries, training pipelines and pretrained model weights on our public repository."],
-            ["Funded by", "DST · MEITY · industry", "Government of India research missions and industry consortia with combined funding of ₹8.4 Cr+."],
-          ].map(([title, value, body]) => (
-            <div key={title}>
-              <p className="eyebrow text-accent mb-4">{title}</p>
-              <div className="font-display text-4xl font-semibold">{value}</div>
-              <p className="mt-4 text-sm text-canvas/60 leading-relaxed">{body}</p>
-            </div>
-          ))}
+        <div className="container-page">
+          <Stagger className="grid lg:grid-cols-3 gap-10" stagger={0.1}>
+            {[
+              ["Open datasets", "12+", "Curated, documented datasets released under permissive licenses for the global research community."],
+              ["Open-source releases", "24+", "Production-grade libraries, training pipelines and pretrained model weights on our public repository."],
+              ["Funded by", "DST · MEITY · industry", "Government of India research missions and industry consortia with combined funding of ₹8.4 Cr+."],
+            ].map(([title, value, body]) => (
+              <StaggerItem key={title}>
+                <div>
+                  <p className="eyebrow text-accent mb-4">{title}</p>
+                  <div className="font-display text-4xl font-semibold">{value}</div>
+                  <p className="mt-4 text-sm text-canvas/60 leading-relaxed">{body}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
     </>
   );
+}
+
+function CountUp({ end, className }: { end: number; className?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.5 });
+  const mv = useMotionValue(0);
+  const rounded = useTransform(mv, (v) => Math.round(v).toString());
+
+  useEffect(() => {
+    if (inView) {
+      const controls = animate(mv, end, { duration: 1.4, ease: [0.16, 1, 0.3, 1] });
+      return controls.stop;
+    }
+  }, [inView, end, mv]);
+
+  return <motion.span ref={ref} className={className}>{rounded}</motion.span>;
 }
