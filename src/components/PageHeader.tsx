@@ -12,7 +12,7 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <section className="relative pt-16 pb-8 overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-dotgrid opacity-50 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
       <div className="container-page">
         <p className="eyebrow text-accent mb-6 animate-reveal">{eyebrow}</p>

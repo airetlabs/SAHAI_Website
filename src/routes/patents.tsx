@@ -17,18 +17,18 @@ export const Route = createFileRoute("/patents")({
 
 const patents = {
   granted: [
-    { no: "IN-419823", year: 2023, title: "System and method for sparse attention distillation in transformer inference", inventors: "Abdullah A., Patel S." },
-    { no: "IN-401205", year: 2022, title: "Apparatus for multi-modal clinical risk prediction from EHR and imaging streams", inventors: "Sharma R., Abdullah A." },
-    { no: "IN-388742", year: 2022, title: "Method for low-resource language adaptation in neural translation models", inventors: "Krishnan P., Abdullah A." },
-  ],
+    { no: "202141003735", year: 2021, title: "An Integrated System and Method for a Touchless, Paperless Election Voting for Government and Private mode", inventors: "Oswald C, M. Mohamad Fasil Ansaary, P. Raghava Ratna" },
+    { no: "202041035035", year: 2020, title: "SPoTA: Smart Prevention of Train Accidents", inventors: "Oswald C, Jayapragash R, Trishit Chakraborty, Tanishq Gupta, Aditya Agrawal" },
+    { no: "202041025660", year: 2020, title: "Smart Attendance Marking System (SAMS) using Computer Vision", inventors: "Balasundaram A, Manas Ranjan Prusty, Inayathullah M A, Oswald C" },
+   ],
   filed: [
-    { no: "IN-PCT-2024/2247", year: 2024, title: "Recursive knowledge graph retrieval for grounded language generation", inventors: "Abdullah A., Iyer M." },
-    { no: "IN-PCT-2024/1891", year: 2024, title: "On-device generative model compression via structured pruning", inventors: "Patel S., Reddy V." },
-    { no: "IN-PCT-2023/4421", year: 2023, title: "Vision-language fusion for surgical scene understanding", inventors: "Sharma R., et al." },
+    {no: "IN-PCT-****", year: 2024, title: "A cab service method for visually and hearing impaired and women passengers using Internet of Things", inventors: "C. Oswald, Trishit Chakraborty, Agniva Mitra, Nagineni Ashish, Ritabrata Nag" }
+    // { no: "IN-PCT-2024/1891", year: 2024, title: "On-device generative model compression via structured pruning", inventors: "Patel S., Reddy V." },
+    // { no: "IN-PCT-2023/4421", year: 2023, title: "Vision-language fusion for surgical scene understanding", inventors: "Sharma R., et al." },
   ],
   transfer: [
-    { partner: "MedTech Innovations Pvt. Ltd.", tech: "Pulse clinical decision support stack" },
-    { partner: "Bharat Edge Compute", tech: "Sparse-inference runtime for ARM Cortex-M" },
+    // { partner: "MedTech Innovations Pvt. Ltd.", tech: "Pulse clinical decision support stack" },
+    // { partner: "Bharat Edge Compute", tech: "Sparse-inference runtime for ARM Cortex-M" },
   ],
 };
 
@@ -48,7 +48,7 @@ function PatentsPage() {
         <Group title="Filed" eyebrow="02" items={patents.filed} status="Filed" />
       </section>
 
-      <section className="bg-ink text-canvas py-20 border-y border-canvas/5">
+      {/* <section className="bg-ink text-canvas py-20 border-y border-canvas/5">
         <div className="container-page">
           <Reveal>
             <p className="eyebrow text-accent mb-4">03 · Technology Transfer</p>
@@ -70,7 +70,7 @@ function PatentsPage() {
             ))}
           </Stagger>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
