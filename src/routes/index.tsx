@@ -1,5 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { ResearchEcosystemSphere } from "../components/ResearchEcosystemSphere";
+import { RevealChars, RevealWords, Reveal } from "../components/Reveal";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,121 +27,79 @@ export const Route = createFileRoute("/")({
 
 /* ────────────────────────────────────────────────────────────── HERO */
 
-function KnowledgeGraph() {
-  // Decorative SVG knowledge graph — the hero signature
-  const nodes = [
-    { id: "core", cx: 300, cy: 200, r: 14, label: "SPARKS" },
-    { id: "ml", cx: 110, cy: 90, r: 7 },
-    { id: "cv", cx: 500, cy: 100, r: 8 },
-    { id: "nlp", cx: 520, cy: 290, r: 6 },
-    { id: "gen", cx: 130, cy: 320, r: 9 },
-    { id: "xai", cx: 320, cy: 60, r: 5 },
-    { id: "edge", cx: 80, cy: 220, r: 5 },
-    { id: "rob", cx: 540, cy: 200, r: 6 },
-    { id: "hai", cx: 260, cy: 350, r: 7 },
-    { id: "kg", cx: 400, cy: 330, r: 5 },
-  ];
-  const core = nodes[0];
-  return (
-    <svg viewBox="0 0 600 400" className="w-full h-full" aria-hidden>
-      <defs>
-        <radialGradient id="glow" cx="50%" cy="50%">
-          <stop offset="0%" stopColor="oklch(0.68 0.165 55)" stopOpacity="0.25" />
-          <stop offset="100%" stopColor="oklch(0.68 0.165 55)" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <circle cx={core.cx} cy={core.cy} r="160" fill="url(#glow)" />
-      {nodes.slice(1).map((n, i) => (
-        <line
-          key={n.id}
-          x1={core.cx}
-          y1={core.cy}
-          x2={n.cx}
-          y2={n.cy}
-          stroke="oklch(0.18 0.012 60 / 0.18)"
-          strokeWidth="0.8"
-          strokeDasharray="2 4"
-          style={{ animation: `draw-line 3s ease-out ${i * 0.08}s both` }}
-        />
-      ))}
-      {nodes.map((n, i) => (
-        <g key={n.id}>
-          <circle
-            cx={n.cx}
-            cy={n.cy}
-            r={n.r + 4}
-            fill="oklch(0.68 0.165 55 / 0.1)"
-            style={{ animation: `pulse-ring 4s ease-in-out ${i * 0.2}s infinite` }}
-          />
-          <circle
-            cx={n.cx}
-            cy={n.cy}
-            r={n.r}
-            fill={n.id === "core" ? "oklch(0.18 0.012 60)" : "oklch(0.68 0.165 55)"}
-          />
-          {n.id === "core" && (
-            <text
-              x={n.cx}
-              y={n.cy + 4}
-              textAnchor="middle"
-              fontSize="9"
-              fontFamily="JetBrains Mono"
-              fill="oklch(0.985 0.005 80)"
-              letterSpacing="0.1em"
-            >
-              CORE
-            </text>
-          )}
-        </g>
-      ))}
-    </svg>
-  );
-}
-
 function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex items-center pt-20 pb-16 overflow-hidden">
+    <section className="relative min-h-[94vh] flex items-center pt-24 pb-20 overflow-hidden">
+      {/* Backdrop layers — parallax depth */}
       <div className="absolute inset-0 -z-10 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
-      <div className="absolute top-1/3 -left-40 w-[500px] h-[500px] rounded-full bg-accent/10 blur-[120px] -z-10" />
-      <div className="absolute bottom-0 -right-40 w-[500px] h-[500px] rounded-full bg-sage/10 blur-[120px] -z-10" />
+      <motion.div
+        className="absolute top-1/4 -left-40 w-[560px] h-[560px] rounded-full bg-accent/15 blur-[140px] -z-10"
+        animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-0 -right-40 w-[520px] h-[520px] rounded-full bg-sage/15 blur-[140px] -z-10"
+        animate={{ x: [0, -30, 0], y: [0, 20, 0] }}
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+      />
 
-      <div className="container-page grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-20 items-center">
+      <div className="container-page grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full bg-accent-soft px-3 py-1 mb-8 animate-reveal">
+          <motion.div
+            className="inline-flex items-center gap-2 rounded-full bg-accent-soft px-3 py-1 mb-8"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
             <span className="relative flex h-2 w-2">
               <span className="absolute inset-0 rounded-full bg-accent opacity-60 animate-ping" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
             <span className="eyebrow text-accent text-[10px]">
-              Advancing intelligence · 2024
+              Advancing intelligence · est. 2024
             </span>
-          </div>
+          </motion.div>
 
-          <h1 className="font-display text-6xl sm:text-7xl lg:text-[8.5rem] font-semibold tracking-tight leading-[0.85] text-balance animate-reveal [animation-delay:80ms]">
-            SPARKS
+          <h1 className="font-display text-6xl sm:text-7xl lg:text-[8.5rem] font-semibold tracking-tight leading-[0.85] text-balance">
+            <RevealChars text="SPARKS" delay={0.1} charDelay={0.05} />
             <br />
-            <span className="text-ink/30">LAB.</span>
+            <span className="text-ink/30">
+              <RevealChars text="LAB." delay={0.45} charDelay={0.06} />
+            </span>
           </h1>
 
-          <p className="mt-8 max-w-xl text-lg sm:text-xl text-ink-soft leading-relaxed text-pretty animate-reveal [animation-delay:160ms]">
+          <p className="mt-8 max-w-xl text-lg sm:text-xl text-ink-soft leading-relaxed text-pretty">
             <span className="font-medium text-ink">
-              Smart Platform for AI Research and Knowledge Systems.
+              <RevealWords
+                text="Smart Platform for AI Research and Knowledge Systems."
+                delay={0.9}
+                wordDelay={0.05}
+              />
             </span>{" "}
-            Advancing the future of Artificial Intelligence through research, innovation,
-            education, and real-world impact.
+            <RevealWords
+              text="Advancing the future of Artificial Intelligence through research, innovation, education, and real-world impact."
+              delay={1.25}
+              wordDelay={0.03}
+            />
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-3 animate-reveal [animation-delay:240ms]">
+          <motion.div
+            className="mt-10 flex flex-wrap gap-3"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
+          >
             <Link
               to="/research"
-              className="group inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-6 py-3.5 text-sm font-medium hover:bg-ink-dark transition-all hover:scale-[1.02]"
+              className="group relative inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-6 py-3.5 text-sm font-medium overflow-hidden transition-all hover:scale-[1.03] hover:shadow-[0_10px_30px_-10px_oklch(0.18_0.012_60/0.5)]"
             >
-              Explore Research
-              <span className="transition-transform group-hover:translate-x-1">→</span>
+              <span className="absolute inset-0 -z-0 bg-gradient-to-r from-accent/0 via-accent/40 to-accent/0 opacity-0 group-hover:opacity-100 transition-opacity blur" />
+              <span className="relative">Explore Research</span>
+              <span className="relative transition-transform group-hover:translate-x-1">→</span>
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-surface ring-1 ring-border px-6 py-3.5 text-sm font-medium hover:bg-muted transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-surface ring-1 ring-border px-6 py-3.5 text-sm font-medium hover:bg-muted hover:ring-ink transition-all"
             >
               Join SPARKS Lab
             </Link>
@@ -147,40 +109,69 @@ function Hero() {
             >
               View Publications →
             </Link>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="relative aspect-square w-full max-w-xl mx-auto animate-reveal [animation-delay:320ms]">
-          <div className="absolute inset-0 rounded-3xl bg-surface ring-1 ring-border shadow-[0_30px_80px_-20px_oklch(0.18_0.012_60/0.15)] overflow-hidden">
-            <KnowledgeGraph />
-            <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-              <span className="eyebrow text-[9px] text-ink/40">
-                Knowledge Graph · v2.4
-              </span>
-              <span className="font-mono text-[10px] text-ink/40">10 domains · 42 nodes</span>
-            </div>
-            <div className="absolute bottom-4 left-4 right-4 grid grid-cols-3 gap-2 font-mono text-[9px] text-ink/50">
-              <div>↳ Active · 24 researchers</div>
-              <div className="text-center">⌁ Live inference</div>
-              <div className="text-right">∞ Compute online</div>
-            </div>
-          </div>
+        {/* Ecosystem visualization */}
+        <motion.div
+          className="relative w-full max-w-2xl mx-auto"
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <ResearchEcosystemSphere />
 
-          <div className="absolute -top-4 -right-4 rounded-2xl bg-ink text-canvas p-4 shadow-xl animate-float-soft">
-            <div className="eyebrow text-canvas/50 text-[9px] mb-1">Awards</div>
-            <div className="font-display text-2xl font-semibold">12</div>
-          </div>
-          <div className="absolute -bottom-6 -left-6 rounded-2xl bg-surface ring-1 ring-border p-4 shadow-xl animate-float-soft [animation-delay:1.5s]">
-            <div className="eyebrow text-[9px] mb-1">h-index</div>
-            <div className="font-display text-2xl font-semibold text-accent">38</div>
-          </div>
-        </div>
+          {/* floating indicators */}
+          <motion.div
+            className="absolute top-2 -right-2 rounded-2xl bg-ink text-canvas p-4 shadow-xl"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: [0, -8, 0] }}
+            transition={{
+              opacity: { duration: 0.7, delay: 1.6 },
+              y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.6 },
+            }}
+          >
+            <div className="eyebrow text-canvas/50 text-[9px] mb-1">Publications</div>
+            <div className="font-display text-2xl font-semibold">152+</div>
+          </motion.div>
+          <motion.div
+            className="absolute bottom-4 -left-2 rounded-2xl bg-surface ring-1 ring-border p-4 shadow-xl"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: [0, -6, 0] }}
+            transition={{
+              opacity: { duration: 0.7, delay: 1.8 },
+              y: { duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 },
+            }}
+          >
+            <div className="eyebrow text-[9px] mb-1">Patents filed</div>
+            <div className="font-display text-2xl font-semibold text-accent">12</div>
+          </motion.div>
+          <motion.div
+            className="absolute top-1/2 -left-6 rounded-2xl bg-surface ring-1 ring-border p-3 shadow-xl hidden md:block"
+            initial={{ opacity: 0, x: -12 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 2.0 }}
+          >
+            <div className="eyebrow text-[9px]">Impact</div>
+            <div className="font-display text-lg font-semibold">h-38</div>
+          </motion.div>
+        </motion.div>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+      <motion.div
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.4 }}
+        transition={{ duration: 0.8, delay: 2.4 }}
+      >
         <span className="eyebrow text-[9px]">Scroll</span>
-        <div className="h-10 w-px bg-ink" />
-      </div>
+        <motion.div
+          className="h-10 w-px bg-ink"
+          animate={{ scaleY: [0.3, 1, 0.3] }}
+          style={{ transformOrigin: "top" }}
+          transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </motion.div>
     </section>
   );
 }
