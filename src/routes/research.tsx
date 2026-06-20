@@ -26,65 +26,208 @@ type Domain = {
   papers: number;
   faculty: number;
   hue: string;
+  image?: string; // optional path/URL — if set, shown instead of the generated visual
 };
 
 const domains: Domain[] = [
-  { id: "ml", title: "Machine Learning", tagline: "Foundations of learning systems", body: "Theoretical and empirical research on optimization, generalization, and the principles that govern how machines learn from data at scale.", focus: ["Learning theory", "Optimization", "Statistical inference", "Probabilistic models"], projects: 6, papers: 28, faculty: 7, hue: "from-[#A8B5C8] to-[#D4DCE6]" },
-  { id: "dl", title: "Deep Learning", tagline: "Architectures at the frontier", body: "Designing, scaling and understanding neural networks — from attention mechanisms to billion-parameter foundation models trained on heterogeneous corpora.", focus: ["Transformer scaling", "Training dynamics", "Mixture of experts", "Efficient pretraining"], projects: 8, papers: 34, faculty: 9, hue: "from-[#C8B8A8] to-[#E6D8C8]" },
-  { id: "cv", title: "Computer Vision", tagline: "Perception that understands the world", body: "Vision-language understanding, 3D scene reasoning and medical image analysis for autonomous systems and clinical applications.", focus: ["Vision-language models", "3D understanding", "Medical imaging", "Video reasoning"], projects: 7, papers: 31, faculty: 6, hue: "from-[#B8C8A8] to-[#D8E6C8]" },
-  { id: "nlp", title: "Natural Language Processing", tagline: "Language for a billion voices", body: "Multilingual NLP with a deep focus on low-resource Indian languages — building models that speak, read and reason in 22+ tongues.", focus: ["Multilingual LLMs", "Speech & translation", "Low-resource learning", "Cultural alignment"], projects: 9, papers: 42, faculty: 10, hue: "from-[#A8C8C0] to-[#C8E0D8]" },
-  { id: "gen", title: "Generative AI", tagline: "Models that imagine", body: "Diffusion, autoregressive and multi-modal generative systems aligned with human intent — from text and images to molecules and code.", focus: ["Diffusion models", "Multi-modal generation", "Alignment & RLHF", "Controllable synthesis"], projects: 5, papers: 22, faculty: 5, hue: "from-[#C8A8C0] to-[#E6C8D8]" },
-  { id: "hai", title: "Healthcare AI", tagline: "Intelligence at the bedside", body: "Clinical decision support, diagnostic imaging and predictive medicine — built and validated with AIIMS and three partner hospitals.", focus: ["Diagnostic imaging", "Clinical prediction", "Genomics", "Hospital deployments"], projects: 4, papers: 18, faculty: 6, hue: "from-[#D8B0B0] to-[#E8C8C8]" },
-  { id: "xai", title: "Explainable AI", tagline: "Trust through transparency", body: "Methods for interpreting, auditing and certifying machine decisions in high-stakes settings — law, medicine, and public policy.", focus: ["Attribution methods", "Mechanistic interpretability", "Model auditing", "Counterfactual reasoning"], projects: 6, papers: 24, faculty: 4, hue: "from-[#B8B0D0] to-[#D0C8E0]" },
-  { id: "kg", title: "Knowledge Systems", tagline: "Where graphs meet neurons", body: "Neuro-symbolic reasoning over knowledge graphs — structured knowledge as a substrate for verifiable, multi-hop AI reasoning.", focus: ["Knowledge graphs", "Neuro-symbolic AI", "Ontology learning", "Graph neural networks"], projects: 5, papers: 20, faculty: 5, hue: "from-[#B0C8D8] to-[#C8DCE8]" },
-  { id: "edge", title: "Edge AI", tagline: "Intelligence everywhere", body: "Sparse, quantized and distilled models for constrained hardware — from microcontrollers to mobile NPUs operating at sub-millisecond latency.", focus: ["Model compression", "On-device inference", "Hardware co-design", "Federated learning"], projects: 3, papers: 12, faculty: 3, hue: "from-[#D0C0A8] to-[#E0D4C0]" },
-  { id: "rob", title: "Robotics", tagline: "Embodied intelligence", body: "Vision-language-action policies, perception-action loops and human-robot collaboration for mobile manipulation in unstructured environments.", focus: ["Manipulation", "Sim-to-real", "Human-robot interaction", "Embodied agents"], projects: 4, papers: 14, faculty: 4, hue: "from-[#A8C0B8] to-[#C8D8D0]" },
-];
+ 
+  {
+    id: "ml",
+    title: "Machine Learning",
+    tagline: "Learning from data for social impact",
+    body: "Our research in Machine Learning focuses on designing intelligent systems that create meaningful societal impact while upholding principles of ethics, fairness, and responsibility. We study advanced learning algorithms, generative AI, knowledge-driven systems, and human-AI interaction to address challenges in healthcare, education, governance, and social welfare. A central goal of our work is to ensure that AI technologies remain transparent, inclusive, and aligned with human values, enabling innovation that benefits society at large.",
+    focus: ["Learning algorithms", "Knowledge-driven AI", "Human-centered AI", "Responsible AI"],
+    projects: 6,
+    papers: 28,
+    faculty: 7,
+    hue: "from-[#A8B5C8] to-[#D4DCE6]",
+    image: "",
+  },
+
+  {
+    id: "dl",
+    title: "Deep Learning",
+    tagline: "Neural intelligence at scale",
+    body: "Our research in Deep Learning focuses on the design of scalable neural architectures that enable perception, reasoning, language understanding, and decision-making across complex environments. We investigate foundation models, multimodal learning, generative intelligence, and efficient neural computation while addressing critical challenges related to explainability, fairness, reliability, and ethical deployment. By combining cutting-edge algorithmic advances with societal considerations, we aim to create intelligent systems that deliver meaningful impact in domains such as healthcare, education, governance, and community well-being.",
+    focus: ["Foundation models", "Multimodal learning", "Generative intelligence", "Efficient deep learning"],
+    projects: 8,
+    papers: 34,
+    faculty: 9,
+    hue: "from-[#C8B8A8] to-[#E6D8C8]",
+    image: "",
+  },
+
+  // {
+  //   id: "cv",
+  //   title: "Computer Vision",
+  //   tagline: "Understanding the visual world",
+  //   body: "Our research advances intelligent visual systems capable of perceiving, interpreting, and reasoning about the world through images and videos. We investigate image understanding, scene analysis, visual recognition, and medical imaging to develop technologies that support healthcare, automation, accessibility, and decision-making. By combining advances in deep learning and computer vision, we aim to build systems that can transform visual data into actionable knowledge.",
+  //   focus: ["Image understanding", "Visual recognition", "Scene analysis", "Medical imaging"],
+  //   projects: 7,
+  //   papers: 31,
+  //   faculty: 6,
+  //   hue: "from-[#B8C8A8] to-[#D8E6C8]",
+  //   image: "",
+  // },
+
+  {
+    id: "nlp",
+    title: "Natural Language Processing",
+    tagline: "Language technologies for society",
+    body: "Our research in Natural Language Processing explores how language technologies can be leveraged to address critical societal challenges. We work on social media analytics, spam filtering, fake news detection, multimodal hate speech recognition, and the analysis of online behavioral patterns. Bridging Computational Linguistics with Clinical Psychology, we develop machine learning models for identifying indicators of depression, self-harm, emotional vulnerability, and social well-being through textual and multimodal data. Through responsible and human-centered AI, we seek to advance language technologies that enhance digital safety, promote mental health awareness, and strengthen information integrity in modern society.",
+    focus: ["Social media analytics", "Fake news detection", "Multimodal hate speech", "Computational psychology"],
+    projects: 9,
+    papers: 42,
+    faculty: 10,
+    hue: "from-[#A8C8C0] to-[#C8E0D8]",
+    image: "",
+  },
+
+  {
+    id: "gen",
+    title: "Generative AI",
+    tagline: "Creating intelligent multimodal systems",
+    body: "Our Generative AI research focuses on advancing foundation models that can generate, interpret, and interact with complex multimodal information. We explore large language models, vision-language systems, knowledge-grounded generation, and agentic AI architectures while addressing challenges related to factuality, explainability, bias mitigation, and safety. By combining cutting-edge generative technologies with principles of responsible AI, we aim to develop systems that empower human creativity, improve access to knowledge, and deliver meaningful societal impact.",
+    focus: ["Large language models", "Multimodal generation", "Knowledge-grounded AI", "Agentic systems"],
+    projects: 5,
+    papers: 22,
+    faculty: 5,
+    hue: "from-[#C8A8C0] to-[#E6C8D8]",
+    image: "",
+  },
+
+  {
+    id: "hai",
+    title: "Data Compression",
+    tagline: "Efficient representations through pattern mining",
+    body: "Our research explores Data Compression through the lens of Pattern Mining, leveraging recurring patterns, structural regularities, and latent relationships to design efficient data representation frameworks. We investigate advanced techniques for text compression, image compression, and graph compression, focusing on reducing storage and transmission costs while maintaining data utility and semantic integrity. These approaches support scalable information systems, large knowledge repositories, social networks, and resource-efficient AI applications. Through the convergence of compression, pattern discovery, and intelligent data management, we seek to develop solutions for the challenges posed by rapidly expanding data landscapes.",
+    focus: ["Text compression", "Image compression", "Graph compression", "Pattern mining"],
+    projects: 4,
+    papers: 18,
+    faculty: 6,
+    hue: "from-[#D8B0B0] to-[#E8C8C8]",
+    image: "",
+  },
+
+  {
+    id: "xai",
+    title: "Human Computer Interaction",
+    tagline: "Designing intuitive human-centered experiences",
+    body: "Our research in Human–Computer Interaction examines how design influences the effectiveness, security, and accessibility of digital technologies. We study innovative interaction paradigms, including CAPTCHA design, user engagement mechanisms, and visual feedback systems such as intelligent loading indicators. Through empirical user studies and design-driven innovation, we seek to create interfaces that are secure, intuitive, and inclusive, enabling technology to better serve diverse users and societal needs.",
+    focus: ["Human-computer interaction", "CAPTCHA design", "Loading bar design", "Usability studies"],
+    projects: 6,
+    papers: 24,
+    faculty: 4,
+    hue: "from-[#B8B0D0] to-[#D0C8E0]",
+    image: "",
+  },
+
+  {
+    id: "kg",
+    title: "Data Mining",
+    tagline: "Discovering knowledge from complex data",
+    body: "Our research explores the foundations and applications of Data Mining for uncovering hidden structures, patterns, and knowledge embedded within large and heterogeneous datasets. We work on text mining, graph embedding, and multimodal classification techniques that enable efficient analysis of textual, visual, and relational information. Through the integration of machine learning, representation learning, and pattern discovery frameworks, we seek to advance intelligent systems capable of understanding complex data ecosystems. These efforts support applications ranging from social media analysis and knowledge discovery to digital intelligence and AI-driven decision support systems.",
+    focus: ["Data mining", "Text mining", "Graph embedding", "Text & image classification"],
+    projects: 5,
+    papers: 20,
+    faculty: 5,
+    hue: "from-[#B0C8D8] to-[#C8DCE8]",
+    image: "",
+  },
+  {
+  id: "kg",
+  title: "Knowledge Graphs",
+  tagline: "Structured intelligence for connected knowledge",
+  body: "Our research in Knowledge Graphs focuses on representing, organizing, and reasoning over complex interconnected information. We investigate ontology engineering, knowledge graph construction, semantic technologies, graph representation learning, and neuro-symbolic AI to enable intelligent knowledge discovery and decision support. By integrating structured knowledge with machine learning and language technologies, we aim to develop explainable and trustworthy AI systems capable of reasoning across diverse domains.",
+  focus: [
+    "Knowledge graph construction",
+    "Ontology engineering",
+    "Graph representation learning",
+    "Neuro-symbolic AI"
+  ],
+  projects: 5,
+  papers: 20,
+  faculty: 5,
+  hue: "from-[#B0C8D8] to-[#C8DCE8]",
+  image: "",
+},
+{
+  id: "ling",
+  title: "Computational Linguistics",
+  tagline: "Understanding language, behavior, and society",
+  body: "Our research in Computational Linguistics explores the intersection of language, cognition, and human behavior. We investigate linguistic modeling, discourse analysis, computational psycholinguistics, social media language analytics, and language-based behavioral prediction. A major focus of our work lies in applying computational methods to understand mental health, social well-being, and human communication, enabling language technologies that contribute to digital safety and societal good.",
+  focus: [
+    "Computational psycholinguistics",
+    "Discourse analysis",
+    "Social media language analytics",
+    "Behavioral prediction"
+  ],
+  projects: 4,
+  papers: 16,
+  faculty: 4,
+  hue: "from-[#C8B8D8] to-[#DDD0E8]",
+  image: "",
+}];
 
 function DomainVisual({ domain, index }: { domain: Domain; index: number }) {
   return (
-    <div className={`relative aspect-[5/4] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${domain.hue} ring-1 ring-border`}>
-      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.2) 1px, transparent 0)", backgroundSize: "18px 18px" }} />
-      <svg viewBox="0 0 400 320" className="absolute inset-0 h-full w-full">
-        <defs>
-          <radialGradient id={`g-${domain.id}`} cx="50%" cy="50%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.7)" />
-            <stop offset="100%" stopColor="rgba(255,255,255,0)" />
-          </radialGradient>
-        </defs>
-        {Array.from({ length: 12 }).map((_, i) => {
-          const angle = (i / 12) * Math.PI * 2;
-          const r = 90 + (i % 3) * 28;
-          const x = 200 + Math.cos(angle) * r;
-          const y = 160 + Math.sin(angle) * r;
-          return (
-            <g key={i}>
-              <motion.line
-                x1="200" y1="160" x2={x} y2={y}
-                stroke="rgba(20,20,30,0.18)" strokeWidth="0.6"
-                initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, delay: 0.05 * i, ease: [0.16, 1, 0.3, 1] }}
-              />
-              <motion.circle
-                cx={x} cy={y} r={3 + (i % 3)}
-                fill="rgba(20,20,30,0.55)"
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 + 0.05 * i }}
-              />
-            </g>
-          );
-        })}
-        <circle cx="200" cy="160" r="60" fill={`url(#g-${domain.id})`} />
-        <motion.circle
-          cx="200" cy="160" r="10" fill="rgba(20,20,30,0.85)"
-          animate={{ scale: [1, 1.15, 1] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+    <div className={`relative aspect-[4/3.2] w-full max-w-[480px] mx-auto overflow-hidden rounded-2xl bg-gradient-to-br ${domain.hue} ring-1 ring-border`}>
+      {domain.image ? (
+        <img
+          src={domain.image}
+          alt={domain.title}
+          className="absolute inset-0 size-full object-cover"
+          loading="lazy"
+          onError={(e) => {
+            // If the image fails to load, hide it so the gradient background still shows
+            e.currentTarget.style.display = "none";
+          }}
         />
-      </svg>
+      ) : (
+        <>
+          <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.2) 1px, transparent 0)", backgroundSize: "18px 18px" }} />
+          <svg viewBox="0 0 400 320" className="absolute inset-0 h-full w-full">
+            <defs>
+              <radialGradient id={`g-${domain.id}`} cx="50%" cy="50%">
+                <stop offset="0%" stopColor="rgba(255,255,255,0.7)" />
+                <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+              </radialGradient>
+            </defs>
+            {Array.from({ length: 12 }).map((_, i) => {
+              const angle = (i / 12) * Math.PI * 2;
+              const r = 90 + (i % 3) * 28;
+              const x = 200 + Math.cos(angle) * r;
+              const y = 160 + Math.sin(angle) * r;
+              return (
+                <g key={i}>
+                  <motion.line
+                    x1="200" y1="160" x2={x} y2={y}
+                    stroke="rgba(20,20,30,0.18)" strokeWidth="0.6"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.2, delay: 0.05 * i, ease: [0.16, 1, 0.3, 1] }}
+                  />
+                  <motion.circle
+                    cx={x} cy={y} r={3 + (i % 3)}
+                    fill="rgba(20,20,30,0.55)"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 + 0.05 * i }}
+                  />
+                </g>
+              );
+            })}
+            <circle cx="200" cy="160" r="60" fill={`url(#g-${domain.id})`} />
+            <motion.circle
+              cx="200" cy="160" r="10" fill="rgba(20,20,30,0.85)"
+              animate={{ scale: [1, 1.15, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </svg>
+        </>
+      )}
       <div className="absolute left-5 top-5 font-mono text-[10px] tracking-[0.2em] text-ink/60">
         DOMAIN · {String(index + 1).padStart(2, "0")}
       </div>

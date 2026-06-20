@@ -38,7 +38,7 @@ function PatentsPage() {
       <PageHeader
         eyebrow="Patents · 12 total"
         title={<>Research, <span className="italic font-light text-ink/50">protected.</span></>}
-        description="Twelve patents granted or filed across machine learning systems, healthcare AI and edge inference — with two technology transfers to industry partners."
+        description="Four patents granted or filed across machine learning systems,  AI and IOT "
       />
 
       <section className="container-page pb-20">
