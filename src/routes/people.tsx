@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { PageHeader } from "../components/PageHeader";
+import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 
 export const Route = createFileRoute("/people")({
   head: () => ({
@@ -44,63 +46,89 @@ function PeoplePage() {
         description="A community of 38+ researchers — from undergraduates to senior faculty — collaborating on the most consequential questions in artificial intelligence."
       />
 
-      <Section title="Faculty" eyebrow="01 · Leadership" people={faculty} large />
+      <Section title="Faculty" eyebrow="01 · Leadership" people={faculty} />
       <Section title="Doctoral Scholars" eyebrow="02 · Research" people={scholars} />
       <Section title="Students" eyebrow="03 · The Next Generation" people={students} />
 
       <section className="container-page py-24">
-        <div className="rounded-3xl bg-ink text-canvas p-12 lg:p-16 grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
-          <div>
-            <p className="eyebrow text-accent mb-4">Join us</p>
-            <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight leading-[0.95]">
-              We're always looking for curious minds.
-            </h2>
-          </div>
-          <div className="space-y-3 text-sm text-canvas/70">
-            <p>Ph.D. positions open year-round across all research domains. Industry-funded scholarships available for exceptional candidates.</p>
-            <p>M.Tech and B.Tech students from NIT Trichy can apply through the lab's internal mentorship program every semester.</p>
-          </div>
-        </div>
+        <Reveal>
+          <motion.div
+            whileHover={{ scale: 1.005 }}
+            transition={{ duration: 0.4 }}
+            className="rounded-3xl bg-ink text-canvas p-12 lg:p-16 grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center relative overflow-hidden"
+          >
+            <motion.div
+              className="absolute -top-20 -right-20 size-80 rounded-full bg-accent/30 blur-3xl"
+              animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
+              transition={{ duration: 8, repeat: Infinity }}
+            />
+            <div className="relative">
+              <p className="eyebrow text-accent mb-4">Join us</p>
+              <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight leading-[0.95]">
+                We're always looking for curious minds.
+              </h2>
+            </div>
+            <div className="space-y-3 text-sm text-canvas/70 relative">
+              <p>Ph.D. positions open year-round across all research domains. Industry-funded scholarships available for exceptional candidates.</p>
+              <p>M.Tech and B.Tech students from NIT Trichy can apply through the lab's internal mentorship program every semester.</p>
+            </div>
+          </motion.div>
+        </Reveal>
       </section>
     </>
   );
 }
 
 function Section({
-  title, eyebrow, people, large = false,
-}: { title: string; eyebrow: string; people: typeof faculty; large?: boolean }) {
+  title, eyebrow, people,
+}: { title: string; eyebrow: string; people: typeof faculty }) {
   return (
     <section className="container-page py-20 border-t border-hairline">
-      <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
+      <Reveal className="flex items-end justify-between mb-12 flex-wrap gap-4">
         <div>
           <p className="eyebrow text-accent mb-3">{eyebrow}</p>
           <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight">{title}</h2>
         </div>
         <span className="font-mono text-xs text-ink-soft">{people.length} members</span>
-      </div>
-      <div className={`grid gap-6 ${large ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2 lg:grid-cols-3"}`}>
+      </Reveal>
+      <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
         {people.map((p) => (
-          <article key={p.name} className="group rounded-2xl bg-surface ring-1 ring-border p-6 hover:ring-ink hover:-translate-y-1 transition-all">
-            <div className="flex items-start gap-4">
-              <div className="grid size-14 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-accent/20 to-sage/20 font-display text-lg font-semibold text-ink">
-                {p.initials}
+          <StaggerItem key={p.name}>
+            <motion.article
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="group h-full rounded-2xl bg-surface ring-1 ring-border p-6 hover:ring-ink hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15)] transition-all"
+            >
+              <div className="flex items-start gap-4">
+                <motion.div
+                  whileHover={{ scale: 1.08, rotate: -3 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="grid size-14 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-accent/30 to-sage/20 font-display text-lg font-semibold text-ink"
+                >
+                  {p.initials}
+                </motion.div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-display text-lg font-semibold leading-tight group-hover:text-accent transition-colors">{p.name}</h3>
+                  <p className="mt-1 eyebrow text-[9px] text-ink-soft">{p.role}</p>
+                </div>
               </div>
-              <div className="min-w-0 flex-1">
-                <h3 className="font-display text-lg font-semibold leading-tight">{p.name}</h3>
-                <p className="mt-1 eyebrow text-[9px] text-ink-soft">{p.role}</p>
+              <p className="mt-5 text-sm text-ink-soft leading-relaxed">{p.interests}</p>
+              <div className="mt-5 flex gap-3 pt-4 border-t border-hairline">
+                {["Email", "Scholar", "LinkedIn"].map((l) => (
+                  <motion.button
+                    key={l}
+                    whileHover={{ x: 3 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-[11px] font-mono text-ink-soft hover:text-accent transition-colors"
+                  >
+                    {l} →
+                  </motion.button>
+                ))}
               </div>
-            </div>
-            <p className="mt-5 text-sm text-ink-soft leading-relaxed">{p.interests}</p>
-            <div className="mt-5 flex gap-3 pt-4 border-t border-hairline">
-              {["Email", "Scholar", "LinkedIn"].map((l) => (
-                <button key={l} className="text-[11px] font-mono text-ink-soft hover:text-accent transition-colors">
-                  {l} →
-                </button>
-              ))}
-            </div>
-          </article>
+            </motion.article>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </section>
   );
 }
