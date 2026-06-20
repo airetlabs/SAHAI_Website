@@ -126,7 +126,7 @@ function PubCard({ pub, index }: { pub: Pub; index: number }) {
         </p>
         <p className="mt-4 text-xs font-mono text-ink-soft truncate">{pub.authors}</p>
 
-        <div className="mt-auto pt-5 flex items-center justify-between border-t border-hairline mt-5">
+        <div className="mt-5 pt-5 flex items-center justify-between border-t border-hairline">
           <div className="flex items-baseline gap-1">
             <span className="font-display text-lg font-semibold text-accent">{pub.citations}</span>
             <span className="eyebrow text-[9px]">cites</span>
