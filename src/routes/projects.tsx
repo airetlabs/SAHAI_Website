@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { PageHeader } from "../components/PageHeader";
+import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -40,15 +42,35 @@ function ProjectsPage() {
 
       <section className="container-page pb-24 space-y-8">
         {projects.map((p, i) => (
-          <article key={p.title} className={`grid lg:grid-cols-[1fr_1.5fr] gap-8 lg:gap-12 items-start rounded-3xl bg-surface ring-1 ring-border p-8 lg:p-12 hover:ring-ink transition-all`}>
+          <motion.article
+            key={p.title}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -4 }}
+            className="grid lg:grid-cols-[1fr_1.5fr] gap-8 lg:gap-12 items-start rounded-3xl bg-surface ring-1 ring-border p-8 lg:p-12 hover:ring-ink hover:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.18)] transition-all"
+          >
             <div>
               <div className="flex items-center gap-3 mb-5">
                 <span className="rounded-full bg-accent-soft text-accent px-3 py-1 eyebrow text-[9px]">{p.tag}</span>
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-mono text-ink-soft">
-                  <span className="size-1.5 rounded-full bg-sage" /> {p.status}
+                  <motion.span
+                    className="size-1.5 rounded-full bg-sage"
+                    animate={{ opacity: [1, 0.3, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  /> {p.status}
                 </span>
               </div>
-              <div className="font-display text-5xl font-semibold tracking-tight leading-none">{p.title}</div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="font-display text-5xl font-semibold tracking-tight leading-none"
+              >
+                {p.title}
+              </motion.div>
               <p className="mt-3 text-base text-ink-soft">{p.subtitle}</p>
               <div className="mt-8 space-y-2 pt-6 border-t border-hairline">
                 {[["Team", p.team], ["Period", p.year], ["Funding", p.funding], ["Project", `0${i + 1}`]].map(([k, v]) => (
@@ -63,27 +85,36 @@ function ProjectsPage() {
               <p className="text-lg text-ink leading-relaxed">{p.body}</p>
               <div className="flex flex-wrap gap-2 pt-4">
                 {["Read paper", "View code", "Dataset"].map((b) => (
-                  <button key={b} className="rounded-full bg-muted px-4 py-2 text-xs font-medium hover:bg-ink hover:text-canvas transition-colors">
+                  <motion.button
+                    key={b}
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.2 }}
+                    className="rounded-full bg-muted px-4 py-2 text-xs font-medium hover:bg-ink hover:text-canvas transition-colors"
+                  >
                     {b} →
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
-          </article>
+          </motion.article>
         ))}
       </section>
 
       <section className="bg-muted/50 border-y border-hairline py-24">
         <div className="container-page">
-          <p className="eyebrow text-accent mb-4">Completed projects</p>
-          <h2 className="font-display text-4xl font-semibold mb-10">Selected past work</h2>
-          <ul className="grid sm:grid-cols-2 gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden">
+          <Reveal>
+            <p className="eyebrow text-accent mb-4">Completed projects</p>
+            <h2 className="font-display text-4xl font-semibold mb-10">Selected past work</h2>
+          </Reveal>
+          <Stagger className="grid sm:grid-cols-2 gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden" stagger={0.06}>
             {completed.map((c) => (
-              <li key={c} className="bg-surface p-6 text-sm text-ink-soft">
-                <span className="text-accent font-mono mr-3">↳</span>{c}
-              </li>
+              <StaggerItem key={c}>
+                <div className="bg-surface p-6 text-sm text-ink-soft hover:bg-canvas transition-colors h-full">
+                  <span className="text-accent font-mono mr-3">↳</span>{c}
+                </div>
+              </StaggerItem>
             ))}
-          </ul>
+          </Stagger>
         </div>
       </section>
     </>
