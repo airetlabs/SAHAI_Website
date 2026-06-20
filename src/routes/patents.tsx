@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { PageHeader } from "../components/PageHeader";
+import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 
 export const Route = createFileRoute("/patents")({
   head: () => ({
@@ -40,55 +42,72 @@ function PatentsPage() {
       />
 
       <section className="container-page pb-20">
-        <Group title="Granted" eyebrow="01" items={patents.granted} />
+        <Group title="Granted" eyebrow="01" items={patents.granted} status="Granted" />
       </section>
       <section className="container-page pb-20">
-        <Group title="Filed" eyebrow="02" items={patents.filed} />
+        <Group title="Filed" eyebrow="02" items={patents.filed} status="Filed" />
       </section>
 
       <section className="bg-ink text-canvas py-20 border-y border-canvas/5">
         <div className="container-page">
-          <p className="eyebrow text-accent mb-4">03 · Technology Transfer</p>
-          <h2 className="font-display text-4xl font-semibold mb-10">Active commercial deployments</h2>
-          <div className="grid sm:grid-cols-2 gap-6">
+          <Reveal>
+            <p className="eyebrow text-accent mb-4">03 · Technology Transfer</p>
+            <h2 className="font-display text-4xl font-semibold mb-10">Active commercial deployments</h2>
+          </Reveal>
+          <Stagger className="grid sm:grid-cols-2 gap-6" stagger={0.1}>
             {patents.transfer.map((t) => (
-              <article key={t.partner} className="rounded-2xl bg-canvas/5 ring-1 ring-canvas/10 p-8">
-                <p className="eyebrow text-canvas/50 mb-3">Partner</p>
-                <div className="font-display text-2xl font-semibold">{t.partner}</div>
-                <p className="mt-4 text-sm text-canvas/70">{t.tech}</p>
-              </article>
+              <StaggerItem key={t.partner}>
+                <motion.article
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.4 }}
+                  className="rounded-2xl bg-canvas/5 ring-1 ring-canvas/10 p-8 hover:bg-canvas/10 hover:ring-accent/30 transition-all h-full"
+                >
+                  <p className="eyebrow text-canvas/50 mb-3">Partner</p>
+                  <div className="font-display text-2xl font-semibold">{t.partner}</div>
+                  <p className="mt-4 text-sm text-canvas/70">{t.tech}</p>
+                </motion.article>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
     </>
   );
 }
 
-function Group({ title, eyebrow, items }: { title: string; eyebrow: string; items: typeof patents.granted }) {
+function Group({ title, eyebrow, items, status }: { title: string; eyebrow: string; items: typeof patents.granted; status: string }) {
   return (
     <>
-      <div className="flex items-baseline justify-between mb-8">
+      <Reveal className="flex items-baseline justify-between mb-8">
         <h2 className="font-display text-4xl font-semibold tracking-tight">
           <span className="font-mono text-base text-accent mr-4">{eyebrow}</span>{title}
         </h2>
         <span className="eyebrow">{items.length} patents</span>
-      </div>
-      <div className="grid gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden">
+      </Reveal>
+      <Stagger className="grid gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden" stagger={0.06}>
         {items.map((p) => (
-          <article key={p.no} className="bg-surface p-6 lg:p-8 grid lg:grid-cols-[180px_1fr_auto] gap-4 lg:gap-8 items-start lg:items-center hover:bg-canvas">
-            <div>
-              <div className="font-mono text-sm text-accent">{p.no}</div>
-              <div className="eyebrow text-[9px] mt-1">{p.year}</div>
-            </div>
-            <div>
-              <h3 className="font-display text-lg font-semibold leading-tight">{p.title}</h3>
-              <p className="mt-1 text-xs font-mono text-ink-soft">Inventors: {p.inventors}</p>
-            </div>
-            <button className="text-sm font-medium text-ink hover:text-accent">View →</button>
-          </article>
+          <StaggerItem key={p.no}>
+            <motion.article
+              whileHover={{ x: 6 }}
+              transition={{ duration: 0.3 }}
+              className="bg-surface p-6 lg:p-8 grid lg:grid-cols-[180px_1fr_auto_auto] gap-4 lg:gap-8 items-start lg:items-center hover:bg-canvas group"
+            >
+              <div>
+                <div className="font-mono text-sm text-accent">{p.no}</div>
+                <div className="eyebrow text-[9px] mt-1">{p.year}</div>
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-semibold leading-tight group-hover:text-accent transition-colors">{p.title}</h3>
+                <p className="mt-1 text-xs font-mono text-ink-soft">Inventors: {p.inventors}</p>
+              </div>
+              <span className={`rounded-full px-3 py-1 eyebrow text-[9px] w-fit ${status === "Granted" ? "bg-sage/20 text-sage" : "bg-accent-soft text-accent"}`}>
+                {status}
+              </span>
+              <button className="text-sm font-medium text-ink group-hover:text-accent transition-colors">View →</button>
+            </motion.article>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </>
   );
 }

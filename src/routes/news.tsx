@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { PageHeader } from "../components/PageHeader";
+import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 
 export const Route = createFileRoute("/news")({
   head: () => ({
@@ -35,44 +37,71 @@ function NewsPage() {
       />
 
       <section className="container-page pb-16">
-        <article className="grid lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden bg-ink text-canvas">
-          <div className="relative aspect-[16/10] lg:aspect-auto bg-ink-dark overflow-hidden">
-            <div className="absolute inset-0 bg-grid opacity-[0.06]" />
-            <div className="absolute inset-0 grid place-items-center">
-              <div className="text-center">
-                <div className="font-display text-9xl font-semibold text-accent">★</div>
-                <div className="mt-4 eyebrow text-canvas/50">Featured</div>
+        <Reveal>
+          <motion.article
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="grid lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden bg-ink text-canvas hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.3)] transition-shadow"
+          >
+            <div className="relative aspect-[16/10] lg:aspect-auto bg-ink-dark overflow-hidden">
+              <div className="absolute inset-0 bg-grid opacity-[0.06]" />
+              <motion.div
+                className="absolute -top-20 -left-20 size-80 rounded-full bg-accent/30 blur-3xl"
+                animate={{ x: [0, 60, 0], y: [0, 40, 0] }}
+                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <div className="absolute inset-0 grid place-items-center">
+                <div className="text-center">
+                  <motion.div
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                    className="font-display text-9xl font-semibold text-accent"
+                  >
+                    ★
+                  </motion.div>
+                  <div className="mt-4 eyebrow text-canvas/50">Featured</div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="p-10 lg:p-14 flex flex-col justify-center">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="rounded-full bg-accent text-ink px-3 py-1 eyebrow text-[9px]">{featured.tag}</span>
-              <span className="font-mono text-xs text-canvas/50">{featured.date}</span>
+            <div className="p-10 lg:p-14 flex flex-col justify-center">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="rounded-full bg-accent text-ink px-3 py-1 eyebrow text-[9px]">{featured.tag}</span>
+                <span className="font-mono text-xs text-canvas/50">{featured.date}</span>
+              </div>
+              <h2 className="font-display text-3xl lg:text-4xl font-semibold leading-tight">{featured.title}</h2>
+              <p className="mt-5 text-canvas/70 leading-relaxed">{featured.body}</p>
+              <motion.button
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.2 }}
+                className="mt-8 self-start inline-flex items-center gap-2 rounded-full bg-accent text-ink px-5 py-2.5 text-sm font-medium"
+              >
+                Read full story →
+              </motion.button>
             </div>
-            <h2 className="font-display text-3xl lg:text-4xl font-semibold leading-tight">{featured.title}</h2>
-            <p className="mt-5 text-canvas/70 leading-relaxed">{featured.body}</p>
-            <button className="mt-8 self-start inline-flex items-center gap-2 rounded-full bg-accent text-ink px-5 py-2.5 text-sm font-medium hover:scale-[1.02] transition-transform">
-              Read full story →
-            </button>
-          </div>
-        </article>
+          </motion.article>
+        </Reveal>
       </section>
 
       <section className="container-page pb-32">
-        <div className="grid gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden">
+        <Stagger className="grid gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden" stagger={0.05}>
           {rest.map((n) => (
-            <article key={n.title} className="bg-surface p-6 lg:p-8 hover:bg-canvas transition-colors grid lg:grid-cols-[140px_120px_1fr_auto] gap-4 lg:gap-8 items-start lg:items-center">
-              <span className="font-mono text-xs text-ink-soft">{n.date}</span>
-              <span className="rounded-full bg-accent-soft text-accent px-3 py-1 eyebrow text-[9px] w-fit">{n.tag}</span>
-              <div>
-                <h3 className="font-display text-lg font-semibold">{n.title}</h3>
-                <p className="mt-1 text-sm text-ink-soft leading-relaxed">{n.body}</p>
-              </div>
-              <span className="text-sm font-medium text-ink hover:text-accent">Read →</span>
-            </article>
+            <StaggerItem key={n.title}>
+              <motion.article
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.3 }}
+                className="bg-surface p-6 lg:p-8 hover:bg-canvas transition-colors grid lg:grid-cols-[140px_120px_1fr_auto] gap-4 lg:gap-8 items-start lg:items-center group"
+              >
+                <span className="font-mono text-xs text-ink-soft">{n.date}</span>
+                <span className="rounded-full bg-accent-soft text-accent px-3 py-1 eyebrow text-[9px] w-fit">{n.tag}</span>
+                <div>
+                  <h3 className="font-display text-lg font-semibold group-hover:text-accent transition-colors">{n.title}</h3>
+                  <p className="mt-1 text-sm text-ink-soft leading-relaxed">{n.body}</p>
+                </div>
+                <span className="text-sm font-medium text-ink group-hover:text-accent transition-colors">Read →</span>
+              </motion.article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </section>
     </>
   );
