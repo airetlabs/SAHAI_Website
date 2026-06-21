@@ -1,3 +1,4 @@
+
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -55,11 +56,10 @@ function PublicationsPage() {
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                className={`rounded-full px-4 py-2 text-xs font-medium transition-all hover:-translate-y-0.5 ${
-                  filter === f
+                className={`rounded-full px-4 py-2 text-xs font-medium transition-all hover:-translate-y-0.5 ${filter === f
                     ? "bg-ink text-canvas shadow-md"
                     : "bg-surface ring-1 ring-border text-ink-soft hover:bg-muted"
-                }`}
+                  }`}
               >
                 {f}
               </button>
@@ -72,9 +72,9 @@ function PublicationsPage() {
       </section>
 
       <section className="container-page pb-32">
-        <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
+        <Stagger key={filter} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
           {filtered.map((p, i) => (
-            <StaggerItem key={p.title + i}>
+            <StaggerItem key={p.title}>
               <PubCard pub={p} index={i} />
             </StaggerItem>
           ))}
