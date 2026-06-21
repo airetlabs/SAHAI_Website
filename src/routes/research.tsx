@@ -41,7 +41,7 @@ const domains: Domain[] = [
     papers: 28,
     faculty: 7,
     hue: "from-[#A8B5C8] to-[#D4DCE6]",
-    image: "",
+    image: "images/ML.jpeg",
   },
 
   {
@@ -54,7 +54,7 @@ const domains: Domain[] = [
     papers: 34,
     faculty: 9,
     hue: "from-[#C8B8A8] to-[#E6D8C8]",
-    image: "",
+    image: "images/DL.jpeg",
   },
 
   // {
@@ -80,7 +80,7 @@ const domains: Domain[] = [
     papers: 42,
     faculty: 10,
     hue: "from-[#A8C8C0] to-[#C8E0D8]",
-    image: "",
+    image: "images/nlp.jpeg",
   },
 
   {
@@ -93,7 +93,7 @@ const domains: Domain[] = [
     papers: 22,
     faculty: 5,
     hue: "from-[#C8A8C0] to-[#E6C8D8]",
-    image: "",
+    image: "images/genAI.jpeg",
   },
 
   {
@@ -106,7 +106,7 @@ const domains: Domain[] = [
     papers: 18,
     faculty: 6,
     hue: "from-[#D8B0B0] to-[#E8C8C8]",
-    image: "",
+    image: "images/DC.jpeg",
   },
 
   {
@@ -119,7 +119,7 @@ const domains: Domain[] = [
     papers: 24,
     faculty: 4,
     hue: "from-[#B8B0D0] to-[#D0C8E0]",
-    image: "",
+    image: "images/hci.jpeg",
   },
 
   {
@@ -132,7 +132,7 @@ const domains: Domain[] = [
     papers: 20,
     faculty: 5,
     hue: "from-[#B0C8D8] to-[#C8DCE8]",
-    image: "",
+    image: "images/DM.jpeg",
   },
   {
   id: "kg",
@@ -149,7 +149,7 @@ const domains: Domain[] = [
   papers: 20,
   faculty: 5,
   hue: "from-[#B0C8D8] to-[#C8DCE8]",
-  image: "",
+  image: "images/KG.jpeg",
 },
 {
   id: "ling",
@@ -166,7 +166,7 @@ const domains: Domain[] = [
   papers: 16,
   faculty: 4,
   hue: "from-[#C8B8D8] to-[#DDD0E8]",
-  image: "",
+  image: "images/CL.png",
 }];
 
 function DomainVisual({ domain, index }: { domain: Domain; index: number }) {
