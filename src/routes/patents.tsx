@@ -36,7 +36,7 @@ function PatentsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Patents · 12 total"
+        eyebrow="Patents · 4 total"
         title={<>Research, <span className="italic font-light text-ink/50">protected.</span></>}
         description="Four patents granted or filed across machine learning systems,  AI and IOT "
       />

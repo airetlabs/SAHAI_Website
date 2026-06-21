@@ -375,16 +375,16 @@ function AboutStory() {
 /* ─────────────────────────────────────────────────────── RESEARCH ECOSYSTEM */
 
 const domains = [
-  { id: "ml", title: "Machine Learning", note: "Foundations & theory", projects: 6 },
-  { id: "dl", title: "Deep Learning", note: "Architectures · training", projects: 8 },
-  { id: "cv", title: "Computer Vision", note: "Perception · recognition", projects: 7 },
-  { id: "nlp", title: "Natural Language", note: "Understanding · generation", projects: 9 },
-  { id: "gen", title: "Generative AI", note: "Models · diffusion · LLMs", projects: 5 },
-  { id: "hai", title: "Healthcare AI", note: "Clinical · diagnostics", projects: 4 },
-  { id: "xai", title: "Explainable AI", note: "Interpretation · trust", projects: 6 },
-  { id: "kg", title: "Knowledge Systems", note: "Graphs · reasoning", projects: 5 },
-  { id: "edge", title: "Edge AI", note: "Efficient · on-device", projects: 3 },
-  { id: "rob", title: "Robotics", note: "Embodied intelligence", projects: 4 },
+  { id: "ml",  title: "Machine Learning",            note: "Learning · Prediction · Adaptation",projects:1 },
+  { id: "dl",  title: "Deep Learning",               note: "Networks · Representation · Intelligence",projects:1 },
+  { id: "cv",  title: "Computer Vision",             note: "Perception · Recognition · Understanding",projects:1 },
+  { id: "nlp", title: "Natural Language Processing", note: "Language · Semantics · Generation",projects:1 },
+  { id: "gen", title: "Generative AI",               note: "Creation · Reasoning · Innovation" ,projects:1},
+  { id: "hai", title: "Data Compression",            note: "Efficiency · Encoding · Optimization",projects:1 },
+  { id: "xai", title: "Human Computer Interaction",  note: "Experience · Usability · Engagement",projects:1 },
+  { id: "kg",  title: "Knowledge Graphs",            note: "Knowledge · Reasoning · Connections",projects:1 },
+  { id: "edge",title: "Data Mining",                 note: "Patterns · Discovery · Insights",projects:1 },
+  { id: "rob", title: "Computational Linguistics",   note: "Language · Computation · Cognition",projects:1 }
 ];
 
 function ResearchEcosystem() {

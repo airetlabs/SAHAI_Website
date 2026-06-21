@@ -54,8 +54,8 @@ Graph Compression`,
 ];
 const scholars: Person[] = [
   { name: "Abhijith  Balan", role: "Ph.D. Scholar · 3rd Year", interests: "Knowledge graphs · LLM reasoning", initials: "MI", photo: "" },
-  { name: "Anju  K  B", role: "Ph.D. Scholar · 1st Year", interests: "Healthcare AI · clinical NLP", initials: "RS", photo: "" },
-  { name: "Sambasiva  Rao  Chindam", role: "Ph.D. Scholar · 1st Year", interests: "Edge inference · sparse models", initials: "SP", photo: "" },
+  { name: "Anju  K  B", role: "Ph.D. Scholar · 2nd Year", interests: "Healthcare AI · clinical NLP", initials: "RS", photo: "" },
+  { name: "Sambasiva  Rao  Chindam", role: "Ph.D. Scholar · 2nd Year", interests: "Edge inference · sparse models", initials: "SP", photo: "" },
 ];
 const students: Person[] = [
   { name: "Yash Gogoria", role: "M.Tech · CSE", interests: "AI & Machine Learning", initials: "YG", photo: "" },
