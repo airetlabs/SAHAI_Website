@@ -18,7 +18,7 @@ export const Route = createFileRoute("/founder")({
   head: () => ({
     meta: [
       { title: "Founder — SPARKS Lab" },
-      { name: "description", content: "Dr. C Oswald, founder of SPARKS Lab — research vision, journey and contributions to AI at NIT Tiruchirappalli." },
+      { name: "description", content: "Dr. C.Oswald, founder of SPARKS Lab — research vision, journey and contributions to AI at NIT Tiruchirappalli." },
       { property: "og:title", content: "Meet the Founder · SPARKS Lab" },
       { property: "og:description", content: "Vision, journey and research philosophy behind SPARKS Lab." },
     ],
@@ -93,7 +93,7 @@ function FounderPage() {
           <Reveal>
             <p className="eyebrow text-accent mb-4">Biography</p>
             <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight text-ink mb-6 leading-[1.05]">
-              <RevealChars text="Dr. C Oswald" charDelay={0.03} />
+              <RevealChars text="Dr. C.Oswald" charDelay={0.03} />
             </h2>
             <p className="text-xl text-ink font-light leading-snug text-balance">
               <RevealWords
@@ -216,7 +216,7 @@ function FounderPortrait() {
       <div className="absolute inset-0 rounded-3xl ring-0 group-hover:ring-2 group-hover:ring-accent/40 transition-all duration-500" />
       <div className="absolute bottom-0 inset-x-0 p-8 bg-gradient-to-t from-ink/90 to-transparent text-canvas">
         <div className="eyebrow text-accent text-[9px] mb-2">Founder</div>
-        <div className="font-display text-3xl font-semibold leading-tight">Dr. C Oswald</div>
+        <div className="font-display text-3xl font-semibold leading-tight">Dr. C.Oswald</div>
         <div className="mt-2 text-sm text-canvas/70">Assistant Professor · Dept. of CSE, NIT Trichy</div>
       </div>
     </motion.div>
@@ -471,7 +471,7 @@ function TimelineItem({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className={`font-display text-[5rem] font-semibold text-ink/10 leading-none ${isLeft ? "md:text-right" : ""}`}
+            className={`font-display text-[5rem] font-semibold text-ink/40 leading-none ${isLeft ? "md:text-right" : ""}`}
           >
             {item.year}
           </motion.div>

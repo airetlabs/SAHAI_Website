@@ -4,7 +4,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-32 bg-ink text-canvas">
       <div className="container-page py-20">
-        <div className="grid gap-16 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+        <div className="grid gap-16 lg:grid-cols-[1.1fr_0.8fr_0.8fr_1.1fr_1.3fr]">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="grid h-10 w-10 place-items-center rounded-lg bg-accent text-ink font-display text-lg font-semibold">
@@ -78,7 +78,23 @@ export function SiteFooter() {
               </button>
             </form>
           </div>
+          <div>
+            <h4 className="eyebrow text-canvas/50 mb-5">Find Us</h4>
+
+            <div className="overflow-hidden rounded-2xl border border-canvas/10">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.7783369097856!2d78.81560377427137!3d10.75983195950112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa8d40d9dffcf5%3A0x31a7add60b8b0fb7!2sCSE%20Department!5e1!3m2!1sen!2sin!4v1782015763178!5m2!1sen!2sin"
+                width="100%"
+                height="220"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="NIT Trichy Location"
+              />
+            </div>
+          </div>
         </div>
+
 
         <div className="mt-16 pt-8 border-t border-canvas/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="eyebrow text-canvas/40">© {new Date().getFullYear()} SPARKS Lab · All rights reserved</p>

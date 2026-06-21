@@ -316,7 +316,7 @@ function StatCard({
 
 function AboutStory() {
   return (
-    <section className="relative py-32 bg-ink text-canvas overflow-hidden">
+    <section className="relative py-32 bg-[#F3E9DC] text-ink overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-[0.04]" />
       <div className="container-page relative grid lg:grid-cols-[1fr_1.3fr] gap-16 items-start">
         <div className="lg:sticky lg:top-24">
@@ -324,14 +324,14 @@ function AboutStory() {
           <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] text-balance">
             We build the
             <br />
-            <span className="italic font-light text-canvas/50">infrastructure</span>
+            <span className="italic font-light text-ink/50">infrastructure</span>
             <br />
             of intelligence.
           </h2>
         </div>
 
-        <div className="space-y-12 text-lg leading-relaxed text-canvas/75">
-          <p className="text-2xl text-canvas font-light leading-snug text-balance">
+        <div className="space-y-12 text-lg leading-relaxed text-ink/75">
+          <p className="text-2xl text-ink font-light leading-snug text-balance">
             SPARKS Lab is a research ecosystem at the intersection of machine learning,
             cognitive systems, and the human disciplines that give them meaning.
           </p>
@@ -339,28 +339,28 @@ function AboutStory() {
           <div className="grid sm:grid-cols-2 gap-8">
             <div>
               <p className="eyebrow text-accent mb-3">Mission</p>
-              <p className="text-sm text-canvas/70 leading-relaxed">
+              <p className="text-sm text-ink/70 leading-relaxed">
                 To advance the science of artificial intelligence through rigorous research,
                 open knowledge, and systems that serve real human needs at scale.
               </p>
             </div>
             <div>
               <p className="eyebrow text-accent mb-3">Vision</p>
-              <p className="text-sm text-canvas/70 leading-relaxed">
+              <p className="text-sm text-ink/70 leading-relaxed">
                 A future where intelligence is interpretable, equitable, and instrumental in
                 solving the most consequential problems of our time.
               </p>
             </div>
           </div>
 
-          <ul className="space-y-3 border-t border-canvas/10 pt-8">
+          <ul className="space-y-3 border-t border-ink/10 pt-8">
             {[
               "Foundational research in neural architectures and knowledge representation",
               "Translational systems for healthcare, climate, and public infrastructure",
               "Open datasets, reproducible benchmarks, and trained models for the community",
               "Mentoring the next generation of Indian AI researchers and engineers",
             ].map((p) => (
-              <li key={p} className="flex gap-4 text-sm text-canvas/70">
+              <li key={p} className="flex gap-4 text-sm text-ink/70">
                 <span className="text-accent mt-1">→</span>
                 <span>{p}</span>
               </li>
@@ -420,11 +420,10 @@ function ResearchEcosystem() {
               key={d.id}
               onMouseEnter={() => setHover(d.id)}
               onMouseLeave={() => setHover(null)}
-              className={`group relative text-left p-6 rounded-2xl ring-1 transition-all duration-500 ${
-                hover && hover !== d.id
-                  ? "ring-hairline bg-surface opacity-50"
-                  : "ring-border bg-surface hover:ring-accent hover:-translate-y-1 hover:shadow-lg"
-              }`}
+              className={`group relative text-left p-6 rounded-2xl ring-1 transition-all duration-500 ${hover && hover !== d.id
+                ? "ring-hairline bg-surface opacity-50"
+                : "ring-border bg-surface hover:ring-accent hover:-translate-y-1 hover:shadow-lg"
+                }`}
             >
               <div className="flex items-start justify-between mb-4">
                 <span className="font-mono text-[10px] text-accent">
@@ -511,13 +510,12 @@ function FeaturedProjects() {
               className="group grid lg:grid-cols-[1.4fr_1fr] gap-0 rounded-3xl overflow-hidden bg-surface ring-1 ring-border hover:ring-ink transition-all hover:shadow-[0_30px_80px_-30px_oklch(0.18_0.012_60/0.3)]"
             >
               <div
-                className={`relative aspect-[16/10] lg:aspect-auto overflow-hidden ${
-                  p.accent === "accent"
-                    ? "bg-accent/10"
-                    : p.accent === "ember"
-                      ? "bg-ember/10"
-                      : "bg-sage/10"
-                }`}
+                className={`relative aspect-[16/10] lg:aspect-auto overflow-hidden ${p.accent === "accent"
+                  ? "bg-accent/10"
+                  : p.accent === "ember"
+                    ? "bg-ember/10"
+                    : "bg-sage/10"
+                  }`}
               >
                 <div className="absolute inset-0 bg-dotgrid opacity-40" />
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -675,12 +673,11 @@ function ImpactTimeline() {
           {timeline.map((t, i) => (
             <div
               key={t.year}
-              className={`relative grid md:grid-cols-2 gap-8 md:gap-16 ${
-                i % 2 === 0 ? "" : "md:[&>*:first-child]:order-2"
-              }`}
+              className={`relative grid md:grid-cols-2 gap-8 md:gap-16 ${i % 2 === 0 ? "" : "md:[&>*:first-child]:order-2"
+                }`}
             >
               <div className={`pl-12 md:pl-0 ${i % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12"}`}>
-                <span className="font-display text-6xl font-semibold text-ink/10 leading-none">
+                <span className="font-display text-6xl font-semibold text-ink/40 leading-none">
                   {t.year}
                 </span>
                 <h3 className="mt-2 font-display text-xl font-semibold">{t.title}</h3>
@@ -717,7 +714,7 @@ const pubs = [
 
 function PublicationsPreview() {
   return (
-    <section className="bg-ink text-canvas py-32 border-y border-canvas/5">
+    <section className="bg-[#F3E9DC] text-ink py-32 border-y border-ink/5">
       <div className="container-page">
         <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
           <div>
@@ -728,7 +725,7 @@ function PublicationsPreview() {
           </div>
           <Link
             to="/publications"
-            className="text-sm font-medium text-canvas hover:text-accent border-b border-canvas hover:border-accent pb-0.5 transition-colors"
+            className="text-sm font-medium text-ink hover:text-accent border-b border-ink hover:border-accent pb-0.5 transition-colors"
           >
             Full archive →
           </Link>
@@ -738,16 +735,15 @@ function PublicationsPreview() {
           {pubs.map((p, i) => (
             <article
               key={p.title}
-              className={`grid lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden ring-1 ring-canvas/10 bg-canvas/5 hover:bg-canvas/[0.07] transition-colors ${
-                i % 2 === 0 ? "" : "lg:[&>*:first-child]:order-2"
-              }`}
+              className={`grid lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden ring-1 ring-ink/10 bg-white hover:bg-[#FAF7F3] transition-colors ${i % 2 === 0 ? "" : "lg:[&>*:first-child]:order-2"
+                }`}
             >
-              <div className="lg:col-span-8 aspect-[21/10] lg:aspect-auto bg-ink-dark relative overflow-hidden">
+              <div className="lg:col-span-8 aspect-[21/10] lg:aspect-auto bg-[#F0E5D8] relative overflow-hidden">
                 <div className="absolute inset-0 bg-grid opacity-[0.08]" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <ArchitectureDiagram variant={i} />
                 </div>
-                <div className="absolute top-6 left-6 eyebrow text-[9px] text-canvas/40">
+                <div className="absolute top-6 left-6 eyebrow text-[9px] text-ink/50">
                   Fig. {i + 1} · System Architecture
                 </div>
               </div>
@@ -759,12 +755,12 @@ function PublicationsPreview() {
                   <h3 className="mt-5 font-display text-2xl font-semibold leading-tight">
                     {p.title}
                   </h3>
-                  <p className="mt-3 text-xs text-canvas/50 font-mono">{p.authors}</p>
-                  <p className="mt-5 text-sm text-canvas/70 leading-relaxed">{p.body}</p>
+                  <p className="mt-3 text-xs text-ink/60 font-mono">{p.authors}</p>
+                  <p className="mt-5 text-sm text-ink/75 leading-relaxed">{p.body}</p>
                 </div>
                 <div>
-                  <div className="flex items-center justify-between py-3 border-t border-canvas/10">
-                    <span className="eyebrow text-[9px] text-canvas/40">Citations</span>
+                  <div className="flex items-center justify-between py-3 border-t border-ink/10">
+                    <span className="eyebrow text-[9px] text-ink/50">Citations</span>
                     <span className="font-display text-lg font-semibold text-accent">
                       {p.citations}
                     </span>
@@ -773,7 +769,7 @@ function PublicationsPreview() {
                     {["PDF", "BibTeX", "DOI"].map((b) => (
                       <button
                         key={b}
-                        className="rounded-full bg-canvas/5 hover:bg-canvas/10 px-3 py-1.5 text-[11px] font-mono transition-colors"
+                        className="rounded-full bg-white hover:bg-[#EDE2D3] px-3 py-1.5 text-[11px] font-mono transition-colors"
                       >
                         {b}
                       </button>
@@ -804,12 +800,19 @@ function ArchitectureDiagram({ variant }: { variant: number }) {
                 width="60"
                 height="36"
                 rx="6"
-                fill="oklch(0.985 0.005 80 / 0.05)"
+                fill="oklch(0.18 0.012 60 / 0.08)"
                 stroke="oklch(0.68 0.165 55 / 0.4)"
                 strokeWidth="1"
               />
             ))}
-            <text x={x} y="260" textAnchor="middle" fontSize="9" fontFamily="JetBrains Mono" fill="oklch(0.985 0.005 80 / 0.4)">
+            <text
+              x={x}
+              y="260"
+              textAnchor="middle"
+              fontSize="9"
+              fontFamily="JetBrains Mono"
+              fill="oklch(0.18 0.012 60 / 0.7)"
+            >
               {["INPUT", "REASONING", "OUTPUT"][i]}
             </text>
           </g>
@@ -830,14 +833,14 @@ function ArchitectureDiagram({ variant }: { variant: number }) {
         const x = 80 + i * 75;
         return (
           <g key={i}>
-            <rect x={x - 18} y="130" width="36" height="40" rx="4" fill="oklch(0.985 0.005 80 / 0.06)" stroke="oklch(0.68 0.165 55 / 0.5)" />
-            <line x1={x} y1="170" x2={x} y2="220" stroke="oklch(0.985 0.005 80 / 0.2)" strokeDasharray="2 3" />
+            <rect x={x - 18} y="130" width="36" height="40" rx="4" fill="oklch(0.18 0.012 60 / 0.05)" stroke="oklch(0.68 0.165 55 / 0.5)" />
+            <line x1={x} y1="170" x2={x} y2="220" stroke="oklch(0.18 0.012 60 / 0.2)" strokeDasharray="2 3" />
             <circle cx={x} cy="240" r="6" fill="oklch(0.6 0.18 35 / 0.7)" />
           </g>
         );
       })}
       <line x1="80" y1="80" x2="520" y2="80" stroke="oklch(0.68 0.165 55)" strokeWidth="1" strokeDasharray="4 4" />
-      <text x="300" y="60" textAnchor="middle" fontSize="9" fontFamily="JetBrains Mono" fill="oklch(0.985 0.005 80 / 0.4)">
+      <text x={"300"} y="60" textAnchor="middle" fontSize="9" fontFamily="JetBrains Mono" fill="oklch(0.18 0.012 60 / 0.4)">
         CENTRAL COORDINATOR
       </text>
     </svg>

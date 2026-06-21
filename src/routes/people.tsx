@@ -35,7 +35,7 @@ function cleanName(name: string) {
 
 const faculty: Person[] = [
   {
-    name: "Dr. Oswald C",
+    name: "Dr. C.Oswald ",
     role: "Founder · Principal Investigator",
     interests: `Machine Learning, Deep Learning, Data Mining,
 Natural Language Processing and Human Computer Interaction,

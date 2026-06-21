@@ -17,12 +17,12 @@ export const Route = createFileRoute("/patents")({
 
 const patents = {
   granted: [
-    { no: "202141003735", year: 2021, title: "An Integrated System and Method for a Touchless, Paperless Election Voting for Government and Private mode", inventors: "Oswald C, M. Mohamad Fasil Ansaary, P. Raghava Ratna" },
-    { no: "202041035035", year: 2020, title: "SPoTA: Smart Prevention of Train Accidents", inventors: "Oswald C, Jayapragash R, Trishit Chakraborty, Tanishq Gupta, Aditya Agrawal" },
-    { no: "202041025660", year: 2020, title: "Smart Attendance Marking System (SAMS) using Computer Vision", inventors: "Balasundaram A, Manas Ranjan Prusty, Inayathullah M A, Oswald C" },
+    { no: "202141003735", year: 2021, title: "An Integrated System and Method for a Touchless, Paperless Election Voting for Government and Private mode", inventors: "C.Oswald , M. Mohamad Fasil Ansaary, P. Raghava Ratna" },
+    { no: "202041035035", year: 2020, title: "SPoTA: Smart Prevention of Train Accidents", inventors: "C.Oswald, Jayapragash R, Trishit Chakraborty, Tanishq Gupta, Aditya Agrawal" },
+    { no: "202041025660", year: 2020, title: "Smart Attendance Marking System (SAMS) using Computer Vision", inventors: "Balasundaram A, Manas Ranjan Prusty, Inayathullah M A, C.Oswald" },
    ],
   filed: [
-    {no: "IN-PCT-****", year: 2024, title: "A cab service method for visually and hearing impaired and women passengers using Internet of Things", inventors: "C. Oswald, Trishit Chakraborty, Agniva Mitra, Nagineni Ashish, Ritabrata Nag" }
+    {no: "IN-PCT-****", year: 2024, title: "A cab service method for visually and hearing impaired and women passengers using Internet of Things", inventors: "C.Oswald, Trishit Chakraborty, Agniva Mitra, Nagineni Ashish, Ritabrata Nag" }
     // { no: "IN-PCT-2024/1891", year: 2024, title: "On-device generative model compression via structured pruning", inventors: "Patel S., Reddy V." },
     // { no: "IN-PCT-2023/4421", year: 2023, title: "Vision-language fusion for surgical scene understanding", inventors: "Sharma R., et al." },
   ],
