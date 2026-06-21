@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHeader } from "../components/PageHeader";
-import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
+import { Reveal, Stagger, StaggerItem, RevealWords } from "../components/Reveal";
 
 export const Route = createFileRoute("/people")({
   head: () => ({
@@ -282,7 +282,9 @@ function Section({
       <Reveal className="flex items-end justify-between mb-10 flex-wrap gap-4">
         <div>
           <p className="eyebrow text-accent mb-3">{eyebrow}</p>
-          <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight">{title}</h2>
+          <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight">
+            <RevealWords text={title} />
+          </h2>
         </div>
         <span className="font-mono text-xs text-ink-soft">{people.length} members</span>
       </Reveal>

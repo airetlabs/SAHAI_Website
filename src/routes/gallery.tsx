@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageHeader } from "../components/PageHeader";
+import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
+import { AnimatePresence } from "framer-motion";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -69,7 +71,7 @@ function GalleryPage() {
       </section>
 
       <section className="container-page pb-32">
-        <div className="flex flex-wrap gap-2 mb-10">
+        <Reveal className="flex flex-wrap gap-2 mb-10">
           {categories.map((c) => (
             <button
               key={c}
@@ -82,22 +84,25 @@ function GalleryPage() {
             </button>
           ))}
           <div className="ml-auto eyebrow self-center">{filtered.length} photos</div>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[180px] gap-3">
-          {filtered.map((it) => (
-            <figure
-              key={it.id}
-              className={`relative rounded-2xl bg-gradient-to-br ${it.palette[0]} ${it.palette[1]} ring-1 ring-border overflow-hidden hover:scale-[1.02] transition-transform cursor-pointer ${it.ratio}`}
-            >
-              <div className="absolute inset-0 bg-dotgrid opacity-20" />
-              <figcaption className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-ink/80 to-transparent text-canvas">
-                <div className="eyebrow text-canvas/60 text-[9px]">{it.cat}</div>
-                <div className="text-sm font-medium">{it.caption}</div>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        <AnimatePresence mode="wait">
+          <Stagger key={filter} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[180px] gap-3" stagger={0.04}>
+            {filtered.map((it) => (
+              <StaggerItem key={it.id} className={it.ratio}>
+                <figure
+                  className={`relative h-full w-full rounded-2xl bg-gradient-to-br ${it.palette[0]} ${it.palette[1]} ring-1 ring-border overflow-hidden hover:scale-[1.02] transition-transform cursor-pointer`}
+                >
+                  <div className="absolute inset-0 bg-dotgrid opacity-20" />
+                  <figcaption className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-ink/80 to-transparent text-canvas">
+                    <div className="eyebrow text-canvas/60 text-[9px]">{it.cat}</div>
+                    <div className="text-sm font-medium">{it.caption}</div>
+                  </figcaption>
+                </figure>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </AnimatePresence>
       </section>
     </>
   );

@@ -3,6 +3,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHeader } from "../components/PageHeader";
 import { Reveal, RevealChars, Stagger, StaggerItem } from "../components/Reveal";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../components/ui/tooltip";
+import { Popover, PopoverContent, PopoverTrigger } from "../components/ui/popover";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -113,7 +115,7 @@ function ProjectsPage() {
 
       <section className="container-page pb-24">
         <Reveal>
-          <div className="flex gap-8 mb-12 border-b border-hairline pb-4">
+          <div className="flex flex-wrap gap-4 sm:gap-8 mb-12 border-b border-hairline pb-4">
             {(["Ongoing", "Completed"] as const).map(f => (
               <button
                 key={f}
@@ -154,11 +156,11 @@ function ProjectsPage() {
                       </div>
 
                       {/* Content Space */}
-                      <div className={`flex flex-col flex-1 p-8 md:p-10 ${isFullSpan ? "lg:w-[70%]" : "basis-[65%]"}`}>
+                      <div className={`flex flex-col flex-1 p-6 sm:p-8 md:p-10 ${isFullSpan ? "lg:w-[70%]" : "basis-[65%]"}`}>
                         <div className="flex flex-col md:flex-row justify-between md:items-start gap-6">
                           <div className="flex-1">
                             <h3 className="font-display text-2xl sm:text-3xl font-semibold text-ink leading-snug mb-4">
-                              <RevealChars text={p.title} />
+                              {p.title}
                             </h3>
                             {p.description && (
                               <p className="mt-2 text-base text-ink-soft leading-relaxed mb-4">
@@ -192,40 +194,19 @@ function ProjectsPage() {
                           {p.pi && p.pi.length > 0 && (
                             <div>
                               <span className="text-[10px] font-bold text-ink/40 uppercase tracking-[0.15em]">Principal Investigator</span>
-                              <ul className="mt-2 space-y-2">
-                                {p.pi.map((name, idx) => (
-                                  <li key={idx} className="text-sm md:text-base text-ink leading-snug flex items-start gap-2">
-                                    <span className="text-accent/60 mt-1 text-[8px] shrink-0">●</span>
-                                    <span>{name}</span>
-                                  </li>
-                                ))}
-                              </ul>
+                              <CollapsiblePersonList people={p.pi} itemClassName="text-sm md:text-base text-ink" />
                             </div>
                           )}
                           {p.copi && p.copi.length > 0 && (
                             <div>
                               <span className="text-[10px] font-bold text-ink/40 uppercase tracking-[0.15em]">Co-Investigators</span>
-                              <ul className="mt-2 space-y-2">
-                                {p.copi.map((name, idx) => (
-                                  <li key={idx} className={`${p.id === "p2" ? "text-xs md:text-sm text-ink-soft" : "text-sm md:text-base text-ink"} leading-snug flex items-start gap-2`}>
-                                    <span className="text-accent/60 mt-1 text-[8px] shrink-0">●</span>
-                                    <span>{name}</span>
-                                  </li>
-                                ))}
-                              </ul>
+                              <CollapsiblePersonList people={p.copi} itemClassName={p.id === "p2" ? "text-xs md:text-sm text-ink-soft" : "text-sm md:text-base text-ink"} />
                             </div>
                           )}
                           {p.team && p.team.length > 0 && (
                             <div className="sm:col-span-2">
                               <span className="text-[10px] font-bold text-ink/40 uppercase tracking-[0.15em]">Team</span>
-                              <ul className="mt-2 space-y-2">
-                                {p.team.map((name, idx) => (
-                                  <li key={idx} className="text-sm md:text-base text-ink leading-snug flex items-start gap-2">
-                                    <span className="text-accent/60 mt-1 text-[8px] shrink-0">●</span>
-                                    <span>{name}</span>
-                                  </li>
-                                ))}
-                              </ul>
+                              <CollapsiblePersonList people={p.team} itemClassName="text-sm md:text-base text-ink" />
                             </div>
                           )}
                         </div>
@@ -248,5 +229,75 @@ function ProjectsPage() {
         </AnimatePresence>
       </section>
     </>
+  );
+}
+
+function CollapsiblePersonList({ people, itemClassName }: { people: string[], itemClassName?: string }) {
+  if (!people || people.length === 0) return null;
+  if (people.length <= 3) {
+    return (
+      <ul className="mt-2 space-y-2">
+        {people.map((name, idx) => (
+          <li key={idx} className={`${itemClassName || "text-sm md:text-base text-ink"} leading-snug flex items-start gap-2`}>
+            <span className="text-accent/60 mt-1 text-[8px] shrink-0">●</span>
+            <span className="truncate">{name}</span>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  const visiblePeople = people.slice(0, 2);
+  const hiddenCount = people.length - 2;
+
+  const PersonNames = () => (
+    <ul className="flex flex-col gap-1.5 max-h-[200px] overflow-y-auto font-sans text-sm">
+      {people.map((name, i) => (
+        <li key={i} className="leading-snug flex items-start gap-2">
+          <span className="text-accent/60 mt-1.5 text-[6px] shrink-0">●</span>
+          <span className="text-wrap break-words">{name}</span>
+        </li>
+      ))}
+    </ul>
+  );
+
+  return (
+    <ul className="mt-2 space-y-2 min-w-0">
+      {visiblePeople.map((name, idx) => (
+        <li key={idx} className={`${itemClassName || "text-sm md:text-base text-ink"} leading-snug flex items-start gap-2`}>
+          <span className="text-accent/60 mt-1 text-[8px] shrink-0">●</span>
+          <span className="truncate">{name}</span>
+        </li>
+      ))}
+      <li className={`${itemClassName || "text-sm md:text-base text-ink"} leading-snug flex items-start gap-2`}>
+        <span className="text-accent/60 mt-1 text-[8px] shrink-0">●</span>
+        
+        {/* Desktop: Tooltip (hover) */}
+        <div className="hidden sm:block">
+          <TooltipProvider delayDuration={150}>
+            <Tooltip>
+              <TooltipTrigger className="text-accent hover:underline focus:outline-none focus:ring-2 focus:ring-accent rounded-sm outline-none truncate text-left">
+                +{hiddenCount} more
+              </TooltipTrigger>
+              <TooltipContent side="top" align="start" className="z-50 max-w-[280px] bg-canvas text-ink border border-muted p-3 shadow-xl rounded-md">
+                <PersonNames />
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+
+        {/* Mobile: Popover (click) */}
+        <div className="block sm:hidden">
+          <Popover>
+            <PopoverTrigger className="text-accent hover:underline focus:outline-none focus:ring-2 focus:ring-accent rounded-sm outline-none truncate text-left">
+              +{hiddenCount} more
+            </PopoverTrigger>
+            <PopoverContent side="top" align="start" className="z-50 max-w-[280px] bg-canvas text-ink border border-muted p-3 shadow-xl rounded-md">
+              <PersonNames />
+            </PopoverContent>
+          </Popover>
+        </div>
+      </li>
+    </ul>
   );
 }

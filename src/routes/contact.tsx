@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHeader } from "../components/PageHeader";
-import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
+import { Reveal, Stagger, StaggerItem, RevealWords } from "../components/Reveal";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -110,7 +110,9 @@ function ContactPage() {
       <section className="container-page pb-32">
         <Reveal>
           <p className="eyebrow text-accent mb-4">FAQ</p>
-          <h2 className="font-display text-4xl font-semibold mb-10">Frequently asked</h2>
+          <h2 className="font-display text-4xl font-semibold mb-10">
+            <RevealWords text="Frequently asked" />
+          </h2>
         </Reveal>
         <Reveal delay={0.1}>
           <div className="divide-y divide-hairline ring-1 ring-hairline rounded-2xl bg-surface overflow-hidden">

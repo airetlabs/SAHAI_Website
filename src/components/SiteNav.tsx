@@ -49,15 +49,18 @@ export function SiteNav() {
           </div>
         </Link>
 
-        <nav className="hidden xl:flex items-center gap-1">
+        <nav className="hidden xl:flex items-center gap-6">
           {links.slice(1).map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className="px-3 py-2 text-[13px] font-medium text-ink-soft rounded-md hover:text-ink hover:bg-muted transition-colors"
-              activeProps={{ className: "text-ink bg-muted" }}
+              className="relative py-2 text-[13px] font-medium text-ink-soft transition-all duration-300 hover:text-ink hover:font-bold group"
+              activeProps={{ className: "text-ink font-bold" }}
             >
-              {l.label}
+              <span className="inline-block transition-transform duration-300 origin-left group-hover:scale-[1.03]">
+                {l.label}
+              </span>
+              <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-ember transition-all duration-300 ease-out group-hover:w-full" />
             </Link>
           ))}
         </nav>

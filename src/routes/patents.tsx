@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageHeader } from "../components/PageHeader";
-import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
+import { Reveal, Stagger, StaggerItem, RevealWords } from "../components/Reveal";
 
 export const Route = createFileRoute("/patents")({
   head: () => ({
@@ -80,7 +80,8 @@ function Group({ title, eyebrow, items, status }: { title: string; eyebrow: stri
     <>
       <Reveal className="flex items-baseline justify-between mb-8">
         <h2 className="font-display text-4xl font-semibold tracking-tight">
-          <span className="font-mono text-base text-accent mr-4">{eyebrow}</span>{title}
+          <span className="font-mono text-base text-accent mr-4">{eyebrow}</span>
+          <RevealWords text={title} />
         </h2>
         <span className="eyebrow">{items.length} patents</span>
       </Reveal>

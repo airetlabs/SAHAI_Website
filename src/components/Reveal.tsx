@@ -2,8 +2,8 @@ import { motion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
 const defaultVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 30, scale: 0.96 },
+  visible: { opacity: 1, y: 0, scale: 1 },
 };
 
 export function Reveal({
@@ -24,7 +24,7 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, amount: 0.2 }}
+      viewport={{ once, amount: 0.05 }}
       transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
@@ -48,7 +48,7 @@ export function Stagger({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.05 }}
       transition={{ staggerChildren: stagger, delayChildren: delay }}
     >
       {children}
@@ -90,7 +90,8 @@ export function RevealChars({
           aria-hidden
           className="inline-block"
           initial={{ opacity: 0, y: "0.5em" }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{
             duration: 0.6,
             delay: delay + i * charDelay,

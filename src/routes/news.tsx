@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { PageHeader } from "../components/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 
@@ -15,89 +16,188 @@ export const Route = createFileRoute("/news")({
   component: NewsPage,
 });
 
-const items = [
-  { date: "Dec 2024", tag: "Award", title: "Dr. Abdullah named to AI100 list", body: "Recognized among the 100 most impactful AI researchers in India by the National Academy of Sciences." },
-  { date: "Nov 2024", tag: "Paper", title: "Two papers accepted at NeurIPS 2024", body: "Work on recursive knowledge graphs and sparse inference accepted to the main conference track." },
-  { date: "Oct 2024", tag: "Release", title: "Atlas-7B open release", body: "Multilingual foundation model for 22 Indian languages released under an Apache 2.0 license with full training code." },
-  { date: "Sep 2024", tag: "Event", title: "Hosted Indo-Pacific AI Symposium", body: "Three-day symposium with 220 attendees from 14 countries at NIT Trichy campus." },
-  { date: "Aug 2024", tag: "Grant", title: "₹3.2 Cr from DST for clinical AI", body: "Major grant awarded for extending the Pulse healthcare framework to four additional hospitals." },
-  { date: "Jul 2024", tag: "Talk", title: "Keynote at ACL 2024 Bangkok", body: "Dr. Abdullah delivered the keynote on multilingual foundation models for low-resource languages." },
-  { date: "Jun 2024", tag: "Hire", title: "Three new doctoral scholars", body: "Welcomed Aparna, Karthik and Vikram to the doctoral program for research across XAI and robotics." },
-  { date: "May 2024", tag: "Workshop", title: "Summer school on neuro-symbolic AI", body: "Hosted 50 students from across India for an intensive two-week workshop on hybrid AI methods." },
+const featuredNews = {
+  main: {
+    date: "Dec 2024",
+    tag: "Major Grant",
+    title: "MindScribe Initiative Funded by NM-ICPS",
+    body: "An ongoing initiative funded by IIT Indore DRISHTI CPS Foundation under the NM-ICPS Scheme, led by Dr. C. Oswald and multi-institutional collaborators to give voice to silent minds.",
+  },
+  sideTop: {
+    date: "Nov 2024",
+    tag: "Global Partnership",
+    title: "ICSSR-JSPS Joint Research on Smart Pedagogy",
+    body: "An international collaboration between India and Japan to develop an end-to-end Technology-Enhanced Learning system.",
+  }
+};
+
+const carouselNews = [
+  { date: "Oct 2024", tag: "Publication", title: "CGS Framework published in ACM TKDD", body: "Our advanced configurable graph summarization technique ensuring bounded neighborhood loss was accepted into the prestigious ACM Transactions." },
+  { date: "Aug 2024", tag: "Publication", title: "Smart Multimedia Compressor", body: "Intelligent framework optimizing text and image compression published in The Computer Journal." },
+  { date: "Jul 2024", tag: "Deployment", title: "Algorithm Visualizer Platform Goes Live", body: "An interactive web-based educational platform deployed to help students understand complex algorithms." },
+  { date: "May 2024", tag: "Publication", title: "Spotspam in ACM TWEB", body: "Our research analyzing SMS spam detection using BERT embeddings was successfully published." },
 ];
 
+function CarouselCard({ items }: { items: typeof carouselNews }) {
+  const [index, setIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (isHovered) return;
+    
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % items.length);
+    }, 4500); // Rotate every 4.5 seconds
+    
+    return () => clearInterval(timer);
+  }, [items.length, isHovered]);
+
+  return (
+    <motion.article
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className="relative overflow-hidden rounded-3xl bg-surface p-8 hover:bg-white transition-colors ring-1 ring-border group flex flex-col justify-between shadow-sm hover:shadow-xl h-full"
+    >
+      <div className="relative z-10 h-full">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: 15 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -15 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col h-full"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <span className="font-mono text-[10px] text-ink/50">{items[index].date}</span>
+              <span className="eyebrow text-[9px] text-accent">{items[index].tag}</span>
+              <span className="ml-auto font-mono text-[9px] text-ink/30 animate-pulse">Live</span>
+            </div>
+            <h3 className="font-display text-2xl font-semibold leading-tight">{items[index].title}</h3>
+            <p className="mt-3 text-sm text-ink-soft leading-relaxed">{items[index].body}</p>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      
+      {/* Background decoration */}
+      <motion.div
+        className="absolute -top-10 -left-10 size-40 rounded-full bg-accent/10 blur-2xl group-hover:bg-accent/20 transition-colors duration-700"
+      />
+
+      {/* Slide Indicators */}
+      <div className="absolute bottom-6 right-8 flex gap-1.5 z-20">
+        {items.map((_, i) => (
+          <div 
+            key={i} 
+            className={`h-1.5 rounded-full transition-all duration-500 ${i === index ? "w-4 bg-accent" : "w-1.5 bg-ink/10"}`} 
+          />
+        ))}
+      </div>
+    </motion.article>
+  );
+}
+
 function NewsPage() {
-  const [featured, ...rest] = items;
   return (
     <>
       <PageHeader
         eyebrow="News & Updates"
         title={<>From the <span className="italic font-light text-ink/50">lab.</span></>}
-        description="Awards, papers, events, hires and the everyday research milestones that move the field forward."
+        description="Grants, publications, partnerships, and the everyday research milestones that move the field forward."
       />
 
       <section className="container-page pb-16">
         <Reveal>
-          <motion.article
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="grid lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden bg-ink text-canvas hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.3)] transition-shadow"
-          >
-            <div className="relative aspect-[16/10] lg:aspect-auto bg-ink-dark overflow-hidden">
+          {/* STATIC BENTO GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr">
+            
+            {/* MAIN CELL (Spans 2 columns) */}
+            <motion.article
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl bg-ink text-canvas hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.3)] transition-shadow group flex flex-col justify-between p-10 lg:p-14 min-h-[400px]"
+            >
               <div className="absolute inset-0 bg-grid opacity-[0.06]" />
               <motion.div
-                className="absolute -top-20 -left-20 size-80 rounded-full bg-accent/30 blur-3xl"
-                animate={{ x: [0, 60, 0], y: [0, 40, 0] }}
-                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-32 -right-32 size-96 rounded-full bg-accent/20 blur-3xl group-hover:bg-accent/40 transition-colors duration-1000"
+                animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
+                transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
               />
-              <div className="absolute inset-0 grid place-items-center">
-                <div className="text-center">
-                  <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                    className="font-display text-9xl font-semibold text-accent"
-                  >
-                    ★
-                  </motion.div>
-                  <div className="mt-4 eyebrow text-canvas/50">Featured</div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="rounded-full bg-accent text-ink px-3 py-1 eyebrow text-[9px] font-bold tracking-wider">{featuredNews.main.tag}</span>
+                  <span className="font-mono text-xs text-canvas/50">{featuredNews.main.date}</span>
                 </div>
+                <h2 className="font-display text-4xl lg:text-5xl font-semibold leading-tight max-w-2xl">{featuredNews.main.title}</h2>
+                <p className="mt-6 text-canvas/70 leading-relaxed text-lg max-w-xl">{featuredNews.main.body}</p>
               </div>
-            </div>
-            <div className="p-10 lg:p-14 flex flex-col justify-center">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="rounded-full bg-accent text-ink px-3 py-1 eyebrow text-[9px]">{featured.tag}</span>
-                <span className="font-mono text-xs text-canvas/50">{featured.date}</span>
+
+              <div className="relative z-10 mt-12 flex justify-between items-end">
+                <motion.button
+                  whileHover={{ x: 6 }}
+                  transition={{ duration: 0.2 }}
+                  className="inline-flex items-center gap-2 rounded-full bg-surface text-ink px-6 py-3 text-sm font-medium hover:bg-canvas transition-colors"
+                >
+                  Read full story →
+                </motion.button>
+                <div className="font-display text-8xl text-canvas/10 select-none">★</div>
               </div>
-              <h2 className="font-display text-3xl lg:text-4xl font-semibold leading-tight">{featured.title}</h2>
-              <p className="mt-5 text-canvas/70 leading-relaxed">{featured.body}</p>
-              <motion.button
-                whileHover={{ x: 4 }}
-                transition={{ duration: 0.2 }}
-                className="mt-8 self-start inline-flex items-center gap-2 rounded-full bg-accent text-ink px-5 py-2.5 text-sm font-medium"
+            </motion.article>
+
+            {/* SIDE CELLS STACK */}
+            <div className="grid grid-rows-2 gap-6 md:col-span-1 md:row-span-2">
+              
+              {/* TOP SIDE CELL (Static) */}
+              <motion.article
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="relative overflow-hidden rounded-3xl bg-[#F0E5D8] p-8 hover:bg-[#EBE0D2] transition-colors ring-1 ring-border/5 group flex flex-col justify-between"
               >
-                Read full story →
-              </motion.button>
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="font-mono text-[10px] text-ink/50">{featuredNews.sideTop.date}</span>
+                    <span className="eyebrow text-[9px] text-ember">{featuredNews.sideTop.tag}</span>
+                  </div>
+                  <h3 className="font-display text-2xl font-semibold leading-tight">{featuredNews.sideTop.title}</h3>
+                  <p className="mt-3 text-sm text-ink-soft leading-relaxed">{featuredNews.sideTop.body}</p>
+                </div>
+                <motion.div
+                   className="absolute -bottom-10 -right-10 size-40 rounded-full bg-ember/10 blur-2xl group-hover:bg-ember/20 transition-colors duration-700"
+                />
+              </motion.article>
+
+              {/* BOTTOM SIDE CELL (Auto-sliding Carousel) */}
+              <CarouselCard items={carouselNews} />
+
             </div>
-          </motion.article>
+          </div>
         </Reveal>
       </section>
 
       <section className="container-page pb-32">
-        <Stagger className="grid gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden" stagger={0.05}>
-          {rest.map((n) => (
+        <Reveal className="mb-8">
+           <h3 className="font-display text-3xl font-semibold text-ink">Archive & Updates</h3>
+           <p className="text-ink-soft mt-2 text-sm">A chronological log of all laboratory activities.</p>
+        </Reveal>
+        
+        <Stagger className="grid gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden" stagger={0.08}>
+          {[featuredNews.main, featuredNews.sideTop, ...carouselNews].map((n) => (
             <StaggerItem key={n.title}>
               <motion.article
-                whileHover={{ x: 4 }}
+                whileHover={{ x: 6 }}
                 transition={{ duration: 0.3 }}
-                className="bg-surface p-6 lg:p-8 hover:bg-canvas transition-colors grid lg:grid-cols-[140px_120px_1fr_auto] gap-4 lg:gap-8 items-start lg:items-center group"
+                className="bg-surface hover:bg-canvas p-6 lg:p-8 transition-colors grid lg:grid-cols-[140px_120px_1fr_auto] gap-4 lg:gap-8 items-start lg:items-center group"
               >
-                <span className="font-mono text-xs text-ink-soft">{n.date}</span>
-                <span className="rounded-full bg-accent-soft text-accent px-3 py-1 eyebrow text-[9px] w-fit">{n.tag}</span>
+                <span className="font-mono text-xs text-ink-soft group-hover:text-ink transition-colors">{n.date}</span>
+                <span className="rounded-full bg-accent/10 text-accent px-3 py-1 eyebrow text-[9px] w-fit border border-accent/20 group-hover:bg-accent group-hover:text-ink transition-colors">{n.tag}</span>
                 <div>
                   <h3 className="font-display text-lg font-semibold group-hover:text-accent transition-colors">{n.title}</h3>
-                  <p className="mt-1 text-sm text-ink-soft leading-relaxed">{n.body}</p>
+                  <p className="mt-2 text-sm text-ink-soft leading-relaxed max-w-3xl line-clamp-2">{n.body}</p>
                 </div>
-                <span className="text-sm font-medium text-ink group-hover:text-accent transition-colors">Read →</span>
+                <span className="text-sm font-medium text-ink group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 duration-300">Read →</span>
               </motion.article>
             </StaggerItem>
           ))}

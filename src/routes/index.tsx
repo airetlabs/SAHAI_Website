@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ResearchEcosystemSphere } from "../components/ResearchEcosystemSphere";
-import { RevealChars, RevealWords } from "../components/Reveal";
+import { Reveal, RevealChars, RevealWords, Stagger, StaggerItem } from "../components/Reveal";
 
 
 export const Route = createFileRoute("/")({
@@ -256,7 +256,7 @@ function ImpactStats() {
 
   return (
     <section className="container-page py-28" ref={ref}>
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-14 gap-6">
+      <Reveal className="flex flex-col md:flex-row items-start md:items-end justify-between mb-14 gap-6">
         <div>
           <p className="eyebrow text-accent mb-4">01 · Impact</p>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] max-w-2xl text-balance">
@@ -267,13 +267,13 @@ function ImpactStats() {
           Six years of disciplined inquiry, measured not by output alone but by the
           systems, scholars and ideas that endured.
         </p>
-      </div>
+      </Reveal>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-px bg-hairline ring-1 ring-hairline rounded-3xl overflow-hidden">
+      <Reveal className="grid grid-cols-2 lg:grid-cols-3 gap-px bg-hairline ring-1 ring-hairline rounded-3xl overflow-hidden">
         {stats.map((s, i) => (
           <StatCard key={s.label} {...s} index={i} visible={visible} />
         ))}
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -319,7 +319,7 @@ function AboutStory() {
     <section className="relative py-32 bg-[#F3E9DC] text-ink overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-[0.04]" />
       <div className="container-page relative grid lg:grid-cols-[1fr_1.3fr] gap-16 items-start">
-        <div className="lg:sticky lg:top-24">
+        <Reveal className="lg:sticky lg:top-24">
           <p className="eyebrow text-accent mb-6">02 · The Lab</p>
           <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] text-balance">
             We build the
@@ -328,20 +328,20 @@ function AboutStory() {
             <br />
             of intelligence.
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="space-y-12 text-lg leading-relaxed text-ink/75">
+        <Reveal className="space-y-12 text-lg leading-relaxed text-ink/75">
           <p className="text-2xl text-ink font-light leading-snug text-balance">
             SPARKS Lab is a research ecosystem at the intersection of machine learning,
-            cognitive systems, and the human disciplines that give them meaning.
+            data compression, knowledge systems, and social media analytics.
           </p>
 
           <div className="grid sm:grid-cols-2 gap-8">
             <div>
               <p className="eyebrow text-accent mb-3">Mission</p>
               <p className="text-sm text-ink/70 leading-relaxed">
-                To advance the science of artificial intelligence through rigorous research,
-                open knowledge, and systems that serve real human needs at scale.
+                To advance the science of artificial intelligence through rigorous research
+                and open knowledge systems that serve real human needs at scale.
               </p>
             </div>
             <div>
@@ -355,9 +355,9 @@ function AboutStory() {
 
           <ul className="space-y-3 border-t border-ink/10 pt-8">
             {[
-              "Foundational research in neural architectures and knowledge representation",
-              "Translational systems for healthcare, climate, and public infrastructure",
-              "Open datasets, reproducible benchmarks, and trained models for the community",
+              "Foundational research in data compression and pattern mining",
+              "Translational systems for text categorization and spam detection",
+              "Intelligent algorithms for healthcare and fake news detection",
               "Mentoring the next generation of Indian AI researchers and engineers",
             ].map((p) => (
               <li key={p} className="flex gap-4 text-sm text-ink/70">
@@ -366,7 +366,7 @@ function AboutStory() {
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -392,7 +392,7 @@ function ResearchEcosystem() {
   return (
     <section className="container-page py-32">
       <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 items-start">
-        <div className="lg:sticky lg:top-24">
+        <Reveal className="lg:sticky lg:top-24">
           <p className="eyebrow text-accent mb-6">03 · Ecosystem</p>
           <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] text-balance">
             Ten domains.
@@ -412,9 +412,9 @@ function ResearchEcosystem() {
           >
             Explore all research →
           </Link>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <Reveal className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {domains.map((d, i) => (
             <button
               key={d.id}
@@ -440,7 +440,7 @@ function ResearchEcosystem() {
               <div className="mt-6 h-px bg-hairline group-hover:bg-accent transition-colors" />
             </button>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -450,35 +450,35 @@ function ResearchEcosystem() {
 
 const projects = [
   {
-    tag: "Generative AI",
-    title: "Atlas — Multilingual Foundation Models for Indian Languages",
-    body: "A 7B-parameter open model family trained on 22 Indian languages. Built for downstream fine-tuning across legal, medical and educational corpora.",
+    tag: "Funded",
+    title: "MindScribe: Giving Voice to Silent Minds",
+    body: "An ongoing initiative funded by IIT Indore DRISHTI CPS Foundation under the NM-ICPS Scheme, led by Dr. C. Oswald and multi-institutional collaborators.",
     metrics: [
-      ["Languages", "22"],
-      ["Parameters", "7B"],
-      ["Downloads", "180k"],
+      ["Amount", "10 Lakhs"],
+      ["Status", "Ongoing"],
+      ["Type", "Funded"],
     ],
     accent: "accent",
   },
   {
-    tag: "Healthcare AI",
-    title: "Pulse — Early Stroke Detection from Multi-Modal Clinical Streams",
-    body: "Transformer-based fusion of EHR, neural imaging and temporal vitals achieving 94% precision on validation cohorts across three partner hospitals.",
+    tag: "Funded",
+    title: "Exploring ‘Smart’ Pedagogy through TEL System",
+    body: "An ICSSR (India)-JSPS (Japan) Joint Research Programme aimed at developing an end-to-end Technology-Enhanced Learning system.",
     metrics: [
-      ["Precision", "94%"],
-      ["Sites", "3"],
-      ["Patients", "11k+"],
+      ["Amount", "13.43 L"],
+      ["Status", "Completed"],
+      ["Partners", "2"],
     ],
     accent: "ember",
   },
   {
-    tag: "Edge AI",
-    title: "Sparse — Sub-millisecond Inference for Constrained Devices",
-    body: "A pruning and distillation framework cutting transformer inference latency by 40% on ARM and RISC-V edge hardware with no accuracy compromise.",
+    tag: "Hosted",
+    title: "Algorithm Visualizer",
+    body: "An interactive web-based educational platform that helps students understand complex computer science algorithms through real-time execution tracing.",
     metrics: [
-      ["Latency", "0.8ms"],
-      ["Reduction", "40%"],
-      ["Accuracy", "98.2%"],
+      ["Type", "Education"],
+      ["Status", "Completed"],
+      ["Live", "Yes"],
     ],
     accent: "sage",
   },
@@ -488,7 +488,7 @@ function FeaturedProjects() {
   return (
     <section className="bg-muted/50 py-32 border-y border-hairline">
       <div className="container-page">
-        <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
+        <Reveal className="flex items-end justify-between mb-16 flex-wrap gap-6">
           <div>
             <p className="eyebrow text-accent mb-4">04 · Featured work</p>
             <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] max-w-2xl text-balance">
@@ -501,64 +501,65 @@ function FeaturedProjects() {
           >
             All projects →
           </Link>
-        </div>
+        </Reveal>
 
-        <div className="space-y-8">
+        <Stagger className="space-y-8">
           {projects.map((p, i) => (
-            <article
-              key={p.title}
-              className="group grid lg:grid-cols-[1.4fr_1fr] gap-0 rounded-3xl overflow-hidden bg-surface ring-1 ring-border hover:ring-ink transition-all hover:shadow-[0_30px_80px_-30px_oklch(0.18_0.012_60/0.3)]"
-            >
-              <div
-                className={`relative aspect-[16/10] lg:aspect-auto overflow-hidden ${p.accent === "accent"
-                  ? "bg-accent/10"
-                  : p.accent === "ember"
-                    ? "bg-ember/10"
-                    : "bg-sage/10"
-                  }`}
+            <StaggerItem key={p.title}>
+              <article
+                className="group grid lg:grid-cols-[1.4fr_1fr] gap-0 rounded-3xl overflow-hidden bg-surface ring-1 ring-border hover:ring-ink transition-all hover:shadow-[0_30px_80px_-30px_oklch(0.18_0.012_60/0.3)]"
               >
-                <div className="absolute inset-0 bg-dotgrid opacity-40" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <ProjectVisual variant={i} />
-                </div>
-                <div className="absolute top-6 left-6 inline-flex items-center gap-2 rounded-full bg-surface/90 backdrop-blur-sm px-3 py-1 ring-1 ring-border">
-                  <span className="eyebrow text-[9px] text-ink">{p.tag}</span>
-                </div>
-                <div className="absolute bottom-6 left-6 font-mono text-[10px] text-ink/40">
-                  Project · 0{i + 1}
-                </div>
-              </div>
-              <div className="p-10 flex flex-col justify-between gap-8">
-                <div>
-                  <h3 className="font-display text-2xl lg:text-3xl font-semibold tracking-tight leading-tight">
-                    {p.title}
-                  </h3>
-                  <p className="mt-5 text-ink-soft leading-relaxed">{p.body}</p>
-                </div>
-                <div>
-                  <div className="grid grid-cols-3 gap-4 py-6 border-y border-hairline">
-                    {p.metrics.map(([k, v]) => (
-                      <div key={k}>
-                        <div className="font-display text-xl font-semibold">{v}</div>
-                        <div className="eyebrow text-[9px] mt-1">{k}</div>
-                      </div>
-                    ))}
+                <div
+                  className={`relative aspect-[16/10] lg:aspect-auto overflow-hidden ${p.accent === "accent"
+                    ? "bg-accent/10"
+                    : p.accent === "ember"
+                      ? "bg-ember/10"
+                      : "bg-sage/10"
+                    }`}
+                >
+                  <div className="absolute inset-0 bg-dotgrid opacity-40" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <ProjectVisual variant={i} />
                   </div>
-                  <div className="mt-6 flex items-center justify-between">
-                    <Link
-                      to="/projects"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-ink group-hover:text-accent transition-colors"
-                    >
-                      Case study
-                      <span className="transition-transform group-hover:translate-x-1">→</span>
-                    </Link>
-                    <span className="font-mono text-[10px] text-ink/40">2024</span>
+                  <div className="absolute top-6 left-6 inline-flex items-center gap-2 rounded-full bg-surface/90 backdrop-blur-sm px-3 py-1 ring-1 ring-border">
+                    <span className="eyebrow text-[9px] text-ink">{p.tag}</span>
+                  </div>
+                  <div className="absolute bottom-6 left-6 font-mono text-[10px] text-ink/40">
+                    Project · 0{i + 1}
                   </div>
                 </div>
-              </div>
-            </article>
+                <div className="p-10 flex flex-col justify-between gap-8">
+                  <div>
+                    <h3 className="font-display text-2xl lg:text-3xl font-semibold tracking-tight leading-tight">
+                      {p.title}
+                    </h3>
+                    <p className="mt-5 text-ink-soft leading-relaxed">{p.body}</p>
+                  </div>
+                  <div>
+                    <div className="grid grid-cols-3 gap-4 py-6 border-y border-hairline">
+                      {p.metrics.map(([k, v]) => (
+                        <div key={k}>
+                          <div className="font-display text-xl font-semibold">{v}</div>
+                          <div className="eyebrow text-[9px] mt-1">{k}</div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-6 flex items-center justify-between">
+                      <Link
+                        to="/projects"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-ink group-hover:text-accent transition-colors"
+                      >
+                        Case study
+                        <span className="transition-transform group-hover:translate-x-1">→</span>
+                      </Link>
+                      <span className="font-mono text-[10px] text-ink/40">2024</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );
@@ -649,29 +650,27 @@ function ProjectVisual({ variant }: { variant: number }) {
 /* ────────────────────────────────────────────────────────── TIMELINE */
 
 const timeline = [
-  { year: "2018", title: "SPARKS Lab founded", body: "Established at the Department of CSE, NIT Tiruchirappalli with three founding researchers." },
-  { year: "2020", title: "First NeurIPS publication", body: "Lab's foundational paper on attention-driven knowledge distillation accepted at NeurIPS." },
-  { year: "2021", title: "₹3.2 Cr DST grant", body: "Major government funding awarded for explainable AI in clinical decision support." },
-  { year: "2022", title: "First patent granted", body: "Sparse-inference framework granted patent by the Indian Patent Office." },
-  { year: "2023", title: "Industry consortium", body: "Founding member of the National Mission on AI translational research consortium." },
-  { year: "2024", title: "Atlas open release", body: "Released 7B multilingual foundation model under permissive open license." },
+  { year: "2013", title: "First Optimization Paper", body: "Published novel hybrid PSO algorithms research at ICoAC, winning the Best Paper Award." },
+  { year: "2018", title: "Data Compression Breakthroughs", body: "Published seminal works on closed frequent itemset mining and image security enhancement." },
+  { year: "2022", title: "Intention-driven NLP", body: "Publication of Spotspam, analyzing SMS spam detection using BERT embeddings in ACM TWEB." },
+  { year: "2024", title: "Funded Grants", body: "Secured major funding under the NM-ICPS scheme for MindScribe and smart pedagogy projects." },
 ];
 
 function ImpactTimeline() {
   return (
-    <section className="container-page py-32">
-      <div className="max-w-2xl mb-20">
+    <section className="container-page py-32 overflow-hidden">
+      <Reveal className="max-w-2xl mb-20">
         <p className="eyebrow text-accent mb-4">05 · Timeline</p>
         <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] text-balance">
-          A six-year trajectory.
+          A trajectory of research.
         </h2>
-      </div>
+      </Reveal>
 
       <div className="relative">
         <div className="absolute left-3 md:left-1/2 top-0 bottom-0 w-px bg-hairline -translate-x-1/2" />
-        <div className="space-y-16">
+        <Stagger className="space-y-16">
           {timeline.map((t, i) => (
-            <div
+            <StaggerItem
               key={t.year}
               className={`relative grid md:grid-cols-2 gap-8 md:gap-16 ${i % 2 === 0 ? "" : "md:[&>*:first-child]:order-2"
                 }`}
@@ -685,9 +684,9 @@ function ImpactTimeline() {
               </div>
               <div className="hidden md:block" />
               <div className="absolute left-3 md:left-1/2 top-6 size-3 rounded-full bg-accent ring-4 ring-canvas -translate-x-1/2" />
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );
@@ -697,18 +696,18 @@ function ImpactTimeline() {
 
 const pubs = [
   {
-    venue: "NeurIPS 2024",
-    title: "Recursive Knowledge Graphs for Generative Reasoning",
-    authors: "Abdullah A., Sharma R., Krishnan V., et al.",
-    body: "We show that structured knowledge graphs can constrain LLM hallucinations through dynamic node retrieval and iterative self-correction.",
-    citations: 42,
+    venue: "ACM Trans. on KDD",
+    title: "CGS: Configurable Graph Summarization with Bounded Neighborhood Loss",
+    authors: "Mitra, S., Elza Simon, S., Oswald, C., Bhattacharya, A. and Pal, A.",
+    body: "An advanced configurable graph summarization technique ensuring bounded neighborhood loss while supporting efficient queries.",
+    citations: 0,
   },
   {
-    venue: "CVPR 2024",
-    title: "Dynamic Latent Inference for Heterogeneous Edge Devices",
-    authors: "Iyer M., Abdullah A., Patel S.",
-    body: "A decentralized framework for adaptive vision-model updates across constrained IoT hardware using sparse graph structures.",
-    citations: 28,
+    venue: "The Computer Journal",
+    title: "Smart Multimedia Compressor—Intelligent Algorithms for Text and Image",
+    authors: "Oswald, C. and Sivaselvan, B.",
+    body: "Developed an intelligent framework optimizing text and image compression through data mining perspectives and efficient clustering.",
+    citations: 0,
   },
 ];
 
@@ -716,7 +715,7 @@ function PublicationsPreview() {
   return (
     <section className="bg-[#F3E9DC] text-ink py-32 border-y border-ink/5">
       <div className="container-page">
-        <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
+        <Reveal className="flex items-end justify-between mb-16 flex-wrap gap-6">
           <div>
             <p className="eyebrow text-accent mb-4">06 · Scholarship</p>
             <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] max-w-2xl text-balance">
@@ -729,57 +728,58 @@ function PublicationsPreview() {
           >
             Full archive →
           </Link>
-        </div>
+        </Reveal>
 
-        <div className="space-y-8">
+        <Stagger className="space-y-8">
           {pubs.map((p, i) => (
-            <article
-              key={p.title}
-              className={`grid lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden ring-1 ring-ink/10 bg-white hover:bg-[#FAF7F3] transition-colors ${i % 2 === 0 ? "" : "lg:[&>*:first-child]:order-2"
-                }`}
-            >
-              <div className="lg:col-span-8 aspect-[21/10] lg:aspect-auto bg-[#F0E5D8] relative overflow-hidden">
-                <div className="absolute inset-0 bg-grid opacity-[0.08]" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <ArchitectureDiagram variant={i} />
+            <StaggerItem key={p.title}>
+              <article
+                className={`grid lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden ring-1 ring-ink/10 bg-white hover:bg-[#FAF7F3] transition-colors ${i % 2 === 0 ? "" : "lg:[&>*:first-child]:order-2"
+                  }`}
+              >
+                <div className="lg:col-span-8 aspect-[21/10] lg:aspect-auto bg-[#F0E5D8] relative overflow-hidden">
+                  <div className="absolute inset-0 bg-grid opacity-[0.08]" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <ArchitectureDiagram variant={i} />
+                  </div>
+                  <div className="absolute top-6 left-6 eyebrow text-[9px] text-ink/50">
+                    Fig. {i + 1} · System Architecture
+                  </div>
                 </div>
-                <div className="absolute top-6 left-6 eyebrow text-[9px] text-ink/50">
-                  Fig. {i + 1} · System Architecture
-                </div>
-              </div>
-              <div className="lg:col-span-4 p-10 flex flex-col justify-between gap-8">
-                <div>
-                  <span className="inline-block rounded-full bg-accent/15 text-accent px-3 py-1 eyebrow text-[9px]">
-                    {p.venue}
-                  </span>
-                  <h3 className="mt-5 font-display text-2xl font-semibold leading-tight">
-                    {p.title}
-                  </h3>
-                  <p className="mt-3 text-xs text-ink/60 font-mono">{p.authors}</p>
-                  <p className="mt-5 text-sm text-ink/75 leading-relaxed">{p.body}</p>
-                </div>
-                <div>
-                  <div className="flex items-center justify-between py-3 border-t border-ink/10">
-                    <span className="eyebrow text-[9px] text-ink/50">Citations</span>
-                    <span className="font-display text-lg font-semibold text-accent">
-                      {p.citations}
+                <div className="lg:col-span-4 p-10 flex flex-col justify-between gap-8">
+                  <div>
+                    <span className="inline-block rounded-full bg-accent/15 text-accent px-3 py-1 eyebrow text-[9px]">
+                      {p.venue}
                     </span>
+                    <h3 className="mt-5 font-display text-2xl font-semibold leading-tight">
+                      {p.title}
+                    </h3>
+                    <p className="mt-3 text-xs text-ink/60 font-mono">{p.authors}</p>
+                    <p className="mt-5 text-sm text-ink/75 leading-relaxed">{p.body}</p>
                   </div>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {["PDF", "BibTeX", "DOI"].map((b) => (
-                      <button
-                        key={b}
-                        className="rounded-full bg-white hover:bg-[#EDE2D3] px-3 py-1.5 text-[11px] font-mono transition-colors"
-                      >
-                        {b}
-                      </button>
-                    ))}
+                  <div>
+                    <div className="flex items-center justify-between py-3 border-t border-ink/10">
+                      <span className="eyebrow text-[9px] text-ink/50">Citations</span>
+                      <span className="font-display text-lg font-semibold text-accent">
+                        {p.citations}
+                      </span>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {["PDF", "BibTeX", "DOI"].map((b) => (
+                        <button
+                          key={b}
+                          className="rounded-full bg-white hover:bg-[#EDE2D3] px-3 py-1.5 text-[11px] font-mono transition-colors"
+                        >
+                          {b}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </article>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );
@@ -889,6 +889,97 @@ function Collaborators() {
   );
 }
 
+/* ───────────────────────────────────────────────────────── TESTIMONIALS */
+
+const testimonials = [
+  {
+    quote: "SPARKS Lab has fundamentally transformed how we approach AI-assisted pedagogy. Their frameworks are incredibly robust.",
+    author: "Dr. A. Sharma",
+    role: "Director, Educational Initiatives",
+    company: "Ministry of Education"
+  },
+  {
+    quote: "The configurable graph summarization technique developed here saved us hundreds of computing hours in our social network analysis.",
+    author: "James T.",
+    role: "Lead Data Scientist",
+    company: "TechGraph Inc."
+  },
+  {
+    quote: "Collaborating with Dr. C. Oswald and his team on the MindScribe initiative has been one of our most rewarding research partnerships.",
+    author: "Dr. Rajesh K.",
+    role: "Principal Investigator",
+    company: "DRISHTI CPS Foundation"
+  },
+  {
+    quote: "The students coming out of SPARKS Lab possess an incredibly rare mix of deep theoretical knowledge and practical engineering skill.",
+    author: "Meera V.",
+    role: "VP Engineering",
+    company: "Global AI Corp"
+  },
+  {
+    quote: "Their work on low-resource language models is exactly what the industry needs to build truly inclusive digital platforms.",
+    author: "Siddharth M.",
+    role: "Research Scientist",
+    company: "Linguistica"
+  }
+];
+
+function TestimonialsMarquee() {
+  return (
+    <section className="py-32 overflow-hidden bg-surface border-y border-hairline">
+      <div className="container-page mb-16 text-center">
+        <Reveal>
+          <p className="eyebrow text-accent mb-4">08 · Voices</p>
+          <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight text-ink">
+            What our partners say.
+          </h2>
+        </Reveal>
+      </div>
+
+      <div className="relative flex flex-col gap-6 w-full max-w-[100vw] overflow-hidden">
+        <div className="absolute inset-y-0 left-0 w-16 md:w-48 bg-gradient-to-r from-surface to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-16 md:w-48 bg-gradient-to-l from-surface to-transparent z-10 pointer-events-none" />
+
+        <motion.div
+          className="flex w-max gap-6 px-6 py-12"
+          animate={{ x: ["-50%", "0%"] }}
+          transition={{ duration: 80, ease: "linear", repeat: Infinity }}
+        >
+          {[...testimonials, ...testimonials].map((t, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ 
+                y: -12, 
+                rotateX: 4, 
+                rotateY: -4, 
+                scale: 1.03,
+              }}
+              style={{ transformPerspective: 1200 }}
+              className="w-[350px] md:w-[450px] shrink-0 p-8 md:p-10 rounded-3xl bg-canvas ring-1 ring-ember/40 shadow-xl shadow-ember/5 flex flex-col justify-between hover:shadow-[0_30px_60px_-15px_rgba(220,100,50,0.25)] hover:ring-ember/70 transition-all duration-300 group cursor-default"
+            >
+               <div>
+                 <div className="text-ember/50 text-6xl font-display leading-[0] mb-6 group-hover:text-ember transition-colors duration-500">"</div>
+                 <p className="text-ink text-lg leading-relaxed mb-8">
+                   {t.quote}
+                 </p>
+               </div>
+               <div className="flex items-center gap-4 mt-auto">
+                 <div className="size-12 rounded-full bg-ember/10 flex items-center justify-center font-display font-semibold text-ember">
+                   {t.author.charAt(0)}
+                 </div>
+                 <div>
+                   <div className="font-semibold text-sm text-ink">{t.author}</div>
+                   <div className="text-xs text-ink-soft">{t.role}, {t.company}</div>
+                 </div>
+               </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 /* ───────────────────────────────────────────────────────── FINAL CTA */
 
 function FinalCTA() {
@@ -947,6 +1038,7 @@ function HomePage() {
       <ImpactTimeline />
       <PublicationsPreview />
       <Collaborators />
+      <TestimonialsMarquee />
       <FinalCTA />
     </>
   );
