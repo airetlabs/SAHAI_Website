@@ -123,7 +123,7 @@ function Hero() {
 
           {/* floating indicators */}
           <motion.div
-            className="absolute top-2 -right-2 rounded-2xl bg-ink text-canvas p-4 shadow-xl"
+            // className="absolute top-2 -right-2 rounded-2xl bg-ink text-canvas p-4 shadow-xl"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: [0, -8, 0] }}
             transition={{
@@ -131,11 +131,11 @@ function Hero() {
               y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.6 },
             }}
           >
-            <div className="eyebrow text-canvas/50 text-[9px] mb-1">Publications</div>
-            <div className="font-display text-2xl font-semibold">152+</div>
+            {/* <div className="eyebrow text-canvas/50 text-[9px] mb-1">Publications</div>
+            <div className="font-display text-2xl font-semibold">152+</div> */}
           </motion.div>
           <motion.div
-            className="absolute bottom-4 -left-2 rounded-2xl bg-surface ring-1 ring-border p-4 shadow-xl"
+            // className="absolute bottom-4 -left-2 rounded-2xl bg-surface ring-1 ring-border p-4 shadow-xl"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: [0, -6, 0] }}
             transition={{
@@ -143,17 +143,17 @@ function Hero() {
               y: { duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 },
             }}
           >
-            <div className="eyebrow text-[9px] mb-1">Patents filed</div>
-            <div className="font-display text-2xl font-semibold text-accent">12</div>
+            {/* <div className="eyebrow text-[9px] mb-1">Patents filed</div> */}
+            {/* <div className="font-display text-2xl font-semibold text-accent">12</div> */}
           </motion.div>
           <motion.div
-            className="absolute top-1/2 -left-6 rounded-2xl bg-surface ring-1 ring-border p-3 shadow-xl hidden md:block"
+            // className="absolute top-1/2 -left-6 rounded-2xl bg-surface ring-1 ring-border p-3 shadow-xl hidden md:block"
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 2.0 }}
           >
-            <div className="eyebrow text-[9px]">Impact</div>
-            <div className="font-display text-lg font-semibold">h-38</div>
+            {/* <div className="eyebrow text-[9px]">Impact</div>
+            <div className="font-display text-lg font-semibold">h-38</div> */}
           </motion.div>
         </motion.div>
       </div>
@@ -176,6 +176,25 @@ function Hero() {
   );
 }
 
+function NittLogoBadge() {
+  return (
+    <motion.a
+      href="https://www.nitt.edu"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed top-2 right-6 z-[60]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      <img
+        src="https://en.wikipedia.org/wiki/Special:FilePath/NITT_logo.png"
+        alt="NIT Tiruchirappalli"
+        className="w-14 h-14 object-contain"
+      />
+    </motion.a>
+  );
+}
 /* ─────────────────────────────────────────────────────────── TRUST BAR */
 
 function TrustBar() {
@@ -1029,6 +1048,7 @@ function FinalCTA() {
 function HomePage() {
   return (
     <>
+    <NittLogoBadge />
       <Hero />
       <TrustBar />
       <ImpactStats />

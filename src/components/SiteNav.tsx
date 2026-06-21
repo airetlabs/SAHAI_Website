@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-
+import { motion } from "framer-motion";
 const links = [
   { to: "/", label: "Home" },
   { to: "/founder", label: "Founder" },
@@ -88,7 +88,7 @@ export function SiteNav() {
 
       {open && (
         <div className="xl:hidden border-t border-hairline bg-canvas/95 backdrop-blur-xl">
-          <nav className="container-page py-6 grid grid-cols-2 gap-1">
+          <nav className="container-page py-7 grid grid-cols-2 gap-1">
             {links.map((l) => (
               <Link
                 key={l.to}
@@ -103,6 +103,21 @@ export function SiteNav() {
           </nav>
         </div>
       )}
+ <motion.a
+      href="https://www.nitt.edu"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed top-2 right-6 z-[60]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      <img
+        src="https://en.wikipedia.org/wiki/Special:FilePath/NITT_logo.png"
+        alt="NIT Tiruchirappalli"
+        className="w-14 h-14 object-contain"
+      />
+    </motion.a>
     </header>
   );
 }
