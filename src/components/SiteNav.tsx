@@ -65,7 +65,19 @@ export function SiteNav() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <a
+            href="https://www.nitt.edu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 flex items-center justify-center transition-transform hover:scale-105"
+          >
+            <img
+              src="https://en.wikipedia.org/wiki/Special:FilePath/NITT_logo.png"
+              alt="NIT Tiruchirappalli"
+              className="h-8 sm:h-9 w-auto object-contain mix-blend-multiply filter contrast-125"
+            />
+          </a>
           <Link
             to="/contact"
             className="hidden sm:inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-4 py-2 text-[13px] font-medium hover:bg-ink-dark transition-all hover:scale-[1.02]"
@@ -103,21 +115,6 @@ export function SiteNav() {
           </nav>
         </div>
       )}
- <motion.a
-      href="https://www.nitt.edu"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed top-2 right-6 z-[60]"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-    >
-      <img
-        src="https://en.wikipedia.org/wiki/Special:FilePath/NITT_logo.png"
-        alt="NIT Tiruchirappalli"
-        className="w-14 h-14 object-contain"
-      />
-    </motion.a>
     </header>
   );
 }

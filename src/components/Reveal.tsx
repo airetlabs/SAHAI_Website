@@ -24,8 +24,9 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, amount: 0.05 }}
+      viewport={{ once, margin: "0px 0px -50px 0px" }}
       transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
+      style={{ willChange: "transform, opacity" }}
     >
       {children}
     </motion.div>
@@ -48,7 +49,7 @@ export function Stagger({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
+      viewport={{ once: true, margin: "0px 0px -50px 0px" }}
       transition={{ staggerChildren: stagger, delayChildren: delay }}
     >
       {children}
@@ -64,7 +65,12 @@ export function StaggerItem({
   className?: string;
 }) {
   return (
-    <motion.div className={className} variants={defaultVariants} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
+    <motion.div 
+      className={className} 
+      variants={defaultVariants} 
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      style={{ willChange: "transform, opacity" }}
+    >
       {children}
     </motion.div>
   );
@@ -91,7 +97,8 @@ export function RevealChars({
           className="inline-block"
           initial={{ opacity: 0, y: "0.5em" }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+          style={{ willChange: "transform, opacity" }}
           transition={{
             duration: 0.6,
             delay: delay + i * charDelay,
@@ -126,6 +133,7 @@ export function RevealWords({
           className="inline-block mr-[0.25em]"
           initial={{ opacity: 0, y: "0.4em" }}
           animate={{ opacity: 1, y: 0 }}
+          style={{ willChange: "transform, opacity" }}
           transition={{
             duration: 0.7,
             delay: delay + i * wordDelay,

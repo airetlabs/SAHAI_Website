@@ -272,9 +272,9 @@ function ResearchPage() {
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -6 }}
-              className="group relative rounded-[2rem] bg-surface ring-1 ring-border p-8 lg:p-14 hover:ring-ink hover:shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] transition-all"
+              className="group relative rounded-[2rem] bg-surface ring-1 ring-border p-8 lg:p-14 hover:ring-ink hover:shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] transition-all overflow-hidden"
             >
-              <div className={`grid lg:grid-cols-2 gap-10 lg:gap-16 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
+              <div className={`relative z-10 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
                 <DomainVisual domain={d} index={i} />
 
                 <div>

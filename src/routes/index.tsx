@@ -1048,7 +1048,6 @@ function FinalCTA() {
 function HomePage() {
   return (
     <>
-    <NittLogoBadge />
       <Hero />
       <TrustBar />
       <ImpactStats />
