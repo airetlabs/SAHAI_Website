@@ -35,8 +35,7 @@ const domains: Domain[] = [
     id: "ml",
     title: "Machine Learning",
     tagline: "Learning from data for social impact",
-    body: "Our research in Machine Learning focuses on designing intelligent systems that create meaningful societal impact while upholding principles of ethics, fairness, and responsibility. We study advanced learning algorithms, generative AI, knowledge-driven systems, and human-AI interaction to address challenges in healthcare, education, governance, and social welfare. A central goal of our work is to ensure that AI technologies remain transparent, inclusive, and aligned with human values, enabling innovation that benefits society at large.",
-    focus: ["Learning algorithms", "Knowledge-driven AI", "Human-centered AI", "Responsible AI"],
+    body: "Our research in Machine Learning focuses on designing intelligent systems that create meaningful societal impact while upholding principles of ethics, fairness, and responsibility. We study advanced learning algorithms, generative AI, knowledge-driven systems, and human-AI interaction to address challenges in healthcare, education, governance, and social welfare.",    focus: ["Learning algorithms", "Knowledge-driven AI", "Human-centered AI", "Responsible AI"],
     projects: 6,
     papers: 28,
     faculty: 7,
@@ -48,8 +47,7 @@ const domains: Domain[] = [
     id: "dl",
     title: "Deep Learning",
     tagline: "Neural intelligence at scale",
-    body: "Our research in Deep Learning focuses on the design of scalable neural architectures that enable perception, reasoning, language understanding, and decision-making across complex environments. We investigate foundation models, multimodal learning, generative intelligence, and efficient neural computation while addressing critical challenges related to explainability, fairness, reliability, and ethical deployment. By combining cutting-edge algorithmic advances with societal considerations, we aim to create intelligent systems that deliver meaningful impact in domains such as healthcare, education, governance, and community well-being.",
-    focus: ["Foundation models", "Multimodal learning", "Generative intelligence", "Efficient deep learning"],
+    body: "Our research in Deep Learning focuses on the design of scalable neural architectures that enable perception, reasoning, language understanding, and decision-making across complex environments. We investigate foundation models, multimodal learning, generative intelligence, and efficient neural computation while addressing critical challenges related to explainability, fairness, reliability, and ethical deployment.",   focus: ["Foundation models", "Multimodal learning", "Generative intelligence", "Efficient deep learning"],
     projects: 8,
     papers: 34,
     faculty: 9,
@@ -61,8 +59,7 @@ const domains: Domain[] = [
   id: "csg",
   title: "Computational Science for Social Good",
   tagline: "Data-driven intelligence for societal impact",
-  body: "Our research in Computational Science for Social Good focuses on harnessing data, algorithms, and artificial intelligence to address pressing societal challenges. We develop computational methods that support decision-making in areas such as public health, education, governance, sustainability, and social welfare. By combining machine learning, data analytics, social computing, and human-centered AI, we aim to create scalable and equitable solutions that improve quality of life and foster inclusive development. Through interdisciplinary collaboration, our work seeks to ensure that technological innovation translates into meaningful and measurable benefits for society.",
-  focus: [
+  body: "Our research in Computational Science for Social Good focuses on harnessing data, algorithms, and artificial intelligence to address pressing societal challenges. We develop computational methods that support decision-making in areas such as public health, education, governance, sustainability, and social welfare.",  focus: [
      "Computational social science",
   "Digital humanities",
   "Social media analytics",
@@ -79,8 +76,7 @@ const domains: Domain[] = [
     id: "nlp",
     title: "Natural Language Processing",
     tagline: "Language technologies for society",
-    body: "Our research in Natural Language Processing explores how language technologies can be leveraged to address critical societal challenges. We work on social media analytics, spam filtering, fake news detection, multimodal hate speech recognition, and the analysis of online behavioral patterns. Bridging Computational Linguistics with Clinical Psychology, we develop machine learning models for identifying indicators of depression, self-harm, emotional vulnerability, and social well-being through textual and multimodal data. Through responsible and human-centered AI, we seek to advance language technologies that enhance digital safety, promote mental health awareness, and strengthen information integrity in modern society.",
-    focus: ["Social media analytics", "Fake news detection", "Multimodal hate speech", "Computational psychology"],
+    body: "Our research in Natural Language Processing explores how language technologies can be leveraged to address critical societal challenges. We work on social media analytics, spam filtering, fake news detection, multimodal hate speech recognition, and the analysis of online behavioral patterns. ",    focus: ["Social media analytics", "Fake news detection", "Multimodal hate speech", "Computational psychology"],
     projects: 9,
     papers: 42,
     faculty: 10,
@@ -92,7 +88,7 @@ const domains: Domain[] = [
     id: "gen",
     title: "Generative AI",
     tagline: "Creating intelligent multimodal systems",
-    body: "Our Generative AI research focuses on advancing foundation models that can generate, interpret, and interact with complex multimodal information. We explore large language models, vision-language systems, knowledge-grounded generation, and agentic AI architectures while addressing challenges related to factuality, explainability, bias mitigation, and safety. By combining cutting-edge generative technologies with principles of responsible AI, we aim to develop systems that empower human creativity, improve access to knowledge, and deliver meaningful societal impact.",
+    body: "Our Generative AI research focuses on advancing foundation models that can generate, interpret, and interact with complex multimodal information. We explore large language models, vision-language systems, knowledge-grounded generation, and agentic AI architectures while addressing challenges related to factuality, explainability, bias mitigation, and safety.",
     focus: ["Large language models", "Multimodal generation", "Knowledge-grounded AI", "Agentic systems"],
     projects: 5,
     papers: 22,
@@ -105,7 +101,7 @@ const domains: Domain[] = [
     id: "hai",
     title: "Data Compression",
     tagline: "Efficient representations through pattern mining",
-    body: "Our research explores Data Compression through the lens of Pattern Mining, leveraging recurring patterns, structural regularities, and latent relationships to design efficient data representation frameworks. We investigate advanced techniques for text compression, image compression, and graph compression, focusing on reducing storage and transmission costs while maintaining data utility and semantic integrity. These approaches support scalable information systems, large knowledge repositories, social networks, and resource-efficient AI applications. Through the convergence of compression, pattern discovery, and intelligent data management, we seek to develop solutions for the challenges posed by rapidly expanding data landscapes.",
+    body: "Our research explores Data Compression through the lens of Pattern Mining, leveraging recurring patterns, structural regularities, and latent relationships to design efficient data representation frameworks. We investigate advanced techniques for text compression, image compression, and graph compression, focusing on reducing storage and transmission costs while maintaining data utility and semantic integrity.",
     focus: ["Text compression", "Image compression", "Graph compression", "Pattern mining"],
     projects: 4,
     papers: 18,
@@ -118,7 +114,7 @@ const domains: Domain[] = [
     id: "xai",
     title: "Human Computer Interaction",
     tagline: "Designing intuitive human-centered experiences",
-    body: "Our research in Human–Computer Interaction examines how design influences the effectiveness, security, and accessibility of digital technologies. We study innovative interaction paradigms, including CAPTCHA design, user engagement mechanisms, and visual feedback systems such as intelligent loading indicators. Through empirical user studies and design-driven innovation, we seek to create interfaces that are secure, intuitive, and inclusive, enabling technology to better serve diverse users and societal needs.",
+    body: "Our research in Human–Computer Interaction examines how design influences the effectiveness, security, and accessibility of digital technologies. We study innovative interaction paradigms, including CAPTCHA design, user engagement mechanisms, and visual feedback systems such as intelligent loading indicators.",
     focus: ["Human-computer interaction", "CAPTCHA design", "Loading bar design", "Usability studies"],
     projects: 6,
     papers: 24,
@@ -131,7 +127,7 @@ const domains: Domain[] = [
     id: "kg",
     title: "Data Mining",
     tagline: "Discovering knowledge from complex data",
-    body: "Our research explores the foundations and applications of Data Mining for uncovering hidden structures, patterns, and knowledge embedded within large and heterogeneous datasets. We work on text mining, graph embedding, and multimodal classification techniques that enable efficient analysis of textual, visual, and relational information. Through the integration of machine learning, representation learning, and pattern discovery frameworks, we seek to advance intelligent systems capable of understanding complex data ecosystems. These efforts support applications ranging from social media analysis and knowledge discovery to digital intelligence and AI-driven decision support systems.",
+    body: "Our research explores the foundations and applications of Data Mining for uncovering hidden structures, patterns, and knowledge embedded within large and heterogeneous datasets. We work on text mining, graph embedding, and multimodal classification techniques that enable efficient analysis of textual, visual, and relational information.",
     focus: ["Data mining", "Text mining", "Graph embedding", "Text & image classification"],
     projects: 5,
     papers: 20,
@@ -143,8 +139,7 @@ const domains: Domain[] = [
   id: "kg",
   title: "Knowledge Graphs",
   tagline: "Structured intelligence for connected knowledge",
-  body: "Our research in Knowledge Graphs focuses on representing, organizing, and reasoning over complex interconnected information. We investigate ontology engineering, knowledge graph construction, semantic technologies, graph representation learning, and neuro-symbolic AI to enable intelligent knowledge discovery and decision support. By integrating structured knowledge with machine learning and language technologies, we aim to develop explainable and trustworthy AI systems capable of reasoning across diverse domains.",
-  focus: [
+  body: "Our research in Knowledge Graphs focuses on representing, organizing, and reasoning over complex interconnected information. We investigate ontology engineering, knowledge graph construction, semantic technologies, graph representation learning, and neuro-symbolic AI to enable intelligent knowledge discovery and decision support. ",  focus: [
     "Knowledge graph construction",
     "Ontology engineering",
     "Graph representation learning",
@@ -176,7 +171,7 @@ const domains: Domain[] = [
 
 function DomainVisual({ domain, index }: { domain: Domain; index: number }) {
   return (
-    <div className={`relative aspect-[4/3.2] w-full max-w-[480px] mx-auto overflow-hidden rounded-2xl bg-gradient-to-br ${domain.hue} ring-1 ring-border`}>
+    <div className={`relative aspect-[3/3.2] w-full max-w-[200px] mx-auto overflow-hidden rounded-xl bg-gradient-to-br ${domain.hue} ring-1 ring-border`}>
       {domain.image ? (
         <img
           src={domain.image}
@@ -233,10 +228,10 @@ function DomainVisual({ domain, index }: { domain: Domain; index: number }) {
           </svg>
         </>
       )}
-      <div className="absolute left-5 top-5 font-mono text-[10px] tracking-[0.2em] text-ink/60">
+      <div className="absolute left-2.5 top-2.5 font-mono text-[7px] tracking-[0.15em] text-ink/60">
         DOMAIN · {String(index + 1).padStart(2, "0")}
       </div>
-      <div className="absolute bottom-5 right-5 font-mono text-[10px] tracking-[0.2em] text-ink/60">
+      <div className="absolute bottom-2.5 right-2.5 font-mono text-[7px] tracking-[0.15em] text-ink/60">
         SPARKS / RESEARCH
       </div>
     </div>
@@ -261,71 +256,75 @@ function ResearchPage() {
         </div>
       </PageHeader>
 
-      <section className="container-page pb-32 space-y-24">
-        {domains.map((d, i) => {
-          const reverse = i % 2 === 1;
-          return (
-            <motion.article
-              key={d.id}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -6 }}
-              className="group relative rounded-[2rem] bg-surface ring-1 ring-border p-8 lg:p-14 hover:ring-ink hover:shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] transition-all"
-            >
-              <div className={`grid lg:grid-cols-2 gap-10 lg:gap-16 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
-                <DomainVisual domain={d} index={i} />
-
-                <div>
-                  <div className="flex items-center gap-4 mb-6">
-                    <span className="font-mono text-[10px] tracking-[0.2em] text-accent">{String(i + 1).padStart(2, "0")} / 10</span>
-                    <div className="h-px flex-1 bg-hairline" />
-                    <span className="eyebrow text-[9px] text-ink-soft">{d.tagline}</span>
+      <section className="container-page pb-16">
+        <div className="max-w-3xl mx-auto space-y-6">
+          {domains.map((d, i) => {
+            const reverse = i % 2 === 1;
+            return (
+              <motion.article
+                key={d.id}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -3 }}
+                className="group relative rounded-xl bg-surface ring-1 ring-border p-4 lg:p-5 hover:ring-ink hover:shadow-[0_20px_50px_-30px_rgba(0,0,0,0.25)] transition-all"
+              >
+                <div className={`flex flex-col lg:flex-row gap-4 lg:gap-6 items-center ${reverse ? "lg:flex-row-reverse" : ""}`}>
+                  <div className="w-full lg:w-[200px] lg:shrink-0">
+                    <DomainVisual domain={d} index={i} />
                   </div>
 
-                  <motion.h2
-                    initial={{ opacity: 0, x: reverse ? 20 : -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.1 }}
-                    className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] group-hover:text-accent transition-colors"
-                  >
-                    {d.title}
-                  </motion.h2>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="font-mono text-[9px] tracking-[0.15em] text-accent">{String(i + 1).padStart(2, "0")} / 10</span>
+                      <div className="h-px flex-1 bg-hairline" />
+                      <span className="eyebrow text-[8px] text-ink-soft">{d.tagline}</span>
+                    </div>
 
-                  <p className="mt-6 text-lg text-ink-soft leading-relaxed">{d.body}</p>
+                    <motion.h2
+                      initial={{ opacity: 0, x: reverse ? 20 : -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.1 }}
+                      className="font-display text-xl lg:text-2xl font-semibold tracking-tight leading-[1] group-hover:text-accent transition-colors"
+                    >
+                      {d.title}
+                    </motion.h2>
 
-                  <div className="mt-8">
-                    <p className="eyebrow text-[9px] mb-3">Focus areas</p>
-                    <div className="flex flex-wrap gap-2">
-                      {d.focus.map((f) => (
-                        <span key={f} className="rounded-full bg-muted px-3 py-1.5 text-xs font-medium text-ink">{f}</span>
-                      ))}
+                    <p className="mt-2 text-sm text-ink-soft leading-relaxed">{d.body}</p>
+
+                    <div className="mt-3">
+                      <p className="eyebrow text-[8px] mb-1.5">Focus areas</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {d.focus.map((f) => (
+                          <span key={f} className="rounded-full bg-muted px-2.5 py-1 text-[10px] font-medium text-ink">{f}</span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-3 grid grid-cols-3 gap-3 py-3 border-y border-hairline">
+                      <Metric label="Active projects" value={d.projects} />
+                      <Metric label="Publications" value={d.papers} />
+                      <Metric label="Faculty" value={d.faculty} />
+                    </div>
+
+                    <div className="mt-3 flex flex-wrap items-center gap-3">
+                      <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
+                        <Link to="/projects" className="inline-flex items-center gap-1.5 rounded-full bg-ink text-canvas px-4 py-2 text-xs font-medium hover:bg-ink-dark shadow-sm">
+                          Learn more →
+                        </Link>
+                      </motion.div>
+                      <Link to="/publications" className="text-[10px] font-mono text-ink-soft hover:text-ink transition-colors">
+                        View publications ↗
+                      </Link>
                     </div>
                   </div>
-
-                  <div className="mt-8 grid grid-cols-3 gap-4 py-6 border-y border-hairline">
-                    <Metric label="Active projects" value={d.projects} />
-                    <Metric label="Publications" value={d.papers} />
-                    <Metric label="Faculty" value={d.faculty} />
-                  </div>
-
-                  <div className="mt-8 flex flex-wrap items-center gap-3">
-                    <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                      <Link to="/projects" className="inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-5 py-3 text-sm font-medium hover:bg-ink-dark shadow-md">
-                        Learn more →
-                      </Link>
-                    </motion.div>
-                    <Link to="/publications" className="text-xs font-mono text-ink-soft hover:text-ink transition-colors">
-                      View publications ↗
-                    </Link>
-                  </div>
                 </div>
-              </div>
-            </motion.article>
-          );
-        })}
+              </motion.article>
+            );
+          })}
+        </div>
       </section>
 
       <section className="bg-ink text-canvas py-24 border-y border-canvas/5">
@@ -354,8 +353,8 @@ function ResearchPage() {
 function Metric({ label, value }: { label: string; value: number }) {
   return (
     <div>
-      <CountUp end={value} className="font-display text-3xl font-semibold tracking-tight" />
-      <div className="eyebrow text-[9px] mt-1">{label}</div>
+      <CountUp end={value} className="font-display text-lg font-semibold tracking-tight" />
+      <div className="eyebrow text-[8px] mt-0.5">{label}</div>
     </div>
   );
 }
