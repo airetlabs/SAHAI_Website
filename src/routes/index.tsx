@@ -434,16 +434,16 @@ function StatCard({
 /* ─────────────────────────────────────────────────────── RESEARCH ECOSYSTEM */
 
 const domains = [
-  { id: "ml", title: "Machine Learning", note: "Learning · Prediction · Adaptation", projects: 1 },
-  { id: "dl", title: "Deep Learning", note: "Networks · Representation · Intelligence", projects: 1 },
-  { id: "cv", title: "Computational Science for Social Good", note: "Impact · Equity · Innovation", projects: 1 },
-  { id: "nlp", title: "Natural Language Processing", note: "Language · Semantics · Generation", projects: 1 },
-  { id: "gen", title: "Generative AI", note: "Creation · Reasoning · Innovation", projects: 1 },
-  { id: "hai", title: "Data Compression", note: "Efficiency · Encoding · Optimization", projects: 1 },
-  { id: "xai", title: "Human Computer Interaction", note: "Experience · Usability · Engagement", projects: 1 },
-  { id: "kg", title: "Knowledge Graphs", note: "Knowledge · Reasoning · Connections", projects: 1 },
-  { id: "edge", title: "Data Mining", note: "Patterns · Discovery · Insights", projects: 1 },
-  { id: "rob", title: "Computational Linguistics", note: "Language · Computation · Cognition", projects: 1 }
+  { id: "ml",  title: "Machine Learning",            note: "Learning · Prediction · Adaptation",projects:1 },
+  { id: "dl",  title: "Deep Learning",               note: "Networks · Representation · Intelligence",projects:1 },
+  { id: "cv",  title: "Computational Science for Social Good",             note: "Impact · Equity · Innovation",projects:1 },
+  { id: "nlp", title: "Natural Language Processing", note: "Language · Semantics · Generation",projects:1 },
+  { id: "gen", title: "Generative AI",               note: "Creation · Reasoning · Innovation" ,projects:1},
+  { id: "hai", title: "Data Compression",            note: "Efficiency · Encoding · Optimization",projects:1 },
+  { id: "xai", title: "Human Computer Interaction",  note: "Experience · Usability · Engagement",projects:1 },
+  { id: "kg",  title: "Knowledge Graphs",            note: "Knowledge · Reasoning · Connections",projects:1 },
+  { id: "edge",title: "Data Mining",                 note: "Patterns · Discovery · Insights",projects:1 },
+  { id: "rob", title: "Computational Linguistics",   note: "Language · Computation · Cognition",projects:1 }
 ];
 
 function ResearchEcosystem() {
@@ -530,7 +530,7 @@ const projects = [
     ],
     accent: "ember",
   },
-
+  
 ];
 
 function FeaturedProjects() {
@@ -899,7 +899,7 @@ function ArchitectureDiagram({ variant }: { variant: number }) {
 
 function Collaborators() {
   const partners = [
-    "IIT Madras", "IIT Indore", "BITS Pilani,Hyderabad Campus"
+    "IIT Madras","IIT Indore","BITS Pilani,Hyderabad Campus" 
   ];
   return (
     <section className="py-14 overflow-hidden border-y border-hairline">
@@ -994,30 +994,30 @@ function TestimonialsMarquee() {
           {[...testimonials, ...testimonials].map((t, i) => (
             <motion.div
               key={i}
-              whileHover={{
-                y: -12,
-                rotateX: 4,
-                rotateY: -4,
+              whileHover={{ 
+                y: -12, 
+                rotateX: 4, 
+                rotateY: -4, 
                 scale: 1.03,
               }}
               style={{ transformPerspective: 1200 }}
               className="w-[350px] md:w-[450px] shrink-0 p-8 md:p-10 rounded-3xl bg-canvas ring-1 ring-ember/40 shadow-xl shadow-ember/5 flex flex-col justify-between hover:shadow-[0_30px_60px_-15px_rgba(220,100,50,0.25)] hover:ring-ember/70 transition-all duration-300 group cursor-default"
             >
-              <div>
-                <div className="text-ember/50 text-6xl font-display leading-[0] mb-6 group-hover:text-ember transition-colors duration-500">"</div>
-                <p className="text-ink text-lg leading-relaxed mb-8">
-                  {t.quote}
-                </p>
-              </div>
-              <div className="flex items-center gap-4 mt-auto">
-                <div className="size-12 rounded-full bg-ember/10 flex items-center justify-center font-display font-semibold text-ember">
-                  {t.author.charAt(0)}
-                </div>
-                <div>
-                  <div className="font-semibold text-sm text-ink">{t.author}</div>
-                  <div className="text-xs text-ink-soft">{t.role}, {t.company}</div>
-                </div>
-              </div>
+               <div>
+                 <div className="text-ember/50 text-6xl font-display leading-[0] mb-6 group-hover:text-ember transition-colors duration-500">"</div>
+                 <p className="text-ink text-lg leading-relaxed mb-8">
+                   {t.quote}
+                 </p>
+               </div>
+               <div className="flex items-center gap-4 mt-auto">
+                 <div className="size-12 rounded-full bg-ember/10 flex items-center justify-center font-display font-semibold text-ember">
+                   {t.author.charAt(0)}
+                 </div>
+                 <div>
+                   <div className="font-semibold text-sm text-ink">{t.author}</div>
+                   <div className="text-xs text-ink-soft">{t.role}, {t.company}</div>
+                 </div>
+               </div>
             </motion.div>
           ))}
         </motion.div>
@@ -1075,7 +1075,8 @@ function FinalCTA() {
 function HomePage() {
   return (
     <>
-      <NittLogoBadge />
+    <NewsTicker />
+    
       <Hero />
       <AboutStory />
       <ImpactStats />

@@ -21,7 +21,7 @@ type ProjectItem = {
   id: string;
   title: string;
   status: "Ongoing" | "Completed";
-  type: "Funded" | "Hosted";
+  type: "Funded" | "Student";
   amount?: string;
   agency?: string;
   pi?: string[];
@@ -70,7 +70,7 @@ const projectData: ProjectItem[] = [
   },
   {
     id: "p3",
-    type: "Hosted",
+    type: "Student",
     status: "Completed",
     title: "Algorithm Visualizer",
     description: "An interactive web-based educational platform that helps students understand complex computer science algorithms through step-by-step graphical animations and real-time execution tracing.",
@@ -87,7 +87,7 @@ const projectData: ProjectItem[] = [
   },
   {
     id: "p4",
-    type: "Hosted",
+    type: "Student",
     status: "Completed",
     title: "Hungarian Method Visualizer",
     description: "A specialized tool designed to visually demonstrate the Hungarian algorithm for solving assignment problems, making mathematical optimization concepts intuitive and highly accessible.",
@@ -102,8 +102,8 @@ const projectData: ProjectItem[] = [
 ];
 
 function ProjectsPage() {
-  const [filter, setFilter] = useState<"Ongoing" | "Completed">("Ongoing");
-  const filtered = projectData.filter(p => p.status === filter);
+  const [filter, setFilter] = useState<"Funded" | "Student">("Funded");
+  const filtered = projectData.filter(p => p.type === filter);
 
   return (
     <>
@@ -116,7 +116,7 @@ function ProjectsPage() {
       <section className="container-page pb-24">
         <Reveal>
           <div className="flex flex-wrap gap-4 sm:gap-8 mb-12 border-b border-hairline pb-4">
-            {(["Ongoing", "Completed"] as const).map(f => (
+            {(["Funded", "Student"] as const).map(f => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}

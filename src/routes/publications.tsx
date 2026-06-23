@@ -1,7 +1,7 @@
 
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useId, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { PageHeader } from "../components/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../components/ui/tooltip";
@@ -91,6 +91,25 @@ const filters = ["All", "Conference", "Journal", "In review"];
 function PublicationsPage() {
   const [filter, setFilter] = useState("All");
   const filtered = pubs.filter((p) => filter === "All" || p.type === filter);
+  const [active, setActive] = useState<Pub | boolean | null>(null);
+  const id = useId();
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setActive(false);
+      }
+    }
+
+    if (active && typeof active === "object") {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [active]);
 
   return (
     <>
@@ -98,7 +117,9 @@ function PublicationsPage() {
         eyebrow="Publications · 152+"
         title={<>Scholarship as <span className="italic font-light text-ink/50">contribution.</span></>}
         description="Peer-reviewed work from SPARKS Lab researchers across the leading venues in machine learning, vision, language, and applied AI."
-      />
+      >
+        <ScrollIndicator />
+      </PageHeader>
 
       <section className="container-page pb-10">
         <Reveal>
@@ -123,124 +144,167 @@ function PublicationsPage() {
       </section>
 
       <section className="container-page pb-32">
-        <Stagger key={filter} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
-          {filtered.map((p, i) => (
-            <StaggerItem key={i}>
-              <PubCard pub={p} index={i} />
-            </StaggerItem>
+        <AnimatePresence>
+          {active && typeof active === "object" && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-ink/20 backdrop-blur-sm h-full w-full z-50"
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {active && typeof active === "object" ? (
+            <div className="fixed inset-0 grid place-items-center z-[100] p-4 sm:p-6">
+              <motion.button
+                key={`button-${active.title}-${id}`}
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, transition: { duration: 0.05 } }}
+                className="flex absolute top-4 right-4 lg:hidden items-center justify-center bg-surface ring-1 ring-border rounded-full h-8 w-8 text-ink z-[101]"
+                onClick={() => setActive(null)}
+              >
+                <CloseIcon />
+              </motion.button>
+              
+              {/* Overlay click to close */}
+              <div className="absolute inset-0 z-0" onClick={() => setActive(null)} />
+
+              <motion.div
+                layoutId={`card-${active.title}-${id}`}
+                className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-canvas sm:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-border relative z-10"
+              >
+                <motion.div layoutId={`image-${active.title}-${id}`} className={`relative h-60 sm:h-80 w-full overflow-hidden bg-gradient-to-br ${active.gradient}`}>
+                  <div className="absolute inset-0 bg-dotgrid opacity-30" />
+                  <div className="absolute inset-0 grid place-items-center opacity-80 scale-150">
+                    <PubGlyph variant={0} />
+                  </div>
+                  <div className="absolute top-4 left-4 font-mono text-[10px] text-ink/60 bg-canvas/60 px-2 py-1 rounded backdrop-blur-sm">
+                    {active.venue}
+                  </div>
+                </motion.div>
+
+                <div>
+                  <div className="flex justify-between items-start p-6">
+                    <div className="flex-1 pr-4">
+                      <motion.h3
+                        layoutId={`title-${active.title}-${id}`}
+                        className="font-display font-bold text-xl text-ink leading-tight"
+                      >
+                        {active.title}
+                      </motion.h3>
+                      <motion.p
+                        layoutId={`description-${active.title}-${id}`}
+                        className="text-sm font-mono text-ink-soft mt-2"
+                      >
+                        {active.authors}
+                      </motion.p>
+                    </div>
+
+                    {active.link && (
+                      <motion.a
+                        layoutId={`button-${active.title}-${id}`}
+                        href={active.link}
+                        target="_blank"
+                        className="px-4 py-3 text-sm rounded-full font-medium bg-ink text-canvas hover:bg-accent transition-colors shrink-0"
+                      >
+                        Read Paper
+                      </motion.a>
+                    )}
+                  </div>
+                  <div className="pt-2 relative px-6">
+                    <motion.div
+                      layout
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="text-ink-soft text-sm h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto leading-relaxed [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                    >
+                      <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono text-ink-soft mb-2">
+                         <span className="rounded bg-surface ring-1 ring-border px-2 py-0.5 text-ink">{active.category}</span>
+                         <span>{active.date}</span>
+                         <span>• {active.type}</span>
+                      </div>
+                      {active.body}
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          ) : null}
+        </AnimatePresence>
+
+        <ul className="grid gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden w-full">
+          {filtered.map((pub, index) => (
+            <motion.div
+              layoutId={`card-${pub.title}-${id}`}
+              key={`card-${pub.title}-${id}`}
+              onClick={() => setActive(pub)}
+              className="bg-surface p-6 flex flex-col md:flex-row justify-between items-center hover:bg-canvas cursor-pointer transition-colors group"
+            >
+              <div className="flex gap-6 flex-col md:flex-row w-full md:items-center">
+                <motion.div layoutId={`image-${pub.title}-${id}`} className={`relative h-40 w-full md:h-16 md:w-16 rounded-xl overflow-hidden bg-gradient-to-br ${pub.gradient} shrink-0`}>
+                   <div className="absolute inset-0 bg-dotgrid opacity-30" />
+                   <div className="absolute inset-0 grid place-items-center opacity-80 scale-75">
+                     <PubGlyph variant={index % 4} />
+                   </div>
+                </motion.div>
+                <div className="flex-1">
+                  <motion.h3
+                    layoutId={`title-${pub.title}-${id}`}
+                    className="font-display font-semibold text-lg text-ink text-center md:text-left leading-snug"
+                  >
+                    {pub.title}
+                  </motion.h3>
+                  <motion.p
+                    layoutId={`description-${pub.title}-${id}`}
+                    className="text-sm font-mono text-ink-soft text-center md:text-left mt-1"
+                  >
+                    {pub.authors}
+                  </motion.p>
+                </div>
+              </div>
+              <motion.button
+                layoutId={`button-${pub.title}-${id}`}
+                className="px-5 py-2.5 text-xs rounded-full font-medium bg-canvas ring-1 ring-border hover:bg-ink hover:text-canvas text-ink mt-4 md:mt-0 transition-colors shrink-0"
+              >
+                Click here
+              </motion.button>
+            </motion.div>
           ))}
-        </Stagger>
+        </ul>
       </section>
     </>
   );
 }
 
-function PubCard({ pub, index }: { pub: Pub; index: number }) {
+export const CloseIcon = () => {
   return (
-    <motion.article
-      whileHover={{ y: -6 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="group flex h-full flex-col overflow-hidden rounded-3xl bg-surface ring-1 ring-border hover:ring-ink hover:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.18)] transition-all"
+    <motion.svg
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.05 } }}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4 text-ink"
     >
-      {/* Image */}
-      <div className={`relative aspect-[16/10] overflow-hidden bg-gradient-to-br ${pub.gradient}`}>
-        <div className="absolute inset-0 bg-dotgrid opacity-30" />
-        <motion.div
-          className="absolute inset-0 grid place-items-center"
-          whileHover={{ scale: 1.06 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <PubGlyph variant={index % 4} />
-        </motion.div>
-        <div className="absolute top-4 left-4 flex items-center gap-2">
-          <span className="rounded-full bg-canvas/90 backdrop-blur ring-1 ring-border px-3 py-1 eyebrow text-[9px] text-ink">
-            {pub.category}
-          </span>
-        </div>
-        <div className="absolute bottom-4 right-4 font-mono text-[10px] text-ink/60">
-          {pub.venue}
-        </div>
-      </div>
-
-      {/* Body */}
-      <div className="flex flex-1 flex-col p-6">
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-3 text-[10px] font-mono text-ink-soft">
-            <span>{pub.date}</span>
-            <span className="size-1 rounded-full bg-ink/30" />
-            <span>{pub.type}</span>
-          </div>
-          {pub.link && (
-            <a
-              href={pub.link}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full bg-muted hover:bg-ink hover:text-canvas px-2.5 py-1 text-[10px] font-mono transition-colors shrink-0"
-            >
-              Read
-            </a>
-          )}
-        </div>
-        <h3 className="font-display text-xl font-semibold leading-tight text-ink group-hover:text-accent transition-colors">
-          {pub.title}
-        </h3>
-        <p className="mt-3 text-sm text-ink-soft leading-relaxed line-clamp-5 flex-1">
-          {pub.body}
-        </p>
-        <AuthorList authors={pub.authors.split(/,\s+(?![A-Z]\.|[A-Z]\b)|\s+and\s+/).filter(Boolean)} />
-      </div>
-    </motion.article>
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 6l-12 12" />
+      <path d="M6 6l12 12" />
+    </motion.svg>
   );
-}
+};
 
-function AuthorList({ authors }: { authors: string[] }) {
-  if (authors.length <= 3) {
-    return <p className="mt-4 text-xs font-mono text-ink-soft truncate">{authors.join(", ")}</p>;
-  }
 
-  const visibleAuthors = authors.slice(0, 2);
-  const hiddenCount = authors.length - 2;
-
-  const AuthorNames = () => (
-    <ul className="flex flex-col gap-1.5 max-h-[200px] overflow-y-auto font-sans text-sm">
-      {authors.map((author, i) => (
-        <li key={i} className="leading-snug">{author}</li>
-      ))}
-    </ul>
-  );
-
-  return (
-    <div className="mt-4 flex items-center text-xs font-mono text-ink-soft min-w-0">
-      <span className="truncate">{visibleAuthors.join(", ")}</span>
-      
-      {/* Desktop: Tooltip (hover) */}
-      <div className="hidden sm:block">
-        <TooltipProvider delayDuration={150}>
-          <Tooltip>
-            <TooltipTrigger className="ml-1 shrink-0 text-accent hover:underline focus:outline-none focus:ring-2 focus:ring-accent rounded-sm outline-none">
-              +{hiddenCount} more
-            </TooltipTrigger>
-            <TooltipContent side="top" align="start" className="z-50 max-w-[260px] bg-canvas text-ink border border-muted p-3 shadow-xl rounded-md">
-              <AuthorNames />
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
-
-      {/* Mobile: Popover (click) */}
-      <div className="block sm:hidden">
-        <Popover>
-          <PopoverTrigger className="ml-1 shrink-0 text-accent hover:underline focus:outline-none focus:ring-2 focus:ring-accent rounded-sm outline-none">
-            +{hiddenCount} more
-          </PopoverTrigger>
-          <PopoverContent side="top" align="start" className="z-50 max-w-[260px] bg-canvas text-ink border border-muted p-3 shadow-xl rounded-md">
-            <AuthorNames />
-          </PopoverContent>
-        </Popover>
-      </div>
-    </div>
-  );
-}
 
 function PubGlyph({ variant }: { variant: number }) {
   const stroke = "oklch(0.18 0.012 60 / 0.5)";
@@ -289,5 +353,23 @@ function PubGlyph({ variant }: { variant: number }) {
         return <circle key={deg} cx={x} cy={y} r="3" fill={accent} />;
       })}
     </svg>
+  );
+}
+
+function ScrollIndicator() {
+  return (
+    <motion.div
+      animate={{ y: [0, 8, 0] }}
+      transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+      className="flex flex-col items-start gap-3 text-accent/70 hover:text-accent transition-colors w-fit pt-4"
+    >
+      <span className="text-[10px] uppercase tracking-widest font-mono">Scroll to explore</span>
+      <div className="p-2 rounded-full border border-accent/20">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 5v14" />
+          <path d="m19 12-7 7-7-7" />
+        </svg>
+      </div>
+    </motion.div>
   );
 }

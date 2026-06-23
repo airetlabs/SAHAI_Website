@@ -39,7 +39,9 @@ function PatentsPage() {
         eyebrow="Patents · 4 total"
         title={<>Research, <span className="italic font-light text-ink/50">protected.</span></>}
         description="Four patents granted or filed across machine learning systems,  AI and IOT "
-      />
+      >
+        <ScrollIndicator />
+      </PageHeader>
 
       <section className="container-page pb-20">
         <Group title="Granted" eyebrow="01" items={patents.granted} status="Granted" />
@@ -110,5 +112,23 @@ function Group({ title, eyebrow, items, status }: { title: string; eyebrow: stri
         ))}
       </Stagger>
     </>
+  );
+}
+
+function ScrollIndicator() {
+  return (
+    <motion.div
+      animate={{ y: [0, 8, 0] }}
+      transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+      className="flex flex-col items-start gap-3 text-accent/70 hover:text-accent transition-colors w-fit pt-4"
+    >
+      <span className="text-[10px] uppercase tracking-widest font-mono">Scroll to explore</span>
+      <div className="p-2 rounded-full border border-accent/20">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 5v14" />
+          <path d="m19 12-7 7-7-7" />
+        </svg>
+      </div>
+    </motion.div>
   );
 }

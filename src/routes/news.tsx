@@ -44,11 +44,11 @@ function CarouselCard({ items }: { items: typeof carouselNews }) {
 
   useEffect(() => {
     if (isHovered) return;
-    
+
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % items.length);
-    }, 4500); // Rotate every 4.5 seconds
-    
+    }, 2500); // Rotate every 2.5 seconds
+
     return () => clearInterval(timer);
   }, [items.length, isHovered]);
 
@@ -80,7 +80,7 @@ function CarouselCard({ items }: { items: typeof carouselNews }) {
           </motion.div>
         </AnimatePresence>
       </div>
-      
+
       {/* Background decoration */}
       <motion.div
         className="absolute -top-10 -left-10 size-40 rounded-full bg-accent/10 blur-2xl group-hover:bg-accent/20 transition-colors duration-700"
@@ -89,9 +89,9 @@ function CarouselCard({ items }: { items: typeof carouselNews }) {
       {/* Slide Indicators */}
       <div className="absolute bottom-6 right-8 flex gap-1.5 z-20">
         {items.map((_, i) => (
-          <div 
-            key={i} 
-            className={`h-1.5 rounded-full transition-all duration-500 ${i === index ? "w-4 bg-accent" : "w-1.5 bg-ink/10"}`} 
+          <div
+            key={i}
+            className={`h-1.5 rounded-full transition-all duration-500 ${i === index ? "w-4 bg-accent" : "w-1.5 bg-ink/10"}`}
           />
         ))}
       </div>
@@ -112,7 +112,7 @@ function NewsPage() {
         <Reveal>
           {/* STATIC BENTO GRID */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr">
-            
+
             {/* MAIN CELL (Spans 2 columns) */}
             <motion.article
               whileHover={{ y: -4 }}
@@ -125,7 +125,7 @@ function NewsPage() {
                 animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
                 transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
               />
-              
+
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="rounded-full bg-accent text-ink px-3 py-1 eyebrow text-[9px] font-bold tracking-wider">{featuredNews.main.tag}</span>
@@ -149,7 +149,7 @@ function NewsPage() {
 
             {/* SIDE CELLS STACK */}
             <div className="grid grid-rows-2 gap-6 md:col-span-1 md:row-span-2">
-              
+
               {/* TOP SIDE CELL (Static) */}
               <motion.article
                 whileHover={{ y: -4 }}
@@ -165,7 +165,7 @@ function NewsPage() {
                   <p className="mt-3 text-sm text-ink-soft leading-relaxed">{featuredNews.sideTop.body}</p>
                 </div>
                 <motion.div
-                   className="absolute -bottom-10 -right-10 size-40 rounded-full bg-ember/10 blur-2xl group-hover:bg-ember/20 transition-colors duration-700"
+                  className="absolute -bottom-10 -right-10 size-40 rounded-full bg-ember/10 blur-2xl group-hover:bg-ember/20 transition-colors duration-700"
                 />
               </motion.article>
 
@@ -179,10 +179,10 @@ function NewsPage() {
 
       <section className="container-page pb-32">
         <Reveal className="mb-8">
-           <h3 className="font-display text-3xl font-semibold text-ink">Archive & Updates</h3>
-           <p className="text-ink-soft mt-2 text-sm">A chronological log of all laboratory activities.</p>
+          <h3 className="font-display text-3xl font-semibold text-ink">Archive & Updates</h3>
+          <p className="text-ink-soft mt-2 text-sm">A chronological log of all laboratory activities.</p>
         </Reveal>
-        
+
         <Stagger className="grid gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden" stagger={0.08}>
           {[featuredNews.main, featuredNews.sideTop, ...carouselNews].map((n) => (
             <StaggerItem key={n.title}>
