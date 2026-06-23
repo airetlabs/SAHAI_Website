@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 export function SiteFooter() {
   return (
     <footer className="mt-32 bg-ink text-canvas">
-      <div className="container-page py-20">
+      <div className="container-page py-10">
         <div className="grid gap-16 lg:grid-cols-[1.1fr_0.8fr_0.8fr_1.1fr_1.3fr]">
           <div>
             <div className="flex items-center gap-3 mb-6">
@@ -98,9 +98,20 @@ export function SiteFooter() {
           </div>
         </div>
 
+        <div className="mt-6 pt-4 border-t border-canvas/10 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+          <div className="flex flex-col gap-1.5">
+            <p className="eyebrow text-canvas/40">
+              © {new Date().getFullYear()} SPARKS Lab · All rights reserved
+            </p>
+<p className="eyebrow text-white">
+  Designed & Developed by
+</p>
 
-        <div className="mt-16 pt-8 border-t border-canvas/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <p className="eyebrow text-canvas/40">© {new Date().getFullYear()} SPARKS Lab · All rights reserved</p>
+<p className="eyebrow text-white mt-1">
+  Surya Ghosh · Nooh · Preetham Reddy · Aditi
+</p>
+          </div>
+
           <div className="flex items-center gap-6 text-xs text-canvas/50 font-mono">
             <span>v1.0 · Tiruchirappalli</span>
             <span className="hidden md:inline">Built for the future of AI</span>

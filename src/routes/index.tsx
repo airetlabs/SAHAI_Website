@@ -24,12 +24,51 @@ export const Route = createFileRoute("/")({
   }),
   component: HomePage,
 });
+/* ─────────────────────────────────────────────────────── NEWS TICKER */
 
+const announcements = [
+  "🎉 SPARKS Lab secures new NM-ICPS funding for MindScribe initiative",
+  "📄 New paper accepted at ACM TKDD — Configurable Graph Summarization",
+  "🤝 ICSSR-JSPS Joint Research Programme concludes successfully",
+  "🏆 Best Paper Award at ICoAC for hybrid PSO algorithms research",
+  "📢 Applications open for Summer Research Internship 2026",
+];
+function NewsTicker() {
+  return (
+    <div className="fixed top-17 left-0 right-0 z-[55] h-7 bg-ink text-canvas overflow-hidden flex items-center">
+      <Link
+        to="/news"
+        className="absolute left-0 top-0 bottom-0 flex items-center gap-2 px-3 bg-accent z-10 shrink-0 hover:brightness-110 transition-all cursor-pointer"
+      >
+        <span className="relative flex h-1.5 w-1.5">
+          <span className="absolute inset-0 rounded-full bg-canvas opacity-60 animate-ping" />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-canvas" />
+        </span>
+        <span className="eyebrow text-canvas text-[8px] tracking-wider">News</span>
+      </Link>
+
+      <div className="absolute inset-0 left-16">
+        <motion.div
+          className="flex w-max gap-10 items-center h-7 pl-4"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 35, ease: "linear", repeat: Infinity }}
+        >
+          {[...announcements, ...announcements].map((a, i) => (
+            <span key={i} className="text-[11px] text-canvas/80 whitespace-nowrap flex items-center gap-10">
+              {a}
+              <span className="text-canvas/30">•</span>
+            </span>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+}
 /* ────────────────────────────────────────────────────────────── HERO */
 
 function Hero() {
   return (
-    <section className="relative min-h-[94vh] flex items-center pt-24 pb-20 overflow-hidden">
+    <section className="relative min-h-[94vh] flex items-center pt-4 pb-20 overflow-hidden">
       {/* Backdrop layers — parallax depth */}
       <div className="absolute inset-0 -z-10 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
       <motion.div
@@ -229,6 +268,63 @@ function TrustBar() {
     </section>
   );
 }
+function AboutStory() {
+  return (
+    <section className="relative py-8 bg-[#F3E9DC] text-ink overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-[0.04]" />
+      <div className="container-page relative grid lg:grid-cols-[1fr_1.3fr] gap-16 items-start">
+        <Reveal className="lg:sticky lg:top-24">
+          <p className="eyebrow text-accent mb-6">02 · The Lab</p>
+          <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] text-balance">
+            We build the
+            <br />
+            <span className="italic font-light text-ink/50">infrastructure</span>
+            <br />
+            of intelligence.
+          </h2>
+        </Reveal>
+
+        <Reveal className="space-y-12 text-lg leading-relaxed text-ink/75">
+          <p className="text-2xl text-ink font-light leading-snug text-balance">
+            SPARKS Lab is a research ecosystem at the intersection of machine learning,
+            data compression, knowledge systems, and social media analytics.
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-8">
+            <div>
+              <p className="eyebrow text-accent mb-3">Mission</p>
+              <p className="text-sm text-ink/70 leading-relaxed">
+                To advance the science of artificial intelligence through rigorous research
+                and open knowledge systems that serve real human needs at scale.
+              </p>
+            </div>
+            <div>
+              <p className="eyebrow text-accent mb-3">Vision</p>
+              <p className="text-sm text-ink/70 leading-relaxed">
+                A future where intelligence is interpretable, equitable, and instrumental in
+                solving the most consequential problems of our time.
+              </p>
+            </div>
+          </div>
+
+          <ul className="space-y-3 border-t border-ink/10 pt-8">
+            {[
+              "Foundational research in data compression and pattern mining",
+              "Translational systems for text categorization and spam detection",
+              "Intelligent algorithms for healthcare and fake news detection",
+              "Mentoring the next generation of Indian AI researchers and engineers",
+            ].map((p) => (
+              <li key={p} className="flex gap-4 text-sm text-ink/70">
+                <span className="text-accent mt-1">→</span>
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
 
 /* ─────────────────────────────────────────────────────────── IMPACT STATS */
 
@@ -274,7 +370,7 @@ function ImpactStats() {
   }, []);
 
   return (
-    <section className="container-page py-28" ref={ref}>
+    <section className="container-page py-8" ref={ref}>
       <Reveal className="flex flex-col md:flex-row items-start md:items-end justify-between mb-14 gap-6">
         <div>
           <p className="eyebrow text-accent mb-4">01 · Impact</p>
@@ -333,63 +429,7 @@ function StatCard({
 
 /* ─────────────────────────────────────────────────────────── ABOUT STORY */
 
-function AboutStory() {
-  return (
-    <section className="relative py-32 bg-[#F3E9DC] text-ink overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-[0.04]" />
-      <div className="container-page relative grid lg:grid-cols-[1fr_1.3fr] gap-16 items-start">
-        <Reveal className="lg:sticky lg:top-24">
-          <p className="eyebrow text-accent mb-6">02 · The Lab</p>
-          <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] text-balance">
-            We build the
-            <br />
-            <span className="italic font-light text-ink/50">infrastructure</span>
-            <br />
-            of intelligence.
-          </h2>
-        </Reveal>
 
-        <Reveal className="space-y-12 text-lg leading-relaxed text-ink/75">
-          <p className="text-2xl text-ink font-light leading-snug text-balance">
-            SPARKS Lab is a research ecosystem at the intersection of machine learning,
-            data compression, knowledge systems, and social media analytics.
-          </p>
-
-          <div className="grid sm:grid-cols-2 gap-8">
-            <div>
-              <p className="eyebrow text-accent mb-3">Mission</p>
-              <p className="text-sm text-ink/70 leading-relaxed">
-                To advance the science of artificial intelligence through rigorous research
-                and open knowledge systems that serve real human needs at scale.
-              </p>
-            </div>
-            <div>
-              <p className="eyebrow text-accent mb-3">Vision</p>
-              <p className="text-sm text-ink/70 leading-relaxed">
-                A future where intelligence is interpretable, equitable, and instrumental in
-                solving the most consequential problems of our time.
-              </p>
-            </div>
-          </div>
-
-          <ul className="space-y-3 border-t border-ink/10 pt-8">
-            {[
-              "Foundational research in data compression and pattern mining",
-              "Translational systems for text categorization and spam detection",
-              "Intelligent algorithms for healthcare and fake news detection",
-              "Mentoring the next generation of Indian AI researchers and engineers",
-            ].map((p) => (
-              <li key={p} className="flex gap-4 text-sm text-ink/70">
-                <span className="text-accent mt-1">→</span>
-                <span>{p}</span>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
 
 /* ─────────────────────────────────────────────────────── RESEARCH ECOSYSTEM */
 
@@ -409,7 +449,7 @@ const domains = [
 function ResearchEcosystem() {
   const [hover, setHover] = useState<string | null>(null);
   return (
-    <section className="container-page py-32">
+    <section className="container-page py-22">
       <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 items-start">
         <Reveal className="lg:sticky lg:top-24">
           <p className="eyebrow text-accent mb-6">03 · Ecosystem</p>
@@ -490,17 +530,7 @@ const projects = [
     ],
     accent: "ember",
   },
-  {
-    tag: "Hosted",
-    title: "Algorithm Visualizer",
-    body: "An interactive web-based educational platform that helps students understand complex computer science algorithms through real-time execution tracing.",
-    metrics: [
-      ["Type", "Education"],
-      ["Status", "Completed"],
-      ["Live", "Yes"],
-    ],
-    accent: "sage",
-  },
+  
 ];
 
 function FeaturedProjects() {
@@ -522,7 +552,7 @@ function FeaturedProjects() {
           </Link>
         </Reveal>
 
-        <Stagger className="space-y-8">
+        <Stagger className="space-y-5">
           {projects.map((p, i) => (
             <StaggerItem key={p.title}>
               <article
@@ -677,7 +707,7 @@ const timeline = [
 
 function ImpactTimeline() {
   return (
-    <section className="container-page py-32 overflow-hidden">
+    <section className="container-page py-12 overflow-hidden">
       <Reveal className="max-w-2xl mb-20">
         <p className="eyebrow text-accent mb-4">05 · Timeline</p>
         <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] text-balance">
@@ -756,7 +786,7 @@ function PublicationsPreview() {
                 className={`grid lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden ring-1 ring-ink/10 bg-white hover:bg-[#FAF7F3] transition-colors ${i % 2 === 0 ? "" : "lg:[&>*:first-child]:order-2"
                   }`}
               >
-                <div className="lg:col-span-8 aspect-[21/10] lg:aspect-auto bg-[#F0E5D8] relative overflow-hidden">
+                <div className="lg:col-span-8 aspect-[21/10] lg:aspect-auto bg-[#FFFFFF] relative overflow-hidden">
                   <div className="absolute inset-0 bg-grid opacity-[0.08]" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <ArchitectureDiagram variant={i} />
@@ -852,7 +882,6 @@ function ArchitectureDiagram({ variant }: { variant: number }) {
         const x = 80 + i * 75;
         return (
           <g key={i}>
-            <rect x={x - 18} y="130" width="36" height="40" rx="4" fill="oklch(0.18 0.012 60 / 0.05)" stroke="oklch(0.68 0.165 55 / 0.5)" />
             <line x1={x} y1="170" x2={x} y2="220" stroke="oklch(0.18 0.012 60 / 0.2)" strokeDasharray="2 3" />
             <circle cx={x} cy="240" r="6" fill="oklch(0.6 0.18 35 / 0.7)" />
           </g>
@@ -870,22 +899,20 @@ function ArchitectureDiagram({ variant }: { variant: number }) {
 
 function Collaborators() {
   const partners = [
-    "IIT Madras", "AIIMS Delhi", "DST India", "Microsoft Research",
-    "NVIDIA", "Google Research", "ISRO", "TCS Research",
-    "Wadhwani AI", "Stanford HAI", "Mila Quebec", "Intel Labs",
+    "IIT Madras","IIT Indore","BITS Pilani,Hyderabad Campus" 
   ];
   return (
-    <section className="py-24 overflow-hidden border-y border-hairline">
+    <section className="py-14 overflow-hidden border-y border-hairline">
       <div className="container-page mb-12">
         <div className="flex items-end justify-between flex-wrap gap-6">
           <div>
             <p className="eyebrow text-accent mb-4">07 · Network</p>
             <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight max-w-xl text-balance">
-              Built with the world's leading institutions.
+              Built with India's leading institutions.
             </h2>
           </div>
           <p className="text-sm text-ink-soft max-w-xs leading-relaxed">
-            Joint research, shared infrastructure and cross-continental scholar exchange
+            Joint research, shared infrastructure and scholar exchange
             programs with 24+ partner organizations.
           </p>
         </div>
@@ -1003,9 +1030,9 @@ function TestimonialsMarquee() {
 
 function FinalCTA() {
   return (
-    <section className="relative py-40 overflow-hidden">
+    <section className="relative py-10 overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-grid opacity-30 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-accent/8 blur-[140px] -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-accent/8 blur-[140px] -z-10" />
 
       <div className="container-page text-center">
         <p className="eyebrow text-accent mb-8">Join SPARKS</p>
@@ -1048,17 +1075,18 @@ function FinalCTA() {
 function HomePage() {
   return (
     <>
+    <NewsTicker />
     <NittLogoBadge />
+    
       <Hero />
-      <TrustBar />
-      <ImpactStats />
       <AboutStory />
+      <ImpactStats />
       <ResearchEcosystem />
       <FeaturedProjects />
       <ImpactTimeline />
       <PublicationsPreview />
       <Collaborators />
-      <TestimonialsMarquee />
+      {/* <TestimonialsMarquee /> */}
       <FinalCTA />
     </>
   );
