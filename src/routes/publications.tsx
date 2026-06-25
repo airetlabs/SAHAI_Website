@@ -27,70 +27,196 @@ type Pub = {
 };
 
 const pubs: Pub[] = [
-  { venue: "NeurIPS 2024", type: "Conference", year: 2024, date: "Dec 2024", category: "Knowledge Systems", title: "Recursive Knowledge Graphs for Generative Reasoning", authors: "Abdullah A., Sharma R., Krishnan V.", body: "Structured knowledge graphs constrain LLM hallucinations through dynamic retrieval and iterative self-correction across multi-hop chains.", citations: 42, gradient: "from-accent/30 via-canvas to-sage/20" },
-  { venue: "CVPR 2024", type: "Conference", year: 2024, date: "Jun 2024", category: "Computer Vision", title: "Dynamic Latent Inference for Heterogeneous Edge Devices", authors: "Iyer M., Abdullah A., Patel S.", body: "Decentralized framework for adaptive vision-model updates across constrained IoT hardware in real time.", citations: 28, gradient: "from-accent/20 via-muted to-ink/10" },
-  { venue: "ACL 2024", type: "Conference", year: 2024, date: "Aug 2024", category: "NLP", title: "Atlas — A Multilingual Foundation Model for 22 Indian Languages", authors: "Reddy V., Abdullah A., et al.", body: "Open release of a 7B-parameter foundation model with strong cross-lingual transfer across low-resource Indic languages.", citations: 89, gradient: "from-sage/20 via-muted to-accent/30" },
-  { venue: "ICLR 2024", type: "Conference", year: 2024, date: "May 2024", category: "Deep Learning", title: "Sparse Attention Distillation for Real-Time Inference", authors: "Patel S., Abdullah A.", body: "40% latency reduction on transformer inference with no accuracy degradation on a benchmark suite of 12 tasks.", citations: 35, gradient: "from-accent/25 via-canvas to-sage/15" },
-  { venue: "EMNLP 2023", type: "Conference", year: 2023, date: "Dec 2023", category: "NLP", title: "Low-Resource Language Adaptation via Hierarchical Distillation", authors: "Krishnan P., Joshi N.", body: "Methodology for adapting large multilingual models to low-resource South Asian languages efficiently.", citations: 31, gradient: "from-sage/25 via-canvas to-accent/15" },
-  { venue: "MICCAI 2023", type: "Conference", year: 2023, date: "Sep 2023", category: "Healthcare AI", title: "Early Stroke Prediction from Continuous Vital Signs", authors: "Sharma R., et al.", body: "Temporal transformer architecture deployed at three Indian tertiary care hospitals with 94% precision.", citations: 24, gradient: "from-accent/20 via-canvas to-muted" },
-  { venue: "AAAI 2023", type: "Conference", year: 2023, date: "Feb 2023", category: "Explainable AI", title: "Counterfactual Probing for Vision-Language Models", authors: "Menon A., Iyer M.", body: "Diagnostic toolkit for probing what vision-language models truly know vs. memorize.", citations: 19, gradient: "from-accent/15 via-muted to-sage/20" },
   {
-    venue: "ACM Trans. on Knowledge Discovery from Data", type: "Journal", year: 2026, date: "2026", category: "Graph Analytics", title: "CGS: Configurable Graph Summarization with Bounded Neighborhood Loss and Query Support",
+    venue: "ACM Trans. on Knowledge Discovery from Data", type: "Journal", year: 2026, date: "2026", category: "Data Mining & Graph Analytics", title: "CGS: Configurable Graph Summarization with Bounded Neighborhood Loss and Query Support",
     authors: "Mitra, S., Elza Simon, S., Oswald, C., Bhattacharya, A. and Pal, A.",
     body: "Configurable Graph Summarization with Bounded Neighborhood Loss and Query Support.", citations: 0, gradient: "from-accent/30 via-canvas to-sage/20", link: "https://dl.acm.org/doi/10.1145/3786788"
   },
   {
-    venue: "ACM Transactions on the Web (TWEB)", type: "Journal", year: 2022, date: "2022", category: "NLP", title: "Spotspam: Intention analysis–driven sms spam detection using bert embeddings",
+    venue: "ACM Transactions on the Web (TWEB)", type: "Journal", year: 2022, date: "2022", category: "NLP & LLMs", title: "Spotspam: Intention analysis–driven sms spam detection using bert embeddings",
     authors: "Oswald, C., Simon, S.E. and Bhattacharya, A.",
     body: "Intention analysis-driven sms spam detection using bert embeddings.", citations: 0, gradient: "from-sage/30 via-canvas to-accent/20", link: "https://dl.acm.org/doi/10.1145/3538491"
   },
   {
-    venue: "Data Science Journal", type: "Journal", year: 2018, date: "2018", category: "Data Compression", title: "Text and image compression based on data mining perspective",
+    venue: "Data Science Journal", type: "Journal", year: 2018, date: "2018", category: "Multimedia Compression & Security", title: "Text and image compression based on data mining perspective",
     authors: "Oswald, C. and Sivaselvan, B.",
     body: "Text and image compression based on data mining perspective.", citations: 0, gradient: "from-accent/20 via-muted to-ink/10", link: "http://doi.org/10.5334/dsj-2018-012"
   },
   {
-    venue: "The Computer Journal", type: "Journal", year: 2023, date: "2023", category: "Data Compression", title: "Smart Multimedia Compressor—Intelligent Algorithms for Text and Image Compression",
+    venue: "The Computer Journal", type: "Journal", year: 2023, date: "2023", category: "Multimedia Compression & Security", title: "Smart Multimedia Compressor—Intelligent Algorithms for Text and Image Compression",
     authors: "Oswald, C. and Sivaselvan, B.",
     body: "Intelligent Algorithms for Text and Image Compression.", citations: 0, gradient: "from-sage/20 via-muted to-accent/30", link: "https://doi.org/10.1093/comjnl/bxab173"
   },
   {
-    venue: "Concurrency and Computation: Practice and Experience", type: "Journal", year: 2021, date: "2021", category: "Image Compression", title: "An efficient and novel data clustering and run length encoding approach to image compression",
+    venue: "Concurrency and Computation: Practice and Experience", type: "Journal", year: 2021, date: "2021", category: "Multimedia Compression & Security", title: "An efficient and novel data clustering and run length encoding approach to image compression",
     authors: "C. Oswald, Haritha, E., Akash Raja, A. and Sivaselvan, B.",
     body: "An efficient and novel data clustering and run length encoding approach to image compression.", citations: 0, gradient: "from-accent/25 via-canvas to-sage/15", link: "https://onlinelibrary.wiley.com/doi/10.1002/cpe.6185"
   },
   {
-    venue: "Journal of Ambient Intelligence and Humanized Computing", type: "Journal", year: 2018, date: "2018", category: "Text Compression", title: "An optimal text compression algorithm based on frequent pattern mining",
+    venue: "Journal of Ambient Intelligence and Humanized Computing", type: "Journal", year: 2018, date: "2018", category: "Multimedia Compression & Security", title: "An optimal text compression algorithm based on frequent pattern mining",
     authors: "Oswald, C. and Sivaselvan, B.",
     body: "An optimal text compression algorithm based on frequent pattern mining.", citations: 0, gradient: "from-muted via-canvas to-accent/20", link: "https://doi.org/10.1007/s12652-017-0540-2"
   },
   {
-    venue: "Intl. Journal of Computer Information Systems and Industrial Management Applications", type: "Journal", year: 2023, date: "2023", category: "Security", title: "A Novel and Efficient Multilayered Approach to CAPTCHA: Design, Performance and Usability Evaluation",
+    venue: "Intl. Journal of Computer Information Systems and Industrial Management Applications", type: "Journal", year: 2023, date: "2023", category: "HCI, Usability & Security", title: "A Novel and Efficient Multilayered Approach to CAPTCHA: Design, Performance and Usability Evaluation",
     authors: "Navansh Goel, Tejaswi Kumar and C. Oswald",
     body: "A Novel and Efficient Multilayered Approach to CAPTCHA: Design, Performance and Usability Evaluation.", citations: 0, gradient: "from-sage/25 via-canvas to-accent/15", link: "https://www.mirlabs.org/ijcisim/regular_papers_2023/Paper39.pdf"
   },
   {
-    venue: "Annals of Data Science", type: "In review", year: 2024, date: "In review", category: "NLP", title: "Offensive Text Detection in Code-mixed Dravidian Languages Towards Marginalized Groups and Women",
+    venue: "Annals of Data Science", type: "In review", year: 2024, date: "In review", category: "NLP & LLMs", title: "Offensive Text Detection in Code-mixed Dravidian Languages Towards Marginalized Groups and Women",
     authors: "Lokkamithran M, Mubeena, Joshua Mahadevan",
     body: "Offensive Text Detection in Code-mixed Dravidian Languages Towards Marginalized Groups and Women.", citations: 0, gradient: "from-accent/20 via-canvas to-muted", link: "https://scholar.google.com/scholar?q=Offensive%20Text%20Detection%20in%20Code-mixed%20Dravidian%20Languages%20Towards%20Marginalized%20Groups%20and%20Women"
   },
   {
-    venue: "The Expert Systems Journal", type: "In review", year: 2024, date: "In review", category: "Social Media Analysis", title: "DEFENSE: Detection of COVID-19 Fake News in Social Media Posts using Feature Engineering and Sentence Embedding",
+    venue: "The Expert Systems Journal", type: "In review", year: 2024, date: "In review", category: "NLP & LLMs", title: "DEFENSE: Detection of COVID-19 Fake News in Social Media Posts using Feature Engineering and Sentence Embedding",
     authors: "C. Oswald, Allen P. Alex and Arnab Bhattacharya",
     body: "Detection of COVID-19 Fake News in Social Media Posts using Feature Engineering and Sentence Embedding.", citations: 0, gradient: "from-sage/25 via-canvas to-accent/15", link: "https://scholar.google.com/scholar?q=Detection%20of%20COVID-19%20Fake%20News%20in%20Social%20Media%20Posts%20using%20Feature%20Engineering%20and%20Sentence%20Embedding"
   },
   {
-    venue: "Annals of Data Science", type: "In review", year: 2024, date: "In review", category: "Data Science", title: "Discovering Depression in Reddit: Addressing the Under-Represented Users in Social Media",
+    venue: "Annals of Data Science", type: "In review", year: 2024, date: "In review", category: "AI for Healthcare & Social Good", title: "Discovering Depression in Reddit: Addressing the Under-Represented Users in Social Media",
     authors: "C. Oswald, Suyash Chaudhary and Arnab Bhattacharya",
     body: "Discovering Depression in Reddit: Addressing the Under-Represented Users in Social Media.", citations: 0, gradient: "from-accent/15 via-muted to-sage/20", link: "https://scholar.google.com/scholar?q=Discovering%20Depression%20in%20Reddit%3A%20Addressing%20the%20Under-Represented%20Users%20in%20Social%20Media"
+  },
+  {
+    venue: "ICSCST 2026", type: "Conference", year: 2026, date: "2026", category: "Education Technology", title: "Bridging Textbook Content and Interactive Visualizations: AI-Driven Multilingual Resources for SMART Pedagogy",
+    authors: "Vasan ML, R. Vinish Krishna, Naveen Ragav, Nikhil Gudapati, Kalyan Sudarsan, Rachel Philip, Oswald C",
+    body: "Bridging Textbook Content and Interactive Visualizations: AI-Driven Multilingual Resources for SMART Pedagogy.", citations: 0, gradient: "from-accent/30 via-canvas to-sage/20"
+  },
+  {
+    venue: "ICSCST 2026", type: "Conference", year: 2026, date: "2026", category: "NLP & LLMs", title: "A Study on Named Entity Recognition in Tamil Language using Multilingual Transformers and Sequence Models",
+    authors: "Abhijith Balan, Aranganathan S, Oswald C",
+    body: "A Study on Named Entity Recognition in Tamil Language using Multilingual Transformers and Sequence Models.", citations: 0, gradient: "from-sage/30 via-canvas to-accent/20"
+  },
+  {
+    venue: "ICSCST 2026", type: "Conference", year: 2026, date: "2026", category: "NLP & LLMs", title: "Attention-Based Fusion for Malayalam Hate Speech Detection Using MuRIL and XLM-R",
+    authors: "Abhijith Balan, Rohan Jose, Oswald C",
+    body: "Attention-Based Fusion for Malayalam Hate Speech Detection Using MuRIL and XLM-R.", citations: 0, gradient: "from-accent/20 via-muted to-ink/10"
+  },
+  {
+    venue: "arXiv 2025", type: "Conference", year: 2025, date: "2025", category: "NLP & LLMs", title: "The Riddle of Reflection: Evaluating Reasoning and Self-Awareness in Multilingual LLMs using Indian Riddles",
+    authors: "Abhinav P M, Ojasva Saxena, Oswald C, Parameswari Krishnamurthy",
+    body: "Evaluating Reasoning and Self-Awareness in Multilingual LLMs using Indian Riddles.", citations: 0, gradient: "from-sage/20 via-muted to-accent/30", link: "https://arxiv.org/abs/2511.00960"
+  },
+  {
+    venue: "PACLIC 2025", type: "Conference", year: 2025, date: "2025", category: "NLP & LLMs", title: "VIDAI: VIDukathAI Interpretation Through Analysis of In-Context Reasoning in Tamil using LLMs",
+    authors: "R S Mughil Srinivasan, Kesavan T, Abhijith Balan, Abhinav P M, Parameswari Krishnamurthy, Oswald C",
+    body: "VIDukathAI Interpretation Through Analysis of In-Context Reasoning in Tamil using LLMs.", citations: 0, gradient: "from-accent/25 via-canvas to-sage/15", link: "https://aclanthology.org/2025.paclic-1.36/"
+  },
+  {
+    venue: "PACLIC 2024", type: "Conference", year: 2024, date: "2024", category: "NLP & LLMs", title: "Aganittyam: Learning Tamil Grammar through Knowledge Graph based Templatized Question Answering",
+    authors: "Mithilesh K, Madhumalararungeethayan A, Balan A, Oswald C, Terdalkar H",
+    body: "Learning Tamil Grammar through Knowledge Graph based Templatized Question Answering.", citations: 0, gradient: "from-muted via-canvas to-accent/20", link: "https://aclanthology.org/2024.paclic-1.81/"
+  },
+  {
+    venue: "FIRE 2024", type: "Conference", year: 2024, date: "2024", category: "NLP & LLMs", title: "Indian Language Summarization and Factual Error Detection using Pretrained Sequence-to-Sequence Models and LLMs",
+    authors: "Abhijith Balan, Karthik Chitthoor, Oswald C",
+    body: "Indian Language Summarization and Factual Error Detection using Pretrained Sequence-to-Sequence Models and LLMs.", citations: 0, gradient: "from-sage/25 via-canvas to-accent/15", link: "https://ceur-ws.org/Vol-4054/T1-7.pdf"
+  },
+  {
+    venue: "ICON 2024", type: "Conference", year: 2024, date: "2024", category: "Generative AI", title: "Landscape Painter: Mimicking Human Like Art Using Generative Adversarial Networks",
+    authors: "Yash Gogoriya, Oswald C, Abhijith Balan",
+    body: "Mimicking Human Like Art Using Generative Adversarial Networks.", citations: 0, gradient: "from-accent/20 via-canvas to-muted", link: "https://aclanthology.org/2024.icon-1.71/"
+  },
+  {
+    venue: "ORSI/ICBAI 2023", type: "Conference", year: 2023, date: "2023", category: "Predictive Analytics & Finance", title: "FoCID: Forecasting Cryptocurrency Investment Decision using Deep Learning and Ensemble Models",
+    authors: "K. Tulip Raaj, C. Oswald",
+    body: "Forecasting Cryptocurrency Investment Decision using Deep Learning and Ensemble Models.", citations: 0, gradient: "from-sage/25 via-canvas to-accent/15"
+  },
+  {
+    venue: "ORSI/ICBAI 2023", type: "Conference", year: 2023, date: "2023", category: "Predictive Analytics & Finance", title: "Data-Driven Predictive Maintenance: Machine Learning based Prediction of Machine Failures",
+    authors: "P.M. Isai Visaahan, N.V. Karthik Balaji, C. Oswald",
+    body: "Machine Learning based Prediction of Machine Failures.", citations: 0, gradient: "from-accent/15 via-muted to-sage/20"
+  },
+  {
+    venue: "CODS-COMAD 2022", type: "Conference", year: 2022, date: "2022", category: "AI for Healthcare & Social Good", title: "Prediction of cardiovascular disease (CVD) using ensemble learning algorithms",
+    authors: "Oswald, Jaya Sathwika G., Bhattacharya A.",
+    body: "Prediction of cardiovascular disease (CVD) using ensemble learning algorithms.", citations: 0, gradient: "from-accent/30 via-canvas to-sage/20", link: "https://oswaldc.netlify.app/My%20Papers/cods.pdf"
+  },
+  {
+    venue: "INDICON 2022", type: "Conference", year: 2022, date: "2022", category: "Predictive Analytics & Finance", title: "Divorce Astrologer: Machine Learning based Divorce Prediction of Married Couples",
+    authors: "Oswald C, Baranwal S, Narayanan S.S.S., Bhattacharya A",
+    body: "Machine Learning based Divorce Prediction of Married Couples.", citations: 0, gradient: "from-sage/30 via-canvas to-accent/20", link: "https://ieeexplore.ieee.org/abstract/document/10040167"
+  },
+  {
+    venue: "ICICC 2021", type: "Conference", year: 2021, date: "2021", category: "HCI, Usability & Security", title: "Usability Evaluation of Novel Text CAPTCHA Schemes Based on Colors and Shapes",
+    authors: "Kumar T, Goel N, Roy S, Oswald C",
+    body: "Usability Evaluation of Novel Text CAPTCHA Schemes Based on Colors and Shapes.", citations: 0, gradient: "from-accent/20 via-muted to-ink/10", link: "https://link.springer.com/chapter/10.1007/978-981-16-2597-8_30"
+  },
+  {
+    venue: "ICCCSP 2018", type: "Conference", year: 2018, date: "2018", category: "Multimedia Compression & Security", title: "Closed Frequent Itemset Mining Approach to Image Security Enhancement",
+    authors: "Swetha M.H., Sivaselvan B., Oswald C",
+    body: "Closed Frequent Itemset Mining Approach to Image Security Enhancement.", citations: 0, gradient: "from-sage/20 via-muted to-accent/30", link: "https://ieeexplore.ieee.org/abstract/document/8452846"
+  },
+  {
+    venue: "ICCCSP 2018", type: "Conference", year: 2018, date: "2018", category: "HCI, Usability & Security", title: "Emergent User Design Framework for E-Payment Mobile Application",
+    authors: "Surendran S, Sivaselvan B, Oswald C",
+    body: "Emergent User Design Framework for E-Payment Mobile Application.", citations: 0, gradient: "from-accent/25 via-canvas to-sage/15", link: "https://ieeexplore.ieee.org/abstract/document/8452855"
+  },
+  {
+    venue: "ICCCSP 2018", type: "Conference", year: 2018, date: "2018", category: "HCI, Usability & Security", title: "Gamification paradigm for WebApps design framework",
+    authors: "Gunta K, Sivaselvan B, Oswald C",
+    body: "Gamification paradigm for WebApps design framework.", citations: 0, gradient: "from-muted via-canvas to-accent/20", link: "https://ieeexplore.ieee.org/abstract/document/8452840"
+  },
+  {
+    venue: "INDICON 2017", type: "Conference", year: 2017, date: "2017", category: "Multimedia Compression & Security", title: "Lossy Image Compression using Frequent Pattern Mining based Huffman Encoding",
+    authors: "Biswas S, Chennu N, Valveti H, Oswald C, Sivaselvan B",
+    body: "Lossy Image Compression using Frequent Pattern Mining based Huffman Encoding.", citations: 0, gradient: "from-sage/25 via-canvas to-accent/15", link: "https://ieeexplore.ieee.org/abstract/document/8487850"
+  },
+  {
+    venue: "ICoAC 2017", type: "Conference", year: 2017, date: "2017", category: "HCI, Usability & Security", title: "A novel gamification approach to recommendation based mobile applications",
+    authors: "Neeraj S, Oswald C, Sivaselvan B",
+    body: "A novel gamification approach to recommendation based mobile applications.", citations: 0, gradient: "from-accent/20 via-canvas to-muted", link: "https://ieeexplore.ieee.org/abstract/document/8441300"
+  },
+  {
+    venue: "INDICON 2017", type: "Conference", year: 2017, date: "2017", category: "HCI, Usability & Security", title: "Automatic Ranking of CAPTCHAs based on Usability Measures",
+    authors: "Chaurasia K, Jain S, Sivaselvan B, Oswald C",
+    body: "Automatic Ranking of CAPTCHAs based on Usability Measures.", citations: 0, gradient: "from-sage/25 via-canvas to-accent/15", link: "https://ieeexplore.ieee.org/abstract/document/8487993"
+  },
+  {
+    venue: "INDICON 2016", type: "Conference", year: 2016, date: "2016", category: "Multimedia Compression & Security", title: "Lossy image compression—A frequent sequence mining perspective employing efficient clustering",
+    authors: "Kadimisetty A, Oswald C, Sivaselvan B, Alekhya K",
+    body: "Lossy image compression—A frequent sequence mining perspective employing efficient clustering.", citations: 0, gradient: "from-accent/15 via-muted to-sage/20", link: "https://ieeexplore.ieee.org/abstract/document/7838977"
+  },
+  {
+    venue: "ADCOM 2016", type: "Conference", year: 2016, date: "2016", category: "Multimedia Compression & Security", title: "Frequent Pattern Mining Approach to Image Compression",
+    authors: "Kadimisetty A, Oswald C, Sivaselvan B",
+    body: "Frequent Pattern Mining Approach to Image Compression.", citations: 0, gradient: "from-accent/30 via-canvas to-sage/20", link: "https://ieeexplore.ieee.org/abstract/document/8385599"
+  },
+  {
+    venue: "INDICON 2015", type: "Conference", year: 2015, date: "2015", category: "Multimedia Compression & Security", title: "Knowledge engineering perspective of text compression",
+    authors: "Oswald C, Ghosh A.I., Sivaselvan B",
+    body: "Knowledge engineering perspective of text compression.", citations: 0, gradient: "from-sage/30 via-canvas to-accent/20", link: "https://ieeexplore.ieee.org/abstract/document/7443683"
+  },
+  {
+    venue: "ICoAC 2013", type: "Conference", year: 2013, date: "2013", category: "Optimization", title: "Novel hybrid PSO algorithms with search optimization strategies for a University Course Timetabling Problem",
+    authors: "Oswald C",
+    body: "Novel hybrid PSO algorithms with search optimization strategies for a University Course Timetabling Problem.", citations: 0, gradient: "from-accent/20 via-muted to-ink/10", link: "https://ieeexplore.ieee.org/abstract/document/6921931"
   }
+];
+
+const topics = [
+  "All Topics",
+  "NLP & LLMs",
+  "Data Mining & Graph Analytics",
+  "Multimedia Compression & Security",
+  "AI for Healthcare & Social Good",
+  "Generative AI",
+  "Predictive Analytics & Finance",
+  "HCI, Usability & Security",
+  "Education Technology",
+  "Optimization"
 ];
 
 const filters = ["All", "Conference", "Journal", "In review"];
 
 function PublicationsPage() {
   const [filter, setFilter] = useState("All");
-  const filtered = pubs.filter((p) => filter === "All" || p.type === filter);
+  const [topic, setTopic] = useState("All Topics");
+  const filtered = pubs.filter((p) => {
+    const typeMatch = filter === "All" || p.type === filter;
+    const topicMatch = topic === "All Topics" || p.category === topic;
+    return typeMatch && topicMatch;
+  });
   const [active, setActive] = useState<Pub | boolean | null>(null);
   const id = useId();
 
@@ -136,6 +262,24 @@ function PublicationsPage() {
                 {f}
               </button>
             ))}
+            
+            <div className="ml-2 relative">
+              <select
+                value={topic}
+                onChange={(e) => setTopic(e.target.value)}
+                className="appearance-none bg-surface ring-1 ring-border text-ink-soft rounded-full px-4 py-2 pr-8 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-ink"
+              >
+                {topics.map(t => (
+                  <option key={t} value={t}>{t}</option>
+                ))}
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-ink-soft">
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+
             <div className="ml-auto font-mono text-xs text-ink-soft">
               {filtered.length} papers
             </div>

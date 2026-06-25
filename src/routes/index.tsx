@@ -679,8 +679,8 @@ function Collaborators() {
       <div className="relative">
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-canvas to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-canvas to-transparent z-10" />
-        <div className="flex gap-12 animate-marquee whitespace-nowrap py-4">
-          {[...partners, ...partners].map((p, i) => (
+        <div className="flex w-max gap-12 pr-12 animate-marquee whitespace-nowrap py-4" style={{ animationDuration: "120s" }}>
+          {Array(20).fill(partners).flat().map((p, i) => (
             <div
               key={i}
               className="font-display text-2xl lg:text-3xl font-semibold text-ink/30 hover:text-ink transition-colors flex-shrink-0"
