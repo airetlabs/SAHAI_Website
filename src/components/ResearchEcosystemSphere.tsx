@@ -456,7 +456,7 @@ export function ResearchEcosystemSphere() {
           <div className="relative grid place-items-center size-24 sm:size-28 rounded-full bg-ink text-canvas shadow-[0_20px_60px_-10px_oklch(0.18_0.012_60/0.5)] ring-1 ring-ink/40">
             <div className="text-center">
               <div className="font-display text-lg font-semibold leading-none">SPARKS</div>
-              <div className="eyebrow text-[8px] text-accent mt-1">CORE · AI</div>
+              <div className="eyebrow text-[12px] text-accent mt-1">Research</div>
             </div>
           </div>
         </div>

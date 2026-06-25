@@ -35,28 +35,42 @@ const announcements = [
 ];
 function NewsTicker() {
   return (
-    <div className="fixed top-17 left-0 right-0 z-[55] h-7 bg-ink text-canvas overflow-hidden flex items-center">
-      <Link
-        to="/news"
-        className="absolute left-0 top-0 bottom-0 flex items-center gap-2 px-3 bg-accent z-10 shrink-0 hover:brightness-110 transition-all cursor-pointer"
+    <div className="fixed top-17 left-0 right-0 z-[55] h-10 bg-ink text-canvas overflow-hidden flex items-center">
+      {/* News Label */}
+      <a
+        href="https://www.nitt.edu/home/announcements/news/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute left-0 top-0 bottom-0 flex items-center gap-2 px-5 bg-accent z-10 shrink-0 hover:brightness-110 transition-all cursor-pointer"
       >
-        <span className="relative flex h-1.5 w-1.5">
+        <span className="relative flex h-2 w-2">
           <span className="absolute inset-0 rounded-full bg-canvas opacity-60 animate-ping" />
-          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-canvas" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-canvas" />
         </span>
-        <span className="eyebrow text-canvas text-[8px] tracking-wider">News</span>
-      </Link>
 
-      <div className="absolute inset-0 left-16">
+        <span className="eyebrow text-canvas text-[10px] tracking-wider">
+          News
+        </span>
+      </a>
+
+      {/* Scrolling News */}
+      <div className="absolute inset-0 left-20">
         <motion.div
-          className="flex w-max gap-10 items-center h-7 pl-4"
+          className="flex w-max gap-10 items-center h-10 pl-4"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 35, ease: "linear", repeat: Infinity }}
+          transition={{
+            duration: 35,
+            ease: "linear",
+            repeat: Infinity,
+          }}
         >
           {[...announcements, ...announcements].map((a, i) => (
-            <span key={i} className="text-[11px] text-canvas/80 whitespace-nowrap flex items-center gap-10">
+            <span
+              key={i}
+              className="text-[13px] text-canvas/80 whitespace-nowrap flex items-center gap-10"
+            >
               {a}
-              <span className="text-canvas/30">•</span>
+              <span className="text-canvas/30 text-lg">•</span>
             </span>
           ))}
         </motion.div>

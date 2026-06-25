@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PageHeader } from "../components/PageHeader";
 import { Reveal, Stagger, StaggerItem, RevealWords } from "../components/Reveal";
 import { Linkedin, GraduationCap } from "lucide-react";
-
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/people")({
   head: () => ({
     meta: [
@@ -37,16 +38,14 @@ function cleanName(name: string) {
 
 const faculty: Person[] = [
   {
-    name: "Dr. C.Oswald ",
-    role: "Founder · Principal Investigator",
-    interests: `Machine Learning, Deep Learning, Data Mining,
-Natural Language Processing and Human Computer Interaction,
-Text Mining, Social Media Analytics,
-Computational Science for Social Good,
-Ontology and Knowledge Graphs,
-Question Answering (English and Indian Languages),
-Text/Image Compression,
-Graph Compression`,
+    name: "Dr. C. Oswald ",
+    role: "Founder Coordinator",
+    interests: `Data Mining,
+Machine Learning for Social Analytics,
+Data Compression through the perspective of Pattern Mining,
+Information Retrieval and Natural Language Processing,
+Human-Computer Interaction`,
+
     initials: "AA",
     photo: "images/oswald_sir.jpg",
     email: "oswald@nitt.edu",
@@ -79,55 +78,19 @@ const interns: Person[] = [
   { name: "Intern Two", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
 ];
 
-// const alumni: Person[] = [
-//   { name: "Anirban I Ghosh", role: "Research Intern · Alumni", interests: "LinkedIn Bangalore.", initials: "FO", photo: "" },
-//   { name: "Avinash Kadimisetty", role: "Research Intern · Alumni", interests: "Facebook Inc., USA", initials: "FT", photo: "" },
-//   { name: "Hari Krishna Majety", role: "Research Intern · Alumni", interests: "Data Scientist Intern at ABB, USA", initials: "FT", photo: "" },
-//   { name: "K Arun Kumar", role: "Research Intern · Alumni", interests: " Big Data Engineer, Zoho Corp, Chennai", initials: "FT", photo: "" },
-//   { name: "I Ajith Kumar", role: "Research Intern · Alumni", interests: "ZoomRx", initials: "FT", photo: "" },
-//   { name: "Mohak Kataria", role: "Research Intern · Alumni", interests: "Cloudfare, Inc, London, The UK", initials: "FT", photo: "" },
-//   { name: "M Karthik", role: "Research Intern · Alumni", interests: "Freshworks, Chennai", initials: "FT", photo: "" },
-//   { name: "Subham Biswas", role: "Research Intern · Alumni", interests: "Verizon, Chennai", initials: "FT", photo: "" },
-//   { name: "Akshay", role: "Research Intern · Alumni", interests: " Boeing, Bangalore", initials: "FT", photo: "" },
-//   { name: "V Akshay Vyas", role: "Research Intern · Alumni", interests: "Zoho Corp, Chennai", initials: "FT", photo: "" },
-//   { name: "J Avinash", role: "Research Intern · Alumni", interests: "Commvault", initials: "FT", photo: "" },
-//   { name: "Krishna Chaurasia", role: "Research Intern · Alumni", interests: "SAP, Pune", initials: "FT", photo: "" },
-//   { name: "S Neeraj", role: "Research Intern · Alumni", interests: "MS, University of Amsterdam, Denmark", initials: "FT", photo: "" },
-//   { name: "Kuldeep Gunta", role: "Research Intern · Alumni", interests: "GE Healthcare, Bangalore", initials: "FT", photo: "" },
-//   { name: "Nikhil Chennu", role: "Research Intern · Alumni", interests: "F5 Networks", initials: "FT", photo: "" },
-//   { name: "Harsha Valveti", role: "Research Intern · Alumni", interests: " AMDOCS, Pune", initials: "FT", photo: "" },
-//   { name: "Shanaz Sheriff,", role: "Research Intern · Alumni", interests: "Full Stack Developer, Canada.", initials: "FT", photo: "" },
-//   { name: "Leo Rex", role: "Research Intern · Alumni", interests: "Zephony", initials: "FT", photo: "" },
-//   { name: "Sona Elza Simon", role: "Research Intern · Alumni", interests: "Phd Scholar, CSE at IIT Bombay", initials: "FT", photo: "" },
-//   { name: "Navansh Goel", role: "Research Intern · Alumni", interests: "University of California, San Diego", initials: "FT", photo: "" },
-//   { name: "Tejaswi Kumar", role: "Research Intern · Alumni", interests: "JP Morgan", initials: "FT", photo: "" },
-//   { name: "Gadi Jaya Satwika", role: "Research Intern · Alumni", interests: "Capgemini", initials: "FT", photo: "" },
-//   { name: "Shivam Baranwal", role: "Research Intern · Alumni", interests: "Amazon", initials: "FT", photo: "" },
-//   { name: "Satya Sree Narayanan", role: "Research Intern · Alumni", interests: "WellsFargo", initials: "FT", photo: "" },
-//   { name: "Sandeep Avula", role: "Research Intern · Alumni", interests: "", initials: "FT", photo: "" },
-//   { name: "Kuladeep Tummala", role: "Research Intern · Alumni", interests: "", initials: "FT", photo: "" },
-//   { name: "Anand Kushwaha", role: "Research Intern · Alumni", interests: "MCA, VIT Chennai", initials: "FT", photo: "" },
-//   { name: "Sayantan Banik", role: "Research Intern · Alumni", interests: "TCS Kolkata", initials: "FT", photo: "" },
-//   { name: "Ayush Diwan", role: "Research Intern · Alumni", interests: "MBA, FMS, Delhi.", initials: "FT", photo: "" },
-
-
-// ];
-
 function PeoplePage() {
   return (
     <>
       <PageHeader
         eyebrow=""
         title={<>The people behind the <span className="italic font-light text-ink/50">research.</span></>}
-        // description="A community of 38+ researchers — from undergraduates to senior faculty — collaborating on the most consequential questions in artificial intelligence."
       />
 
-      <Section title="Faculty" eyebrow="" people={faculty} variant="large" />
+      <Section title="Faculty" eyebrow="" people={faculty} variant="large" isFirst />
       <Section title="PhD Scholars" eyebrow="" people={scholars} variant="medium" />
       <Section title="Students" eyebrow="" people={students} variant="compact" itemsPerPage={6} />
       <Section title="Interns" eyebrow="" people={interns} variant="compact" itemsPerPage={6} />
-      {/* <Section title="Alumni" eyebrow="05 · Former Interns" people={alumni} variant="compact" itemsPerPage={6} /> */}
-      <section className="container-page py-2">
+      <section className="container-page pt-10 pb-0">
         <Reveal>
           <motion.div
             whileHover={{ scale: 1.005 }}
@@ -139,6 +102,13 @@ function PeoplePage() {
               animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
               transition={{ duration: 8, repeat: Infinity }}
             />
+            <Link
+  to="/contact"
+  className="absolute top-6 right-6 inline-flex items-center rounded-full border border-canvas/20 bg-canvas/10 px-5 py-2 text-sm font-medium text-canvas backdrop-blur-sm transition-all hover:bg-accent hover:border-accent hover:text-canvas"
+>
+  Join Us
+   <ArrowRight className="size-4" />
+</Link>
             <div className="relative">
               <p className="eyebrow text-accent mb-4">Join us</p>
               <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight leading-[0.95]">
@@ -149,6 +119,7 @@ function PeoplePage() {
               <p>Ph.D. positions open year-round across all research domains. Industry-funded scholarships available for exceptional candidates.</p>
               <p>M.Tech and B.Tech students from NIT Trichy can apply through the lab's internal mentorship program every semester.</p>
             </div>
+            
           </motion.div>
         </Reveal>
       </section>
@@ -213,7 +184,6 @@ function PersonCard({ p, variant }: { p: Person; variant: Variant }) {
       } ${s.cardPadding}`}
     >
       <div className={`flex items-stretch ${s.gap}`}>
-        {/* Photo — fixed width, height matches the text column automatically (no aspect-ratio) */}
         <motion.div
           whileHover={{ scale: 1.03 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
@@ -240,7 +210,6 @@ function PersonCard({ p, variant }: { p: Person; variant: Variant }) {
           </span>
         </motion.div>
 
-        {/* Name, role, interests */}
         <div className="min-w-0 flex-1 flex flex-col">
           <h3 className={`font-display tracking-tight leading-tight group-hover:text-accent transition-colors ${s.nameSize}`}>
             {cleanName(p.name)}
@@ -257,7 +226,6 @@ function PersonCard({ p, variant }: { p: Person; variant: Variant }) {
         </div>
       </div>
 
-      {/* Social handles — full width, below */}
       {(p.scholar || p.linkedin) && (
         <div className="mt-5 flex gap-4 pt-4 border-t border-hairline">
           {p.scholar && (
@@ -294,12 +262,14 @@ function Section({
   people,
   variant = "compact",
   itemsPerPage = 6,
+  isFirst = false,
 }: {
   title: string;
   eyebrow: string;
   people: Person[];
   variant?: Variant;
   itemsPerPage?: number;
+  isFirst?: boolean;
 }) {
   const [page, setPage] = useState(1);
   const usesPagination = variant === "compact" && people.length > itemsPerPage;
@@ -316,10 +286,12 @@ function Section({
       : "grid gap-6 sm:grid-cols-2 lg:grid-cols-3";
 
   return (
-    <section className="container-page py-6 border-t border-hairline">
-      <Reveal className="flex items-end justify-between mb-10 flex-wrap gap-4">
+    <section
+      className={`container-page py-4 ${isFirst ? "border-t-0 pt-2" : "border-t border-hairline"}`}
+    >
+      <Reveal className="flex items-end justify-between mb-6 flex-wrap gap-4">
         <div>
-          <p className="eyebrow text-accent mb-3">{eyebrow}</p>
+          {eyebrow && <p className="eyebrow text-accent mb-3">{eyebrow}</p>}
           <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight">
             <RevealWords text={title} />
           </h2>
@@ -346,7 +318,7 @@ function Section({
       </AnimatePresence>
 
       {usesPagination && (
-        <div className="mt-10 flex items-center justify-center gap-2">
+        <div className="mt-8 flex items-center justify-center gap-2">
           <button
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
