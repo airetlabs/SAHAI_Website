@@ -43,13 +43,11 @@ function GalleryPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Gallery"
-        title={<>Inside the <span className="italic font-light text-ink/50">lab.</span></>}
-        description="Moments from a working research laboratory — workshops, defences, conferences and the late-night problem solving in between."
+        title={<>Moments inside the <br/><span className="italic font-light text-ink/50">lab.</span></>}
       />
 
       {/* Auto-scroll highlight strips */}
-      <section className="space-y-3 pb-16">
+      <section className="space-y-3 pb-16 pt-12 border-t border-hairline">
         {[0, 1].map((row) => (
           <div key={row} className="relative overflow-hidden">
             <div className="flex gap-3 animate-marquee py-2" style={{ animationDirection: row % 2 ? "reverse" : "normal", animationDuration: "60s" }}>

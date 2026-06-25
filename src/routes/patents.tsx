@@ -36,17 +36,13 @@ function PatentsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Patents · 4 total"
-        title={<>Research, <span className="italic font-light text-ink/50">protected.</span></>}
-        description="Four patents granted or filed across machine learning systems,  AI and IOT "
-      >
-        <ScrollIndicator />
-      </PageHeader>
+        title={<>Ideas transformed into <span className="italic font-light text-ink/50">assets.</span></>}
+      />
 
-      <section className="container-page pb-20">
+      <section className="container-page pt-12 pb-20 border-t border-hairline">
         <Group title="Granted" eyebrow="01" items={patents.granted} status="Granted" />
       </section>
-      <section className="container-page pb-20">
+      <section className="container-page pt-12 pb-20 border-t border-hairline">
         <Group title="Filed" eyebrow="02" items={patents.filed} status="Filed" />
       </section>
 
@@ -115,20 +111,4 @@ function Group({ title, eyebrow, items, status }: { title: string; eyebrow: stri
   );
 }
 
-function ScrollIndicator() {
-  return (
-    <motion.div
-      animate={{ y: [0, 8, 0] }}
-      transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-      className="flex flex-col items-start gap-3 text-accent/70 hover:text-accent transition-colors w-fit pt-4"
-    >
-      <span className="text-[10px] uppercase tracking-widest font-mono">Scroll to explore</span>
-      <div className="p-2 rounded-full border border-accent/20">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 5v14" />
-          <path d="m19 12-7 7-7-7" />
-        </svg>
-      </div>
-    </motion.div>
-  );
-}
+
