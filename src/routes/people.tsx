@@ -11,7 +11,7 @@ export const Route = createFileRoute("/people")({
       { title: "People — SPARKS Lab" },
       { name: "description", content: "Faculty, researchers, scholars and students of SPARKS Lab at NIT Tiruchirappalli." },
       { property: "og:title", content: "People · SPARKS Lab" },
-      { property: "og:description", content: "Meet the researchers building the future of AI at SPARKS Lab." },
+      // { property: "og:description", content: "Meet the researchers building the future of AI at SPARKS Lab." },
     ],
   }),
   component: PeoplePage,
@@ -49,15 +49,15 @@ Text/Image Compression,
 Graph Compression`,
     initials: "AA",
     photo: "images/oswald_sir.jpg",
-    email: "oswald@nit.edu",
+    email: "oswald@nitt.edu",
     scholar:"https://scholar.google.com/citations?user=6kX5pyoAAAAJ&hl=en",
     linkedin:"https://www.linkedin.com/in/oswald-c-bb5b37b7/"
   },
 ];
 const scholars: Person[] = [
-  { name: "Abhijith  Balan", role: "Ph.D. Scholar · 3rd Year", interests: "Knowledge graphs · LLM reasoning", initials: "MI", photo: "" },
-  { name: "Anju  K  B", role: "Ph.D. Scholar · 2nd Year", interests: "Healthcare AI · clinical NLP", initials: "RS", photo: "" },
-  { name: "Sambasiva  Rao  Chindam", role: "Ph.D. Scholar · 2nd Year", interests: "Edge inference · sparse models", initials: "SP", photo: "" },
+  { name: "Abhijith  Balan", role: "Ph.D. Scholar · Full-Time", interests: "Knowledge graphs · LLM reasoning", initials: "MI", photo: "" },
+  { name: "Anju  K  B", role: "Ph.D. QIP Scheme ", interests: "Healthcare AI · clinical NLP", initials: "RS", photo: "" },
+  { name: "Sambasiva  Rao  Chindam", role: "Ph.D. Scholar · Part-Time", interests: "Edge inference · sparse models", initials: "SP", photo: "" },
 ];
 const students: Person[] = [
   { name: "Yash Gogoria", role: "M.Tech · CSE", interests: "AI & Machine Learning", initials: "YG", photo: "" },
@@ -79,55 +79,55 @@ const interns: Person[] = [
   { name: "Intern Two", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
 ];
 
-const alumni: Person[] = [
-  { name: "Anirban I Ghosh", role: "Research Intern · Alumni", interests: "LinkedIn Bangalore.", initials: "FO", photo: "" },
-  { name: "Avinash Kadimisetty", role: "Research Intern · Alumni", interests: "Facebook Inc., USA", initials: "FT", photo: "" },
-  { name: "Hari Krishna Majety", role: "Research Intern · Alumni", interests: "Data Scientist Intern at ABB, USA", initials: "FT", photo: "" },
-  { name: "K Arun Kumar", role: "Research Intern · Alumni", interests: " Big Data Engineer, Zoho Corp, Chennai", initials: "FT", photo: "" },
-  { name: "I Ajith Kumar", role: "Research Intern · Alumni", interests: "ZoomRx", initials: "FT", photo: "" },
-  { name: "Mohak Kataria", role: "Research Intern · Alumni", interests: "Cloudfare, Inc, London, The UK", initials: "FT", photo: "" },
-  { name: "M Karthik", role: "Research Intern · Alumni", interests: "Freshworks, Chennai", initials: "FT", photo: "" },
-  { name: "Subham Biswas", role: "Research Intern · Alumni", interests: "Verizon, Chennai", initials: "FT", photo: "" },
-  { name: "Akshay", role: "Research Intern · Alumni", interests: " Boeing, Bangalore", initials: "FT", photo: "" },
-  { name: "V Akshay Vyas", role: "Research Intern · Alumni", interests: "Zoho Corp, Chennai", initials: "FT", photo: "" },
-  { name: "J Avinash", role: "Research Intern · Alumni", interests: "Commvault", initials: "FT", photo: "" },
-  { name: "Krishna Chaurasia", role: "Research Intern · Alumni", interests: "SAP, Pune", initials: "FT", photo: "" },
-  { name: "S Neeraj", role: "Research Intern · Alumni", interests: "MS, University of Amsterdam, Denmark", initials: "FT", photo: "" },
-  { name: "Kuldeep Gunta", role: "Research Intern · Alumni", interests: "GE Healthcare, Bangalore", initials: "FT", photo: "" },
-  { name: "Nikhil Chennu", role: "Research Intern · Alumni", interests: "F5 Networks", initials: "FT", photo: "" },
-  { name: "Harsha Valveti", role: "Research Intern · Alumni", interests: " AMDOCS, Pune", initials: "FT", photo: "" },
-  { name: "Shanaz Sheriff,", role: "Research Intern · Alumni", interests: "Full Stack Developer, Canada.", initials: "FT", photo: "" },
-  { name: "Leo Rex", role: "Research Intern · Alumni", interests: "Zephony", initials: "FT", photo: "" },
-  { name: "Sona Elza Simon", role: "Research Intern · Alumni", interests: "Phd Scholar, CSE at IIT Bombay", initials: "FT", photo: "" },
-  { name: "Navansh Goel", role: "Research Intern · Alumni", interests: "University of California, San Diego", initials: "FT", photo: "" },
-  { name: "Tejaswi Kumar", role: "Research Intern · Alumni", interests: "JP Morgan", initials: "FT", photo: "" },
-  { name: "Gadi Jaya Satwika", role: "Research Intern · Alumni", interests: "Capgemini", initials: "FT", photo: "" },
-  { name: "Shivam Baranwal", role: "Research Intern · Alumni", interests: "Amazon", initials: "FT", photo: "" },
-  { name: "Satya Sree Narayanan", role: "Research Intern · Alumni", interests: "WellsFargo", initials: "FT", photo: "" },
-  { name: "Sandeep Avula", role: "Research Intern · Alumni", interests: "", initials: "FT", photo: "" },
-  { name: "Kuladeep Tummala", role: "Research Intern · Alumni", interests: "", initials: "FT", photo: "" },
-  { name: "Anand Kushwaha", role: "Research Intern · Alumni", interests: "MCA, VIT Chennai", initials: "FT", photo: "" },
-  { name: "Sayantan Banik", role: "Research Intern · Alumni", interests: "TCS Kolkata", initials: "FT", photo: "" },
-  { name: "Ayush Diwan", role: "Research Intern · Alumni", interests: "MBA, FMS, Delhi.", initials: "FT", photo: "" },
+// const alumni: Person[] = [
+//   { name: "Anirban I Ghosh", role: "Research Intern · Alumni", interests: "LinkedIn Bangalore.", initials: "FO", photo: "" },
+//   { name: "Avinash Kadimisetty", role: "Research Intern · Alumni", interests: "Facebook Inc., USA", initials: "FT", photo: "" },
+//   { name: "Hari Krishna Majety", role: "Research Intern · Alumni", interests: "Data Scientist Intern at ABB, USA", initials: "FT", photo: "" },
+//   { name: "K Arun Kumar", role: "Research Intern · Alumni", interests: " Big Data Engineer, Zoho Corp, Chennai", initials: "FT", photo: "" },
+//   { name: "I Ajith Kumar", role: "Research Intern · Alumni", interests: "ZoomRx", initials: "FT", photo: "" },
+//   { name: "Mohak Kataria", role: "Research Intern · Alumni", interests: "Cloudfare, Inc, London, The UK", initials: "FT", photo: "" },
+//   { name: "M Karthik", role: "Research Intern · Alumni", interests: "Freshworks, Chennai", initials: "FT", photo: "" },
+//   { name: "Subham Biswas", role: "Research Intern · Alumni", interests: "Verizon, Chennai", initials: "FT", photo: "" },
+//   { name: "Akshay", role: "Research Intern · Alumni", interests: " Boeing, Bangalore", initials: "FT", photo: "" },
+//   { name: "V Akshay Vyas", role: "Research Intern · Alumni", interests: "Zoho Corp, Chennai", initials: "FT", photo: "" },
+//   { name: "J Avinash", role: "Research Intern · Alumni", interests: "Commvault", initials: "FT", photo: "" },
+//   { name: "Krishna Chaurasia", role: "Research Intern · Alumni", interests: "SAP, Pune", initials: "FT", photo: "" },
+//   { name: "S Neeraj", role: "Research Intern · Alumni", interests: "MS, University of Amsterdam, Denmark", initials: "FT", photo: "" },
+//   { name: "Kuldeep Gunta", role: "Research Intern · Alumni", interests: "GE Healthcare, Bangalore", initials: "FT", photo: "" },
+//   { name: "Nikhil Chennu", role: "Research Intern · Alumni", interests: "F5 Networks", initials: "FT", photo: "" },
+//   { name: "Harsha Valveti", role: "Research Intern · Alumni", interests: " AMDOCS, Pune", initials: "FT", photo: "" },
+//   { name: "Shanaz Sheriff,", role: "Research Intern · Alumni", interests: "Full Stack Developer, Canada.", initials: "FT", photo: "" },
+//   { name: "Leo Rex", role: "Research Intern · Alumni", interests: "Zephony", initials: "FT", photo: "" },
+//   { name: "Sona Elza Simon", role: "Research Intern · Alumni", interests: "Phd Scholar, CSE at IIT Bombay", initials: "FT", photo: "" },
+//   { name: "Navansh Goel", role: "Research Intern · Alumni", interests: "University of California, San Diego", initials: "FT", photo: "" },
+//   { name: "Tejaswi Kumar", role: "Research Intern · Alumni", interests: "JP Morgan", initials: "FT", photo: "" },
+//   { name: "Gadi Jaya Satwika", role: "Research Intern · Alumni", interests: "Capgemini", initials: "FT", photo: "" },
+//   { name: "Shivam Baranwal", role: "Research Intern · Alumni", interests: "Amazon", initials: "FT", photo: "" },
+//   { name: "Satya Sree Narayanan", role: "Research Intern · Alumni", interests: "WellsFargo", initials: "FT", photo: "" },
+//   { name: "Sandeep Avula", role: "Research Intern · Alumni", interests: "", initials: "FT", photo: "" },
+//   { name: "Kuladeep Tummala", role: "Research Intern · Alumni", interests: "", initials: "FT", photo: "" },
+//   { name: "Anand Kushwaha", role: "Research Intern · Alumni", interests: "MCA, VIT Chennai", initials: "FT", photo: "" },
+//   { name: "Sayantan Banik", role: "Research Intern · Alumni", interests: "TCS Kolkata", initials: "FT", photo: "" },
+//   { name: "Ayush Diwan", role: "Research Intern · Alumni", interests: "MBA, FMS, Delhi.", initials: "FT", photo: "" },
 
 
-];
+// ];
 
 function PeoplePage() {
   return (
     <>
       <PageHeader
-        eyebrow="Researchers · Scholars · Students"
+        eyebrow=""
         title={<>The people behind the <span className="italic font-light text-ink/50">research.</span></>}
-        description="A community of 38+ researchers — from undergraduates to senior faculty — collaborating on the most consequential questions in artificial intelligence."
+        // description="A community of 38+ researchers — from undergraduates to senior faculty — collaborating on the most consequential questions in artificial intelligence."
       />
 
-      <Section title="Faculty" eyebrow="01 · Leadership" people={faculty} variant="large" />
-      <Section title="Doctoral Scholars" eyebrow="02 · Research" people={scholars} variant="medium" />
-      <Section title="Students" eyebrow="03 · The Next Generation" people={students} variant="compact" itemsPerPage={6} />
-      <Section title="Interns" eyebrow="04 · Research Interns" people={interns} variant="compact" itemsPerPage={6} />
-      <Section title="Alumni" eyebrow="05 · Former Interns" people={alumni} variant="compact" itemsPerPage={6} />
-      <section className="container-page py-20">
+      <Section title="Faculty" eyebrow="" people={faculty} variant="large" />
+      <Section title="PhD Scholars" eyebrow="" people={scholars} variant="medium" />
+      <Section title="Students" eyebrow="" people={students} variant="compact" itemsPerPage={6} />
+      <Section title="Interns" eyebrow="" people={interns} variant="compact" itemsPerPage={6} />
+      {/* <Section title="Alumni" eyebrow="05 · Former Interns" people={alumni} variant="compact" itemsPerPage={6} /> */}
+      <section className="container-page py-2">
         <Reveal>
           <motion.div
             whileHover={{ scale: 1.005 }}
@@ -170,24 +170,24 @@ const tierStyles: Record<
   }
 > = {
   large: {
-    cardPadding: "p-8",
+    cardPadding: "p-3",
     gap: "gap-6",
-    photoWidth: "w-44 sm:w-52 lg:w-60",
+    photoWidth: "w-14 sm:w-12 lg:w-60",
     photoMinHeight: "",
     nameSize: "text-3xl font-medium",
     roleSize: "text-[11px]",
     interestSize: "mt-4 text-[15px] font-light",
     initialsSize: "text-3xl font-medium",
   },
- medium: {
-  cardPadding: "p-6",
-  gap: "gap-6",
-  photoWidth: "w-44 sm:w-48 lg:w-52",
-  photoMinHeight: "min-h-[220px]",
-  nameSize: "text-xl font-semibold",
+medium: {
+  cardPadding: "p-2",
+  gap: "gap-3",
+  photoWidth: "w-32 sm:w-36 lg:w-40",
+  photoMinHeight: "min-h-[170px]",
+  nameSize: "text-lg font-semibold",
   roleSize: "text-[10px]",
-  interestSize: "mt-3 text-sm",
-  initialsSize: "text-2xl font-semibold",
+  interestSize: "mt-2 text-xs",
+  initialsSize: "text-xl font-semibold",
 },
   compact: {
     cardPadding: "p-5",
@@ -312,7 +312,7 @@ function Section({
     variant === "large"
       ? "grid gap-8 place-items-center"
       : variant === "medium"
-      ? "grid gap-6 lg:grid-cols-2"
+      ? "grid gap-6 lg:grid-cols-3"
       : "grid gap-6 sm:grid-cols-2 lg:grid-cols-3";
 
   return (

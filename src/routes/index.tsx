@@ -84,20 +84,9 @@ function Hero() {
 
       <div className="container-page grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
         <div>
-          <motion.div
-            className="inline-flex items-center gap-2 rounded-full bg-accent-soft px-3 py-1 mb-8"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inset-0 rounded-full bg-accent opacity-60 animate-ping" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
-            <span className="eyebrow text-accent text-[10px]">
-              Advancing intelligence · est. 2024
-            </span>
-          </motion.div>
+          
+       
+         
 
           <h1 className="font-display text-6xl sm:text-7xl lg:text-[8.5rem] font-semibold tracking-tight leading-[0.85] text-balance">
             <RevealChars text="SPARKS" delay={0.1} charDelay={0.05} />
@@ -116,39 +105,13 @@ function Hero() {
               />
             </span>{" "}
             <RevealWords
-              text="Advancing the future of Artificial Intelligence through research, innovation, education, and real-world impact."
+              text="The laboratory advances Human-Centered Artificial Intelligence through ethical and responsible research, developing technologies that empower communities, address societal challenges, and create lasting humanitarian impact."
               delay={1.25}
               wordDelay={0.03}
             />
           </p>
 
-          <motion.div
-            className="mt-10 flex flex-wrap gap-3"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <Link
-              to="/research"
-              className="group relative inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-6 py-3.5 text-sm font-medium overflow-hidden transition-all hover:scale-[1.03] hover:shadow-[0_10px_30px_-10px_oklch(0.18_0.012_60/0.5)]"
-            >
-              <span className="absolute inset-0 -z-0 bg-gradient-to-r from-accent/0 via-accent/40 to-accent/0 opacity-0 group-hover:opacity-100 transition-opacity blur" />
-              <span className="relative">Explore Research</span>
-              <span className="relative transition-transform group-hover:translate-x-1">→</span>
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-surface ring-1 ring-border px-6 py-3.5 text-sm font-medium hover:bg-muted hover:ring-ink transition-all"
-            >
-              Join SPARKS Lab
-            </Link>
-            <Link
-              to="/publications"
-              className="inline-flex items-center gap-2 px-4 py-3.5 text-sm font-medium text-ink-soft hover:text-ink transition-colors"
-            >
-              View Publications →
-            </Link>
-          </motion.div>
+         
         </div>
 
         {/* Ecosystem visualization */}
@@ -197,20 +160,8 @@ function Hero() {
         </motion.div>
       </div>
 
-      <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.4 }}
-        transition={{ duration: 0.8, delay: 2.4 }}
-      >
-        <span className="eyebrow text-[9px]">Scroll</span>
-        <motion.div
-          className="h-10 w-px bg-ink"
-          animate={{ scaleY: [0.3, 1, 0.3] }}
-          style={{ transformOrigin: "top" }}
-          transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </motion.div>
+      
+        
     </section>
   );
 }
@@ -314,25 +265,22 @@ function ImpactStats() {
   }, []);
 
   return (
-    <section className="container-page py-8" ref={ref}>
+    <section className="container-page pt-0 pb-0" ref={ref}>
       <Reveal className="flex flex-col md:flex-row items-start md:items-end justify-between mb-14 gap-6">
         <div>
-          <p className="eyebrow text-accent mb-4">01 · Impact</p>
+          
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] max-w-2xl text-balance">
             Research that <span className="italic font-light text-ink/50">compounds.</span>
           </h2>
         </div>
-        <p className="text-sm text-ink-soft max-w-sm leading-relaxed">
-          Six years of disciplined inquiry, measured not by output alone but by the
-          systems, scholars and ideas that endured.
-        </p>
+        
       </Reveal>
 
-      <Reveal className="grid grid-cols-2 lg:grid-cols-3 gap-px bg-hairline ring-1 ring-hairline rounded-3xl overflow-hidden">
-        {stats.map((s, i) => (
-          <StatCard key={s.label} {...s} index={i} visible={visible} />
-        ))}
-      </Reveal>
+      <Reveal className="grid grid-cols-3 sm:grid-cols-6 gap-px bg-hairline ring-1 ring-hairline rounded-3xl overflow-hidden">
+      {stats.map((s, i) => (
+        <StatCard key={s.label} {...s} index={i} visible={visible} />
+      ))}
+    </Reveal>
     </section>
   );
 }
@@ -354,19 +302,19 @@ function StatCard({
 }) {
   const value = useCountUp(num, visible);
   return (
-    <div className="group relative bg-surface p-8 lg:p-10 hover:bg-canvas transition-colors">
-      <div className="flex items-start justify-between mb-6">
-        <span className="font-mono text-[10px] text-accent">
+    <div className="group relative bg-surface p-4 lg:p-5 hover:bg-canvas transition-colors">
+      <div className="flex items-start justify-between mb-3">
+        {/* <span className="font-mono text-[9px] text-accent">
           0{index + 1}/
-        </span>
-        <span className="size-1.5 rounded-full bg-accent opacity-60" />
+        </span> */}
+        {/* <span className="size-1.5 rounded-full bg-accent opacity-60" /> */}
       </div>
-      <div className="font-display text-5xl lg:text-6xl font-semibold tracking-tight text-ink">
+      <div className="font-display text-4xl lg:text-5xl font-semibold tracking-tight text-ink leading-none">
         {value}
         <span className="text-accent">{suffix}</span>
       </div>
-      <div className="mt-4 text-sm font-medium text-ink">{label}</div>
-      <div className="mt-1 eyebrow text-[9px]">{note}</div>
+      <div className="mt-3 text-m font-medium text-ink leading-snug">{label}</div>
+      <div className="mt-1 eyebrow text-[12px] leading-snug">{note}</div>
     </div>
   );
 }
@@ -379,72 +327,54 @@ function StatCard({
 
 const domains = [
   { id: "ml",  title: "Machine Learning",            note: "Learning · Prediction · Adaptation",projects:1 },
-  { id: "dl",  title: "Deep Learning",               note: "Networks · Representation · Intelligence",projects:1 },
-  { id: "cv",  title: "Computational Science for Social Good",             note: "Impact · Equity · Innovation",projects:1 },
+  // { id: "dl",  title: "Deep Learning",               note: "Networks · Representation · Intelligence",projects:1 },
+  // { id: "cv",  title: "Computational Science for Social Good",             note: "Impact · Equity · Innovation",projects:1 },
   { id: "nlp", title: "Natural Language Processing", note: "Language · Semantics · Generation",projects:1 },
   { id: "gen", title: "Generative AI",               note: "Creation · Reasoning · Innovation" ,projects:1},
-  { id: "hai", title: "Data Compression",            note: "Efficiency · Encoding · Optimization",projects:1 },
+  // { id: "hai", title: "Data Compression",            note: "Efficiency · Encoding · Optimization",projects:1 },
   { id: "xai", title: "Human Computer Interaction",  note: "Experience · Usability · Engagement",projects:1 },
-  { id: "kg",  title: "Knowledge Graphs",            note: "Knowledge · Reasoning · Connections",projects:1 },
+  // { id: "kg",  title: "Knowledge Graphs",            note: "Knowledge · Reasoning · Connections",projects:1 },
   { id: "edge",title: "Data Mining",                 note: "Patterns · Discovery · Insights",projects:1 },
-  { id: "rob", title: "Computational Linguistics",   note: "Language · Computation · Cognition",projects:1 }
+  // { id: "rob", title: "Computational Linguistics",   note: "Language · Computation · Cognition",projects:1 }
 ];
 
 function ResearchEcosystem() {
   const [hover, setHover] = useState<string | null>(null);
   return (
     <section className="container-page py-22">
-      <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 items-start">
-        <Reveal className="lg:sticky lg:top-24">
-          <p className="eyebrow text-accent mb-6">03 · Ecosystem</p>
-          <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] text-balance">
-            Ten domains.
-            <br />
-            <span className="italic font-light text-ink/50">One living</span>
-            <br />
-            network.
-          </h2>
-          <p className="mt-8 text-ink-soft leading-relaxed max-w-md">
-            We don't research in silos. Each domain feeds the others — perception informs
-            language, language informs reasoning, reasoning informs the systems we deploy
-            into the world.
-          </p>
-          <Link
-            to="/research"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-ink hover:text-accent transition-colors"
-          >
-            Explore all research →
-          </Link>
-        </Reveal>
+      <Reveal className="mb-12">
+        
+        <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] text-balance">
+          Research {" "}
+          <span className="font-light text-ink/50">Domains</span>{" "}
+          
+        </h2>
 
-        <Reveal className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {domains.map((d, i) => (
-            <button
-              key={d.id}
-              onMouseEnter={() => setHover(d.id)}
-              onMouseLeave={() => setHover(null)}
-              className={`group relative text-left p-6 rounded-2xl ring-1 transition-all duration-500 ${hover && hover !== d.id
-                ? "ring-hairline bg-surface opacity-50"
-                : "ring-border bg-surface hover:ring-accent hover:-translate-y-1 hover:shadow-lg"
-                }`}
-            >
-              <div className="flex items-start justify-between mb-4">
-                <span className="font-mono text-[10px] text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="font-mono text-[10px] text-ink/40">
-                  {d.projects} projects
-                </span>
-              </div>
-              <h3 className="font-display text-xl font-semibold tracking-tight">
-                {d.title}
-              </h3>
-              <p className="mt-2 text-xs text-ink-soft">{d.note}</p>
-              <div className="mt-6 h-px bg-hairline group-hover:bg-accent transition-colors" />
-            </button>
-          ))}
-        </Reveal>
+      </Reveal>
+
+<Reveal className="grid grid-cols-5 gap-2">
+  {domains.map((d, i) => (
+    <button
+      key={d.id}
+      onMouseEnter={() => setHover(d.id)}
+      onMouseLeave={() => setHover(null)}
+      className={`group relative text-left p-6 rounded-2xl ring-1 transition-all duration-500 ${hover && hover !== d.id
+        ? "ring-ink/10 bg-surface opacity-50"
+        : "ring-ink/20 bg-surface hover:ring-accent hover:-translate-y-1 hover:shadow-lg"
+        }`}
+    >
+      <div className="flex items-start justify-between mb-4">
+        
+        
       </div>
+      <h3 className="font-display text-lg font-semibold tracking-tight leading-snug">
+        {d.title}
+      </h3>
+      <p className="mt-2 text-xs text-ink-soft leading-snug">{d.note}</p>
+      <div className="mt-6 h-px bg-hairline group-hover:bg-accent transition-colors" />
+    </button>
+  ))}
+</Reveal>
     </section>
   );
 }
@@ -479,11 +409,11 @@ const projects = [
 
 function FeaturedProjects() {
   return (
-    <section className="bg-muted/50 py-32 border-y border-hairline">
+    <section className="bg-muted/50 pt-1 pb-2 border-y border-hairline">
       <div className="container-page">
-        <Reveal className="flex items-end justify-between mb-16 flex-wrap gap-6">
+        <Reveal className="flex items-end justify-between mb-12 flex-wrap gap-6">
           <div>
-            <p className="eyebrow text-accent mb-4">04 · Featured work</p>
+            
             <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] max-w-2xl text-balance">
               Projects shaping the field.
             </h2>
@@ -496,14 +426,14 @@ function FeaturedProjects() {
           </Link>
         </Reveal>
 
-        <Stagger className="space-y-5">
+        <Stagger className="space-y-4">
           {projects.map((p, i) => (
             <StaggerItem key={p.title}>
               <article
-                className="group grid lg:grid-cols-[1.4fr_1fr] gap-0 rounded-3xl overflow-hidden bg-surface ring-1 ring-border hover:ring-ink transition-all hover:shadow-[0_30px_80px_-30px_oklch(0.18_0.012_60/0.3)]"
+                className="group grid lg:grid-cols-[1fr_1.1fr] gap-0 rounded-2xl overflow-hidden bg-surface ring-1 ring-border hover:ring-ink transition-all hover:shadow-[0_30px_80px_-30px_oklch(0.18_0.012_60/0.3)]"
               >
                 <div
-                  className={`relative aspect-[16/10] lg:aspect-auto overflow-hidden ${p.accent === "accent"
+                  className={`relative aspect-[16/9] lg:aspect-auto lg:min-h-[260px] overflow-hidden ${p.accent === "accent"
                     ? "bg-accent/10"
                     : p.accent === "ember"
                       ? "bg-ember/10"
@@ -514,30 +444,30 @@ function FeaturedProjects() {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <ProjectVisual variant={i} />
                   </div>
-                  <div className="absolute top-6 left-6 inline-flex items-center gap-2 rounded-full bg-surface/90 backdrop-blur-sm px-3 py-1 ring-1 ring-border">
+                  <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-surface/90 backdrop-blur-sm px-3 py-1 ring-1 ring-border">
                     <span className="eyebrow text-[9px] text-ink">{p.tag}</span>
                   </div>
-                  <div className="absolute bottom-6 left-6 font-mono text-[10px] text-ink/40">
+                  <div className="absolute bottom-4 left-4 font-mono text-[10px] text-ink/40">
                     Project · 0{i + 1}
                   </div>
                 </div>
-                <div className="p-10 flex flex-col justify-between gap-8">
+                <div className="p-6 lg:p-7 flex flex-col justify-between gap-5">
                   <div>
-                    <h3 className="font-display text-2xl lg:text-3xl font-semibold tracking-tight leading-tight">
+                    <h3 className="font-display text-xl lg:text-2xl font-semibold tracking-tight leading-tight">
                       {p.title}
                     </h3>
-                    <p className="mt-5 text-ink-soft leading-relaxed">{p.body}</p>
+                    <p className="mt-3 text-sm text-ink-soft leading-relaxed">{p.body}</p>
                   </div>
                   <div>
-                    <div className="grid grid-cols-3 gap-4 py-6 border-y border-hairline">
+                    <div className="grid grid-cols-3 gap-3 py-4 border-y border-hairline">
                       {p.metrics.map(([k, v]) => (
                         <div key={k}>
-                          <div className="font-display text-xl font-semibold">{v}</div>
-                          <div className="eyebrow text-[9px] mt-1">{k}</div>
+                          <div className="font-display text-lg font-bold">{v}</div>
+                          <div className="eyebrow text-[12px] mt-2 text-black-5000">{k}</div>
                         </div>
                       ))}
                     </div>
-                    <div className="mt-6 flex items-center justify-between">
+                    <div className="mt-4 flex items-center justify-between">
                       <Link
                         to="/projects"
                         className="inline-flex items-center gap-2 text-sm font-medium text-ink group-hover:text-accent transition-colors"
@@ -545,7 +475,7 @@ function FeaturedProjects() {
                         Case study
                         <span className="transition-transform group-hover:translate-x-1">→</span>
                       </Link>
-                      <span className="font-mono text-[10px] text-ink/40">2024</span>
+                     
                     </div>
                   </div>
                 </div>
@@ -557,6 +487,7 @@ function FeaturedProjects() {
     </section>
   );
 }
+
 
 function ProjectVisual({ variant }: { variant: number }) {
   if (variant === 0) {
@@ -640,20 +571,6 @@ function ProjectVisual({ variant }: { variant: number }) {
   );
 }
 
-/* ────────────────────────────────────────────────────────── TIMELINE */
-
-
-
-
-  
-
-/* ─────────────────────────────────────────────────────── PUBLICATIONS */
-
-
-
-
-
-
 /* ───────────────────────────────────────────────────────── COLLABORATORS */
 
 function Collaborators() {
@@ -661,19 +578,16 @@ function Collaborators() {
     "IIT Madras","IIT Indore","BITS Pilani,Hyderabad Campus" 
   ];
   return (
-    <section className="py-14 overflow-hidden border-y border-hairline">
+    <section className="py-5 overflow-hidden border-y border-hairline">
       <div className="container-page mb-12">
         <div className="flex items-end justify-between flex-wrap gap-6">
           <div>
-            <p className="eyebrow text-accent mb-4">07 · Network</p>
-            <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight max-w-xl text-balance">
+            
+            <h2 className="font-display text-2xl lg:text-4xl font-semibold tracking-tight max-w-xl text-balance">
               Built with India's leading institutions.
             </h2>
           </div>
-          <p className="text-sm text-ink-soft max-w-xs leading-relaxed">
-            Joint research, shared infrastructure and scholar exchange
-            programs with 24+ partner organizations.
-          </p>
+         
         </div>
       </div>
       <div className="relative">
@@ -693,14 +607,6 @@ function Collaborators() {
     </section>
   );
 }
-
-/* ───────────────────────────────────────────────────────── TESTIMONIALS */
-
-
-
-
-
-/* ───────────────────────────────────────────────────────── PAGE */
 
 function HomePage() {
   return (
