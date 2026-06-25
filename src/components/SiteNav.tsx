@@ -75,7 +75,7 @@ export function SiteNav() {
             <img
               src="https://en.wikipedia.org/wiki/Special:FilePath/NITT_logo.png"
               alt="NIT Tiruchirappalli"
-              className="h-8 sm:h-9 w-auto object-contain mix-blend-multiply filter contrast-125"
+              className="h-10 sm:h-12 w-auto object-contain mix-blend-multiply filter contrast-125"
             />
           </a>
           <Link

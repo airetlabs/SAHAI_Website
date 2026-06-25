@@ -108,9 +108,7 @@ function ProjectsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Funded & Hosted Projects"
         title={<>Research Grants & <span className="italic font-light text-ink/50">Initiatives.</span></>}
-        description="A showcase of ongoing and completed research projects, including funded initiatives and hosted platforms."
       />
 
       <section className="container-page pb-24">

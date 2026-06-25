@@ -24,6 +24,7 @@ type Pub = {
   authors: string; body: string; citations: number; category: string;
   gradient: string;
   link?: string;
+  fullVenue?: string;
 };
 
 const pubs: Pub[] = [
@@ -78,118 +79,118 @@ const pubs: Pub[] = [
     body: "Discovering Depression in Reddit: Addressing the Under-Represented Users in Social Media.", citations: 0, gradient: "from-accent/15 via-muted to-sage/20", link: "https://scholar.google.com/scholar?q=Discovering%20Depression%20in%20Reddit%3A%20Addressing%20the%20Under-Represented%20Users%20in%20Social%20Media"
   },
   {
-    venue: "ICSCST 2026", type: "Conference", year: 2026, date: "2026", category: "Education Technology", title: "Bridging Textbook Content and Interactive Visualizations: AI-Driven Multilingual Resources for SMART Pedagogy",
-    authors: "Vasan ML, R. Vinish Krishna, Naveen Ragav, Nikhil Gudapati, Kalyan Sudarsan, Rachel Philip, Oswald C",
+    venue: "ICSCST 2026", type: "Conference", fullVenue: "Proceedings of the 2026 International Conference on Smart Communication and Sustainable Technologies (ICSCST), 2026", year: 2026, date: "2026", category: "Education Technology", title: "Bridging Textbook Content and Interactive Visualizations: AI-Driven Multilingual Resources for SMART Pedagogy",
+    authors: "Vasan M.L., Krishna R.V., Ragav N., Gudapati N., Sudarsan K., Philip R., Oswald C.",
     body: "Bridging Textbook Content and Interactive Visualizations: AI-Driven Multilingual Resources for SMART Pedagogy.", citations: 0, gradient: "from-accent/30 via-canvas to-sage/20"
   },
   {
-    venue: "ICSCST 2026", type: "Conference", year: 2026, date: "2026", category: "NLP & LLMs", title: "A Study on Named Entity Recognition in Tamil Language using Multilingual Transformers and Sequence Models",
-    authors: "Abhijith Balan, Aranganathan S, Oswald C",
+    venue: "ICSCST 2026", type: "Conference", fullVenue: "Proceedings of the 2026 International Conference on Smart Communication and Sustainable Technologies (ICSCST), 2026", year: 2026, date: "2026", category: "NLP & LLMs", title: "A Study on Named Entity Recognition in Tamil Language using Multilingual Transformers and Sequence Models",
+    authors: "Balan A., Aranganathan S., Oswald C.",
     body: "A Study on Named Entity Recognition in Tamil Language using Multilingual Transformers and Sequence Models.", citations: 0, gradient: "from-sage/30 via-canvas to-accent/20"
   },
   {
-    venue: "ICSCST 2026", type: "Conference", year: 2026, date: "2026", category: "NLP & LLMs", title: "Attention-Based Fusion for Malayalam Hate Speech Detection Using MuRIL and XLM-R",
-    authors: "Abhijith Balan, Rohan Jose, Oswald C",
+    venue: "ICSCST 2026", type: "Conference", fullVenue: "Proceedings of the 2026 International Conference on Smart Communication and Sustainable Technologies (ICSCST), 2026", year: 2026, date: "2026", category: "NLP & LLMs", title: "Attention-Based Fusion for Malayalam Hate Speech Detection Using MuRIL and XLM-R",
+    authors: "Balan A., Jose R., Oswald C.",
     body: "Attention-Based Fusion for Malayalam Hate Speech Detection Using MuRIL and XLM-R.", citations: 0, gradient: "from-accent/20 via-muted to-ink/10"
   },
   {
-    venue: "arXiv 2025", type: "Conference", year: 2025, date: "2025", category: "NLP & LLMs", title: "The Riddle of Reflection: Evaluating Reasoning and Self-Awareness in Multilingual LLMs using Indian Riddles",
-    authors: "Abhinav P M, Ojasva Saxena, Oswald C, Parameswari Krishnamurthy",
+    venue: "arXiv 2025", type: "Conference", fullVenue: "arXiv preprint arXiv:2511.00960, 2025", year: 2025, date: "2025", category: "NLP & LLMs", title: "The Riddle of Reflection: Evaluating Reasoning and Self-Awareness in Multilingual LLMs using Indian Riddles",
+    authors: "Abhinav P.M., Saxena O., Oswald C., Krishnamurthy P.",
     body: "Evaluating Reasoning and Self-Awareness in Multilingual LLMs using Indian Riddles.", citations: 0, gradient: "from-sage/20 via-muted to-accent/30", link: "https://arxiv.org/abs/2511.00960"
   },
   {
-    venue: "PACLIC 2025", type: "Conference", year: 2025, date: "2025", category: "NLP & LLMs", title: "VIDAI: VIDukathAI Interpretation Through Analysis of In-Context Reasoning in Tamil using LLMs",
-    authors: "R S Mughil Srinivasan, Kesavan T, Abhijith Balan, Abhinav P M, Parameswari Krishnamurthy, Oswald C",
+    venue: "PACLIC 2025", type: "Conference", fullVenue: "Proceedings of the 39th Pacific Asia Conference on Language, Information and Computation (PACLIC), 2025, pp. 402-412", year: 2025, date: "2025", category: "NLP & LLMs", title: "VIDAI: VIDukathAI Interpretation Through Analysis of In-context Reasoning in Tamil using LLMs",
+    authors: "Srinivasan R.S.M., Kesavan T., Balan A., Abhinav P.M., Krishnamurthy P., Oswald C.",
     body: "VIDukathAI Interpretation Through Analysis of In-Context Reasoning in Tamil using LLMs.", citations: 0, gradient: "from-accent/25 via-canvas to-sage/15", link: "https://aclanthology.org/2025.paclic-1.36/"
   },
   {
-    venue: "PACLIC 2024", type: "Conference", year: 2024, date: "2024", category: "NLP & LLMs", title: "Aganittyam: Learning Tamil Grammar through Knowledge Graph based Templatized Question Answering",
-    authors: "Mithilesh K, Madhumalararungeethayan A, Balan A, Oswald C, Terdalkar H",
+    venue: "PACLIC 2024", type: "Conference", fullVenue: "Proceedings of the 38th Pacific Asia Conference on Language, Information and Computation (PACLIC), 2024, pp. 838-852", year: 2024, date: "2024", category: "NLP & LLMs", title: "Aganittyam: Learning Tamil Grammar through Knowledge Graph based Templatized Question Answering",
+    authors: "Mithilesh K., Madhumalararungeethayan A., Dharanish Rahul S., Balan A., Oswald C., Terdalkar H.",
     body: "Learning Tamil Grammar through Knowledge Graph based Templatized Question Answering.", citations: 0, gradient: "from-muted via-canvas to-accent/20", link: "https://aclanthology.org/2024.paclic-1.81/"
   },
   {
-    venue: "FIRE 2024", type: "Conference", year: 2024, date: "2024", category: "NLP & LLMs", title: "Indian Language Summarization and Factual Error Detection using Pretrained Sequence-to-Sequence Models and LLMs",
-    authors: "Abhijith Balan, Karthik Chitthoor, Oswald C",
+    venue: "FIRE 2024", type: "Conference", fullVenue: "Forum for Information Retrieval Evaluation (FIRE), Working Notes, CEUR Workshop Proceedings Vol. 4054, IIT Gandhinagar, 2024", year: 2024, date: "2024", category: "NLP & LLMs", title: "Indian Language Summarization and Factual Error Detection using Pretrained Sequence-to-Sequence Models and Large Language Models",
+    authors: "Balan A., Karthik C., Oswald C.",
     body: "Indian Language Summarization and Factual Error Detection using Pretrained Sequence-to-Sequence Models and LLMs.", citations: 0, gradient: "from-sage/25 via-canvas to-accent/15", link: "https://ceur-ws.org/Vol-4054/T1-7.pdf"
   },
   {
-    venue: "ICON 2024", type: "Conference", year: 2024, date: "2024", category: "Generative AI", title: "Landscape Painter: Mimicking Human Like Art Using Generative Adversarial Networks",
-    authors: "Yash Gogoriya, Oswald C, Abhijith Balan",
+    venue: "ICON 2024", type: "Conference", fullVenue: "Proceedings of the 21st International Conference on Natural Language Processing (ICON), 2024, pp. 602-606", year: 2024, date: "2024", category: "Generative AI", title: "Landscape Painter: Mimicking Human Like Art Using Generative Adversarial Networks",
+    authors: "Gogoriya Y., Oswald C., Balan A.",
     body: "Mimicking Human Like Art Using Generative Adversarial Networks.", citations: 0, gradient: "from-accent/20 via-canvas to-muted", link: "https://aclanthology.org/2024.icon-1.71/"
   },
   {
-    venue: "ORSI/ICBAI 2023", type: "Conference", year: 2023, date: "2023", category: "Predictive Analytics & Finance", title: "FoCID: Forecasting Cryptocurrency Investment Decision using Deep Learning and Ensemble Models",
-    authors: "K. Tulip Raaj, C. Oswald",
+    venue: "ORSI/ICBAI 2023", type: "Conference", fullVenue: "2023-ORSI & 2023-ICBAI, IISc Bangalore, 2023, Best Paper Award", year: 2023, date: "2023", category: "Predictive Analytics & Finance", title: "FoCID: Forecasting Cryptocurrency Investment Decision using Deep Learning and Ensemble Models",
+    authors: "Raaj K.T., Oswald C.",
     body: "Forecasting Cryptocurrency Investment Decision using Deep Learning and Ensemble Models.", citations: 0, gradient: "from-sage/25 via-canvas to-accent/15"
   },
   {
-    venue: "ORSI/ICBAI 2023", type: "Conference", year: 2023, date: "2023", category: "Predictive Analytics & Finance", title: "Data-Driven Predictive Maintenance: Machine Learning based Prediction of Machine Failures",
-    authors: "P.M. Isai Visaahan, N.V. Karthik Balaji, C. Oswald",
+    venue: "ORSI/ICBAI 2023", type: "Conference", fullVenue: "2023-ORSI & 2023-ICBAI, IISc Bangalore, 2023", year: 2023, date: "2023", category: "Predictive Analytics & Finance", title: "Data-Driven Predictive Maintenance: Machine Learning based Prediction of Machine Failures",
+    authors: "Visaahan P.M.I., Balaji N.V.K., Oswald C.",
     body: "Machine Learning based Prediction of Machine Failures.", citations: 0, gradient: "from-accent/15 via-muted to-sage/20"
   },
   {
-    venue: "CODS-COMAD 2022", type: "Conference", year: 2022, date: "2022", category: "AI for Healthcare & Social Good", title: "Prediction of cardiovascular disease (CVD) using ensemble learning algorithms",
-    authors: "Oswald, Jaya Sathwika G., Bhattacharya A.",
+    venue: "CODS-COMAD 2022", type: "Conference", fullVenue: "5th Joint International Conference on Data Science & Management of Data (9th ACM IKDD CODS and 27th COMAD), 2022, pp. 292-293", year: 2022, date: "2022", category: "AI for Healthcare & Social Good", title: "Prediction of Cardiovascular Disease (CVD) using Ensemble Learning Algorithms",
+    authors: "Oswald C., Sathwika G.J., Bhattacharya A.",
     body: "Prediction of cardiovascular disease (CVD) using ensemble learning algorithms.", citations: 0, gradient: "from-accent/30 via-canvas to-sage/20", link: "https://oswaldc.netlify.app/My%20Papers/cods.pdf"
   },
   {
-    venue: "INDICON 2022", type: "Conference", year: 2022, date: "2022", category: "Predictive Analytics & Finance", title: "Divorce Astrologer: Machine Learning based Divorce Prediction of Married Couples",
-    authors: "Oswald C, Baranwal S, Narayanan S.S.S., Bhattacharya A",
+    venue: "INDICON 2022", type: "Conference", fullVenue: "2022 IEEE 19th India Council International Conference (INDICON), 2022, pp. 1-6, IEEE", year: 2022, date: "2022", category: "Predictive Analytics & Finance", title: "Divorce Astrologer: Machine Learning based Divorce Prediction of Married Couples",
+    authors: "Oswald C., Baranwal S., Narayanan S.S.S., Bhattacharya A.",
     body: "Machine Learning based Divorce Prediction of Married Couples.", citations: 0, gradient: "from-sage/30 via-canvas to-accent/20", link: "https://ieeexplore.ieee.org/abstract/document/10040167"
   },
   {
-    venue: "ICICC 2021", type: "Conference", year: 2021, date: "2021", category: "HCI, Usability & Security", title: "Usability Evaluation of Novel Text CAPTCHA Schemes Based on Colors and Shapes",
-    authors: "Kumar T, Goel N, Roy S, Oswald C",
+    venue: "ICICC 2021", type: "Conference", fullVenue: "International Conference on Innovative Computing and Communications (ICICC 2021), Springer Singapore, 2022, pp. 355-363, Best Paper Award", year: 2021, date: "2021", category: "HCI, Usability & Security", title: "Usability Evaluation of Novel Text CAPTCHA Schemes Based on Colors and Shapes",
+    authors: "Kumar T., Goel N., Roy S., Oswald C.",
     body: "Usability Evaluation of Novel Text CAPTCHA Schemes Based on Colors and Shapes.", citations: 0, gradient: "from-accent/20 via-muted to-ink/10", link: "https://link.springer.com/chapter/10.1007/978-981-16-2597-8_30"
   },
   {
-    venue: "ICCCSP 2018", type: "Conference", year: 2018, date: "2018", category: "Multimedia Compression & Security", title: "Closed Frequent Itemset Mining Approach to Image Security Enhancement",
-    authors: "Swetha M.H., Sivaselvan B., Oswald C",
+    venue: "ICCCSP 2018", type: "Conference", fullVenue: "2018 International Conference on Computer, Communication, and Signal Processing (ICCCSP), 2018, pp. 1-6, IEEE", year: 2018, date: "2018", category: "Multimedia Compression & Security", title: "Closed Frequent Itemset Mining Approach to Image Security Enhancement",
+    authors: "Swetha M.H., Sivaselvan B., Oswald C.",
     body: "Closed Frequent Itemset Mining Approach to Image Security Enhancement.", citations: 0, gradient: "from-sage/20 via-muted to-accent/30", link: "https://ieeexplore.ieee.org/abstract/document/8452846"
   },
   {
-    venue: "ICCCSP 2018", type: "Conference", year: 2018, date: "2018", category: "HCI, Usability & Security", title: "Emergent User Design Framework for E-Payment Mobile Application",
-    authors: "Surendran S, Sivaselvan B, Oswald C",
+    venue: "ICCCSP 2018", type: "Conference", fullVenue: "2018 International Conference on Computer, Communication, and Signal Processing (ICCCSP), 2018, pp. 1-6, IEEE", year: 2018, date: "2018", category: "HCI, Usability & Security", title: "Emergent User Design Framework for E-Payment Mobile Application",
+    authors: "Surendran S., Sivaselvan B., Oswald C.",
     body: "Emergent User Design Framework for E-Payment Mobile Application.", citations: 0, gradient: "from-accent/25 via-canvas to-sage/15", link: "https://ieeexplore.ieee.org/abstract/document/8452855"
   },
   {
-    venue: "ICCCSP 2018", type: "Conference", year: 2018, date: "2018", category: "HCI, Usability & Security", title: "Gamification paradigm for WebApps design framework",
-    authors: "Gunta K, Sivaselvan B, Oswald C",
+    venue: "ICCCSP 2018", type: "Conference", fullVenue: "2018 International Conference on Computer, Communication, and Signal Processing (ICCCSP), 2018, pp. 1-5, IEEE", year: 2018, date: "2018", category: "HCI, Usability & Security", title: "Gamification Paradigm for WebApps Design Framework",
+    authors: "Gunta K., Sivaselvan B., Oswald C.",
     body: "Gamification paradigm for WebApps design framework.", citations: 0, gradient: "from-muted via-canvas to-accent/20", link: "https://ieeexplore.ieee.org/abstract/document/8452840"
   },
   {
-    venue: "INDICON 2017", type: "Conference", year: 2017, date: "2017", category: "Multimedia Compression & Security", title: "Lossy Image Compression using Frequent Pattern Mining based Huffman Encoding",
-    authors: "Biswas S, Chennu N, Valveti H, Oswald C, Sivaselvan B",
+    venue: "INDICON 2017", type: "Conference", fullVenue: "2017 14th IEEE India Council International Conference (INDICON), 2017, pp. 1-6, IEEE", year: 2017, date: "2017", category: "Multimedia Compression & Security", title: "Lossy Image Compression using Frequent Pattern Mining based Huffman Encoding",
+    authors: "Biswas S., Chennu N., Valveti H., Oswald C., Sivaselvan B.",
     body: "Lossy Image Compression using Frequent Pattern Mining based Huffman Encoding.", citations: 0, gradient: "from-sage/25 via-canvas to-accent/15", link: "https://ieeexplore.ieee.org/abstract/document/8487850"
   },
   {
-    venue: "ICoAC 2017", type: "Conference", year: 2017, date: "2017", category: "HCI, Usability & Security", title: "A novel gamification approach to recommendation based mobile applications",
-    authors: "Neeraj S, Oswald C, Sivaselvan B",
+    venue: "ICoAC 2017", type: "Conference", fullVenue: "2017 Ninth International Conference on Advanced Computing (ICoAC), 2017, pp. 157-164, IEEE", year: 2017, date: "2017", category: "HCI, Usability & Security", title: "A Novel Gamification Approach to Recommendation Based Mobile Applications",
+    authors: "Neeraj S., Oswald C., Sivaselvan B.",
     body: "A novel gamification approach to recommendation based mobile applications.", citations: 0, gradient: "from-accent/20 via-canvas to-muted", link: "https://ieeexplore.ieee.org/abstract/document/8441300"
   },
   {
-    venue: "INDICON 2017", type: "Conference", year: 2017, date: "2017", category: "HCI, Usability & Security", title: "Automatic Ranking of CAPTCHAs based on Usability Measures",
-    authors: "Chaurasia K, Jain S, Sivaselvan B, Oswald C",
+    venue: "INDICON 2017", type: "Conference", fullVenue: "2017 14th IEEE India Council International Conference (INDICON), 2017, pp. 1-6, IEEE", year: 2017, date: "2017", category: "HCI, Usability & Security", title: "Automatic Ranking of CAPTCHAs based on Usability Measures",
+    authors: "Chaurasia K., Jain S., Sivaselvan B., Oswald C.",
     body: "Automatic Ranking of CAPTCHAs based on Usability Measures.", citations: 0, gradient: "from-sage/25 via-canvas to-accent/15", link: "https://ieeexplore.ieee.org/abstract/document/8487993"
   },
   {
-    venue: "INDICON 2016", type: "Conference", year: 2016, date: "2016", category: "Multimedia Compression & Security", title: "Lossy image compression—A frequent sequence mining perspective employing efficient clustering",
-    authors: "Kadimisetty A, Oswald C, Sivaselvan B, Alekhya K",
+    venue: "INDICON 2016", type: "Conference", fullVenue: "2016 IEEE Annual India Conference (INDICON), 2016, pp. 1-6, IEEE", year: 2016, date: "2016", category: "Multimedia Compression & Security", title: "Lossy Image Compression—A Frequent Sequence Mining Perspective Employing Efficient Clustering",
+    authors: "Kadimisetty A., Oswald C., Sivaselvan B., Alekhya K.",
     body: "Lossy image compression—A frequent sequence mining perspective employing efficient clustering.", citations: 0, gradient: "from-accent/15 via-muted to-sage/20", link: "https://ieeexplore.ieee.org/abstract/document/7838977"
   },
   {
-    venue: "ADCOM 2016", type: "Conference", year: 2016, date: "2016", category: "Multimedia Compression & Security", title: "Frequent Pattern Mining Approach to Image Compression",
-    authors: "Kadimisetty A, Oswald C, Sivaselvan B",
+    venue: "ADCOM 2016", type: "Conference", fullVenue: "2016 22nd Annual International Conference on Advanced Computing and Communication (ADCOM), 2016, pp. 27-32, IEEE", year: 2016, date: "2016", category: "Multimedia Compression & Security", title: "Frequent Pattern Mining Approach to Image Compression",
+    authors: "Kadimisetty A., Oswald C., Sivaselvan B.",
     body: "Frequent Pattern Mining Approach to Image Compression.", citations: 0, gradient: "from-accent/30 via-canvas to-sage/20", link: "https://ieeexplore.ieee.org/abstract/document/8385599"
   },
   {
-    venue: "INDICON 2015", type: "Conference", year: 2015, date: "2015", category: "Multimedia Compression & Security", title: "Knowledge engineering perspective of text compression",
-    authors: "Oswald C, Ghosh A.I., Sivaselvan B",
+    venue: "INDICON 2015", type: "Conference", fullVenue: "2015 Annual IEEE India Conference (INDICON), 2015, pp. 1-6, IEEE", year: 2015, date: "2015", category: "Multimedia Compression & Security", title: "Knowledge Engineering Perspective of Text Compression",
+    authors: "Oswald C., Ghosh A.I., Sivaselvan B.",
     body: "Knowledge engineering perspective of text compression.", citations: 0, gradient: "from-sage/30 via-canvas to-accent/20", link: "https://ieeexplore.ieee.org/abstract/document/7443683"
   },
   {
-    venue: "ICoAC 2013", type: "Conference", year: 2013, date: "2013", category: "Optimization", title: "Novel hybrid PSO algorithms with search optimization strategies for a University Course Timetabling Problem",
-    authors: "Oswald C",
+    venue: "ICoAC 2013", type: "Conference", fullVenue: "2013 Fifth International Conference on Advanced Computing (ICoAC), 2013, pp. 77-85, IEEE, Best Paper Award", year: 2013, date: "2013", category: "Optimization", title: "Novel Hybrid PSO Algorithms with Search Optimization Strategies for a University Course Timetabling Problem",
+    authors: "Oswald C.",
     body: "Novel hybrid PSO algorithms with search optimization strategies for a University Course Timetabling Problem.", citations: 0, gradient: "from-accent/20 via-muted to-ink/10", link: "https://ieeexplore.ieee.org/abstract/document/6921931"
   }
 ];
@@ -217,32 +218,12 @@ function PublicationsPage() {
     const topicMatch = topic === "All Topics" || p.category === topic;
     return typeMatch && topicMatch;
   });
-  const [active, setActive] = useState<Pub | boolean | null>(null);
   const id = useId();
-
-  useEffect(() => {
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setActive(false);
-      }
-    }
-
-    if (active && typeof active === "object") {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [active]);
 
   return (
     <>
       <PageHeader
-        eyebrow="Publications · 152+"
         title={<>Scholarship as <span className="italic font-light text-ink/50">contribution.</span></>}
-        description="Peer-reviewed work from SPARKS Lab researchers across the leading venues in machine learning, vision, language, and applied AI."
       >
         <ScrollIndicator />
       </PageHeader>
@@ -288,134 +269,55 @@ function PublicationsPage() {
       </section>
 
       <section className="container-page pb-32">
-        <AnimatePresence>
-          {active && typeof active === "object" && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-ink/20 backdrop-blur-sm h-full w-full z-50"
-            />
-          )}
-        </AnimatePresence>
-        <AnimatePresence>
-          {active && typeof active === "object" ? (
-            <div className="fixed inset-0 grid place-items-center z-[100] p-4 sm:p-6">
-              <motion.button
-                key={`button-${active.title}-${id}`}
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                className="flex absolute top-4 right-4 lg:hidden items-center justify-center bg-surface ring-1 ring-border rounded-full h-8 w-8 text-ink z-[101]"
-                onClick={() => setActive(null)}
-              >
-                <CloseIcon />
-              </motion.button>
-              
-              {/* Overlay click to close */}
-              <div className="absolute inset-0 z-0" onClick={() => setActive(null)} />
-
-              <motion.div
-                layoutId={`card-${active.title}-${id}`}
-                className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-canvas sm:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-border relative z-10"
-              >
-                <motion.div layoutId={`image-${active.title}-${id}`} className={`relative h-60 sm:h-80 w-full overflow-hidden bg-gradient-to-br ${active.gradient}`}>
-                  <div className="absolute inset-0 bg-dotgrid opacity-30" />
-                  <div className="absolute inset-0 grid place-items-center opacity-80 scale-150">
-                    <PubGlyph variant={0} />
-                  </div>
-                  <div className="absolute top-4 left-4 font-mono text-[10px] text-ink/60 bg-canvas/60 px-2 py-1 rounded backdrop-blur-sm">
-                    {active.venue}
-                  </div>
-                </motion.div>
-
-                <div>
-                  <div className="flex justify-between items-start p-6">
-                    <div className="flex-1 pr-4">
-                      <motion.h3
-                        layoutId={`title-${active.title}-${id}`}
-                        className="font-display font-bold text-xl text-ink leading-tight"
-                      >
-                        {active.title}
-                      </motion.h3>
-                      <motion.p
-                        layoutId={`description-${active.title}-${id}`}
-                        className="text-sm font-mono text-ink-soft mt-2"
-                      >
-                        {active.authors}
-                      </motion.p>
-                    </div>
-
-                    {active.link && (
-                      <motion.a
-                        layoutId={`button-${active.title}-${id}`}
-                        href={active.link}
-                        target="_blank"
-                        className="px-4 py-3 text-sm rounded-full font-medium bg-ink text-canvas hover:bg-accent transition-colors shrink-0"
-                      >
-                        Read Paper
-                      </motion.a>
-                    )}
-                  </div>
-                  <div className="pt-2 relative px-6">
-                    <motion.div
-                      layout
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="text-ink-soft text-sm h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto leading-relaxed [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
-                    >
-                      <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono text-ink-soft mb-2">
-                         <span className="rounded bg-surface ring-1 ring-border px-2 py-0.5 text-ink">{active.category}</span>
-                         <span>{active.date}</span>
-                         <span>• {active.type}</span>
-                      </div>
-                      {active.body}
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          ) : null}
-        </AnimatePresence>
-
         <ul className="grid gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden w-full">
           {filtered.map((pub, index) => (
             <motion.div
               layoutId={`card-${pub.title}-${id}`}
               key={`card-${pub.title}-${id}`}
-              onClick={() => setActive(pub)}
-              className="bg-surface p-6 flex flex-col md:flex-row justify-between items-center hover:bg-canvas cursor-pointer transition-colors group"
+              className="bg-surface p-6 flex flex-col md:flex-row justify-between items-center transition-colors group"
             >
-              <div className="flex gap-6 flex-col md:flex-row w-full md:items-center">
+              <div className="flex gap-6 flex-col md:flex-row flex-1 min-w-0 md:items-center">
                 <motion.div layoutId={`image-${pub.title}-${id}`} className={`relative h-40 w-full md:h-16 md:w-16 rounded-xl overflow-hidden bg-gradient-to-br ${pub.gradient} shrink-0`}>
                    <div className="absolute inset-0 bg-dotgrid opacity-30" />
                    <div className="absolute inset-0 grid place-items-center opacity-80 scale-75">
                      <PubGlyph variant={index % 4} />
                    </div>
                 </motion.div>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <motion.h3
                     layoutId={`title-${pub.title}-${id}`}
-                    className="font-display font-semibold text-lg text-ink text-center md:text-left leading-snug"
+                    className="font-display font-bold text-xl text-ink text-center md:text-left leading-snug"
                   >
                     {pub.title}
                   </motion.h3>
                   <motion.p
                     layoutId={`description-${pub.title}-${id}`}
-                    className="text-sm font-mono text-ink-soft text-center md:text-left mt-1"
+                    className="text-base text-ink-soft text-center md:text-left mt-2"
                   >
                     {pub.authors}
                   </motion.p>
+                  <motion.p
+                    layoutId={`fullvenue-${pub.title}-${id}`}
+                    className="text-sm italic text-ink-soft text-center md:text-left mt-1"
+                  >
+                    {pub.fullVenue || pub.venue}
+                  </motion.p>
                 </div>
               </div>
-              <motion.button
-                layoutId={`button-${pub.title}-${id}`}
-                className="px-5 py-2.5 text-xs rounded-full font-medium bg-canvas ring-1 ring-border hover:bg-ink hover:text-canvas text-ink mt-4 md:mt-0 transition-colors shrink-0"
-              >
-                Click here
-              </motion.button>
+              {pub.link ? (
+                <motion.a
+                  layoutId={`button-${pub.title}-${id}`}
+                  href={pub.link}
+                  target="_blank"
+                  className="px-5 py-2.5 text-xs rounded-full font-medium bg-canvas ring-1 ring-border hover:bg-ink hover:text-canvas text-ink mt-4 md:mt-0 transition-colors shrink-0"
+                >
+                  Read Paper
+                </motion.a>
+              ) : (
+                <div className="px-5 py-2.5 text-xs rounded-full font-medium mt-4 md:mt-0 shrink-0 invisible pointer-events-none hidden md:block">
+                  Read Paper
+                </div>
+              )}
             </motion.div>
           ))}
         </ul>

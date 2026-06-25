@@ -7,7 +7,7 @@ export function PageHeader({
   description,
   children,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: ReactNode;
   description?: string;
   children?: ReactNode;
@@ -16,9 +16,11 @@ export function PageHeader({
     <section className="relative pt-16 pb-8 overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-dotgrid opacity-50 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
       <div className="container-page">
-        <Reveal delay={0}>
-          <p className="eyebrow text-accent mb-6">{eyebrow}</p>
-        </Reveal>
+        {eyebrow && (
+          <Reveal delay={0}>
+            <p className="eyebrow text-accent mb-6">{eyebrow}</p>
+          </Reveal>
+        )}
         
         {typeof title === "string" ? (
           <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-balance leading-[0.95] max-w-4xl">
