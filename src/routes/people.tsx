@@ -72,11 +72,11 @@ const PGstudents: Person[] = [
 const UGstudents: Person[] = [
   { name: "Srikanth V", role: "B.Tech (2025)", interests: "Enhancing Verizon Computer Support Using Dialogflow and Interaction Analytics", initials: "SV", photo: "" },
   { name: "Amarjit", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "A", photo: "" },
-  { name: "Dharanish Rahul S", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "DRS", photo: "" },
-  { name: "Mithilesh K", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "MK", photo: "" },
+  { name: "Dharanish Rahul S", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "DRS", photo: "images/UG/Dharanish Rahul S.jpeg" },
+  { name: "Mithilesh K", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "MK", photo: "images/UG/Mithilesh K.jpg" },
   { name: "Joshua Mahadevan", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "JM", photo: "" },
   { name: "Lokkamithran", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "LK", photo: "" },
-  { name: "Mubeena", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "MB", photo: "" },
+  { name: "Mubeena", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "MB", photo: "images/UG/Mubeena.jpg" },
 ];
 
 const interns: Person[] = [
