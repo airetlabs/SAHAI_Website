@@ -36,13 +36,13 @@ function PatentsPage() {
   return (
     <>
       <PageHeader
-        title={<>Ideas transformed into <span className="italic font-light text-ink/50">assets.</span></>}
+        title={<>Patents<span className="italic font-light text-ink/50"></span></>}
       />
 
-      <section className="container-page pt-12 pb-20 border-t border-hairline">
+      <section className="container-page pt-0 pb-0 border-t border-hairline">
         <Group title="Granted" eyebrow="01" items={patents.granted} status="Granted" />
       </section>
-      <section className="container-page pt-12 pb-20 border-t border-hairline">
+      <section className="container-page pt-12 pb-0 border-t border-hairline">
         <Group title="Filed" eyebrow="02" items={patents.filed} status="Filed" />
       </section>
 

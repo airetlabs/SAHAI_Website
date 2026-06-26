@@ -47,55 +47,79 @@ Information Retrieval and Natural Language Processing,
 Human-Computer Interaction`,
 
     initials: "AA",
-    photo: "images/oswald_sir.jpg",
+    photo: "images/faculty/oswald_sir.jpg",
     email: "oswald@nitt.edu",
     scholar:"https://scholar.google.com/citations?user=6kX5pyoAAAAJ&hl=en",
     linkedin:"https://www.linkedin.com/in/oswald-c-bb5b37b7/"
   },
 ];
 const scholars: Person[] = [
-  { name: "Abhijith  Balan", role: "Ph.D. Scholar · Full-Time", interests: "Knowledge graphs · LLM reasoning", initials: "MI", photo: "" },
-  { name: "Anju  K  B", role: "Ph.D. QIP Scheme ", interests: "Healthcare AI · clinical NLP", initials: "RS", photo: "" },
-  { name: "Sambasiva  Rao  Chindam", role: "Ph.D. Scholar · Part-Time", interests: "Edge inference · sparse models", initials: "SP", photo: "images/sambasivarao.JPG" },
+  { name: "Abhijith  Balan", role: "Ph.D · Full-Time", interests: "Knowledge graphs · LLM reasoning", initials: "MI", photo: "" },
+  { name: "Anju  K  B", role: "Ph.D  · QIP Scheme ", interests: "Healthcare AI · clinical NLP", initials: "RS", photo: "" },
+  { name: "Sambasiva  Rao  Chindam", role: "Ph.D · Part-Time", interests: "Edge inference · sparse models", initials: "SP", photo: "images/Scholars/sambasivarao.JPG" },
 ];
-const students: Person[] = [
-  { name: "Yash Gogoria", role: "M.Tech · CSE", interests: "AI & Machine Learning", initials: "YG", photo: "" },
-  { name: "Sachin Kumar Gupt", role: "M.Tech · CSE (2024)", interests: "Data Analytics", initials: "SKG", photo: "" },
-  { name: "Abhisek Raj", role: "M.Tech · CSE (2025)", interests: "Natural Language Processing", initials: "AR", photo: "" },
-  { name: "Rakesh Kumar Rakesh", role: "M.Tech · CSE (2026)", interests: "Computer Vision", initials: "RKR", photo: "images/Rakesh Kumar Rakesh .jpeg" },
-  { name: "Anurag Kadam", role: "M.Tech · CSE (2027 · Ongoing)", interests: "Generative AI", initials: "AK", photo: "" },
-  { name: "Aditya G", role: "B.Tech", interests: "Machine Learning", initials: "AG", photo: "" },
-  { name: "Vijay G", role: "B.Tech", interests: "Deep Learning", initials: "VG", photo: "" },
-  { name: "Aadit Krishnaa R", role: "B.Tech (2026)", interests: "AI Systems", initials: "AKR", photo: "" },
-  { name: "Srikanth V", role: "B.Tech (2025)", interests: "Data Science", initials: "SV", photo: "" },
-  { name: "Amarjit", role: "B.Tech", interests: "Computer Vision", initials: "A", photo: "" },
-  { name: "Dharanish Rahul S", role: "B.Tech", interests: "Robotics & AI", initials: "DRS", photo: "" },
-  { name: "Mithilesh K", role: "B.Tech (2024)", interests: "Natural Language Processing", initials: "MK", photo: "" },
+const PGstudents: Person[] = [
+  { name: "Yash Gogoria", role: "M.Tech · CSE (2024)", interests: "·Coloring Sketches using Conditional GAN    ·Landscape Painting Generation using Generative AI Models", initials: "YG", photo: "" },
+  { name: "Sachin Kumar Gupt", role: "M.Tech · CSE (2024)", interests: "·Deep Learning Approaches for Covid Chest X-Ray Image Classification \n · Generative AI Model based Hindi Text to Realistic Image Generation ", initials: "SKG", photo: "" },
+  { name: "Abhisek Raj", role: "M.Tech · CSE (2025)", interests: "·Predicting Suicidal Ideation Risks and Empathetic Text Generation Using LLM \n· Predicting Suicidal Ideation Risks using LLM and Transfer Learning", initials: "AR", photo: "images/PG/Abhishek_Raj.jpg" },
+  { name: "Rakesh Kumar Rakesh", role: "M.Tech · CSE (2026)", interests: "·Knowledge graph Embedding Based Biomedical Named Entity Recognition", initials: "RKR", photo: "images/PG/Rakesh Kumar Rakesh .jpeg" },
+];
+
+const UGstudents: Person[] = [
+  { name: "Srikanth V", role: "B.Tech (2025)", interests: "Enhancing Verizon Computer Support Using Dialogflow and Interaction Analytics", initials: "SV", photo: "" },
+  { name: "Amarjit", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "A", photo: "" },
+  { name: "Dharanish Rahul S", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "DRS", photo: "" },
+  { name: "Mithilesh K", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "MK", photo: "" },
+  { name: "Joshua Mahadevan", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "JM", photo: "" },
+  { name: "Lokkamithran", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "LK", photo: "" },
+  { name: "Mubeena", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "MB", photo: "" },
 ];
 
 const interns: Person[] = [
-  { name: "Nagul Pranav", role: "Research Intern", interests: "LinkedIn Bangalore", initials: "IO", photo: "" },
-  { name: "Balaji", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Gudapadi Nikhil", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "R Vinish Krishna", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Vasan R", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Janarthanan T", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Arvind Krishna", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Krithik", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Tanush Somishetty", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Yogesh Perumal", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Abhijit Baidya", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Hashim Faisal syed", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Isai Visaahan P M", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Karthik Balaji N V", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Kirthik B", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Nisha Preethika S", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Piyush Sonekar", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Prabhakar", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Raunak Rajpal", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Sreenidhi N", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
-  { name: "Vasukumar P", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
- 
+  { name: "Aditi Baskaran", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "" },
+  { name: "Nooh K ", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "" },
+  { name: "Adarsh SPL", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "" },
+  { name: "K. Preetham Reddy", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "" },
+  { name: "Madhu Parameswari Ganesan", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "" },
+  { name: "Golla Madhu Kiran", role: "Research Intern (2026)", interests: "Boundary-Aware Parameter-Efficient Tuning for Nested Biomedical Named Entity Recognition", initials: "IO", photo: "" },
+  { name: "Surya Narayan Ghosh", role: "Research Intern (2026)", interests: "Hypergraph Guided Structural Fusion for Nested Biomedical NER", initials: "IO", photo: "" },
+  { name: "Harsha Dhayini R", role: "Research Intern (2026)", interests: "Transforming Tamil Ayurvedic Text to Knowledge Graph", initials: "IO", photo: "" },
+  { name: "Kabilan G", role: "Research Intern (2024)", interests: "Enhancements in Nested NER", initials: "IO", photo: "" },
+  { name: "Aranganathan S ", role: "Research Intern (2024)", interests: "Nested NER in Tamil", initials: "IO", photo: "" },
+  { name: "Rohan Jose", role: "Research Intern (2024)", interests: "Offensive and Hate Speech Detection of Malayalam  using Deep Learning Techniques", initials: "IO", photo: "" },
+  { name: "Hrishikesh Mhaiskar", role: "Research Intern (2024)", interests: "Thought Recognition from EEG Signals for Indic Languages.", initials: "IO", photo: "" },
+  { name: "Sudhanshu Kumar", role: "Research Intern (2024)", interests: "Automated Identification of Mind Wandering States from EEG Signals", initials: "IO", photo: "" },
+  { name: "Raushan Kumar ", role: "Research Intern (2024)", interests: "Automated Identification of Mind Wandering States from EEG Signals", initials: "IO", photo: "" },
+  { name: "Swetha N", role: "Research Intern (2024)", interests: "An Audio Dataset for code mixed Tamil English Hate and offensive speech detection", initials: "IO", photo: "" },
+  { name: "Sudharsan M ", role: "Research Intern (2024)", interests: "KG Creation in Tamil Ayurvedic Text", initials: "IO", photo: "" },
+  { name: "Faiq Alam", role: "Research Intern (2024)", interests: "KG Creation and Reasoning in Indian Context ", initials: "IO", photo: "" },
+  { name: "K.Naveen Ragav ", role: "Research Intern (2024)", interests: "", initials: "IO", photo: "" },
+  { name: "Priyanka K.", role: "Research Intern (2024)", interests: "KG Creation in Tamil Ayurvedic Text", initials: "IO", photo: "" },
+  { name: "Kalyan Sudarsan ", role: "Research Intern (2024)", interests: "", initials: "IO", photo: "" },
+  { name: "VIJEYASRI T", role: "Research Intern (2024)", interests: "REAL-TIME SPEECH ENHANCEMENT FOR DYSARTHRIA INDIVIDUALS USING NLP AND DEEP LEARNING", initials: "IO", photo: "" },
+  { name: "Gobika R ", role: "Research Intern (2024)", interests: "REAL-TIME SPEECH ENHANCEMENT FOR DYSARTHRIA INDIVIDUALS USING NLP AND DEEP LEARNING", initials: "IO", photo: "" },
+  { name: "Vinithaa P", role: "Research Intern (2024)", interests: "MULTI-CLASS SPEECH DISORDER DETECTION USING FRACTAL ANALYSIS AND MFCC", initials: "IO", photo: "" },
+  { name: "Nagul Pranav", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IO", photo: "" },
+  { name: "Balaji", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Gudapadi Nikhil", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "R Vinish Krishna", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Vasan R", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Janarthanan T", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Arvind Krishna", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Krithik", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Tanush Somishetty", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Yogesh Perumal", role: "Research Intern (2023)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Abhijit Baidya", role: "Research Intern (2023)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Hashim Faisal syed", role: "Research Intern (2023)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Isai Visaahan P M", role: "Research Intern (2023)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Karthik Balaji N V", role: "Research Intern (2023)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Kirthik B", role: "Research Intern (2023)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Nisha Preethika S", role: "Research Intern (2023)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Piyush Sonekar", role: "Research Intern (2023)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Prabhakar", role: "Research Intern (2023)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Raunak Rajpal", role: "Research Intern (2023)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Sreenidhi N", role: "Research Intern (2023)", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Vasukumar P", role: "Research Intern (2023)", interests: "Computer Vision", initials: "IT", photo: "" },
 ];
 
 function PeoplePage() {
@@ -108,14 +132,15 @@ function PeoplePage() {
 
       <Section title="Faculty" eyebrow="" people={faculty} variant="large" isFirst direction="left" />
       <Section title="PhD Scholars" eyebrow="" people={scholars} variant="medium" direction="right" />
-      <Section title="Students" eyebrow="" people={students} variant="compact" itemsPerPage={6} direction="left" />
-      <Section title="Interns" eyebrow="" people={interns} variant="compact" itemsPerPage={6} direction="right" />
-      <section className="container-page pt-10 pb-0">
+      <Section title="PG Students" eyebrow="" people={PGstudents} variant="compact" itemsPerPage={6} direction="left" showProjectLabel />
+      <Section title="UG Students" eyebrow="" people={UGstudents} variant="compact" itemsPerPage={6} direction="right" showProjectLabel />
+      <Section title="Interns" eyebrow="" people={interns} variant="compact" itemsPerPage={6} direction="left" />
+      <section className="container-page pt-6 pb-0">
         <Reveal>
           <motion.div
             whileHover={{ scale: 1.005 }}
             transition={{ duration: 0.4 }}
-            className="rounded-3xl bg-ink text-canvas p-12 lg:p-16 grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center relative overflow-hidden"
+            className="rounded-3xl bg-ink text-canvas p-10 lg:p-14 grid lg:grid-cols-[1.2fr_1fr] gap-10 items-center relative overflow-hidden"
           >
             <motion.div
               className="absolute -top-20 -right-20 size-80 rounded-full bg-accent/30 blur-3xl"
@@ -130,12 +155,12 @@ function PeoplePage() {
    <ArrowRight className="size-4" />
 </Link>
             <div className="relative">
-              <p className="eyebrow text-accent mb-4">Join us</p>
-              <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight leading-[0.95]">
+              <p className="eyebrow text-accent mb-3">Join us</p>
+              <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight leading-[0.95]">
                 We're always looking for curious minds.
               </h2>
             </div>
-            <div className="space-y-3 text-sm text-canvas/70 relative">
+            <div className="space-y-2 text-sm text-canvas/70 relative">
               <p>Ph.D. positions open year-round across all research domains. Industry-funded scholarships available for exceptional candidates.</p>
               <p>M.Tech and B.Tech students from NIT Trichy can apply through the lab's internal mentorship program every semester.</p>
             </div>
@@ -161,38 +186,38 @@ const tierStyles: Record<
   }
 > = {
   large: {
-    cardPadding: "p-6 lg:p-10",
-    gap: "gap-8 lg:gap-12",
-    photoWidth: "w-24 sm:w-32 lg:w-64",
+    cardPadding: "p-5 lg:p-8",
+    gap: "gap-6 lg:gap-10",
+    photoWidth: "w-24 sm:w-32 lg:w-56",
     photoMinHeight: "",
-    nameSize: "text-3xl lg:text-4xl font-semibold",
+    nameSize: "text-2xl lg:text-3xl font-semibold",
     roleSize: "text-xs",
-    interestSize: "mt-5 text-base lg:text-lg font-normal",
-    initialsSize: "text-3xl font-semibold",
-  },
-  medium: {
-    cardPadding: "p-5 sm:p-6",
-    gap: "gap-5 sm:gap-6",
-    photoWidth: "w-24 sm:w-32 lg:w-40",
-    photoMinHeight: "min-h-[180px]",
-    nameSize: "text-xl font-semibold",
-    roleSize: "text-[11px]",
-    interestSize: "mt-3 text-[13px] sm:text-sm",
+    interestSize: "mt-4 text-sm lg:text-base font-normal",
     initialsSize: "text-2xl font-semibold",
   },
+  medium: {
+    cardPadding: "p-4 sm:p-5",
+    gap: "gap-4 sm:gap-5",
+    photoWidth: "w-24 sm:w-32 lg:w-36",
+    photoMinHeight: "min-h-[160px]",
+    nameSize: "text-lg font-semibold",
+    roleSize: "text-[11px]",
+    interestSize: "mt-2 text-[13px] sm:text-sm",
+    initialsSize: "text-xl font-semibold",
+  },
   compact: {
-    cardPadding: "p-4",
-    gap: "gap-4",
+    cardPadding: "p-3.5",
+    gap: "gap-3.5",
     photoWidth: "w-20 h-20 sm:w-24 sm:h-28",
     photoMinHeight: "",
-    nameSize: "text-lg sm:text-xl font-semibold",
-    roleSize: "text-[10px]",
-    interestSize: "mt-3 text-sm sm:text-[15px]",
-    initialsSize: "text-xl font-semibold",
+    nameSize: "text-base sm:text-lg font-semibold",
+    roleSize: "text-xs",
+    interestSize: "mt-2 text-sm",
+    initialsSize: "text-lg font-semibold",
   },
 };
 
-function PersonCard({ p, variant }: { p: Person; variant: Variant }) {
+function PersonCard({ p, variant, showProjectLabel }: { p: Person; variant: Variant; showProjectLabel?: boolean }) {
   const s = tierStyles[variant];
 
   return (
@@ -234,29 +259,42 @@ function PersonCard({ p, variant }: { p: Person; variant: Variant }) {
           <h3 className={`font-display tracking-tight leading-tight group-hover:text-accent transition-colors ${s.nameSize}`}>
             {cleanName(p.name)}
           </h3>
-          <p className={`mt-2 font-mono uppercase tracking-[0.18em] text-accent/80 ${s.roleSize}`}>
+          <p className={`mt-3.5 font-mono uppercase tracking-[0.18em] text-accent ${s.roleSize}`}>
             {p.role}
           </p>
-          <p className={`text-ink-soft leading-relaxed whitespace-pre-line ${s.interestSize}`}>
-            {p.interests}
-          </p>
+
+          {showProjectLabel ? (
+            <div className="mt-2.5">
+              <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink">
+                Project Title
+              </p>
+              <p className="mt-1 text-[12.5px] leading-snug text-ink-soft whitespace-pre-line">
+                {p.interests}
+              </p>
+            </div>
+          ) : (
+            <p className={`text-ink-soft leading-relaxed whitespace-pre-line ${s.interestSize}`}>
+              {p.interests}
+            </p>
+          )}
+
           {p.email && (
-            <p className="mt-3 font-mono text-xs text-ink-soft break-all">{p.email}</p>
+            <p className="mt-2 font-mono text-xs text-ink-soft break-all">{p.email}</p>
           )}
         </div>
       </div>
 
       {(p.scholar || p.linkedin) && (
-        <div className="mt-5 flex gap-4 pt-4 border-t border-hairline">
+        <div className="mt-4 flex gap-3 pt-3 border-t border-hairline">
           {p.scholar && (
             <a
               href={p.scholar}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Google Scholar profile"
-        className="inline-flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft hover:bg-accent hover:text-canvas transition-colors"
+        className="inline-flex items-center justify-center size-7 rounded-full bg-muted text-ink-soft hover:bg-accent hover:text-canvas transition-colors"
       >
-        <GraduationCap className="size-4" />
+        <GraduationCap className="size-3.5" />
       </a>
           )}
           {p.linkedin && (
@@ -265,9 +303,9 @@ function PersonCard({ p, variant }: { p: Person; variant: Variant }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn profile"
-        className="inline-flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft hover:bg-[#0A66C2] hover:text-white transition-colors"
+        className="inline-flex items-center justify-center size-7 rounded-full bg-muted text-ink-soft hover:bg-[#0A66C2] hover:text-white transition-colors"
       >
-        <Linkedin className="size-4" />
+        <Linkedin className="size-3.5" />
       </a>
           )}
         </div>
@@ -312,7 +350,8 @@ function Section({
   variant = "compact",
   itemsPerPage = 6,
   isFirst = false,
-  direction = "up"
+  direction = "up",
+  showProjectLabel = false,
 }: {
   title: string;
   eyebrow: string;
@@ -320,7 +359,8 @@ function Section({
   variant?: Variant;
   itemsPerPage?: number;
   isFirst?: boolean;
-  direction?: "left" | "right" | "up"
+  direction?: "left" | "right" | "up";
+  showProjectLabel?: boolean;
 }) {
   const [page, setPage] = useState(1);
   const usesPagination = variant === "compact" && people.length > itemsPerPage;
@@ -331,19 +371,19 @@ function Section({
 
   const gridClasses =
     variant === "large"
-      ? "grid gap-8 place-items-center"
+      ? "grid gap-6 place-items-center"
       : variant === "medium"
-      ? "grid gap-6 lg:grid-cols-3"
-      : "grid gap-6 sm:grid-cols-2 lg:grid-cols-3";
+      ? "grid gap-4 lg:grid-cols-3"
+      : "grid gap-4 sm:grid-cols-2 lg:grid-cols-3";
 
   return (
     <section
-      className={`container-page py-4 ${isFirst ? "border-t-0 pt-2" : "border-t border-hairline"}`}
+      className={`container-page py-2.5 ${isFirst ? "border-t-0 -mt-4 pt-0" : "border-t border-hairline"}`}
     >
-      <Reveal className="flex items-end justify-between mb-6 flex-wrap gap-4">
+      <Reveal className="flex items-end justify-between mb-4 flex-wrap gap-4">
         <div>
-          {eyebrow && <p className="eyebrow text-accent mb-3">{eyebrow}</p>}
-          <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight">
+          {eyebrow && <p className="eyebrow text-accent mb-2">{eyebrow}</p>}
+          <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight">
             <RevealWords text={title} />
           </h2>
         </div>
@@ -361,7 +401,7 @@ function Section({
           <Stagger className={gridClasses} stagger={0.06}>
             {visiblePeople.map((p, i) => (
               <DirectionalCardReveal key={`${p.name}-${i}`} direction={direction}>
-                <PersonCard p={p} variant={variant} />
+                <PersonCard p={p} variant={variant} showProjectLabel={showProjectLabel} />
               </DirectionalCardReveal>
             ))}
           </Stagger>
@@ -369,7 +409,7 @@ function Section({
       </AnimatePresence>
 
       {usesPagination && (
-        <div className="mt-8 flex items-center justify-center gap-2">
+        <div className="mt-6 flex items-center justify-center gap-2">
           <button
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
