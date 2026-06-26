@@ -38,7 +38,7 @@ function cleanName(name: string) {
 
 const faculty: Person[] = [
   {
-    name: "Dr. C. Oswald ",
+    name: "Dr.C.  Oswald ",
     role: "Faculty Coordinator",
     interests: `Data Mining,
 Machine Learning for Social Analytics,
@@ -76,29 +76,36 @@ const UGstudents: Person[] = [
 ];
 
 const interns: Person[] = [
-  { name: "Aditi Baskaran", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "" },
-  { name: "Nooh K ", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "" },
+  { name: "Aditi Baskaran", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "images/Interns/2026/Aditi Baskaran.jpeg" },
+  { name: "Nooh K ", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "images/Interns/2026/Nooh_K.png" },
   { name: "Adarsh SPL", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "" },
-  { name: "K. Preetham Reddy", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "" },
-  { name: "Madhu Parameswari Ganesan", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "" },
+  { name: "K. Preetham Reddy", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "images/Interns/2026/PreethamReddy.jpg" },
+  { name: "Surya Narayan Ghosh", role: "Research Intern (2026)", interests: "Hypergraph Guided Structural Fusion for Nested Biomedical NER", initials: "IO", photo: "images/Interns/2026/SNghosh.jpg" },
   { name: "Golla Madhu Kiran", role: "Research Intern (2026)", interests: "Boundary-Aware Parameter-Efficient Tuning for Nested Biomedical Named Entity Recognition", initials: "IO", photo: "" },
-  { name: "Surya Narayan Ghosh", role: "Research Intern (2026)", interests: "Hypergraph Guided Structural Fusion for Nested Biomedical NER", initials: "IO", photo: "" },
-  { name: "Harsha Dhayini R", role: "Research Intern (2026)", interests: "Transforming Tamil Ayurvedic Text to Knowledge Graph", initials: "IO", photo: "" },
-  { name: "Kabilan G", role: "Research Intern (2024)", interests: "Enhancements in Nested NER", initials: "IO", photo: "" },
-  { name: "Aranganathan S ", role: "Research Intern (2024)", interests: "Nested NER in Tamil", initials: "IO", photo: "" },
-  { name: "Rohan Jose", role: "Research Intern (2024)", interests: "Offensive and Hate Speech Detection of Malayalam  using Deep Learning Techniques", initials: "IO", photo: "" },
-  { name: "Hrishikesh Mhaiskar", role: "Research Intern (2024)", interests: "Thought Recognition from EEG Signals for Indic Languages.", initials: "IO", photo: "" },
-  { name: "Sudhanshu Kumar", role: "Research Intern (2024)", interests: "Automated Identification of Mind Wandering States from EEG Signals", initials: "IO", photo: "" },
-  { name: "Raushan Kumar ", role: "Research Intern (2024)", interests: "Automated Identification of Mind Wandering States from EEG Signals", initials: "IO", photo: "" },
-  { name: "Swetha N", role: "Research Intern (2024)", interests: "An Audio Dataset for code mixed Tamil English Hate and offensive speech detection", initials: "IO", photo: "" },
-  { name: "Sudharsan M ", role: "Research Intern (2024)", interests: "KG Creation in Tamil Ayurvedic Text", initials: "IO", photo: "" },
-  { name: "Faiq Alam", role: "Research Intern (2024)", interests: "KG Creation and Reasoning in Indian Context ", initials: "IO", photo: "" },
-  { name: "K.Naveen Ragav ", role: "Research Intern (2024)", interests: "", initials: "IO", photo: "" },
-  { name: "Priyanka K.", role: "Research Intern (2024)", interests: "KG Creation in Tamil Ayurvedic Text", initials: "IO", photo: "" },
-  { name: "Kalyan Sudarsan ", role: "Research Intern (2024)", interests: "", initials: "IO", photo: "" },
-  { name: "VIJEYASRI T", role: "Research Intern (2024)", interests: "REAL-TIME SPEECH ENHANCEMENT FOR DYSARTHRIA INDIVIDUALS USING NLP AND DEEP LEARNING", initials: "IO", photo: "" },
-  { name: "Gobika R ", role: "Research Intern (2024)", interests: "REAL-TIME SPEECH ENHANCEMENT FOR DYSARTHRIA INDIVIDUALS USING NLP AND DEEP LEARNING", initials: "IO", photo: "" },
-  { name: "Vinithaa P", role: "Research Intern (2024)", interests: "MULTI-CLASS SPEECH DISORDER DETECTION USING FRACTAL ANALYSIS AND MFCC", initials: "IO", photo: "" },
+  { name: "Madhu Parameswari Ganesan", role: "Research Intern (2026)", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "images/Interns/2026/Madhu Parameswari Ganesan.png" },
+  { name: "Harsha Dhayini R", role: "Research Intern (2026)", interests: "Transforming Tamil Ayurvedic Text to Knowledge Graph", initials: "IO", photo: "images/Interns/2026/Harsha.png" },
+
+
+
+  { name: "Kabilan G", role: "Research Intern (2025)", interests: "Enhancements in Nested NER", initials: "IO", photo: "" },
+  { name: "Aranganathan S ", role: "Research Intern (2025)", interests: "Nested NER in Tamil", initials: "IO", photo: "images/Interns/2025/Aranganathan S _NIT Surathkal.jpeg" },
+  { name: "Rohan Jose", role: "Research Intern (2025)", interests: "Offensive and Hate Speech Detection of Malayalam  using Deep Learning Techniques", initials: "IO", photo: "images/Interns/2025/Rohan_Jose.jpg" },
+  { name: "Hrishikesh Mhaiskar", role: "Research Intern (2025)", interests: "Thought Recognition from EEG Signals for Indic Languages.", initials: "IO", photo: "" },
+  { name: "Sudhanshu Kumar", role: "Research Intern (2025)", interests: "Automated Identification of Mind Wandering States from EEG Signals", initials: "IO", photo: "images/Interns/2025/Sudhanshu_Kumar.jpg" },
+  { name: "Raushan Kumar ", role: "Research Intern (2025)", interests: "Automated Identification of Mind Wandering States from EEG Signals", initials: "IO", photo: "" },
+  { name: "Swetha N", role: "Research Intern (2025)", interests: "An Audio Dataset for code mixed Tamil English Hate and offensive speech detection", initials: "IO", photo: "" },
+  { name: "Sudharsan M ", role: "Research Intern (2025)", interests: "KG Creation in Tamil Ayurvedic Text", initials: "IO", photo: "images/Interns/2025/Sudharsan M.png" },
+  { name: "Faiq Alam", role: "Research Intern (2025)", interests: "KG Creation and Reasoning in Indian Context ", initials: "IO", photo: "images/Interns/2025/Faiq_Alam.JPG" },
+  { name: "K.Naveen Ragav ", role: "Research Intern (2025)", interests: "", initials: "IO", photo: "" },
+  { name: "Priyanka K.", role: "Research Intern (2025)", interests: "KG Creation in Tamil Ayurvedic Text", initials: "IO", photo: "images/Interns/2025/PriyankaK.png" },
+  { name: "Kalyan Sudarsan ", role: "Research Intern (2025)", interests: "", initials: "IO", photo: "images/Interns/2025/Kalyan .heic" },
+  { name: "VIJEYASRI T", role: "Research Intern (2025)", interests: "REAL-TIME SPEECH ENHANCEMENT FOR DYSARTHRIA INDIVIDUALS USING NLP AND DEEP LEARNING", initials: "IO", photo: "images/Interns/2025/Vijeyasri.T.jpg" },
+  { name: "Gobika R ", role: "Research Intern (2025)", interests: "REAL-TIME SPEECH ENHANCEMENT FOR DYSARTHRIA INDIVIDUALS USING NLP AND DEEP LEARNING", initials: "IO", photo: "images/Interns/2025/Gobika_R.jpeg.jpg" },
+  { name: "Vinithaa P", role: "Research Intern (2025)", interests: "MULTI-CLASS SPEECH DISORDER DETECTION USING FRACTAL ANALYSIS AND MFCC", initials: "IO", photo: "" },
+  
+  
+  
+
   { name: "Nagul Pranav", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IO", photo: "" },
   { name: "Balaji", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IT", photo: "" },
   { name: "Gudapadi Nikhil", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IT", photo: "" },
@@ -125,10 +132,10 @@ const interns: Person[] = [
 function PeoplePage() {
   return (
     <>
-      <PageHeader
+      {/* <PageHeader
         eyebrow=""
         title={<>The people behind the <span className="italic font-light text-ink/50">research.</span></>}
-      />
+      /> */}
 
       <Section title="Faculty" eyebrow="" people={faculty} variant="large" isFirst direction="left" />
       <Section title="PhD Scholars" eyebrow="" people={scholars} variant="medium" direction="right" />
