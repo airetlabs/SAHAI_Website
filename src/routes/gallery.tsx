@@ -7,18 +7,20 @@ import { AnimatePresence } from "framer-motion";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — SAHAI Lab" },
-      { name: "description", content: "Photographs from the lab, workshops, conferences, hackathons and student life at SAHAI Lab, NIT Trichy." },
-      { property: "og:title", content: "Gallery · SAHAI Lab" },
+      { title: "Gallery — SPARKS Lab" },
+      { name: "description", content: "Photographs from the lab, workshops, conferences, hackathons and student life at SPARKS Lab, NIT Trichy." },
+      { property: "og:title", content: "Gallery · SPARKS Lab" },
       { property: "og:description", content: "Inside the lab." },
     ],
   }),
   component: GalleryPage,
 });
 
-const categories = ["All", "Lab", "Workshop", "Conference", "Guest Lecture"];
+const imageModules = import.meta.glob("../../gallery_pics/**/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF,heic,HEIC,jfif,JFIF}", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
 
-// Synthesized swatch-cards — visual texture without external images
 const palettes = [
   ["from-accent/30", "to-ember/20"],
   ["from-sage/20", "to-accent/20"],
@@ -28,23 +30,40 @@ const palettes = [
   ["from-accent/40", "to-sage/20"],
 ];
 
-const items = Array.from({ length: 18 }).map((_, i) => ({
-  id: i,
-  cat: categories[(i % (categories.length - 1)) + 1],
-  caption: [
-    "Atlas model launch",
-    "Neuro-symbolic workshop",
-    "Lab anniversary",
-    "Hackathon finals",
-    "PhD defense",
-    "Student orientation",
-    "Conference travel",
-    "Guest lecture",
-    "Annual symposium",
-  ][i % 9],
-  ratio: i % 5 === 0 ? "row-span-2" : i % 7 === 0 ? "col-span-2" : "",
-  palette: palettes[i % palettes.length],
-}));
+const categoryMap: Record<string, string> = {
+  Collaborations: "Collaborations",
+  "Conferences attended": "Conferences",
+  "Events Conducted": "Events",
+  "NITT Club Activities": "Club Activities",
+  Talks: "Talks",
+  "With students": "Students",
+};
+
+const items = Object.entries(imageModules).map(([path, src], index) => {
+  const relativePath = path.replace("../../gallery_pics/", "");
+  const topLevelFolder = relativePath.split("/")[0];
+  const rawCaption = (relativePath.split("/").pop() || "").replace(/\.[^.]+$/, "");
+
+  let caption: string | null = rawCaption;
+  // If the caption looks like a randomly generated file name, drop it
+  if (
+    /^(whatsapp|img_|dsc|snap|untitled|\d{8,})/i.test(caption) ||
+    caption.length < 3 ||
+    /^[0-9a-fA-F-]+$/.test(caption)
+  ) {
+    caption = null;
+  }
+
+  return {
+    id: index + 1,
+    src,
+    cat: categoryMap[topLevelFolder] ?? "Collaborations",
+    caption,
+    palette: palettes[index % palettes.length],
+  };
+});
+
+const categories = ["All", "Collaborations", "Conferences", "Events", "Club Activities", "Talks", "Students"];
 
 function GalleryPage() {
   const [filter, setFilter] = useState("All");
@@ -61,65 +80,61 @@ function GalleryPage() {
         }
       />
 
-      {/* Auto-scroll highlight strips */}
-      <section className="space-y-3 pb-16 pt-12 border-t border-hairline">
-        {[0, 1].map((row) => (
-          <div key={row} className="relative overflow-hidden">
-            <div
-              className="flex gap-3 animate-marquee py-2"
-              style={{
-                animationDirection: row % 2 ? "reverse" : "normal",
-                animationDuration: "60s",
-              }}
-            >
-              {[...items, ...items].map((it, i) => (
-                <div
-                  key={`${row}-${i}`}
-                  className={`relative shrink-0 w-72 h-44 rounded-2xl bg-gradient-to-br ${it.palette[0]} ${it.palette[1]} ring-1 ring-border overflow-hidden`}
-                >
-                  <div className="absolute inset-0 bg-dotgrid opacity-30" />
-                  <div className="absolute bottom-3 left-4 right-4 font-mono text-[10px] text-ink/60 flex justify-between">
-                    <span>{it.caption}</span>
-                    <span>{it.cat}</span>
+      <section className="space-y-3 border-t border-hairline pb-16 pt-12">
+        {[0, 1].map((row) => {
+          const half = Math.ceil(items.length / 2);
+          const rowItems = row === 0 ? items.slice(0, half) : items.slice(half);
+
+          return (
+            <div key={row} className="relative overflow-hidden">
+              <div
+                className="flex animate-marquee gap-3 py-2"
+                style={{ animationDirection: row % 2 ? "reverse" : "normal", animationDuration: "60s" }}
+              >
+                {[...rowItems, ...rowItems].map((it, i) => (
+                  <div
+                    key={`${row}-${i}`}
+                    className={`relative h-44 w-72 shrink-0 overflow-hidden rounded-2xl bg-gradient-to-br ${it.palette[0]} ${it.palette[1]} ring-1 ring-border`}
+                  >
+                    <img src={it.src} alt={it.caption || "Gallery photo"} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" />
+                    <div className="absolute bottom-3 left-4 right-4 flex justify-between font-mono text-[10px] text-canvas/90">
+                      <span className="truncate pr-2">{it.caption || ""}</span>
+                      <span className="shrink-0">{it.cat}</span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </section>
 
       <section className="container-page pb-32">
-        <Reveal className="flex flex-wrap gap-2 mb-10">
+        <Reveal className="mb-10 flex flex-wrap gap-2">
           {categories.map((c) => (
             <button
               key={c}
               onClick={() => setFilter(c)}
-              className={`rounded-full px-4 py-2 text-xs font-medium transition-colors ${
-                filter === c ? "bg-ink text-canvas" : "bg-surface ring-1 ring-border hover:bg-muted"
-              }`}
+              className={`rounded-full px-4 py-2 text-xs font-medium transition-colors ${filter === c ? "bg-ink text-canvas" : "bg-surface ring-1 ring-border hover:bg-muted"
+                }`}
             >
               {c}
             </button>
           ))}
-          <div className="ml-auto eyebrow self-center">{filtered.length} photos</div>
+          <div className="ml-auto self-center eyebrow">{filtered.length} photos</div>
         </Reveal>
 
         <AnimatePresence mode="wait">
-          <Stagger
-            key={filter}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[180px] gap-3"
-            stagger={0.04}
-          >
+          <Stagger key={filter} className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4" stagger={0.04}>
             {filtered.map((it) => (
-              <StaggerItem key={it.id} className={it.ratio}>
-                <figure
-                  className={`relative h-full w-full rounded-2xl bg-gradient-to-br ${it.palette[0]} ${it.palette[1]} ring-1 ring-border overflow-hidden hover:scale-[1.02] transition-transform cursor-pointer`}
-                >
-                  <div className="absolute inset-0 bg-dotgrid opacity-20" />
-                  <figcaption className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-ink/80 to-transparent text-canvas">
-                    <div className="eyebrow text-canvas/60 text-[9px]">{it.cat}</div>
-                    <div className="text-sm font-medium">{it.caption}</div>
+              <StaggerItem key={it.id} className="break-inside-avoid">
+                <figure className={`relative w-full overflow-hidden rounded-2xl bg-gradient-to-br ${it.palette[0]} ${it.palette[1]} ring-1 ring-border transition-transform hover:scale-[1.02]`}>
+                  <img src={it.src} alt={it.caption || "Gallery photo"} className="w-full h-auto block" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent pointer-events-none" />
+                  <figcaption className="absolute inset-x-0 bottom-0 p-4 text-canvas pointer-events-none">
+                    <div className="eyebrow text-canvas/60 text-[9px] mb-1">{it.cat}</div>
+                    {it.caption && <div className="text-sm font-medium leading-tight">{it.caption}</div>}
                   </figcaption>
                 </figure>
               </StaggerItem>

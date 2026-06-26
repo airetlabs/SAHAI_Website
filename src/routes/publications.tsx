@@ -601,55 +601,45 @@ function PublicationsPage() {
       </section>
 
       <section className="container-page pb-32">
-        <ul className="grid gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden w-full">
+        <ul className="flex flex-col gap-3 w-full">
           {filtered.map((pub, index) => (
             <motion.div
               layoutId={`card-${pub.title}-${id}`}
               key={`card-${pub.title}-${id}`}
-              className="relative bg-surface p-6 lg:p-8 flex flex-col md:flex-row justify-between items-center transition-all duration-300 hover:bg-canvas hover:-translate-y-1 hover:shadow-xl hover:z-10 group"
+              className="relative bg-surface rounded-xl ring-1 ring-border p-4 lg:p-5 flex flex-col md:flex-row justify-between md:items-center transition-all duration-300 hover:bg-canvas hover:-translate-y-1 hover:shadow-md hover:z-10 group"
             >
-              <div className="flex gap-6 lg:gap-8 flex-col md:flex-row flex-1 min-w-0 md:items-center">
-                <motion.div
-                  layoutId={`image-${pub.title}-${id}`}
-                  className={`relative h-40 w-full md:h-16 md:w-16 rounded-xl overflow-hidden bg-gradient-to-br ${pub.gradient} shrink-0 shadow-inner group-hover:scale-105 transition-transform duration-500`}
+              <div className="flex-1 min-w-0 pr-0 md:pr-6">
+                <motion.h3
+                  layoutId={`title-${pub.title}-${id}`}
+                  className="font-display font-semibold text-lg text-ink text-left leading-snug group-hover:text-accent transition-colors"
                 >
-                  <div className="absolute inset-0 bg-dotgrid opacity-30" />
-                  <div className="absolute inset-0 grid place-items-center opacity-80 scale-75">
-                    <PubGlyph variant={index % 4} />
-                  </div>
-                </motion.div>
-                <div className="flex-1 min-w-0">
-                  <motion.h3
-                    layoutId={`title-${pub.title}-${id}`}
-                    className="font-display font-semibold text-xl lg:text-2xl text-ink text-center md:text-left leading-snug group-hover:text-accent transition-colors"
-                  >
-                    {pub.title}
-                  </motion.h3>
-                  <motion.p
-                    layoutId={`description-${pub.title}-${id}`}
-                    className="text-[15px] lg:text-base text-ink-soft text-center md:text-left mt-2.5"
-                  >
-                    {pub.authors}
-                  </motion.p>
-                  <motion.p
-                    layoutId={`fullvenue-${pub.title}-${id}`}
-                    className="text-sm italic text-ink-soft text-center md:text-left mt-1"
-                  >
-                    {pub.fullVenue || pub.venue}
-                  </motion.p>
-                </div>
+                  {pub.title}
+                </motion.h3>
+                <motion.p
+                  layoutId={`description-${pub.title}-${id}`}
+                  className="text-sm text-ink-soft text-left mt-1.5"
+                >
+                  {pub.authors}
+                </motion.p>
+                <motion.p
+                  layoutId={`fullvenue-${pub.title}-${id}`}
+                  className="text-xs italic text-ink-soft text-left mt-1"
+                >
+                  {pub.fullVenue || pub.venue}
+                </motion.p>
               </div>
+              
               {pub.link ? (
                 <motion.a
                   layoutId={`button-${pub.title}-${id}`}
                   href={pub.link}
                   target="_blank"
-                  className="px-5 py-2.5 text-xs rounded-full font-medium bg-canvas ring-1 ring-border hover:bg-ink hover:text-canvas text-ink mt-4 md:mt-0 transition-colors shrink-0"
+                  className="px-4 py-2 text-xs rounded-full font-medium bg-canvas ring-1 ring-border hover:bg-ink hover:text-canvas text-ink mt-4 md:mt-0 md:ml-4 transition-colors shrink-0 md:self-center self-start"
                 >
                   Read Paper
                 </motion.a>
               ) : (
-                <div className="px-5 py-2.5 text-xs rounded-full font-medium mt-4 md:mt-0 shrink-0 invisible pointer-events-none hidden md:block">
+                <div className="px-4 py-2 text-xs rounded-full font-medium mt-4 md:mt-0 md:ml-4 shrink-0 invisible pointer-events-none hidden md:block">
                   Read Paper
                 </div>
               )}

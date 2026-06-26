@@ -41,6 +41,7 @@ const projectData: ProjectItem[] = [
     type: "Funded",
     status: "Ongoing",
     title: "MindScribe: Giving Voice to Silent Minds",
+    description: "An innovative brain-computer interface system designed to translate neural signals into text, enabling communication for individuals with severe speech impairments through advanced deep learning and neural decoding techniques.",
     amount: "10 Lakhs",
     agency: "IIT Indore DRISHTI CPS Foundation under the NM-ICPS Scheme",
     pi: ["Dr. Chandresh Kumar Maurya, Associate Professor, Dept. of CSE, IIT Indore."],
@@ -154,17 +155,17 @@ function ProjectsPage() {
                     >
                       {/* Image Space */}
                       <div
-                        className={`relative bg-gradient-to-br ${p.hue} ${isFullSpan ? "min-h-[250px] lg:min-h-full lg:w-[30%] shrink-0" : "min-h-[200px] sm:min-h-[250px] shrink-0"}`}
+                        className={`flex items-center justify-center bg-gradient-to-br ${p.hue} overflow-hidden ${isFullSpan ? "lg:w-[35%] shrink-0" : "w-full"}`}
                       >
                         {p.image ? (
                           <img
                             src={p.image}
                             alt={p.title}
-                            className="absolute inset-0 w-full h-full object-cover"
+                            className="w-full h-auto block"
                           />
                         ) : (
                           <div
-                            className="absolute inset-0 opacity-25"
+                            className="w-full h-[120px] sm:h-[160px] opacity-25"
                             style={{
                               backgroundImage:
                                 "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.25) 1px, transparent 0)",
@@ -176,77 +177,90 @@ function ProjectsPage() {
 
                       {/* Content Space */}
                       <div
-                        className={`flex flex-col flex-1 p-6 pb-8 sm:p-8 sm:pb-8 md:p-10 md:pb-8 ${isFullSpan ? "lg:w-[70%]" : ""}`}
+                        className={`flex flex-col flex-1 p-4 sm:p-5 md:p-6 ${isFullSpan ? "lg:w-[70%]" : ""}`}
                       >
-                        <div className="flex flex-col md:flex-row justify-between md:items-start gap-6">
+                        <div className="flex flex-col md:flex-row justify-between md:items-start gap-4">
                           <div className="flex-1">
-                            <h3 className="font-display text-2xl sm:text-3xl font-semibold text-ink leading-snug mb-4">
+                            <h3 className={`font-display font-semibold text-ink leading-snug mb-2 ${p.title.length > 50 ? "text-base sm:text-lg" : "text-lg sm:text-xl"}`}>
                               {p.title}
                             </h3>
                             {p.description && (
-                              <p className="mt-2 text-base text-ink-soft leading-relaxed mb-4">
+                              <p className="mt-1 text-sm text-ink-soft leading-relaxed mb-2">
                                 {p.description}
                               </p>
                             )}
                             {p.amount && (
-                              <div className="mt-2 text-base text-ink-soft">
+                              <div className="mt-1 text-sm text-ink-soft">
                                 <span className="font-medium text-ink">Amount:</span> {p.amount}
                               </div>
                             )}
                             {p.agency && (
-                              <div className="mt-2 text-base text-ink-soft">
+                              <div className="mt-1 text-sm text-ink-soft">
                                 <span className="font-medium text-ink">Funding Agency:</span>{" "}
                                 {p.agency}
                               </div>
                             )}
                           </div>
-                          {p.link && (
+                          {p.type === "Course" && p.link && (
                             <a
                               href={p.link}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="shrink-0 inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-5 py-2.5 text-sm font-medium hover:bg-accent hover:-translate-y-0.5 transition-all"
+                              className="shrink-0 inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-4 py-2 text-xs font-medium hover:bg-accent hover:-translate-y-0.5 transition-all"
                             >
                               {p.linkLabel || "Visit Project ↗"}
                             </a>
                           )}
                         </div>
 
-                        <div className="pt-8 mt-auto border-t border-hairline grid sm:grid-cols-2 gap-6">
+                        <div className="pt-4 mt-4 border-t border-hairline grid sm:grid-cols-2 gap-4">
                           {p.pi && p.pi.length > 0 && (
                             <div>
-                              <span className="text-[10px] font-bold text-ink/40 uppercase tracking-[0.15em] block mb-3">
+                              <span className="text-[10px] font-bold text-ink/40 uppercase tracking-[0.15em] block mb-1">
                                 Principal Investigator
                               </span>
                               <CollapsiblePersonList
                                 people={p.pi}
-                                itemClassName="text-sm text-ink font-medium"
+                                itemClassName="text-xs sm:text-sm text-ink font-medium"
                               />
                             </div>
                           )}
                           {p.copi && p.copi.length > 0 && (
                             <div>
-                              <span className="text-[10px] font-bold text-ink/40 uppercase tracking-[0.15em] block mb-3">
+                              <span className="text-[10px] font-bold text-ink/40 uppercase tracking-[0.15em] block mb-1">
                                 Co-Investigators
                               </span>
                               <CollapsiblePersonList
                                 people={p.copi}
-                                itemClassName="text-sm text-ink-soft"
+                                itemClassName="text-xs sm:text-sm text-ink-soft"
                               />
                             </div>
                           )}
                           {p.team && p.team.length > 0 && (
-                            <div className="sm:col-span-2 mt-4 sm:mt-0">
-                              <span className="text-[10px] font-bold text-ink/40 uppercase tracking-[0.15em] block mb-3">
+                            <div className="sm:col-span-2 mt-2 sm:mt-0">
+                              <span className="text-[10px] font-bold text-ink/40 uppercase tracking-[0.15em] block mb-1">
                                 Team
                               </span>
                               <CollapsiblePersonList
                                 people={p.team}
-                                itemClassName="text-sm text-ink-soft"
+                                itemClassName="text-xs sm:text-sm text-ink-soft"
                               />
                             </div>
                           )}
                         </div>
+
+                        {p.type !== "Course" && p.link && (
+                          <div className="mt-4 pt-3 border-t border-hairline flex">
+                            <a
+                              href={p.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-4 py-2 text-xs font-medium hover:bg-accent hover:-translate-y-0.5 transition-all"
+                            >
+                              {p.linkLabel || "Visit Project ↗"}
+                            </a>
+                          </div>
+                        )}
                       </div>
                     </motion.div>
                   </StaggerItem>

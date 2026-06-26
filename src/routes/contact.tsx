@@ -50,32 +50,20 @@ const contactDetails: [string, React.ReactNode][] = [
     "Join the lab",
     <div className="flex flex-col gap-1.5 mt-1">
       <span className="font-display font-bold text-lg text-ink">Internship Opportunities</span>
-      <span className="text-ink-soft leading-relaxed mt-0.5">
-        Interested interns can email to:
-        <div className="flex items-center flex-wrap gap-2 mt-3 mb-2">
-          <span className="text-xs">Dr C Oswald:</span>
-          <a
-            href="mailto:oswald@nitt.edu"
-            className="text-accent hover:text-ink font-mono text-xs bg-accent/10 px-2 py-1 rounded transition-colors hover:bg-accent/20"
-          >
-            oswald@nitt.edu
-          </a>
-        </div>
-        <div className="flex items-center flex-wrap gap-2 mt-1">
-          <span className="text-xs">Abhijith Balan:</span>
-          <a
-            href="mailto:406123001@gmail.com"
-            className="text-accent hover:text-ink font-mono text-xs bg-accent/10 px-2 py-1 rounded transition-colors hover:bg-accent/20"
-          >
-            406123001@gmail.com
-          </a>
-        </div>
+      <span className="text-ink-soft leading-relaxed mt-0.5 flex flex-wrap items-center gap-2">
+        Prospective interns may email to
+        <a
+          href="mailto:oswald@nitt.edu"
+          className="text-accent hover:text-ink font-mono text-[13px] bg-accent/10 px-2 py-1 rounded transition-colors hover:bg-accent/20"
+        >
+          oswald@nitt.edu
+        </a>
       </span>
     </div>,
   ],
   // ["Partnerships", "partnerships@sahai.nitt.edu"],
   // ["Press", "press@sahai.nitt.edu"],
-  ["Office hours", "Mon–Fri · 10:00–17:00 IST"],
+  ["Office hours", "Mon–Fri · 09:00–18:00 IST"],
 ];
 
 function ContactPage() {
@@ -225,7 +213,7 @@ function ContactPage() {
                 animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
                 transition={{ duration: 6, repeat: Infinity }}
               />
-              <p className="eyebrow text-accent mb-3 relative">Visit</p>
+              <p className="eyebrow font-bold text-accent mb-3 relative">Visit</p>
               <p className="font-display text-xl font-semibold leading-tight relative">
                 SAHAI Lab
                 <br />
@@ -254,7 +242,7 @@ function ContactPage() {
       {/* FAQ */}
       <section className="container-page pb-32">
         <Reveal>
-          <p className="eyebrow text-accent mb-4">FAQ</p>
+          <p className="eyebrow font-bold text-accent mb-4">FAQ</p>
           <h2 className="font-display text-4xl font-semibold mb-10">
             <RevealWords text="Frequently asked" />
           </h2>
@@ -306,7 +294,7 @@ function ContactPage() {
 function FloatingField({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="eyebrow text-[9px] mb-2 block">{label}</label>
+      <label className="eyebrow font-bold text-xs sm:text-[13px] mb-2 block tracking-wider">{label}</label>
       {children}
     </div>
   );
@@ -318,7 +306,7 @@ function Field({
 }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
-      <label className="eyebrow text-[9px] mb-2 block">{label}</label>
+      <label className="eyebrow font-bold text-xs sm:text-[13px] mb-2 block tracking-wider">{label}</label>
       <input
         {...props}
         className="w-full rounded-xl bg-canvas ring-1 ring-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ink transition-all"
@@ -334,7 +322,7 @@ function Contact({ label, value }: { label: string; value: React.ReactNode }) {
       transition={{ duration: 0.3 }}
       className="rounded-2xl bg-surface ring-1 ring-border p-6 hover:ring-accent/40 transition-all"
     >
-      <p className="eyebrow text-[9px] mb-2">{label}</p>
+      <p className="eyebrow font-bold text-xs sm:text-[13px] tracking-wider mb-2">{label}</p>
       {typeof value === "string" ? (
         <p className="font-mono text-sm text-ink">{value}</p>
       ) : (

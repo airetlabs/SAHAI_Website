@@ -1,18 +1,22 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHeader } from "../components/PageHeader";
 import { Reveal, Stagger, StaggerItem, RevealWords } from "../components/Reveal";
-import { Linkedin, GraduationCap } from "lucide-react";
+import { Linkedin, GraduationCap, Book, Library, FileText, Globe } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/people")({
   head: () => ({
     meta: [
-      { title: "People — SAHAI Lab" },
-      { name: "description", content: "Faculty, researchers, scholars and students of SAHAI Lab at NIT Tiruchirappalli." },
-      { property: "og:title", content: "People · SAHAI Lab" },
-      // { property: "og:description", content: "Meet the researchers building the future of AI at SAHAI Lab." },
+      { title: "People — SPARKS Lab" },
+      {
+        name: "description",
+        content:
+          "Faculty, researchers, scholars and students of SPARKS Lab at NIT Tiruchirappalli.",
+      },
+      { property: "og:title", content: "People · SPARKS Lab" },
+      // { property: "og:description", content: "Meet the researchers building the future of AI at SPARKS Lab." },
     ],
   }),
   component: PeoplePage,
@@ -21,12 +25,17 @@ export const Route = createFileRoute("/people")({
 type Person = {
   name: string;
   role: string;
-  interests: string;
+  interests: ReactNode | string;
   initials: string;
   photo?: string;
   email?: string;
   scholar?: string;
   linkedin?: string;
+  dblp?: string;
+  academia?: string;
+  researchGate?: string;
+  scopus?: string;
+  details?: ReactNode;
 };
 
 type Variant = "large" | "medium" | "compact";
@@ -39,136 +48,99 @@ const faculty: Person[] = [
   {
     name: "Dr.C.  Oswald ",
     role: "Faculty Coordinator",
-    interests: `·Machine Learning
-    ·Deep Learning
-    ·Data Mining
-    ·Natural Language Processing
-    ·Human Computer Interaction
-    ·Text Mining, Social Media Analytics, Computational Science for Social Good
-    ·Ontology and Knowledge Graphs, Question-Answering (English and Indian Languages)
-    ·Text/Image Compression, Graph Compression
-    `,
+    interests: (
+      <ul className="list-disc pl-5 space-y-1 marker:text-accent">
+        <li>Machine Learning</li>
+        <li>Deep Learning</li>
+        <li>Data Mining</li>
+        <li>Natural Language Processing</li>
+        <li>Human Computer Interaction</li>
+        <li>Text Mining, Social Media Analytics, Computational Science for Social Good</li>
+        <li>Ontology and Knowledge Graphs, Question-Answering (English and Indian Languages)</li>
+        <li>Text/Image Compression, Graph Compression</li>
+      </ul>
+    ),
 
     initials: "AA",
     photo: "images/faculty/oswald_sir.jpg",
     email: "oswald@nitt.edu",
     scholar: "https://scholar.google.com/citations?user=6kX5pyoAAAAJ&hl=en",
     linkedin: "https://www.linkedin.com/in/oswald-c-bb5b37b7/",
+    dblp: "https://dblp.uni-trier.de/pid/173/6662.html",
+    academia: "https://vit-in.academia.edu/OswaldChristopher",
+    researchGate: "https://www.researchgate.net/scientific-contributions/2111321378-C-Oswald",
+    scopus: "https://www.scopus.com/authid/detail.uri?authorId=56419629800",
+    details: (
+      <div className="space-y-6 text-sm sm:text-base text-ink/90">
+        <div className="space-y-2">
+          <h4 className="font-semibold text-lg text-ink flex items-center gap-2">
+            <span className="size-1.5 rounded-full bg-accent inline-block"></span> Postdoctoral Fellowship
+          </h4>
+          <p className="leading-relaxed pl-3.5">
+            In my Postdoctoral fellowship, I am blessed to be mentored by <a href="https://www.cse.iitk.ac.in/users/arnabb/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. Arnab Bhattacharya</a>, Professor, Dept. of Computer Science and Engineering, IIT Kanpur from Feb 2021 - July 2022. It has been a turning point in my research career. I have been inspired to work in the field of Natural Language Processing with a passion towards Indic Languages which I continue still.
+          </p>
+        </div>
+
+        <div className="space-y-2">
+          <h4 className="font-semibold text-lg text-ink flex items-start lg:items-center gap-2">
+            <span className="size-1.5 rounded-full bg-accent inline-block mt-2 lg:mt-0 shrink-0"></span>
+            <div>Ph.D. in Computer Science and Engineering <span className="text-sm font-normal text-ink-soft whitespace-nowrap lg:ml-2 block lg:inline">[July 2013 - Nov 2018]</span></div>
+          </h4>
+          <div className="pl-3.5 space-y-1.5">
+            <p className="leading-relaxed">
+              <a href="http://iiitdm.ac.in/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Indian Institute of Information Technology, Design and Manufacturing Kancheepuram</a><br />
+              <span className="text-sm text-ink-soft">(An Institution of National Importance, MHRD, Govt. of India)</span>
+            </p>
+            <p className="leading-relaxed"><strong>Dissertation Topic:</strong> Efficient Algorithms for text and image compression based on Knowledge Engineering</p>
+            <p className="leading-relaxed">
+              I am fortunate enough to be supervised by <a href="https://www.iiitdm.ac.in/People/displayProfileFaculty.php?sivaselvanb@iiitdm.ac.in" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Dr. B. Sivaselvan</a>, Associate Professor, Department of CSE, IIITDM Kancheepuram. From him, I have been blessed to learn an amalgamation of moral values, ethics, didactic, along with research. My Doctoral Committee members were <a href="https://www.cse.iitm.ac.in/profile.php?arg=MTA=" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. NS Narayanaswamy</a>, <a href="https://www.iiitdm.ac.in/People/displayProfileFaculty.php?sadagopan@iiitdm.ac.in" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Dr. N. Sadagopan</a> and <a href="https://www.iiitdm.ac.in/People/displayProfileFaculty.php?shalu@iiitdm.ac.in" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Dr. M A Shalu</a> who have upholded and showed me the paths in various tough situations of my Ph.D. tenure. Many thanks to my thesis examiners, <a href="https://raj.cse.uconn.edu/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. Sanguthevar Rajasekaran</a> and <a href="https://www.cse.iitm.ac.in/~ravi/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. Balaraman Ravindran</a> for their valuable advices.
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <h4 className="font-semibold text-lg text-ink flex items-start lg:items-center gap-2">
+            <span className="size-1.5 rounded-full bg-accent inline-block mt-2 lg:mt-0 shrink-0"></span>
+            <div>M.Tech. in Software Engineering (Rank Holder) <span className="text-sm font-normal text-ink-soft whitespace-nowrap lg:ml-2 block lg:inline">[July 2011 - May 2013]</span></div>
+          </h4>
+          <div className="pl-3.5 space-y-1.5">
+            <p className="leading-relaxed">Karunya University, Coimbatore.</p>
+            <p className="leading-relaxed"><strong>Dissertation Topic:</strong> Hybrid Particle Swarm Optimization for University Course Timetabling Problem</p>
+            <p className="leading-relaxed"><strong>Advisor:</strong> <a href="https://mysite.kku.edu.sa/site/anandevadurai/home?lan=ar" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Dr. C Anand Devadurai</a></p>
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <h4 className="font-semibold text-lg text-ink flex items-start lg:items-center gap-2">
+            <span className="size-1.5 rounded-full bg-accent inline-block mt-2 lg:mt-0 shrink-0"></span>
+            <div>B.E. in Computer Science and Engineering <span className="text-sm font-normal text-ink-soft whitespace-nowrap lg:ml-2 block lg:inline">[June 2005 – May 2009]</span></div>
+          </h4>
+          <p className="leading-relaxed pl-3.5">Sona College of Technology (Anna University, Chennai)<br /><span className="text-sm text-ink-soft">(Best Co-curricular Student Awardee)</span></p>
+        </div>
+      </div>
+    )
   },
 ];
 const scholars: Person[] = [
-  {
-    name: "Abhijith  Balan",
-    role: "Ph.D · Full-Time",
-    interests: "Knowledge graphs · LLM reasoning",
-    initials: "MI",
-    photo: "",
-  },
-  {
-    name: "Anju  K  B",
-    role: "Ph.D  · QIP Scheme ",
-    interests: "Healthcare AI · clinical NLP",
-    initials: "RS",
-    photo: "",
-  },
-  {
-    name: "Sambasiva  Rao  Chindam",
-    role: "Ph.D · Part-Time",
-    interests: "Edge inference · sparse models",
-    initials: "SP",
-    photo: "images/Scholars/sambasivarao.JPG",
-  },
+  { name: "Abhijith  Balan", role: "Ph.D · Full-Time", interests: "Knowledge graphs · LLM reasoning", initials: "MI", photo: "" },
+  { name: "Anju  K  B", role: "Ph.D  · QIP Scheme ", interests: "Healthcare AI · clinical NLP", initials: "RS", photo: "" },
+  { name: "Sambasiva  Rao  Chindam", role: "Ph.D · Part-Time", interests: "Edge inference · sparse models", initials: "SP", photo: "images/Scholars/sambasivarao.JPG" },
 ];
 const PGstudents: Person[] = [
-  {
-    name: "Yash Gogoria",
-    role: "M.Tech · CSE (2024)",
-    interests:
-      "·Coloring Sketches using Conditional GAN    ·Landscape Painting Generation using Generative AI Models",
-    initials: "YG",
-    photo: "",
-  },
-  {
-    name: "Sachin Kumar Gupt",
-    role: "M.Tech · CSE (2024)",
-    interests:
-      "·Deep Learning Approaches for Covid Chest X-Ray Image Classification \n · Generative AI Model based Hindi Text to Realistic Image Generation ",
-    initials: "SKG",
-    photo: "",
-  },
-  {
-    name: "Abhisek Raj",
-    role: "M.Tech · CSE (2025)",
-    interests:
-      "·Predicting Suicidal Ideation Risks and Empathetic Text Generation Using LLM \n· Predicting Suicidal Ideation Risks using LLM and Transfer Learning",
-    initials: "AR",
-    photo: "images/PG/Abhishek_Raj.jpg",
-  },
-  {
-    name: "Rakesh Kumar Rakesh",
-    role: "M.Tech · CSE (2026)",
-    interests: "·Knowledge graph Embedding Based Biomedical Named Entity Recognition",
-    initials: "RKR",
-    photo: "images/PG/Rakesh Kumar Rakesh .jpeg",
-  },
+  { name: "Yash Gogoria", role: "M.Tech · CSE (2024)", interests: "·Coloring Sketches using Conditional GAN    ·Landscape Painting Generation using Generative AI Models", initials: "YG", photo: "" },
+  { name: "Sachin Kumar Gupt", role: "M.Tech · CSE (2024)", interests: "·Deep Learning Approaches for Covid Chest X-Ray Image Classification \n · Generative AI Model based Hindi Text to Realistic Image Generation ", initials: "SKG", photo: "" },
+  { name: "Abhisek Raj", role: "M.Tech · CSE (2025)", interests: "·Predicting Suicidal Ideation Risks and Empathetic Text Generation Using LLM \n· Predicting Suicidal Ideation Risks using LLM and Transfer Learning", initials: "AR", photo: "images/PG/Abhishek_Raj.jpg" },
+  { name: "Rakesh Kumar Rakesh", role: "M.Tech · CSE (2026)", interests: "·Knowledge graph Embedding Based Biomedical Named Entity Recognition", initials: "RKR", photo: "images/PG/Rakesh Kumar Rakesh .jpeg" },
 ];
 
 const UGstudents: Person[] = [
-  {
-    name: "Srikanth V",
-    role: "B.Tech (2025)",
-    interests: "Enhancing Verizon Computer Support Using Dialogflow and Interaction Analytics",
-    initials: "SV",
-    photo: "",
-  },
-  {
-    name: "Amarjit",
-    role: "B.Tech (2024)",
-    interests:
-      "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar",
-    initials: "A",
-    photo: "",
-  },
-  {
-    name: "Dharanish Rahul S",
-    role: "B.Tech (2024)",
-    interests:
-      "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar",
-    initials: "DRS",
-    photo: "",
-  },
-  {
-    name: "Mithilesh K",
-    role: "B.Tech (2024)",
-    interests:
-      "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar",
-    initials: "MK",
-    photo: "",
-  },
-  {
-    name: "Joshua Mahadevan",
-    role: "B.Tech (2024)",
-    interests:
-      "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women",
-    initials: "JM",
-    photo: "",
-  },
-  {
-    name: "Lokkamithran",
-    role: "B.Tech (2024)",
-    interests:
-      "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women",
-    initials: "LK",
-    photo: "",
-  },
-  {
-    name: "Mubeena",
-    role: "B.Tech (2024)",
-    interests:
-      "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women",
-    initials: "MB",
-    photo: "",
-  },
+  { name: "Srikanth V", role: "B.Tech (2025)", interests: "Enhancing Verizon Computer Support Using Dialogflow and Interaction Analytics", initials: "SV", photo: "" },
+  { name: "Amarjit", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "A", photo: "" },
+  { name: "Dharanish Rahul S", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "DRS", photo: "images/UG/Dharanish Rahul S.jpeg" },
+  { name: "Mithilesh K", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "MK", photo: "images/UG/Mithilesh K.jpg" },
+  { name: "Joshua Mahadevan", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "JM", photo: "" },
+  { name: "Lokkamithran", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "LK", photo: "" },
+  { name: "Mubeena", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "MB", photo: "images/UG/Mubeena.jpg" },
 ];
 
 const interns: Person[] = [
@@ -198,9 +170,9 @@ const interns: Person[] = [
   { name: "VIJEYASRI T", role: "Research Intern (2025)", interests: "REAL-TIME SPEECH ENHANCEMENT FOR DYSARTHRIA INDIVIDUALS USING NLP AND DEEP LEARNING", initials: "IO", photo: "images/Interns/2025/Vijeyasri.T.jpg" },
   { name: "Gobika R ", role: "Research Intern (2025)", interests: "REAL-TIME SPEECH ENHANCEMENT FOR DYSARTHRIA INDIVIDUALS USING NLP AND DEEP LEARNING", initials: "IO", photo: "images/Interns/2025/Gobika_R.jpeg.jpg" },
   { name: "Vinithaa P", role: "Research Intern (2025)", interests: "MULTI-CLASS SPEECH DISORDER DETECTION USING FRACTAL ANALYSIS AND MFCC", initials: "IO", photo: "" },
-  
-  
-  
+
+
+
 
   { name: "Nagul Pranav", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IO", photo: "" },
   { name: "Balaji", role: "Research Intern (2024)", interests: "Computer Vision", initials: "IT", photo: "" },
@@ -233,47 +205,11 @@ function PeoplePage() {
         title={<>The people behind the <span className="italic font-light text-ink/50">research.</span></>}
       /> */}
 
-      <Section
-        title="Faculty"
-        eyebrow=""
-        people={faculty}
-        variant="large"
-        isFirst
-        direction="left"
-      />
-      <Section
-        title="PhD Scholars"
-        eyebrow=""
-        people={scholars}
-        variant="medium"
-        direction="right"
-      />
-      <Section
-        title="PG Students"
-        eyebrow=""
-        people={PGstudents}
-        variant="compact"
-        itemsPerPage={6}
-        direction="left"
-        showProjectLabel
-      />
-      <Section
-        title="UG Students"
-        eyebrow=""
-        people={UGstudents}
-        variant="compact"
-        itemsPerPage={6}
-        direction="right"
-        showProjectLabel
-      />
-      <Section
-        title="Interns"
-        eyebrow=""
-        people={interns}
-        variant="compact"
-        itemsPerPage={6}
-        direction="left"
-      />
+      <Section title="Faculty" eyebrow="" people={faculty} variant="large" isFirst direction="left" />
+      <Section title="PhD Scholars" eyebrow="" people={scholars} variant="medium" direction="right" />
+      <Section title="PG Students" eyebrow="" people={PGstudents} variant="compact" itemsPerPage={6} direction="left" showProjectLabel />
+      <Section title="UG Students" eyebrow="" people={UGstudents} variant="compact" itemsPerPage={6} direction="right" showProjectLabel />
+      <Section title="Interns" eyebrow="" people={interns} variant="compact" itemsPerPage={6} direction="left" />
       <section className="container-page pt-6 pb-0">
         <Reveal>
           <motion.div
@@ -300,15 +236,10 @@ function PeoplePage() {
               </h2>
             </div>
             <div className="space-y-2 text-sm text-canvas/70 relative">
-              <p>
-                Ph.D. positions open year-round across all research domains. Industry-funded
-                scholarships available for exceptional candidates.
-              </p>
-              <p>
-                M.Tech and B.Tech students from NIT Trichy can apply through the lab's internal
-                mentorship program every semester.
-              </p>
+              <p>Ph.D. positions open year-round across all research domains. Industry-funded scholarships available for exceptional candidates.</p>
+              <p>M.Tech and B.Tech students from NIT Trichy can apply through the lab's internal mentorship program every semester.</p>
             </div>
+
           </motion.div>
         </Reveal>
       </section>
@@ -332,7 +263,7 @@ const tierStyles: Record<
   large: {
     cardPadding: "p-5 lg:p-8",
     gap: "gap-6 lg:gap-10",
-    photoWidth: "w-24 sm:w-32 lg:w-56",
+    photoWidth: "w-24 h-24 sm:w-32 sm:h-32 lg:w-44 lg:h-56",
     photoMinHeight: "",
     nameSize: "text-2xl lg:text-3xl font-semibold",
     roleSize: "text-xs",
@@ -342,8 +273,8 @@ const tierStyles: Record<
   medium: {
     cardPadding: "p-4 sm:p-5",
     gap: "gap-4 sm:gap-5",
-    photoWidth: "w-24 sm:w-32 lg:w-36",
-    photoMinHeight: "min-h-[160px]",
+    photoWidth: "w-24 h-32 sm:w-32 sm:h-40 lg:w-36 lg:h-44",
+    photoMinHeight: "",
     nameSize: "text-lg font-semibold",
     roleSize: "text-[11px]",
     interestSize: "mt-2 text-[13px] sm:text-sm",
@@ -352,7 +283,7 @@ const tierStyles: Record<
   compact: {
     cardPadding: "p-3.5",
     gap: "gap-3.5",
-    photoWidth: "w-20 h-20 sm:w-24 sm:h-28",
+    photoWidth: "w-20 h-24 sm:w-24 sm:h-28",
     photoMinHeight: "",
     nameSize: "text-base sm:text-lg font-semibold",
     roleSize: "text-xs",
@@ -361,56 +292,141 @@ const tierStyles: Record<
   },
 };
 
-function PersonCard({
-  p,
-  variant,
-  showProjectLabel,
-}: {
-  p: Person;
-  variant: Variant;
-  showProjectLabel?: boolean;
-}) {
+function PersonCard({ p, variant, showProjectLabel }: { p: Person; variant: Variant; showProjectLabel?: boolean }) {
   const s = tierStyles[variant];
 
   return (
     <motion.article
       whileHover={{ y: -6 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className={`group h-full w-full rounded-2xl bg-surface ring-1 ring-border hover:ring-ink hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15)] transition-all ${
-        variant === "large" ? "max-w-5xl" : ""
-      } ${s.cardPadding}`}
+      className={`group h-full w-full rounded-2xl bg-surface ring-1 ring-border hover:ring-ink hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15)] transition-all ${variant === "large" ? "max-w-5xl" : ""
+        } ${s.cardPadding}`}
     >
-      <div className={`flex items-stretch ${s.gap}`}>
-        <motion.div
-          whileHover={{ scale: 1.03 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className={`relative shrink-0 self-stretch overflow-hidden rounded-xl bg-gradient-to-br from-accent/30 to-sage/20 ${s.photoWidth} ${s.photoMinHeight}`}
-        >
-          {p.photo ? (
-            <img
-              src={p.photo}
-              alt={cleanName(p.name)}
-              className="absolute inset-0 size-full object-cover"
-              loading="lazy"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-                e.currentTarget.nextElementSibling?.classList.remove("hidden");
-              }}
-            />
-          ) : null}
-          <span
-            className={`absolute inset-0 grid place-items-center font-display tracking-tight text-ink ${
-              p.photo ? "hidden" : ""
-            } ${s.initialsSize}`}
+      <div className={`flex flex-col sm:flex-row sm:items-start items-center ${s.gap}`}>
+        <div className="flex flex-col shrink-0 items-center sm:items-start gap-4">
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-accent/30 to-sage/20 ${s.photoWidth} ${s.photoMinHeight}`}
           >
-            {p.initials}
-          </span>
-        </motion.div>
+            {p.photo ? (
+              <img
+                src={p.photo}
+                alt={cleanName(p.name)}
+                className="absolute inset-0 size-full object-cover"
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                  e.currentTarget.nextElementSibling?.classList.remove("hidden");
+                }}
+              />
+            ) : null}
+            <span
+              className={`absolute inset-0 grid place-items-center font-display tracking-tight text-ink ${p.photo ? "hidden" : ""
+                } ${s.initialsSize}`}
+            >
+              {p.initials}
+            </span>
+          </motion.div>
+
+          <div className="flex flex-col items-center sm:items-start gap-3 w-full max-w-[190px]">
+            {p.email && (
+              <p className="font-mono text-[13px] lg:text-[14px] text-ink break-all font-medium text-center sm:text-left">{p.email}</p>
+            )}
+
+            {(p.scholar || p.linkedin || p.dblp || p.academia || p.researchGate || p.scopus) && (
+              <div className="grid grid-cols-3 gap-x-2 gap-y-4 mt-2 mb-2 w-full place-items-center">
+                {p.linkedin && (
+                  <a
+                    href={p.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn profile"
+                    className="flex flex-col items-center gap-1.5 group"
+                  >
+                    <div className="flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft group-hover:bg-[#0A66C2] group-hover:text-white transition-colors">
+                      <Linkedin className="size-4" />
+                    </div>
+                    <span className="text-[10px] font-medium text-ink-soft group-hover:text-[#0A66C2] transition-colors">LinkedIn</span>
+                  </a>
+                )}
+                {p.scholar && (
+                  <a
+                    href={p.scholar}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Google Scholar profile"
+                    className="flex flex-col items-center gap-1.5 group"
+                  >
+                    <div className="flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft group-hover:bg-accent group-hover:text-canvas transition-colors">
+                      <GraduationCap className="size-4" />
+                    </div>
+                    <span className="text-[10px] font-medium text-ink-soft group-hover:text-accent transition-colors">Scholar</span>
+                  </a>
+                )}
+                {p.dblp && (
+                  <a
+                    href={p.dblp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="DBLP profile"
+                    className="flex flex-col items-center gap-1.5 group"
+                  >
+                    <div className="flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft group-hover:bg-accent group-hover:text-canvas transition-colors">
+                      <Book className="size-4" />
+                    </div>
+                    <span className="text-[10px] font-medium text-ink-soft group-hover:text-accent transition-colors">DBLP</span>
+                  </a>
+                )}
+                {p.academia && (
+                  <a
+                    href={p.academia}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Academia profile"
+                    className="flex flex-col items-center gap-1.5 group"
+                  >
+                    <div className="flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft group-hover:bg-accent group-hover:text-canvas transition-colors">
+                      <Library className="size-4" />
+                    </div>
+                    <span className="text-[10px] font-medium text-ink-soft group-hover:text-accent transition-colors">Academia</span>
+                  </a>
+                )}
+                {p.researchGate && (
+                  <a
+                    href={p.researchGate}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="ResearchGate profile"
+                    className="flex flex-col items-center gap-1.5 group"
+                  >
+                    <div className="flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft group-hover:bg-accent group-hover:text-canvas transition-colors">
+                      <Globe className="size-4" />
+                    </div>
+                    <span className="text-[10px] font-medium text-ink-soft group-hover:text-accent transition-colors shrink-0 whitespace-nowrap">ResearchGate</span>
+                  </a>
+                )}
+                {p.scopus && (
+                  <a
+                    href={p.scopus}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Scopus profile"
+                    className="flex flex-col items-center gap-1.5 group"
+                  >
+                    <div className="flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft group-hover:bg-accent group-hover:text-canvas transition-colors">
+                      <FileText className="size-4" />
+                    </div>
+                    <span className="text-[10px] font-medium text-ink-soft group-hover:text-accent transition-colors">Scopus</span>
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
 
         <div className="min-w-0 flex-1 flex flex-col">
-          <h3
-            className={`font-display tracking-tight leading-tight group-hover:text-accent transition-colors ${s.nameSize}`}
-          >
+          <h3 className={`font-display tracking-tight leading-tight group-hover:text-accent transition-colors ${s.nameSize}`}>
             {cleanName(p.name)}
           </h3>
           <p className={`mt-3.5 font-mono uppercase tracking-[0.18em] text-accent ${s.roleSize}`}>
@@ -422,72 +438,43 @@ function PersonCard({
               <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink">
                 Project Title
               </p>
-              <p className="mt-1 text-[12.5px] leading-snug text-ink-soft whitespace-pre-line">
+              <div className="mt-1 text-[12.5px] leading-snug text-ink-soft whitespace-pre-line">
                 {p.interests}
-              </p>
+              </div>
             </div>
           ) : (
-            <p className={`text-ink-soft leading-relaxed whitespace-pre-line ${s.interestSize}`}>
+            <div className={`text-ink-soft leading-relaxed whitespace-pre-line ${s.interestSize}`}>
               {p.interests}
-            </p>
+            </div>
           )}
-
-          {p.email && <p className="mt-2 font-mono text-xs text-ink-soft break-all">{p.email}</p>}
         </div>
       </div>
 
-      {(p.scholar || p.linkedin) && (
-        <div className="mt-4 flex gap-3 pt-3 border-t border-hairline">
-          {p.scholar && (
-            <a
-              href={p.scholar}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Google Scholar profile"
-              className="inline-flex items-center justify-center size-7 rounded-full bg-muted text-ink-soft hover:bg-accent hover:text-canvas transition-colors"
-            >
-              <GraduationCap className="size-3.5" />
-            </a>
-          )}
-          {p.linkedin && (
-            <a
-              href={p.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn profile"
-              className="inline-flex items-center justify-center size-7 rounded-full bg-muted text-ink-soft hover:bg-[#0A66C2] hover:text-white transition-colors"
-            >
-              <Linkedin className="size-3.5" />
-            </a>
-          )}
+      {p.details && (
+        <div className="mt-6 pt-6 border-t border-hairline/60">
+          {p.details}
         </div>
       )}
     </motion.article>
   );
 }
 
-function DirectionalCardReveal({
-  children,
-  direction,
-}: {
-  children: React.ReactNode;
-  direction: "left" | "right" | "up";
-}) {
+function DirectionalCardReveal({ children, direction }: { children: React.ReactNode, direction: "left" | "right" | "up" }) {
   const variants = {
     hidden: {
       opacity: 0,
       x: direction === "left" ? -60 : direction === "right" ? 60 : 0,
       y: direction === "up" ? 40 : 0,
       scale: 0.97,
-      filter: "blur(6px)",
+      filter: "blur(6px)"
     },
     visible: {
       opacity: 1,
       x: 0,
       y: 0,
       scale: 1,
-      filter: "blur(0px)",
-    },
+      filter: "blur(0px)"
+    }
   };
 
   return (
@@ -579,11 +566,8 @@ function Section({
             <button
               key={n}
               onClick={() => setPage(n)}
-              className={`size-8 rounded-full font-mono text-xs transition-colors ${
-                n === page
-                  ? "bg-ink text-canvas"
-                  : "text-ink-soft hover:text-accent hover:bg-accent/10"
-              }`}
+              className={`size-8 rounded-full font-mono text-xs transition-colors ${n === page ? "bg-ink text-canvas" : "text-ink-soft hover:text-accent hover:bg-accent/10"
+                }`}
             >
               {n}
             </button>

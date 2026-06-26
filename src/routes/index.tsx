@@ -122,12 +122,12 @@ function Hero() {
       {/* Backdrop layers — parallax depth */}
       <div className="absolute inset-0 -z-10 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
       <motion.div
-        className="absolute top-1/4 -left-40 w-[560px] h-[560px] rounded-full bg-accent/15 blur-[140px] -z-10"
+        className="absolute top-1/4 -left-40 w-[400px] h-[400px] rounded-full bg-accent/15 blur-[140px] -z-10"
         animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-0 -right-40 w-[520px] h-[520px] rounded-full bg-sage/15 blur-[140px] -z-10"
+        className="absolute bottom-0 -right-40 w-[360px] h-[360px] rounded-full bg-sage/15 blur-[140px] -z-10"
         animate={{ x: [0, -30, 0], y: [0, 20, 0] }}
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
