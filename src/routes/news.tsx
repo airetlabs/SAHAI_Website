@@ -7,13 +7,9 @@ import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 export const Route = createFileRoute("/news")({
   head: () => ({
     meta: [
-      { title: "News & Updates — SPARKS Lab" },
-      {
-        name: "description",
-        content:
-          "Latest news, events, awards and announcements from SPARKS Lab at NIT Tiruchirappalli.",
-      },
-      { property: "og:title", content: "News & Updates · SPARKS Lab" },
+      { title: "News & Updates — SAHAI Lab" },
+      { name: "description", content: "Latest news, events, awards and announcements from SAHAI Lab at NIT Tiruchirappalli." },
+      { property: "og:title", content: "News & Updates · SAHAI Lab" },
       { property: "og:description", content: "Breakthroughs, talks and milestones." },
     ],
   }),

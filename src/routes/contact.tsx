@@ -13,13 +13,13 @@ const EMAILJS_PUBLIC_KEY = "6I3nmLkqaxo-PzWvt";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — SPARKS Lab" },
+      { title: "Contact — SAHAI Lab" },
       {
         name: "description",
         content:
-          "Contact SPARKS Lab at NIT Tiruchirappalli — for research collaborations, doctoral admissions, industry partnerships and press.",
+          "Contact SAHAI Lab at NIT Tiruchirappalli — for research collaborations, doctoral admissions, industry partnerships and press.",
       },
-      { property: "og:title", content: "Contact · SPARKS Lab" },
+      { property: "og:title", content: "Contact · SAHAI Lab" },
       { property: "og:description", content: "Get in touch with the lab." },
     ],
   }),
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/contact")({
 
 const faqs = [
   {
-    q: "How can I apply for a Ph.D. at SPARKS Lab?",
+    q: "How can I apply for a Ph.D. at SAHAI Lab?",
     a: "Doctoral admissions are processed through NIT Trichy's institutional Ph.D. portal each semester. Strong candidates are encouraged to email the lab in advance to discuss research fit.",
   },
   {
@@ -73,8 +73,8 @@ const contactDetails: [string, React.ReactNode][] = [
       </span>
     </div>,
   ],
-  // ["Partnerships", "partnerships@sparks.nitt.edu"],
-  // ["Press", "press@sparks.nitt.edu"],
+  // ["Partnerships", "partnerships@sahai.nitt.edu"],
+  // ["Press", "press@sahai.nitt.edu"],
   ["Office hours", "Mon–Fri · 10:00–17:00 IST"],
 ];
 
@@ -227,7 +227,7 @@ function ContactPage() {
               />
               <p className="eyebrow text-accent mb-3 relative">Visit</p>
               <p className="font-display text-xl font-semibold leading-tight relative">
-                SPARKS Lab
+                SAHAI Lab
                 <br />
                 Department of CSE
                 <br />

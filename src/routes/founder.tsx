@@ -17,17 +17,10 @@ import { Globe, Building2, Linkedin } from "lucide-react";
 export const Route = createFileRoute("/founder")({
   head: () => ({
     meta: [
-      { title: "Founder — SPARKS Lab" },
-      {
-        name: "description",
-        content:
-          "Dr. C.Oswald, founder of SPARKS Lab — research vision, journey and contributions to AI at NIT Tiruchirappalli.",
-      },
-      { property: "og:title", content: "Meet the Founder · SPARKS Lab" },
-      {
-        property: "og:description",
-        content: "Vision, journey and research philosophy behind SPARKS Lab.",
-      },
+      { title: "Founder — SAHAI Lab" },
+      { name: "description", content: "Dr. C.Oswald, founder of SAHAI Lab — research vision, journey and contributions to AI at NIT Tiruchirappalli." },
+      { property: "og:title", content: "Meet the Founder · SAHAI Lab" },
+      { property: "og:description", content: "Vision, journey and research philosophy behind SAHAI Lab." },
     ],
   }),
   component: FounderPage,
@@ -118,7 +111,7 @@ function FounderPage() {
             <span className="italic font-light text-ink/50">institutional</span> AI.
           </>
         }
-        description="The vision, scholarship and philosophy behind SPARKS Lab — and the trajectory that brought it to NIT Tiruchirappalli."
+        description="The vision, scholarship and philosophy behind SAHAI Lab — and the trajectory that brought it to NIT Tiruchirappalli."
       />
 
       <section className="container-page grid lg:grid-cols-[1fr_1.4fr] gap-16 pb-24">
@@ -223,9 +216,10 @@ function FounderPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
               />
-              "We believe the next decade of AI will be defined not by who builds the largest
-              models, but by who builds the most trustworthy, interpretable and consequential ones.
-              SPARKS Lab exists to do that work, here in India, with students who will lead it."
+              "We believe the next decade of AI will be defined not by who builds the
+              largest models, but by who builds the most trustworthy, interpretable and
+              consequential ones. SAHAI Lab exists to do that work, here in India, with
+              students who will lead it."
             </motion.blockquote>
           </Reveal>
 
