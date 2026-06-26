@@ -16,7 +16,7 @@ export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
 });
 
-const categories = ["All", "Lab", "Workshop", "Conference", "Hackathon", "Guest Lecture", "Student Life"];
+const categories = ["All", "Lab", "Workshop", "Conference","Guest Lecture"];
 
 // Synthesized swatch-cards — visual texture without external images
 const palettes = [
