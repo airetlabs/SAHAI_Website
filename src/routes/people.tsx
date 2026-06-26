@@ -39,11 +39,15 @@ const faculty: Person[] = [
   {
     name: "Dr.C.  Oswald ",
     role: "Faculty Coordinator",
-    interests: `Data Mining,
-Machine Learning for Social Analytics,
-Data Compression through the perspective of Pattern Mining,
-Information Retrieval and Natural Language Processing,
-Human-Computer Interaction`,
+    interests: `·Machine Learning
+    ·Deep Learning
+    ·Data Mining
+    ·Natural Language Processing
+    ·Human Computer Interaction
+    ·Text Mining, Social Media Analytics, Computational Science for Social Good
+    ·Ontology and Knowledge Graphs, Question-Answering (English and Indian Languages)
+    ·Text/Image Compression, Graph Compression
+    `,
 
     initials: "AA",
     photo: "images/faculty/oswald_sir.jpg",
