@@ -49,13 +49,12 @@ function TeachingPage() {
       <PageHeader
         title={
           <>
-            Teaching<span className="italic font-light text-ink/50"></span>
           </>
         }
-        description="Courses taught, classroom resources, and downloadable materials."
+       
       />
 
-      <section className="container-page pb-2 space-y-12">
+      <section className="container-page pt-0 pb-2 space-y-12">
         <Reveal>
           <div className="rounded-[2rem] border border-border bg-surface/90 p-8 shadow-sm sm:p-10">
             <div className="mb-6">
