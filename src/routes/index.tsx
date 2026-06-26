@@ -38,7 +38,7 @@ function NewsTicker() {
     <div className="fixed top-17 left-0 right-0 z-[55] h-10 bg-ink text-canvas overflow-hidden flex items-center">
       {/* News Label */}
       <a
-        href="https://www.nitt.edu/home/announcements/news/"
+        href="https://www.nitt.edu/home/"
         target="_blank"
         rel="noopener noreferrer"
         className="absolute left-0 top-0 bottom-0 flex items-center gap-2 px-5 bg-accent z-10 shrink-0 hover:brightness-110 transition-all cursor-pointer"

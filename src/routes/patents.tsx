@@ -17,8 +17,8 @@ export const Route = createFileRoute("/patents")({
 
 const patents = {
   granted: [
-    { no: "202141003735", year: 2021, title: "An Integrated System and Method for a Touchless, Paperless Election Voting for Government and Private mode", inventors: "C.Oswald , M. Mohamad Fasil Ansaary, P. Raghava Ratna" },
-    { no: "202041035035", year: 2020, title: "SPoTA: Smart Prevention of Train Accidents", inventors: "C.Oswald, Jayapragash R, Trishit Chakraborty, Tanishq Gupta, Aditya Agrawal" },
+    { no: "202141003735", year: 2021, title: "An Integrated System and Method for a Touchless, Paperless Election Voting for Government and Private mode", inventors: "C.Oswald , M. Mohamad Fasil Ansaary, P. Raghava Ratna" ,link:""},
+    { no: "202041035035", year: 2020, title: "SPoTA: Smart Prevention of Train Accidents", inventors: "C.Oswald, Jayapragash R, Trishit Chakraborty, Tanishq Gupta, Aditya Agrawal",link:"https://patentscope.wipo.int/search/en/detail.jsf?docId=IN306149911" },
     { no: "202041025660", year: 2020, title: "Smart Attendance Marking System (SAMS) using Computer Vision", inventors: "Balasundaram A, Manas Ranjan Prusty, Inayathullah M A, C.Oswald" },
    ],
   filed: [
@@ -37,13 +37,14 @@ function PatentsPage() {
     <>
       <PageHeader
         eyebrow="Patents · 4 total"
-        title={<>Research, <span className="italic font-light text-ink/50">protected.</span></>}
+        title={<>Patents <span className="italic font-light text-ink/50"></span></>}
         description="Four patents granted or filed across machine learning systems,  AI and IOT "
+        
       >
-        <ScrollIndicator />
+        
       </PageHeader>
 
-      <section className="container-page pb-20">
+      <section className="container-page pb-2">
         <Group title="Granted" eyebrow="01" items={patents.granted} status="Granted" />
       </section>
       <section className="container-page pb-20">
@@ -77,36 +78,76 @@ function PatentsPage() {
   );
 }
 
-function Group({ title, eyebrow, items, status }: { title: string; eyebrow: string; items: typeof patents.granted; status: string }) {
+function Group({
+  title,
+  eyebrow,
+  items,
+  status,
+}: {
+  title: string;
+  eyebrow: string;
+  items: typeof patents.granted;
+  status: string;
+}) {
   return (
     <>
       <Reveal className="flex items-baseline justify-between mb-8">
         <h2 className="font-display text-4xl font-semibold tracking-tight">
-          <span className="font-mono text-base text-accent mr-4">{eyebrow}</span>
+          <span className="font-mono text-base text-accent mr-4">
+            {eyebrow}
+          </span>
           <RevealWords text={title} />
         </h2>
         <span className="eyebrow">{items.length} patents</span>
       </Reveal>
-      <Stagger className="grid gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden" stagger={0.06}>
+
+      <Stagger
+        className="grid gap-px bg-hairline ring-1 ring-hairline rounded-2xl overflow-hidden"
+        stagger={0.06}
+      >
         {items.map((p) => (
           <StaggerItem key={p.no}>
             <motion.article
               whileHover={{ x: 6 }}
               transition={{ duration: 0.3 }}
-              className="bg-surface p-6 lg:p-8 grid lg:grid-cols-[180px_1fr_auto_auto] gap-4 lg:gap-8 items-start lg:items-center hover:bg-canvas group"
+             className="bg-surface p-6 lg:p-8 grid lg:grid-cols-[180px_1fr_minmax(120px,max-content)] gap-4 lg:gap-8 items-start lg:items-center hover:bg-canvas group"
             >
               <div>
                 <div className="font-mono text-sm text-accent">{p.no}</div>
                 <div className="eyebrow text-[9px] mt-1">{p.year}</div>
               </div>
+
               <div>
-                <h3 className="font-display text-lg font-semibold leading-tight group-hover:text-accent transition-colors">{p.title}</h3>
-                <p className="mt-1 text-xs font-mono text-ink-soft">Inventors: {p.inventors}</p>
+                <h3 className="font-display text-lg font-semibold leading-tight group-hover:text-accent transition-colors">
+                  {p.title}
+                </h3>
+                <p className="mt-1 text-xs font-mono text-ink-soft">
+                  Inventors: {p.inventors}
+                </p>
               </div>
-              <span className={`rounded-full px-3 py-1 eyebrow text-[9px] w-fit ${status === "Granted" ? "bg-sage/20 text-sage" : "bg-accent-soft text-accent"}`}>
+
+              <div className="flex flex-col items-end justify-center gap-2 justify-self-end text-right">
+              <span
+                className={`rounded-full px-3 py-1 eyebrow text-[9px] w-fit ${
+                  status === "Granted"
+                    ? "bg-sage/20 text-sage"
+                    : "bg-accent-soft text-accent"
+                }`}
+              >
                 {status}
               </span>
-              <button className="text-sm font-medium text-ink group-hover:text-accent transition-colors">View →</button>
+
+              {p.link && (
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-ink hover:text-accent transition-colors"
+                >
+                  View →
+                </a>
+              )}
+            </div>
             </motion.article>
           </StaggerItem>
         ))}
@@ -114,21 +155,20 @@ function Group({ title, eyebrow, items, status }: { title: string; eyebrow: stri
     </>
   );
 }
-
-function ScrollIndicator() {
-  return (
-    <motion.div
-      animate={{ y: [0, 8, 0] }}
-      transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-      className="flex flex-col items-start gap-3 text-accent/70 hover:text-accent transition-colors w-fit pt-4"
-    >
-      <span className="text-[10px] uppercase tracking-widest font-mono">Scroll to explore</span>
-      <div className="p-2 rounded-full border border-accent/20">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 5v14" />
-          <path d="m19 12-7 7-7-7" />
-        </svg>
-      </div>
-    </motion.div>
-  );
-}
+// function ScrollIndicator() {
+//   return (
+//     <motion.div
+//       animate={{ y: [0, 8, 0] }}
+//       transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+//       className="flex flex-col items-start gap-3 text-accent/70 hover:text-accent transition-colors w-fit pt-4"
+//     >
+//       <span className="text-[10px] uppercase tracking-widest font-mono">Scroll to explore</span>
+//       <div className="p-2 rounded-full border border-accent/20">
+//         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+//           <path d="M12 5v14" />
+//           <path d="m19 12-7 7-7-7" />
+//         </svg>
+//       </div>
+//     </motion.div>
+//   );
+// }

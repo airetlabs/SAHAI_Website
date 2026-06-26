@@ -39,7 +39,7 @@ function cleanName(name: string) {
 const faculty: Person[] = [
   {
     name: "Dr. C. Oswald ",
-    role: "Founder Coordinator",
+    role: "Faculty Coordinator",
     interests: `Data Mining,
 Machine Learning for Social Analytics,
 Data Compression through the perspective of Pattern Mining,
@@ -56,13 +56,13 @@ Human-Computer Interaction`,
 const scholars: Person[] = [
   { name: "Abhijith  Balan", role: "Ph.D. Scholar · Full-Time", interests: "Knowledge graphs · LLM reasoning", initials: "MI", photo: "" },
   { name: "Anju  K  B", role: "Ph.D. QIP Scheme ", interests: "Healthcare AI · clinical NLP", initials: "RS", photo: "" },
-  { name: "Sambasiva  Rao  Chindam", role: "Ph.D. Scholar · Part-Time", interests: "Edge inference · sparse models", initials: "SP", photo: "" },
+  { name: "Sambasiva  Rao  Chindam", role: "Ph.D. Scholar · Part-Time", interests: "Edge inference · sparse models", initials: "SP", photo: "images/sambasivarao.JPG" },
 ];
 const students: Person[] = [
   { name: "Yash Gogoria", role: "M.Tech · CSE", interests: "AI & Machine Learning", initials: "YG", photo: "" },
   { name: "Sachin Kumar Gupt", role: "M.Tech · CSE (2024)", interests: "Data Analytics", initials: "SKG", photo: "" },
   { name: "Abhisek Raj", role: "M.Tech · CSE (2025)", interests: "Natural Language Processing", initials: "AR", photo: "" },
-  { name: "Rakesh Kumar Rakesh", role: "M.Tech · CSE (2026)", interests: "Computer Vision", initials: "RKR", photo: "" },
+  { name: "Rakesh Kumar Rakesh", role: "M.Tech · CSE (2026)", interests: "Computer Vision", initials: "RKR", photo: "images/Rakesh Kumar Rakesh .jpeg" },
   { name: "Anurag Kadam", role: "M.Tech · CSE (2027 · Ongoing)", interests: "Generative AI", initials: "AK", photo: "" },
   { name: "Aditya G", role: "B.Tech", interests: "Machine Learning", initials: "AG", photo: "" },
   { name: "Vijay G", role: "B.Tech", interests: "Deep Learning", initials: "VG", photo: "" },
@@ -74,8 +74,28 @@ const students: Person[] = [
 ];
 
 const interns: Person[] = [
-  { name: "Anirban I Ghosh", role: "Research Intern", interests: "LinkedIn Bangalore", initials: "IO", photo: "" },
-  { name: "Intern Two", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Nagul Pranav", role: "Research Intern", interests: "LinkedIn Bangalore", initials: "IO", photo: "" },
+  { name: "Balaji", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Gudapadi Nikhil", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "R Vinish Krishna", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Vasan R", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Janarthanan T", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Arvind Krishna", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Krithik", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Tanush Somishetty", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Yogesh Perumal", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Abhijit Baidya", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Hashim Faisal syed", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Isai Visaahan P M", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Karthik Balaji N V", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Kirthik B", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Nisha Preethika S", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Piyush Sonekar", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Prabhakar", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Raunak Rajpal", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Sreenidhi N", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+  { name: "Vasukumar P", role: "Research Intern", interests: "Computer Vision", initials: "IT", photo: "" },
+ 
 ];
 
 function PeoplePage() {
@@ -161,9 +181,9 @@ medium: {
   initialsSize: "text-xl font-semibold",
 },
   compact: {
-    cardPadding: "p-5",
+    cardPadding: "p-4",
     gap: "gap-4",
-    photoWidth: "w-20 sm:w-24",
+    photoWidth: "w-20 h-20 sm:w-24 sm:h-28",
     photoMinHeight: "",
     nameSize: "text-lg font-semibold",
     roleSize: "text-[9px]",
