@@ -106,10 +106,10 @@ function PeoplePage() {
         title={<>The people behind the <span className="italic font-light text-ink/50">research.</span></>}
       />
 
-      <Section title="Faculty" eyebrow="" people={faculty} variant="large" isFirst />
-      <Section title="PhD Scholars" eyebrow="" people={scholars} variant="medium" />
-      <Section title="Students" eyebrow="" people={students} variant="compact" itemsPerPage={6} />
-      <Section title="Interns" eyebrow="" people={interns} variant="compact" itemsPerPage={6} />
+      <Section title="Faculty" eyebrow="" people={faculty} variant="large" isFirst direction="left" />
+      <Section title="PhD Scholars" eyebrow="" people={scholars} variant="medium" direction="right" />
+      <Section title="Students" eyebrow="" people={students} variant="compact" itemsPerPage={6} direction="left" />
+      <Section title="Interns" eyebrow="" people={interns} variant="compact" itemsPerPage={6} direction="right" />
       <section className="container-page pt-10 pb-0">
         <Reveal>
           <motion.div
@@ -161,34 +161,34 @@ const tierStyles: Record<
   }
 > = {
   large: {
-    cardPadding: "p-3",
-    gap: "gap-6",
-    photoWidth: "w-14 sm:w-12 lg:w-60",
+    cardPadding: "p-6 lg:p-10",
+    gap: "gap-8 lg:gap-12",
+    photoWidth: "w-24 sm:w-32 lg:w-64",
     photoMinHeight: "",
-    nameSize: "text-3xl font-medium",
-    roleSize: "text-[11px]",
-    interestSize: "mt-4 text-[15px] font-light",
-    initialsSize: "text-3xl font-medium",
+    nameSize: "text-3xl lg:text-4xl font-semibold",
+    roleSize: "text-xs",
+    interestSize: "mt-5 text-base lg:text-lg font-normal",
+    initialsSize: "text-3xl font-semibold",
   },
-medium: {
-  cardPadding: "p-2",
-  gap: "gap-3",
-  photoWidth: "w-32 sm:w-36 lg:w-40",
-  photoMinHeight: "min-h-[170px]",
-  nameSize: "text-lg font-semibold",
-  roleSize: "text-[10px]",
-  interestSize: "mt-2 text-xs",
-  initialsSize: "text-xl font-semibold",
-},
+  medium: {
+    cardPadding: "p-5 sm:p-6",
+    gap: "gap-5 sm:gap-6",
+    photoWidth: "w-24 sm:w-32 lg:w-40",
+    photoMinHeight: "min-h-[180px]",
+    nameSize: "text-xl font-semibold",
+    roleSize: "text-[11px]",
+    interestSize: "mt-3 text-[13px] sm:text-sm",
+    initialsSize: "text-2xl font-semibold",
+  },
   compact: {
     cardPadding: "p-4",
     gap: "gap-4",
     photoWidth: "w-20 h-20 sm:w-24 sm:h-28",
     photoMinHeight: "",
-    nameSize: "text-lg font-semibold",
-    roleSize: "text-[9px]",
-    interestSize: "mt-3 text-sm",
-    initialsSize: "text-lg font-semibold",
+    nameSize: "text-lg sm:text-xl font-semibold",
+    roleSize: "text-[10px]",
+    interestSize: "mt-3 text-sm sm:text-[15px]",
+    initialsSize: "text-xl font-semibold",
   },
 };
 
@@ -276,6 +276,35 @@ function PersonCard({ p, variant }: { p: Person; variant: Variant }) {
   );
 }
 
+function DirectionalCardReveal({ children, direction }: { children: React.ReactNode, direction: "left" | "right" | "up" }) {
+  const variants = {
+    hidden: { 
+      opacity: 0, 
+      x: direction === "left" ? -60 : direction === "right" ? 60 : 0,
+      y: direction === "up" ? 40 : 0,
+      scale: 0.97, 
+      filter: "blur(6px)" 
+    },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      y: 0, 
+      scale: 1, 
+      filter: "blur(0px)" 
+    }
+  };
+  
+  return (
+    <motion.div 
+      variants={variants} 
+      transition={{ type: "spring", stiffness: 85, damping: 18, mass: 1.2 }}
+      style={{ willChange: "transform, opacity, filter" }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 function Section({
   title,
   eyebrow,
@@ -283,6 +312,7 @@ function Section({
   variant = "compact",
   itemsPerPage = 6,
   isFirst = false,
+  direction = "up"
 }: {
   title: string;
   eyebrow: string;
@@ -290,6 +320,7 @@ function Section({
   variant?: Variant;
   itemsPerPage?: number;
   isFirst?: boolean;
+  direction?: "left" | "right" | "up"
 }) {
   const [page, setPage] = useState(1);
   const usesPagination = variant === "compact" && people.length > itemsPerPage;
@@ -329,9 +360,9 @@ function Section({
         >
           <Stagger className={gridClasses} stagger={0.06}>
             {visiblePeople.map((p, i) => (
-              <StaggerItem key={`${p.name}-${i}`}>
+              <DirectionalCardReveal key={`${p.name}-${i}`} direction={direction}>
                 <PersonCard p={p} variant={variant} />
-              </StaggerItem>
+              </DirectionalCardReveal>
             ))}
           </Stagger>
         </motion.div>

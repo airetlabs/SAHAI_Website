@@ -3,8 +3,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHeader } from "../components/PageHeader";
 import { Reveal, RevealChars, Stagger, StaggerItem } from "../components/Reveal";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../components/ui/tooltip";
-import { Popover, PopoverContent, PopoverTrigger } from "../components/ui/popover";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -108,9 +106,7 @@ function ProjectsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Funded & Hosted Projects"
         title={<>Research Grants & <span className="italic font-light text-ink/50">Initiatives.</span></>}
-        description="A showcase of ongoing and completed research projects, including funded initiatives and hosted platforms."
       />
 
       <section className="container-page pb-24">
@@ -148,7 +144,7 @@ function ProjectsPage() {
                       className={`group flex ${isFullSpan ? "flex-col lg:flex-row" : "flex-col"} overflow-hidden rounded-3xl bg-surface ring-1 ring-border shadow-sm hover:shadow-2xl hover:ring-accent/40 hover:-translate-y-1.5 transition-all duration-300 h-full`}
                     >
                       {/* Image Space */}
-                      <div className={`relative bg-gradient-to-br ${p.hue} ${isFullSpan ? "min-h-[250px] lg:min-h-full lg:w-[30%] shrink-0" : "min-h-[200px] shrink-0 basis-[35%]"}`}>
+                      <div className={`relative bg-gradient-to-br ${p.hue} ${isFullSpan ? "min-h-[250px] lg:min-h-full lg:w-[30%] shrink-0" : "min-h-[200px] sm:min-h-[250px] shrink-0"}`}>
                         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.25) 1px, transparent 0)", backgroundSize: "14px 14px" }} />
                         <div className="absolute left-6 top-6 flex items-center gap-2">
                           <span className="rounded-full bg-canvas/85 backdrop-blur px-3 py-1.5 eyebrow text-[10px] text-ink">{p.type} Project</span>
@@ -156,7 +152,7 @@ function ProjectsPage() {
                       </div>
 
                       {/* Content Space */}
-                      <div className={`flex flex-col flex-1 p-6 sm:p-8 md:p-10 ${isFullSpan ? "lg:w-[70%]" : "basis-[65%]"}`}>
+                      <div className={`flex flex-col flex-1 p-6 pb-8 sm:p-8 sm:pb-8 md:p-10 md:pb-8 ${isFullSpan ? "lg:w-[70%]" : ""}`}>
                         <div className="flex flex-col md:flex-row justify-between md:items-start gap-6">
                           <div className="flex-1">
                             <h3 className="font-display text-2xl sm:text-3xl font-semibold text-ink leading-snug mb-4">
@@ -234,70 +230,15 @@ function ProjectsPage() {
 
 function CollapsiblePersonList({ people, itemClassName }: { people: string[], itemClassName?: string }) {
   if (!people || people.length === 0) return null;
-  if (people.length <= 3) {
-    return (
-      <ul className="mt-2 space-y-2">
-        {people.map((name, idx) => (
-          <li key={idx} className={`${itemClassName || "text-sm md:text-base text-ink"} leading-snug flex items-start gap-2`}>
-            <span className="text-accent/60 mt-1 text-[8px] shrink-0">●</span>
-            <span className="truncate">{name}</span>
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
-  const visiblePeople = people.slice(0, 2);
-  const hiddenCount = people.length - 2;
-
-  const PersonNames = () => (
-    <ul className="flex flex-col gap-1.5 max-h-[200px] overflow-y-auto font-sans text-sm">
-      {people.map((name, i) => (
-        <li key={i} className="leading-snug flex items-start gap-2">
-          <span className="text-accent/60 mt-1.5 text-[6px] shrink-0">●</span>
-          <span className="text-wrap break-words">{name}</span>
-        </li>
-      ))}
-    </ul>
-  );
 
   return (
     <ul className="mt-2 space-y-2 min-w-0">
-      {visiblePeople.map((name, idx) => (
+      {people.map((name, idx) => (
         <li key={idx} className={`${itemClassName || "text-sm md:text-base text-ink"} leading-snug flex items-start gap-2`}>
-          <span className="text-accent/60 mt-1 text-[8px] shrink-0">●</span>
-          <span className="truncate">{name}</span>
+          <span className="text-accent/60 mt-1.5 text-[8px] shrink-0">●</span>
+          <span className="text-wrap break-words">{name}</span>
         </li>
       ))}
-      <li className={`${itemClassName || "text-sm md:text-base text-ink"} leading-snug flex items-start gap-2`}>
-        <span className="text-accent/60 mt-1 text-[8px] shrink-0">●</span>
-        
-        {/* Desktop: Tooltip (hover) */}
-        <div className="hidden sm:block">
-          <TooltipProvider delayDuration={150}>
-            <Tooltip>
-              <TooltipTrigger className="text-accent hover:underline focus:outline-none focus:ring-2 focus:ring-accent rounded-sm outline-none truncate text-left">
-                +{hiddenCount} more
-              </TooltipTrigger>
-              <TooltipContent side="top" align="start" className="z-50 max-w-[280px] bg-canvas text-ink border border-muted p-3 shadow-xl rounded-md">
-                <PersonNames />
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        </div>
-
-        {/* Mobile: Popover (click) */}
-        <div className="block sm:hidden">
-          <Popover>
-            <PopoverTrigger className="text-accent hover:underline focus:outline-none focus:ring-2 focus:ring-accent rounded-sm outline-none truncate text-left">
-              +{hiddenCount} more
-            </PopoverTrigger>
-            <PopoverContent side="top" align="start" className="z-50 max-w-[280px] bg-canvas text-ink border border-muted p-3 shadow-xl rounded-md">
-              <PersonNames />
-            </PopoverContent>
-          </Popover>
-        </div>
-      </li>
     </ul>
   );
 }

@@ -58,11 +58,11 @@
   /* Ink: deep warm near-black for editorial type */
   --ink: oklch(0.18 0.012 60);
   --ink-dark: oklch(0.13 0.01 60);
-  --ink-soft: oklch(0.32 0.012 60);
+  --ink-soft: oklch(0.28 0.012 60);
   --foreground: var(--ink);
 
   --muted: oklch(0.955 0.008 75);
-  --muted-foreground: oklch(0.52 0.012 70);
+  --muted-foreground: oklch(0.48 0.012 70);
 
   --hairline: oklch(0.18 0.012 60 / 0.08);
   --border: oklch(0.18 0.012 60 / 0.1);

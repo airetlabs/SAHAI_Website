@@ -292,13 +292,13 @@ function ResearchPage() {
                       {d.title}
                     </motion.h2>
 
-                    <p className="mt-2 text-sm text-ink-soft leading-relaxed">{d.body}</p>
+                    <p className="mt-3 text-[15px] text-ink-soft leading-relaxed">{d.body}</p>
 
-                    <div className="mt-3">
-                      <p className="eyebrow text-[8px] mb-1.5">Focus areas</p>
+                    <div className="mt-4">
+                      <p className="eyebrow text-[9px] mb-2">Focus areas</p>
                       <div className="flex flex-wrap gap-1.5">
                         {d.focus.map((f) => (
-                          <span key={f} className="rounded-full bg-muted px-2.5 py-1 text-[10px] font-medium text-ink">{f}</span>
+                          <span key={f} className="rounded-full bg-muted px-3 py-1.5 text-[11px] font-medium text-ink transition-colors hover:bg-ink/10">{f}</span>
                         ))}
                       </div>
                     </div>
@@ -353,8 +353,8 @@ function ResearchPage() {
 function Metric({ label, value }: { label: string; value: number }) {
   return (
     <div>
-      <CountUp end={value} className="font-display text-lg font-semibold tracking-tight" />
-      <div className="eyebrow text-[8px] mt-0.5">{label}</div>
+      <CountUp end={value} className="font-display text-xl font-semibold tracking-tight" />
+      <div className="eyebrow text-[9px] mt-1 text-ink-soft">{label}</div>
     </div>
   );
 }

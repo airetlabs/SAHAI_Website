@@ -2,14 +2,14 @@ import { motion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
 const defaultVariants: Variants = {
-  hidden: { opacity: 0, y: 30, scale: 0.96 },
-  visible: { opacity: 1, y: 0, scale: 1 },
+  hidden: { opacity: 0, y: 40, scale: 0.97, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" },
 };
 
 export function Reveal({
   children,
   delay = 0,
-  y = 24,
+  y = 32,
   className,
   once = true,
 }: {
@@ -22,11 +22,11 @@ export function Reveal({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y, filter: "blur(6px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once, margin: "0px 0px -50px 0px" }}
-      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
-      style={{ willChange: "transform, opacity" }}
+      transition={{ type: "spring", stiffness: 85, damping: 18, mass: 1.2, delay }}
+      style={{ willChange: "transform, opacity, filter" }}
     >
       {children}
     </motion.div>
@@ -68,8 +68,8 @@ export function StaggerItem({
     <motion.div 
       className={className} 
       variants={defaultVariants} 
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      style={{ willChange: "transform, opacity" }}
+      transition={{ type: "spring", stiffness: 85, damping: 18, mass: 1.2 }}
+      style={{ willChange: "transform, opacity, filter" }}
     >
       {children}
     </motion.div>
@@ -95,14 +95,16 @@ export function RevealChars({
           key={i}
           aria-hidden
           className="inline-block"
-          initial={{ opacity: 0, y: "0.5em" }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: "0.5em", filter: "blur(4px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-          style={{ willChange: "transform, opacity" }}
+          style={{ willChange: "transform, opacity, filter" }}
           transition={{
-            duration: 0.6,
+            type: "spring",
+            stiffness: 90,
+            damping: 20,
+            mass: 1,
             delay: delay + i * charDelay,
-            ease: [0.16, 1, 0.3, 1],
           }}
         >
           {ch === " " ? "\u00A0" : ch}
@@ -117,7 +119,7 @@ export function RevealWords({
   text,
   className,
   delay = 0,
-  wordDelay = 0.06,
+  wordDelay = 0.05,
 }: {
   text: string;
   className?: string;
@@ -131,13 +133,16 @@ export function RevealWords({
           key={i}
           aria-hidden
           className="inline-block mr-[0.25em]"
-          initial={{ opacity: 0, y: "0.4em" }}
-          animate={{ opacity: 1, y: 0 }}
-          style={{ willChange: "transform, opacity" }}
+          initial={{ opacity: 0, y: "0.4em", filter: "blur(6px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+          style={{ willChange: "transform, opacity, filter" }}
           transition={{
-            duration: 0.7,
+            type: "spring",
+            stiffness: 85,
+            damping: 18,
+            mass: 1.1,
             delay: delay + i * wordDelay,
-            ease: [0.16, 1, 0.3, 1],
           }}
         >
           {word}

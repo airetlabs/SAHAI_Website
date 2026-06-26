@@ -45,8 +45,24 @@ const faqs = [
   },
 ];
 
-const contactDetails: [string, string][] = [
-  ["Research inquiries", "research@sparks.nitt.edu"],
+const contactDetails: [string, React.ReactNode][] = [
+  [
+    "Join the lab",
+    <div className="flex flex-col gap-1.5 mt-1">
+      <span className="font-display font-bold text-lg text-ink">Internship Opportunities</span>
+      <span className="text-ink-soft leading-relaxed mt-0.5">
+        Interested interns can email to:
+        <div className="flex items-center flex-wrap gap-2 mt-3 mb-2">
+          <span className="text-xs">Dr C Oswald:</span>
+          <a href="mailto:oswald@nitt.edu" className="text-accent hover:text-ink font-mono text-xs bg-accent/10 px-2 py-1 rounded transition-colors hover:bg-accent/20">oswald@nitt.edu</a>
+        </div>
+        <div className="flex items-center flex-wrap gap-2 mt-1">
+          <span className="text-xs">Abhijith Balan:</span>
+          <a href="mailto:406123001@gmail.com" className="text-accent hover:text-ink font-mono text-xs bg-accent/10 px-2 py-1 rounded transition-colors hover:bg-accent/20">406123001@gmail.com</a>
+        </div>
+      </span>
+    </div>
+  ],
   // ["Partnerships", "partnerships@sparks.nitt.edu"],
   // ["Press", "press@sparks.nitt.edu"],
   ["Office hours", "Mon–Fri · 10:00–17:00 IST"],
@@ -65,8 +81,8 @@ function ContactPage() {
 
   const update =
     (key: keyof typeof form) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
-      setForm((f) => ({ ...f, [key]: e.target.value }));
+      (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+        setForm((f) => ({ ...f, [key]: e.target.value }));
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -101,17 +117,15 @@ function ContactPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Contact"
         title={
           <>
             Let's <span className="italic font-light text-ink/50">talk.</span>
           </>
         }
-        description="Whether you're a prospective scholar, industry partner, or fellow researcher — we'd love to hear from you."
       />
 
       {/* Form + contact details */}
-      <section className="container-page grid lg:grid-cols-[1.2fr_1fr] gap-16 pb-32">
+      <section className="container-page grid lg:grid-cols-[1.2fr_1fr] gap-16 pt-12 pb-32 border-t border-hairline">
         <Reveal>
           <motion.form
             whileHover={{ y: -2 }}
@@ -153,7 +167,6 @@ function ContactPage() {
                 <option>Research collaboration</option>
                 <option>Doctoral admission inquiry</option>
                 <option>Industry partnership</option>
-                <option>Press / media</option>
                 <option>Other</option>
               </select>
             </FloatingField>
@@ -304,7 +317,7 @@ function Field({
   );
 }
 
-function Contact({ label, value }: { label: string; value: string }) {
+function Contact({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <motion.div
       whileHover={{ y: -3, borderColor: "oklch(0.68 0.165 55 / 0.4)" }}
@@ -312,7 +325,11 @@ function Contact({ label, value }: { label: string; value: string }) {
       className="rounded-2xl bg-surface ring-1 ring-border p-6 hover:ring-accent/40 transition-all"
     >
       <p className="eyebrow text-[9px] mb-2">{label}</p>
-      <p className="font-mono text-sm text-ink">{value}</p>
+      {typeof value === 'string' ? (
+        <p className="font-mono text-sm text-ink">{value}</p>
+      ) : (
+        <div className="text-sm text-ink">{value}</div>
+      )}
     </motion.div>
   );
 }

@@ -110,7 +110,7 @@ function Hero() {
             </span>
           </h1>
 
-          <p className="mt-8 max-w-xl text-lg sm:text-xl text-ink-soft leading-relaxed text-pretty">
+          <p className="mt-8 max-w-2xl text-xl sm:text-2xl text-ink-soft leading-relaxed text-pretty">
             <span className="font-medium text-ink">
               <RevealWords
                 text="Smart Platform for AI Research and Knowledge Systems."
@@ -290,7 +290,7 @@ function ImpactStats() {
         
       </Reveal>
 
-      <Reveal className="grid grid-cols-3 sm:grid-cols-6 gap-px bg-hairline ring-1 ring-hairline rounded-3xl overflow-hidden">
+      <Reveal className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-hairline ring-1 ring-hairline rounded-3xl overflow-hidden">
       {stats.map((s, i) => (
         <StatCard key={s.label} {...s} index={i} visible={visible} />
       ))}
@@ -366,7 +366,7 @@ function ResearchEcosystem() {
 
       </Reveal>
 
-<Reveal className="grid grid-cols-5 gap-2">
+<Reveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-2">
   {domains.map((d, i) => (
     <button
       key={d.id}
@@ -381,10 +381,10 @@ function ResearchEcosystem() {
         
         
       </div>
-      <h3 className="font-display text-lg font-semibold tracking-tight leading-snug">
+      <h3 className="font-display text-xl font-semibold tracking-tight leading-snug">
         {d.title}
       </h3>
-      <p className="mt-2 text-xs text-ink-soft leading-snug">{d.note}</p>
+      <p className="mt-2 text-sm text-ink-soft leading-snug">{d.note}</p>
       <div className="mt-6 h-px bg-hairline group-hover:bg-accent transition-colors" />
     </button>
   ))}
