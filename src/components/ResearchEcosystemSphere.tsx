@@ -455,7 +455,7 @@ export function ResearchEcosystemSphere() {
           />
           <div className="relative grid place-items-center size-24 sm:size-28 rounded-full bg-ink text-canvas shadow-[0_20px_60px_-10px_oklch(0.18_0.012_60/0.5)] ring-1 ring-ink/40">
             <div className="text-center">
-              <div className="font-display text-lg font-semibold leading-none">SPARKS</div>
+              <div className="font-display text-lg font-semibold leading-none">SAHAI</div>
               <div className="eyebrow text-[12px] text-accent mt-1">Research</div>
             </div>
           </div>
@@ -489,15 +489,13 @@ export function ResearchEcosystemSphere() {
               <div className={`relative shrink-0 ${cfg.ball}`}>
                 {/* ambient glow, doesn't spin */}
                 <span
-                  className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-md ${cfg.glow} ${
-                    d.ring === 0 ? "bg-accent/40" : "bg-ink/25"
-                  } animate-pulse`}
+                  className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-md ${cfg.glow} ${d.ring === 0 ? "bg-accent/40" : "bg-ink/25"
+                    } animate-pulse`}
                 />
                 {/* base sphere body */}
                 <span
-                  className={`absolute inset-0 rounded-full ${
-                    d.ring === 0 ? "bg-accent" : "bg-ink"
-                  } shadow-[inset_-3px_-3px_6px_rgba(0,0,0,0.25),0_4px_10px_rgba(0,0,0,0.2)]`}
+                  className={`absolute inset-0 rounded-full ${d.ring === 0 ? "bg-accent" : "bg-ink"
+                    } shadow-[inset_-3px_-3px_6px_rgba(0,0,0,0.25),0_4px_10px_rgba(0,0,0,0.2)]`}
                 />
                 {/* rotating shine — this is what sells the "spinning globe" effect */}
                 <motion.span

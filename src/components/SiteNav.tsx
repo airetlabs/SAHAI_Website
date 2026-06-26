@@ -27,11 +27,10 @@ export function SiteNav() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-500 ${
-        scrolled
-          ? "bg-canvas/85 backdrop-blur-xl border-b border-hairline"
-          : "bg-transparent"
-      }`}
+      className={`sticky top-0 z-50 w-full transition-all duration-500 ${scrolled
+        ? "bg-canvas/85 backdrop-blur-xl border-b border-hairline"
+        : "bg-transparent"
+        }`}
     >
       <div className="container-page flex h-20 items-center justify-between gap-6">
         <Link to="/" className="flex items-center gap-3 min-w-0 group">
@@ -41,7 +40,7 @@ export function SiteNav() {
           </div>
           <div className="flex flex-col leading-none min-w-0">
             <span className="font-display text-[17px] font-semibold tracking-tight truncate">
-              SPARKS Lab
+              SAH<span className="text-accent">AI{" "}</span>{" "}Lab
             </span>
             <span className="eyebrow text-[10px] mt-0.5 truncate">
               NIT Tiruchirappalli · CSE

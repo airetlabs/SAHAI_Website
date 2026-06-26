@@ -8,13 +8,13 @@ import { Reveal, RevealChars, RevealWords, Stagger, StaggerItem } from "../compo
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SPARKS Lab — Smart Platform for AI Research and Knowledge Systems" },
+      { title: "SAHAI Lab — Social Aware Intelligence for humanity and Language system Lab" },
       {
         name: "description",
         content:
           "Flagship AI research laboratory at NIT Tiruchirappalli, advancing machine learning, NLP, generative AI and knowledge systems.",
       },
-      { property: "og:title", content: "SPARKS Lab — AI Research at NIT Trichy" },
+      { property: "og:title", content: "SAHAI Lab — AI Research at NIT Trichy" },
       {
         property: "og:description",
         content:
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
 /* ─────────────────────────────────────────────────────── NEWS TICKER */
 
 const announcements = [
-  "🎉 SPARKS Lab secures new NM-ICPS funding for MindScribe initiative",
+  "🎉 SAHAI Lab secures new NM-ICPS funding for MindScribe initiative",
   "📄 New paper accepted at ACM TKDD — Configurable Graph Summarization",
   "🤝 ICSSR-JSPS Joint Research Programme concludes successfully",
   "🏆 Best Paper Award at ICoAC for hybrid PSO algorithms research",
@@ -80,6 +80,45 @@ function NewsTicker() {
 }
 /* ────────────────────────────────────────────────────────────── HERO */
 
+function TypewriterLab() {
+  const text = "LAB.";
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout | number;
+    
+    if (!isDeleting && displayedText.length < text.length) {
+      timeout = setTimeout(() => setDisplayedText(text.slice(0, displayedText.length + 1)), 250);
+    } else if (isDeleting && displayedText.length > 0) {
+      timeout = setTimeout(() => setDisplayedText(text.slice(0, displayedText.length - 1)), 150);
+    } else if (!isDeleting && displayedText.length === text.length) {
+      timeout = setTimeout(() => setIsDeleting(true), 2500);
+    } else if (isDeleting && displayedText.length === 0) {
+      timeout = setTimeout(() => setIsDeleting(false), 800);
+    }
+
+    return () => clearTimeout(timeout as number);
+  }, [displayedText, isDeleting, text]);
+
+  return (
+    <span className="inline-flex items-center">
+      <span className="inline-flex">
+        {Array.from(displayedText).map((char, index) => (
+          <motion.span
+            key={`${index}-${char}`}
+            initial={{ opacity: 0, filter: "blur(4px)", y: 4 }}
+            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </span>
+    </span>
+  );
+}
+
 function Hero() {
   return (
     <section className="relative min-h-[94vh] flex items-center pt-4 pb-20 overflow-hidden">
@@ -98,26 +137,33 @@ function Hero() {
 
       <div className="container-page grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
         <div>
-          
-       
-         
+
+
+
 
           <h1 className="font-display text-6xl sm:text-7xl lg:text-[8.5rem] font-semibold tracking-tight leading-[0.85] text-balance">
-            <RevealChars text="SPARKS" delay={0.1} charDelay={0.05} />
+            <span className="inline-flex">
+              <RevealChars text="SAH" delay={0.1} charDelay={0.05} />
+              <span className="text-accent">
+                <RevealChars text="AI" delay={0.25} charDelay={0.05} />
+              </span>
+            </span>
             <br />
-            <span className="text-ink/30">
-              <RevealChars text="LAB." delay={0.45} charDelay={0.06} />
+            <span className="text-ink/30 inline-block min-h-[1.2em]">
+              <TypewriterLab />
             </span>
           </h1>
 
           <p className="mt-8 max-w-2xl text-xl sm:text-2xl text-ink-soft leading-relaxed text-pretty">
-            <span className="font-medium text-ink">
-              <RevealWords
-                text="Smart Platform for AI Research and Knowledge Systems."
-                delay={0.9}
-                wordDelay={0.05}
-              />
-            </span>{" "}
+            <Reveal className="font-semibold italic text-ink block mb-4">
+              <span className="text-accent font-bold text-[1.15em]">S</span>ocial{" "}
+              <span className="text-accent font-bold text-[1.15em]">A</span>ware{" "}
+              <span className="text-accent font-bold text-[1.15em]"></span>Intelligence{" "}
+              for{" "}
+              <span className="text-accent font-bold text-[1.15em]">H</span>umanity{" "}
+              and L<span className="text-accent font-bold text-[1.15em]">A</span>nguage{" "}
+              system Lab.
+            </Reveal>
             <RevealWords
               text="The laboratory advances Human-Centered Artificial Intelligence through ethical and responsible research, developing technologies that empower communities, address societal challenges, and create lasting humanitarian impact."
               delay={1.25}
@@ -125,7 +171,7 @@ function Hero() {
             />
           </p>
 
-         
+
         </div>
 
         {/* Ecosystem visualization */}
@@ -174,8 +220,8 @@ function Hero() {
         </motion.div>
       </div>
 
-      
-        
+
+
     </section>
   );
 }
@@ -210,8 +256,8 @@ function TrustBar() {
             S
           </div>
           <div className="min-w-0">
-            <div className="font-display text-base font-semibold truncate">SPARKS Lab</div>
-            <div className="eyebrow text-[9px] truncate">Smart Platform · AI Research</div>
+            <div className="font-display text-base font-semibold truncate">SAH<span className="text-accent">AI</span> Lab</div>
+            <div className="eyebrow text-[9px] truncate">Social Aware Intelligence</div>
           </div>
         </div>
         <div className="hidden md:flex flex-col items-center text-center">
@@ -256,12 +302,12 @@ function useCountUp(target: number, active: boolean, duration = 1600) {
 }
 
 const stats = [
-  { num: 152, suffix: "+", label: "Publications", note: "Peer reviewed · 2018–2024" },
-  { num: 18, suffix: "", label: "Active Projects", note: "Funded research streams" },
-  { num: 12, suffix: "", label: "Patents", note: "Filed & granted" },
-  { num: 38, suffix: "", label: "Researchers", note: "Faculty · scholars · students" },
-  { num: 24, suffix: "+", label: "Collaborations", note: "Industry · academia · gov" },
-  { num: 16, suffix: "", label: "Awards", note: "International recognition" },
+  { num: 7, suffix: "", label: "Journals", note: "Peer reviewed publications" },
+  { num: 30, suffix: "+", label: "Conferences", note: "National & International" },
+  { num: 2, suffix: "", label: "Funded Projects", note: "Active research streams" },
+  { num: 42, suffix: "+", label: "Interns", note: "Research scholars & students" },
+  { num: 10, suffix: "", label: "Collaborators", note: "Industry & academia" },
+  { num: 5, suffix: "", label: "Awards", note: "Best Paper and others" },
 ];
 
 function ImpactStats() {
@@ -282,19 +328,19 @@ function ImpactStats() {
     <section className="container-page pt-0 pb-0" ref={ref}>
       <Reveal className="flex flex-col md:flex-row items-start md:items-end justify-between mb-14 gap-6">
         <div>
-          
+
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] max-w-2xl text-balance">
             Research that <span className="italic font-light text-ink/50">compounds.</span>
           </h2>
         </div>
-        
+
       </Reveal>
 
       <Reveal className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-hairline ring-1 ring-hairline rounded-3xl overflow-hidden">
-      {stats.map((s, i) => (
-        <StatCard key={s.label} {...s} index={i} visible={visible} />
-      ))}
-    </Reveal>
+        {stats.map((s, i) => (
+          <StatCard key={s.label} {...s} index={i} visible={visible} />
+        ))}
+      </Reveal>
     </section>
   );
 }
@@ -340,16 +386,13 @@ function StatCard({
 /* ─────────────────────────────────────────────────────── RESEARCH ECOSYSTEM */
 
 const domains = [
-  { id: "ml",  title: "Machine Learning",            note: "Learning · Prediction · Adaptation",projects:1 },
-  // { id: "dl",  title: "Deep Learning",               note: "Networks · Representation · Intelligence",projects:1 },
-  // { id: "cv",  title: "Computational Science for Social Good",             note: "Impact · Equity · Innovation",projects:1 },
-  { id: "nlp", title: "Natural Language Processing", note: "Language · Semantics · Generation",projects:1 },
-  { id: "gen", title: "Generative AI",               note: "Creation · Reasoning · Innovation" ,projects:1},
-  // { id: "hai", title: "Data Compression",            note: "Efficiency · Encoding · Optimization",projects:1 },
-  { id: "xai", title: "Human Computer Interaction",  note: "Experience · Usability · Engagement",projects:1 },
-  // { id: "kg",  title: "Knowledge Graphs",            note: "Knowledge · Reasoning · Connections",projects:1 },
-  { id: "edge",title: "Data Mining",                 note: "Patterns · Discovery · Insights",projects:1 },
-  // { id: "rob", title: "Computational Linguistics",   note: "Language · Computation · Cognition",projects:1 }
+  { id: "dm", title: "Data Mining (AI, Machine Learning, Deep Learning)", points: ["Text, Image and Video Mining", "Frequent Pattern Mining", "Classification and Clustering of Text/Image Data"], projects: 1 },
+  { id: "nlp", title: "Natural Language Processing", points: ["Indic Languages", "EEG to Text Processing", "Named Entity Recognition", "Speech Recognition"], projects: 1 },
+  { id: "ir", title: "Information Retrieval", points: ["Knowledge Graphs", "Ontology", "Question-Answering"], projects: 1 },
+  { id: "dc", title: "Data Compression", points: ["Text Compression", "Image, Video Compression", "Graph Compression"], projects: 1 },
+  { id: "cssg", title: "Computational Science for Social Good", points: ["Fake News Detection", "Multimodal Hate Speech detection", "Computational Linguistics and Clinical Psychology"], projects: 1 },
+  { id: "hci", title: "Human-Computer Interaction", points: ["Design of CAPTCHA’s", "Design of Loading Bars"], projects: 1 },
+  { id: "gen", title: "Generative AI", points: ["Large Language Models (LLMs)", "Small Language Models (SLMs)", "Retrieval-Augmented Generation (RAG)", "Multimodal Generative Models"], projects: 1 }
 ];
 
 function ResearchEcosystem() {
@@ -357,38 +400,41 @@ function ResearchEcosystem() {
   return (
     <section className="container-page py-22">
       <Reveal className="mb-12">
-        
+
         <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] text-balance">
           Research {" "}
           <span className="font-light text-ink/50">Domains</span>{" "}
-          
+
         </h2>
 
       </Reveal>
 
-<Reveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-2">
-  {domains.map((d, i) => (
-    <button
-      key={d.id}
-      onMouseEnter={() => setHover(d.id)}
-      onMouseLeave={() => setHover(null)}
-      className={`group relative text-left p-6 rounded-2xl ring-1 transition-all duration-500 ${hover && hover !== d.id
-        ? "ring-ink/10 bg-surface opacity-50"
-        : "ring-ink/20 bg-surface hover:ring-accent hover:-translate-y-1 hover:shadow-lg"
-        }`}
-    >
-      <div className="flex items-start justify-between mb-4">
-        
-        
-      </div>
-      <h3 className="font-display text-xl font-semibold tracking-tight leading-snug">
-        {d.title}
-      </h3>
-      <p className="mt-2 text-sm text-ink-soft leading-snug">{d.note}</p>
-      <div className="mt-6 h-px bg-hairline group-hover:bg-accent transition-colors" />
-    </button>
-  ))}
-</Reveal>
+      <Reveal className="flex flex-wrap justify-center gap-3 lg:gap-4 items-stretch">
+        {domains.map((d, i) => (
+          <button
+            key={d.id}
+            onMouseEnter={() => setHover(d.id)}
+            onMouseLeave={() => setHover(null)}
+            className={`w-full sm:w-[calc(50%-6px)] md:w-[calc(33.333%-8px)] lg:w-[calc(25%-12px)] group relative text-left p-4 rounded-2xl ring-1 transition-all duration-500 flex flex-col ${hover && hover !== d.id
+              ? "ring-ink/10 bg-surface opacity-50"
+              : "ring-ink/20 bg-surface hover:ring-accent hover:-translate-y-1 hover:shadow-lg"
+              }`}
+          >
+            <h3 className="font-display text-xl font-semibold tracking-tight leading-snug mb-5">
+              {d.title}
+            </h3>
+            <ul className="flex-1 space-y-3 w-full">
+              {d.points.map((pt, idx) => (
+                <li key={idx} className="text-base text-ink-soft leading-relaxed flex items-start gap-2.5">
+                  <span className="text-accent mt-2 text-[9px]">●</span>
+                  <span className="flex-1 text-left">{pt}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-5 h-px bg-hairline group-hover:bg-accent transition-colors w-full" />
+          </button>
+        ))}
+      </Reveal>
     </section>
   );
 }
@@ -418,7 +464,7 @@ const projects = [
     ],
     accent: "ember",
   },
-  
+
 ];
 
 function FeaturedProjects() {
@@ -427,7 +473,7 @@ function FeaturedProjects() {
       <div className="container-page">
         <Reveal className="flex items-end justify-between mb-12 flex-wrap gap-6">
           <div>
-            
+
             <h2 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] max-w-2xl text-balance">
               Projects shaping the field.
             </h2>
@@ -489,7 +535,7 @@ function FeaturedProjects() {
                         Case study
                         <span className="transition-transform group-hover:translate-x-1">→</span>
                       </Link>
-                     
+
                     </div>
                   </div>
                 </div>
@@ -589,25 +635,34 @@ function ProjectVisual({ variant }: { variant: number }) {
 
 function Collaborators() {
   const partners = [
-    "IIT Madras","IIT Indore","BITS Pilani,Hyderabad Campus" 
+    "IIT Delhi",
+    "IIT Jodhpur",
+    "IIT Indore",
+    "BITs Pilani Hyderabad",
+    "IIIT Hyderabad",
+    "IIT Kanpur",
+    "Waseda University, Japan",
+    "University of New South Wales, Australia",
+    "IIT Bombay",
+    "Blue Yonder"
   ];
   return (
     <section className="py-5 overflow-hidden border-y border-hairline">
       <div className="container-page mb-12">
         <div className="flex items-end justify-between flex-wrap gap-6">
           <div>
-            
+
             <h2 className="font-display text-2xl lg:text-4xl font-semibold tracking-tight max-w-xl text-balance">
-              Built with India's leading institutions.
+              Collaborating Institutes
             </h2>
           </div>
-         
+
         </div>
       </div>
       <div className="relative">
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-canvas to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-canvas to-transparent z-10" />
-        <div className="flex w-max gap-12 pr-12 animate-marquee whitespace-nowrap py-4" style={{ animationDuration: "120s" }}>
+        <div className="flex w-max gap-12 pr-12 animate-marquee whitespace-nowrap py-4" style={{ animationDuration: "360s" }}>
           {Array(20).fill(partners).flat().map((p, i) => (
             <div
               key={i}
@@ -625,17 +680,17 @@ function Collaborators() {
 function HomePage() {
   return (
     <>
-    <NewsTicker />
-    
+      <NewsTicker />
+
       <Hero />
-      
+
       <ImpactStats />
       <ResearchEcosystem />
       <FeaturedProjects />
-      
+
       <Collaborators />
       {/* <TestimonialsMarquee /> */}
-      
+
     </>
   );
 }
