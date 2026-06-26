@@ -7,9 +7,9 @@ import { Reveal, RevealChars, Stagger, StaggerItem } from "../components/Reveal"
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — SPARKS Lab" },
-      { name: "description", content: "Active and completed research projects at SPARKS Lab." },
-      { property: "og:title", content: "Projects · SPARKS Lab" },
+      { title: "Projects — SAHAI Lab" },
+      { name: "description", content: "Active and completed research projects at SAHAI Lab." },
+      { property: "og:title", content: "Projects · SAHAI Lab" },
     ],
   }),
   component: ProjectsPage,

@@ -7,6 +7,7 @@ import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 export const Route = createFileRoute("/research")({
   head: () => ({
     meta: [
+<<<<<<< HEAD
       { title: "Research — SPARKS Lab" },
       {
         name: "description",
@@ -14,6 +15,11 @@ export const Route = createFileRoute("/research")({
           "Research domains at SPARKS Lab — machine learning, computer vision, NLP, generative AI, healthcare AI, XAI, and more.",
       },
       { property: "og:title", content: "Research · SPARKS Lab" },
+=======
+      { title: "Research — SAHAI Lab" },
+      { name: "description", content: "Research domains at SAHAI Lab — machine learning, computer vision, NLP, generative AI, healthcare AI, XAI, and more." },
+      { property: "og:title", content: "Research · SAHAI Lab" },
+>>>>>>> origin/ghosh_branch
       { property: "og:description", content: "Ten interconnected domains of AI research." },
     ],
   }),
@@ -279,7 +285,7 @@ function DomainVisual({ domain, index }: { domain: Domain; index: number }) {
         DOMAIN · {String(index + 1).padStart(2, "0")}
       </div>
       <div className="absolute bottom-2.5 right-2.5 font-mono text-[7px] tracking-[0.15em] text-ink/60">
-        SPARKS / RESEARCH
+        SAHAI / RESEARCH
       </div>
     </div>
   );

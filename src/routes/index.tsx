@@ -118,7 +118,7 @@ function TypewriterLab() {
 
 function Hero() {
   return (
-    <section className="relative min-h-[94vh] flex items-center pt-4 pb-20 overflow-hidden">
+    <section className="relative min-h-[94vh] flex items-center pt-16 lg:pt-20 pb-20 overflow-hidden">
       {/* Backdrop layers — parallax depth */}
       <div className="absolute inset-0 -z-10 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
       <motion.div

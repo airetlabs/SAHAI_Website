@@ -11,7 +11,7 @@ export function SiteFooter() {
                 S
               </div>
               <div className="flex flex-col leading-tight">
-                <span className="font-display text-lg font-semibold">SPARKS Lab</span>
+                <span className="font-display text-lg font-semibold">SAHAI Lab</span>
                 <span className="eyebrow text-[9px] text-canvas/50">NIT Trichy · CSE</span>
               </div>
             </div>
@@ -102,7 +102,7 @@ export function SiteFooter() {
         <div className="mt-6 pt-4 border-t border-canvas/10 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           <div className="flex flex-col gap-1.5">
             <p className="eyebrow text-canvas/40">
-              © {new Date().getFullYear()} SPARKS Lab · All rights reserved
+              © {new Date().getFullYear()} SAHAI Lab · All rights reserved
             </p>
             <p className="eyebrow text-white">Designed & Developed by</p>
 

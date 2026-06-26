@@ -9,14 +9,10 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/people")({
   head: () => ({
     meta: [
-      { title: "People — SPARKS Lab" },
-      {
-        name: "description",
-        content:
-          "Faculty, researchers, scholars and students of SPARKS Lab at NIT Tiruchirappalli.",
-      },
-      { property: "og:title", content: "People · SPARKS Lab" },
-      // { property: "og:description", content: "Meet the researchers building the future of AI at SPARKS Lab." },
+      { title: "People — SAHAI Lab" },
+      { name: "description", content: "Faculty, researchers, scholars and students of SAHAI Lab at NIT Tiruchirappalli." },
+      { property: "og:title", content: "People · SAHAI Lab" },
+      // { property: "og:description", content: "Meet the researchers building the future of AI at SAHAI Lab." },
     ],
   }),
   component: PeoplePage,

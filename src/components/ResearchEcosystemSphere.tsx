@@ -113,7 +113,7 @@
 // //         })}
 // //       </svg>
 
-// //       {/* central SPARKS node */}
+// //       {/* central SAHAI node */}
 // //       <motion.div
 // //         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
 // //         initial={{ scale: 0.4, opacity: 0 }}
@@ -128,7 +128,7 @@
 // //           />
 // //           <div className="relative grid place-items-center size-24 sm:size-28 rounded-full bg-ink text-canvas shadow-[0_20px_60px_-10px_oklch(0.18_0.012_60/0.5)] ring-1 ring-ink/40">
 // //             <div className="text-center">
-// //               <div className="font-display text-lg font-semibold leading-none">SPARKS</div>
+// //               <div className="font-display text-lg font-semibold leading-none">SAHAI</div>
 // //               <div className="eyebrow text-[8px] text-accent mt-1">CORE · AI</div>
 // //             </div>
 // //           </div>
@@ -276,7 +276,7 @@
 //         />
 //       ))}
 
-//       {/* central SPARKS node */}
+//       {/* central SAHAI node */}
 //       <motion.div
 //         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
 //         initial={{ scale: 0.4, opacity: 0 }}
@@ -291,7 +291,7 @@
 //           />
 //           <div className="relative grid place-items-center size-24 sm:size-28 rounded-full bg-ink text-canvas shadow-[0_20px_60px_-10px_oklch(0.18_0.012_60/0.5)] ring-1 ring-ink/40">
 //             <div className="text-center">
-//               <div className="font-display text-lg font-semibold leading-none">SPARKS</div>
+//               <div className="font-display text-lg font-semibold leading-none">SAHAI</div>
 //               <div className="eyebrow text-[8px] text-accent mt-1">CORE · AI</div>
 //             </div>
 //           </div>
@@ -456,7 +456,7 @@ export function ResearchEcosystemSphere() {
         />
       ))}
 
-      {/* central SPARKS node */}
+      {/* central SAHAI node */}
       <motion.div
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
         initial={{ scale: 0.4, opacity: 0 }}

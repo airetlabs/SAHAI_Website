@@ -79,14 +79,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SPARKS Lab — Smart Platform for AI Research and Knowledge Systems" },
+      { title: "SAHAI Lab — Social Aware Intelligence for humanity and Language system Lab" },
       {
         name: "description",
         content:
-          "SPARKS Lab at NIT Tiruchirappalli — advancing the future of Artificial Intelligence through research, innovation, education, and real-world impact.",
+          "SAHAI Lab at NIT Tiruchirappalli — advancing the future of Artificial Intelligence through research, innovation, education, and real-world impact.",
       },
-      { name: "author", content: "SPARKS Lab, NIT Tiruchirappalli" },
-      { property: "og:title", content: "SPARKS Lab — AI Research & Knowledge Systems" },
+      { name: "author", content: "SAHAI Lab, NIT Tiruchirappalli" },
+      { property: "og:title", content: "SAHAI Lab — AI Research & Knowledge Systems" },
       {
         property: "og:description",
         content:

@@ -9,13 +9,9 @@ import { Popover, PopoverContent, PopoverTrigger } from "../components/ui/popove
 export const Route = createFileRoute("/publications")({
   head: () => ({
     meta: [
-      { title: "Publications — SPARKS Lab" },
-      {
-        name: "description",
-        content:
-          "Peer-reviewed publications, conference papers, journal articles and patents from SPARKS Lab researchers.",
-      },
-      { property: "og:title", content: "Publications · SPARKS Lab" },
+      { title: "Publications — SAHAI Lab" },
+      { name: "description", content: "Peer-reviewed publications, conference papers, journal articles and patents from SAHAI Lab researchers." },
+      { property: "og:title", content: "Publications · SAHAI Lab" },
       { property: "og:description", content: "152+ publications spanning the leading AI venues." },
     ],
   }),

@@ -6,6 +6,7 @@ import { Reveal, Stagger, StaggerItem, RevealWords } from "../components/Reveal"
 export const Route = createFileRoute("/patents")({
   head: () => ({
     meta: [
+<<<<<<< HEAD
       { title: "Patents — SPARKS Lab" },
       {
         name: "description",
@@ -13,6 +14,11 @@ export const Route = createFileRoute("/patents")({
           "Patents granted, filed and transferred from research at SPARKS Lab, NIT Tiruchirappalli.",
       },
       { property: "og:title", content: "Patents · SPARKS Lab" },
+=======
+      { title: "Patents — SAHAI Lab" },
+      { name: "description", content: "Patents granted, filed and transferred from research at SAHAI Lab, NIT Tiruchirappalli." },
+      { property: "og:title", content: "Patents · SAHAI Lab" },
+>>>>>>> origin/ghosh_branch
       { property: "og:description", content: "Translational IP from foundational research." },
     ],
   }),
