@@ -33,9 +33,8 @@ export function SiteNav() {
     >
       <div className="container-page flex h-20 items-center justify-between gap-6">
         <Link to="/" className="flex items-center gap-3 min-w-0 group">
-          <div className="relative grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-ink text-canvas font-display text-base font-semibold">
-            S
-            <span className="absolute -right-0.5 -top-0.5 size-2 rounded-full bg-accent" />
+          <div className="relative shrink-0 flex items-center justify-center -ml-1">
+            <img src="/sahai-logo.png" alt="SAHAI Lab Logo" className="h-14 sm:h-16 w-auto object-contain drop-shadow-sm" />
           </div>
           <div className="flex flex-col leading-none min-w-0">
             <span className="font-display text-[17px] font-semibold tracking-tight truncate">

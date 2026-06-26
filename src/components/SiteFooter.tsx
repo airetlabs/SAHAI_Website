@@ -4,7 +4,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-32 bg-ink text-canvas">
       <div className="container-page py-10">
-        <div className="grid gap-16 lg:grid-cols-[1.1fr_0.8fr_0.8fr_1.1fr_1.3fr]">
+        <div className="grid gap-16 lg:grid-cols-[1.3fr_0.8fr_0.8fr_1.5fr]">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="grid h-10 w-10 place-items-center rounded-lg bg-accent text-ink font-display text-lg font-semibold">
@@ -16,7 +16,7 @@ export function SiteFooter() {
               </div>
             </div>
             <p className="text-sm text-canvas/60 leading-relaxed max-w-md">
-              Smart Platform for AI Research and Knowledge Systems.
+              Socially Aware Intelligence for Humanity and LAnguage ProcessIng Lab
               <br />
               CSE Department,
               <br />
@@ -51,9 +51,9 @@ export function SiteFooter() {
             <h4 className="eyebrow text-canvas/50 mb-5">Lab</h4>
             <ul className="space-y-3 text-sm">
               {[
-                ["/founder", "Founder"],
+                // ["/founder", "Founder"],
                 ["/people", "People"],
-                ["/news", "News & Updates"],
+                //["/news", "News & Updates"],
                 ["/gallery", "Gallery"],
                 ["/contact", "Contact"],
               ].map(([to, label]) => (
@@ -66,22 +66,6 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="eyebrow text-canvas/50 mb-5">Newsletter</h4>
-            <p className="text-sm text-canvas/60 mb-4 leading-relaxed">
-              Monthly digest of publications, openings and breakthroughs from the lab.
-            </p>
-            <form className="flex items-center gap-2 rounded-full bg-canvas/5 ring-1 ring-canvas/10 p-1.5">
-              <input
-                type="email"
-                placeholder="you@institute.edu"
-                className="flex-1 bg-transparent px-3 py-1.5 text-sm placeholder:text-canvas/40 focus:outline-none"
-              />
-              <button className="rounded-full bg-accent text-ink px-4 py-1.5 text-xs font-semibold hover:scale-[1.03] transition-transform">
-                Subscribe
-              </button>
-            </form>
-          </div>
           <div>
             <h4 className="eyebrow text-canvas/50 mb-5">Find Us</h4>
 
@@ -105,8 +89,7 @@ export function SiteFooter() {
               © {new Date().getFullYear()} SAHAI Lab · All rights reserved
             </p>
             <p className="eyebrow text-white">Designed & Developed by</p>
-
-            <p className="eyebrow text-white mt-1">Surya Ghosh · Nooh · Preetham Reddy · Aditi</p>
+            <p className="eyebrow text-white mt-1">Abhijith · Surya Ghosh · Nooh · Preetham Reddy · Aditi</p>
           </div>
 
           <div className="flex items-center gap-6 text-xs text-canvas/50 font-mono">

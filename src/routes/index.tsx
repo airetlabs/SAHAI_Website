@@ -26,15 +26,15 @@ export const Route = createFileRoute("/")({
 /* ─────────────────────────────────────────────────────── NEWS TICKER */
 
 const announcements = [
-  "🎉 SAHAI Lab secures new NM-ICPS funding for MindScribe initiative",
-  "📄 New paper accepted at ACM TKDD — Configurable Graph Summarization",
-  "🤝 ICSSR-JSPS Joint Research Programme concludes successfully",
-  "🏆 Best Paper Award at ICoAC for hybrid PSO algorithms research",
-  "📢 Applications open for Summer Research Internship 2026",
+  "🎉 SAHAI Lab secures new NM-ICPS funding for the MindScribe initiative",
+  "📄 New paper accepted in the ACM TKDD journal — Configurable Graph Summarization",
+  "🤝 Funded joint research project completed successfully",
+  "📢 10 students successfully completed the Summer 2026 Research Internship",
+  "🎓 2 conference papers published successfully at ICSCST 2026",
 ];
 function NewsTicker() {
   return (
-    <div className="fixed top-17 left-0 right-0 z-[55] h-10 bg-ink text-canvas overflow-hidden flex items-center">
+    <div className="fixed top-17 left-0 right-0 z-[55] h-14 bg-ink text-canvas overflow-hidden flex items-center">
       {/* News Label */}
       <a
         href="https://www.nitt.edu/home/"
@@ -53,10 +53,10 @@ function NewsTicker() {
       {/* Scrolling News */}
       <div className="absolute inset-0 left-20">
         <motion.div
-          className="flex w-max gap-10 items-center h-10 pl-4"
+          className="flex w-max gap-10 items-center h-14 pl-4"
           animate={{ x: ["0%", "-50%"] }}
           transition={{
-            duration: 35,
+            duration: 60,
             ease: "linear",
             repeat: Infinity,
           }}
@@ -64,7 +64,7 @@ function NewsTicker() {
           {[...announcements, ...announcements].map((a, i) => (
             <span
               key={i}
-              className="text-[13px] text-canvas/80 whitespace-nowrap flex items-center gap-10"
+              className="text-base font-semibold text-canvas/90 whitespace-nowrap flex items-center gap-10"
             >
               {a}
               <span className="text-canvas/30 text-lg">•</span>
@@ -78,7 +78,7 @@ function NewsTicker() {
 /* ────────────────────────────────────────────────────────────── HERO */
 
 function TypewriterLab() {
-  const text = "LAB.";
+  const text = "LAB";
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -118,7 +118,7 @@ function TypewriterLab() {
 
 function Hero() {
   return (
-    <section className="relative min-h-[94vh] flex items-center pt-16 lg:pt-20 pb-20 overflow-hidden">
+    <section className="relative lg:min-h-[94vh] block lg:flex lg:items-center pt-24 lg:pt-20 pb-20 overflow-hidden">
       {/* Backdrop layers — parallax depth */}
       <div className="absolute inset-0 -z-10 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
       <motion.div
@@ -132,44 +132,23 @@ function Hero() {
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="container-page grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
-        <div>
-          <h1 className="font-display text-6xl sm:text-7xl lg:text-[8.5rem] font-semibold tracking-tight leading-[0.85] text-balance">
-            <span className="inline-flex">
-              <RevealChars text="SAH" delay={0.1} charDelay={0.05} />
-              <span className="text-accent">
-                <RevealChars text="AI" delay={0.25} charDelay={0.05} />
-              </span>
-            </span>
-            <br />
-            <span className="text-ink/30 inline-block min-h-[1.2em]">
-              <TypewriterLab />
-            </span>
-          </h1>
-
-          <p className="mt-8 max-w-2xl text-xl sm:text-2xl text-ink-soft leading-relaxed text-pretty">
-            <Reveal className="font-semibold italic text-ink block mb-4">
-              <span className="text-accent font-bold text-[1.15em]">S</span>ocial{" "}
-              <span className="text-accent font-bold text-[1.15em]">A</span>ware{" "}
-              <span className="text-accent font-bold text-[1.15em]"></span>Intelligence for{" "}
-              <span className="text-accent font-bold text-[1.15em]">H</span>umanity and L
-              <span className="text-accent font-bold text-[1.15em]">A</span>nguage system Lab.
+      <div className="container-page flex flex-col items-center">
+        {/* Top: Logo and Sphere */}
+        <div className="w-full grid lg:grid-cols-2 gap-16 lg:gap-16 items-center">
+          <div className="flex justify-center items-center lg:justify-end lg:pr-12 min-h-[80vh] lg:min-h-0">
+            <h1 className="sr-only">SAHAI Lab</h1>
+            <Reveal delay={0.1}>
+              <img src="/sahai-logo.png" alt="SAHAI Lab Logo" className="w-[340px] sm:w-[480px] lg:w-[540px] xl:w-[600px] h-auto object-contain drop-shadow-2xl" />
             </Reveal>
-            <RevealWords
-              text="The laboratory advances Human-Centered Artificial Intelligence through ethical and responsible research, developing technologies that empower communities, address societal challenges, and create lasting humanitarian impact."
-              delay={1.25}
-              wordDelay={0.03}
-            />
-          </p>
-        </div>
+          </div>
 
-        {/* Ecosystem visualization */}
-        <motion.div
-          className="relative w-full max-w-2xl mx-auto"
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        >
+          {/* Ecosystem visualization */}
+          <motion.div
+            className="relative w-full max-w-2xl mx-auto flex items-center justify-center lg:justify-start min-h-[85vh] lg:min-h-0"
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1.05 }}
+            transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          >
           <ResearchEcosystemSphere />
 
           {/* floating indicators */}
@@ -206,7 +185,31 @@ function Hero() {
             {/* <div className="eyebrow text-[9px]">Impact</div>
             <div className="font-display text-lg font-semibold">h-38</div> */}
           </motion.div>
-        </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Bottom: Full width description */}
+        <div className="w-full max-w-5xl mx-auto mt-16 lg:mt-24 text-left space-y-10 pb-8">
+          <Reveal>
+            <h2 className="text-xl sm:text-2xl lg:text-[28px] leading-relaxed font-medium text-ink">
+              <strong className="font-bold text-ink">
+                SAHAI (
+                <span className="text-accent font-bold text-[1.15em]">S</span>ocially{" "}
+                <span className="text-accent font-bold text-[1.15em]">A</span>ware Intelligence for{" "}
+                <span className="text-accent font-bold text-[1.15em]">H</span>umanity and L
+                <span className="text-accent font-bold text-[1.15em]">A</span>nguage Process
+                <span className="text-accent font-bold text-[1.15em]">I</span>ng Lab)
+              </strong>
+              <br className="hidden md:block" />
+              <span className="inline-block mt-3 md:mt-2">advances human-centered AI through research in Artificial Intelligence, Data Science (Machine Learning, Deep Learning, Data Mining), Natural Language Processing, Indic languages, and multimodal intelligence.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="text-lg sm:text-xl lg:text-[22px] text-ink-soft leading-relaxed max-w-5xl mx-auto">
+              Inspired by the meaning of <strong className="font-semibold text-ink">SAHAI (सहाय in Hindi) - help and support</strong> - we develop intelligent, accessible, and inclusive technologies that address real-world societal challenges. Our research focuses on <strong className="font-semibold text-ink">AI for social good</strong>, creating impactful solutions for education, healthcare, accessibility, governance, and language technologies. We welcome students, researchers, and industry partners to collaborate in building AI that serves humanity and creates lasting societal impact.
+            </p>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -295,6 +298,7 @@ const stats = [
   { num: 42, suffix: "+", label: "Interns", note: "Research scholars & students" },
   { num: 10, suffix: "", label: "Collaborators", note: "Industry & academia" },
   { num: 5, suffix: "", label: "Awards", note: "Best Paper and others" },
+  { num: 26, suffix: "+", label: "Students", note: "UG and PG students" },
 ];
 
 function ImpactStats() {
@@ -320,7 +324,7 @@ function ImpactStats() {
         </div>
       </Reveal>
 
-      <Reveal className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-hairline ring-1 ring-hairline rounded-3xl overflow-hidden">
+      <Reveal className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-px bg-hairline ring-1 ring-hairline rounded-3xl overflow-hidden">
         {stats.map((s, i) => (
           <StatCard key={s.label} {...s} index={i} visible={visible} />
         ))}
@@ -476,6 +480,9 @@ function ResearchEcosystem() {
 
 /* ────────────────────────────────────────────────────── FEATURED PROJECTS */
 
+import mindscribeImg from "../../images/mindscribe.jpg";
+import saksharImg from "../../images/SAKSHAR.png";
+
 const projects = [
   {
     tag: "Funded",
@@ -487,6 +494,9 @@ const projects = [
       ["Focus", "BCI + NLP"],
     ],
     accent: "accent",
+    image: mindscribeImg,
+    link: "/projects",
+    linkLabel: "Case study →"
   },
   {
     tag: "Funded",
@@ -498,6 +508,9 @@ const projects = [
       ["Partners", "2"],
     ],
     accent: "ember",
+    image: saksharImg,
+    link: "https://drive.google.com/file/d/18aaWEmoQGfNDemcCWN4KJQhUvKg25vwW/preview",
+    linkLabel: "Watch Video ↗"
   },
 ];
 
@@ -519,12 +532,12 @@ function FeaturedProjects() {
           </Link>
         </Reveal>
 
-        <Stagger className="grid lg:grid-cols-2 gap-6">
+        <Stagger className="grid lg:grid-cols-2 gap-8">
           {projects.map((p, i) => (
             <StaggerItem key={p.title}>
-              <article className="group h-full grid grid-rows-[auto_1fr] rounded-2xl overflow-hidden bg-surface ring-1 ring-border hover:ring-ink transition-all hover:shadow-[0_30px_80px_-30px_oklch(0.18_0.012_60/0.3)]">
+              <article className="group h-full grid grid-rows-[auto_1fr] rounded-3xl overflow-hidden bg-surface ring-1 ring-border hover:ring-accent transition-all hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]">
                 <div
-                  className={`relative aspect-[16/9] overflow-hidden ${
+                  className={`relative aspect-[16/9] overflow-hidden border-b border-hairline ${
                     p.accent === "accent"
                       ? "bg-accent/10"
                       : p.accent === "ember"
@@ -532,41 +545,48 @@ function FeaturedProjects() {
                         : "bg-sage/10"
                   }`}
                 >
-                  <div className="absolute inset-0 bg-dotgrid opacity-40" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <ProjectVisual variant={i} />
+                  <img src={p.image} alt={p.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                  <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-surface/95 backdrop-blur-md px-3 py-1 ring-1 ring-border shadow-sm">
+                    <span className="eyebrow text-[10px] text-ink font-medium tracking-widest uppercase">{p.tag}</span>
                   </div>
-                  <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-surface/90 backdrop-blur-sm px-3 py-1 ring-1 ring-border">
-                    <span className="eyebrow text-[9px] text-ink">{p.tag}</span>
-                  </div>
-                  <div className="absolute bottom-4 left-4 font-mono text-[10px] text-ink/40">
+                  <div className="absolute bottom-4 left-4 font-mono text-[10px] text-white/90 drop-shadow-md bg-black/40 px-3 py-1 rounded-full backdrop-blur-md">
                     Project · 0{i + 1}
                   </div>
                 </div>
                 <div className="p-6 lg:p-7 flex flex-col justify-between gap-5">
                   <div>
-                    <h3 className="font-display text-xl lg:text-2xl font-semibold tracking-tight leading-tight">
+                    <h3 className="font-display text-xl lg:text-2xl font-semibold tracking-tight leading-tight text-ink">
                       {p.title}
                     </h3>
-                    <p className="mt-3 text-sm text-ink-soft leading-relaxed">{p.body}</p>
+                    <p className="mt-3 text-sm lg:text-base text-ink-soft leading-relaxed line-clamp-3">{p.body}</p>
                   </div>
                   <div>
                     <div className="grid grid-cols-3 gap-3 py-4 border-y border-hairline">
                       {p.metrics.map(([k, v]) => (
                         <div key={k}>
-                          <div className="font-display text-lg font-bold">{v}</div>
-                          <div className="eyebrow text-[12px] mt-2">{k}</div>
+                          <div className="font-display text-lg font-semibold text-ink">{v}</div>
+                          <div className="eyebrow text-[10px] mt-1 text-ink/60 font-medium uppercase tracking-widest">{k}</div>
                         </div>
                       ))}
                     </div>
                     <div className="mt-4 flex items-center justify-between">
-                      <Link
-                        to="/projects"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-ink group-hover:text-accent transition-colors"
-                      >
-                        Case study
-                        <span className="transition-transform group-hover:translate-x-1">→</span>
-                      </Link>
+                      {p.link.startsWith("http") ? (
+                        <a
+                          href={p.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-4 py-2 text-sm font-medium transition-colors shadow-sm hover:bg-accent"
+                        >
+                          {p.linkLabel}
+                        </a>
+                      ) : (
+                        <Link
+                          to={p.link}
+                          className="inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-4 py-2 text-sm font-medium transition-colors shadow-sm hover:bg-accent"
+                        >
+                          {p.linkLabel}
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </div>
