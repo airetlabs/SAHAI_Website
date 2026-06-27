@@ -128,7 +128,7 @@ const faculty: Person[] = [
 const scholars: Person[] = [
   { name: "Abhijith  Balan", role: "Ph.D · Full-Time", interests: "·NLP \n·Named Entity Recognition\n ·Computational Linguistics \n ·Information Retrieval/Extraction", initials: "MI", photo: "images/Scholars/Abhijith_Balan.jpeg",linkedin:"https://www.linkedin.com/in/abhijith-balan-973259222/" },
   { name: "Anju  K  B", role: "Ph.D  · QIP Scheme ", interests: " ·NLP\n ·Brain Computer Interface", initials: "RS", photo: "images/Scholars/AnjuKB.jpg",linkedin:"a" },
-  { name: "Sambasiva  Rao  Chindam", role: "Ph.D · Part-Time", interests: "Edge inference · sparse models", initials: "SP", photo: "images/Scholars/sambasivarao.JPG",linkedin:"a" },
+  { name: "Sambasiva  Rao  Chindam", role: "Ph.D · Part-Time", interests: "·NLP \n· Speech Processing", initials: "SP", photo: "images/Scholars/sambasivarao.JPG",linkedin:"a" },
 ];
 const PGstudents: Person[] = [
   { name: "Yash Gogoria", role: "M.Tech · CSE (2024)", interests: "·Coloring Sketches using Conditional GAN    ·Landscape Painting Generation using Generative AI Models", initials: "YG", photo: "",linkedin:"a" },
