@@ -315,7 +315,7 @@ function ImpactStats() {
   }, []);
 
   return (
-    <section className="container-page pt-0 pb-0" ref={ref}>
+    <section className="container-page py-16 md:py-24" ref={ref}>
       <Reveal className="flex flex-col md:flex-row items-start md:items-end justify-between mb-14 gap-6">
         <div>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95] max-w-2xl text-balance">
@@ -407,7 +407,7 @@ const projects = [
 
 function FeaturedProjects() {
   return (
-    <section className="bg-muted/50 pt-1 pb-2 border-y border-hairline">
+    <section className="bg-muted/50 py-16 md:py-24 border-y border-hairline">
       <div className="container-page">
         <Reveal className="flex items-end justify-between mb-12 flex-wrap gap-6">
           <div>
@@ -588,7 +588,7 @@ function Collaborators() {
     "Blue Yonder",
   ];
   return (
-    <section className="py-5 overflow-hidden border-y border-hairline">
+    <section className="py-16 md:py-24 overflow-hidden border-y border-hairline">
       <div className="container-page mb-12">
         <div className="flex items-end justify-between flex-wrap gap-6">
           <div>
