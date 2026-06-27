@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHeader } from "../components/PageHeader";
 import { Reveal, Stagger, StaggerItem, RevealWords } from "../components/Reveal";
-import { Linkedin, GraduationCap, Book, Library, FileText, Globe } from "lucide-react";
+import { Linkedin, GraduationCap, Book, Library, FileText, Globe, Mail, Phone } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/people")({
@@ -29,6 +29,8 @@ type Person = {
   initials: string;
   photo?: string;
   email?: string;
+  personalEmail?: string;
+  phone?: string;
   scholar?: string;
   linkedin?: string;
   dblp?: string;
@@ -64,6 +66,8 @@ const faculty: Person[] = [
     initials: "AA",
     photo: "images/faculty/oswald_sir.jpg",
     email: "oswald@nitt.edu",
+    personalEmail: "oswald.mecse@gmail.com",
+    phone: "+91 (432) 250",
     scholar: "https://scholar.google.com/citations?user=6kX5pyoAAAAJ&hl=en",
     linkedin: "https://www.linkedin.com/in/oswald-c-bb5b37b7/",
     dblp: "https://dblp.uni-trier.de/pid/173/6662.html",
@@ -337,98 +341,24 @@ function PersonCard({ p, variant, showProjectLabel }: { p: Person; variant: Vari
             </span>
           </motion.div>
 
-          <div className="flex flex-col items-center sm:items-start gap-3 w-full max-w-[190px]">
+          <div className="flex flex-col items-center sm:items-start gap-2 w-full mt-2">
             {p.email && (
-              <p className="font-mono text-[13px] lg:text-[14px] text-ink break-all font-medium text-center sm:text-left">{p.email}</p>
+              <a href={`mailto:${p.email}`} className="flex items-center gap-1.5 font-mono text-[12px] lg:text-[13px] text-ink hover:text-accent transition-colors font-medium">
+                <Mail className="size-3.5 shrink-0" />
+                <span className="text-center sm:text-left">{p.email}</span>
+              </a>
             )}
-
-            {(p.scholar || p.linkedin || p.dblp || p.academia || p.researchGate || p.scopus) && (
-              <div className="grid grid-cols-3 gap-x-2 gap-y-4 mt-2 mb-2 w-full place-items-center">
-                {p.linkedin && (
-                  <a
-                    href={p.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn profile"
-                    className="flex flex-col items-center gap-1.5 group"
-                  >
-                    <div className="flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft group-hover:bg-[#0A66C2] group-hover:text-white transition-colors">
-                      <Linkedin className="size-4" />
-                    </div>
-                    <span className="text-[10px] font-medium text-ink-soft group-hover:text-[#0A66C2] transition-colors">LinkedIn</span>
-                  </a>
-                )}
-                {p.scholar && (
-                  <a
-                    href={p.scholar}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Google Scholar profile"
-                    className="flex flex-col items-center gap-1.5 group"
-                  >
-                    <div className="flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft group-hover:bg-accent group-hover:text-canvas transition-colors">
-                      <GraduationCap className="size-4" />
-                    </div>
-                    <span className="text-[10px] font-medium text-ink-soft group-hover:text-accent transition-colors">Scholar</span>
-                  </a>
-                )}
-                {p.dblp && (
-                  <a
-                    href={p.dblp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="DBLP profile"
-                    className="flex flex-col items-center gap-1.5 group"
-                  >
-                    <div className="flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft group-hover:bg-accent group-hover:text-canvas transition-colors">
-                      <Book className="size-4" />
-                    </div>
-                    <span className="text-[10px] font-medium text-ink-soft group-hover:text-accent transition-colors">DBLP</span>
-                  </a>
-                )}
-                {p.academia && (
-                  <a
-                    href={p.academia}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Academia profile"
-                    className="flex flex-col items-center gap-1.5 group"
-                  >
-                    <div className="flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft group-hover:bg-accent group-hover:text-canvas transition-colors">
-                      <Library className="size-4" />
-                    </div>
-                    <span className="text-[10px] font-medium text-ink-soft group-hover:text-accent transition-colors">Academia</span>
-                  </a>
-                )}
-                {p.researchGate && (
-                  <a
-                    href={p.researchGate}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="ResearchGate profile"
-                    className="flex flex-col items-center gap-1.5 group"
-                  >
-                    <div className="flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft group-hover:bg-accent group-hover:text-canvas transition-colors">
-                      <Globe className="size-4" />
-                    </div>
-                    <span className="text-[10px] font-medium text-ink-soft group-hover:text-accent transition-colors shrink-0 whitespace-nowrap">ResearchGate</span>
-                  </a>
-                )}
-                {p.scopus && (
-                  <a
-                    href={p.scopus}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Scopus profile"
-                    className="flex flex-col items-center gap-1.5 group"
-                  >
-                    <div className="flex items-center justify-center size-8 rounded-full bg-muted text-ink-soft group-hover:bg-accent group-hover:text-canvas transition-colors">
-                      <FileText className="size-4" />
-                    </div>
-                    <span className="text-[10px] font-medium text-ink-soft group-hover:text-accent transition-colors">Scopus</span>
-                  </a>
-                )}
-              </div>
+            {p.personalEmail && (
+              <a href={`mailto:${p.personalEmail}`} className="flex items-center gap-1.5 font-mono text-[12px] lg:text-[13px] text-ink hover:text-accent transition-colors font-medium">
+                <Mail className="size-3.5 shrink-0" />
+                <span className="text-center sm:text-left">{p.personalEmail}</span>
+              </a>
+            )}
+            {p.phone && (
+              <a href={`tel:${p.phone.replace(/[^0-9+]/g, '')}`} className="flex items-center gap-1.5 font-mono text-[12px] lg:text-[13px] text-ink hover:text-accent transition-colors font-medium">
+                <Phone className="size-3.5 shrink-0" />
+                <span className="text-center sm:text-left">{p.phone}</span>
+              </a>
             )}
           </div>
         </div>
@@ -453,6 +383,47 @@ function PersonCard({ p, variant, showProjectLabel }: { p: Person; variant: Vari
           ) : (
             <div className={`text-ink-soft leading-relaxed whitespace-pre-line ${s.interestSize}`}>
               {p.interests}
+            </div>
+          )}
+
+          {(p.scholar || p.linkedin || p.dblp || p.academia || p.researchGate || p.scopus) && (
+            <div className="flex flex-wrap gap-3 mt-6">
+              {p.linkedin && (
+                <a href={p.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted text-ink-soft hover:bg-[#0A66C2] hover:text-white transition-colors text-xs font-medium group">
+                  <Linkedin className="size-3.5" />
+                  <span>LinkedIn</span>
+                </a>
+              )}
+              {p.scholar && (
+                <a href={p.scholar} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted text-ink-soft hover:bg-accent hover:text-canvas transition-colors text-xs font-medium group">
+                  <GraduationCap className="size-3.5" />
+                  <span>Google Scholar</span>
+                </a>
+              )}
+              {p.dblp && (
+                <a href={p.dblp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted text-ink-soft hover:bg-accent hover:text-canvas transition-colors text-xs font-medium group">
+                  <Book className="size-3.5" />
+                  <span>DBLP</span>
+                </a>
+              )}
+              {p.academia && (
+                <a href={p.academia} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted text-ink-soft hover:bg-accent hover:text-canvas transition-colors text-xs font-medium group">
+                  <Library className="size-3.5" />
+                  <span>Academia</span>
+                </a>
+              )}
+              {p.researchGate && (
+                <a href={p.researchGate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted text-ink-soft hover:bg-accent hover:text-canvas transition-colors text-xs font-medium group">
+                  <Globe className="size-3.5" />
+                  <span>ResearchGate</span>
+                </a>
+              )}
+              {p.scopus && (
+                <a href={p.scopus} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted text-ink-soft hover:bg-accent hover:text-canvas transition-colors text-xs font-medium group">
+                  <FileText className="size-3.5" />
+                  <span>Scopus</span>
+                </a>
+              )}
             </div>
           )}
         </div>

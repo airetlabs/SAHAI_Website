@@ -39,10 +39,6 @@ const faqs = [
     q: "Can industry partners collaborate with the lab?",
     a: "We run several active industry consortia. Reach out via the partnerships address with a one-page brief on your problem area.",
   },
-  {
-    q: "Are datasets and code available?",
-    a: "All non-sensitive datasets and code from our publications are released openly. See the Research page for repositories.",
-  },
 ];
 
 const contactDetails: [string, React.ReactNode][] = [

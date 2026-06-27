@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useId, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { PageHeader } from "../components/PageHeader";
+
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../components/ui/tooltip";
 import { Popover, PopoverContent, PopoverTrigger } from "../components/ui/popover";
@@ -544,15 +544,7 @@ function PublicationsPage() {
 
   return (
     <>
-      <PageHeader
-        title={
-          <>
-            Scholarship as <span className="italic font-light text-ink/50">contribution.</span>
-          </>
-        }
-      >
-        <ScrollIndicator />
-      </PageHeader>
+
 
       <section className="container-page pb-10">
         <Reveal>
