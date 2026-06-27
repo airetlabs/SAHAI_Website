@@ -86,7 +86,7 @@ function TeachingPage() {
               <div>
                 
                 <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight text-ink">
-                  Downloadable Materials.
+                  Learning Materials.
                 </h2>
               </div>
               <div className="inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 text-sm font-medium text-ink">

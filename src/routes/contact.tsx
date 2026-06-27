@@ -47,7 +47,7 @@ const contactDetails: [string, React.ReactNode][] = [
     <div className="flex flex-col gap-1.5 mt-1">
       <span className="font-display font-bold text-lg text-ink">Internship Opportunities</span>
       <span className="text-ink-soft leading-relaxed mt-0.5 flex flex-wrap items-center gap-2">
-        Prospective interns may email to
+        Interested Ph.D, Intern students may feel free to contact us by writing an email to
         <a
           href="mailto:oswald@nitt.edu"
           className="text-accent hover:text-ink font-mono text-[13px] bg-accent/10 px-2 py-1 rounded transition-colors hover:bg-accent/20"
