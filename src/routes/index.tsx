@@ -401,7 +401,8 @@ const projects = [
     accent: "ember",
     image: saksharImg,
     link: "https://drive.google.com/file/d/18aaWEmoQGfNDemcCWN4KJQhUvKg25vwW/preview",
-    linkLabel: "Watch Video ↗"
+    linkLabel: "Watch Video ↗",
+    imageClass: "object-contain"
   },
 ];
 
@@ -436,7 +437,7 @@ function FeaturedProjects() {
                         : "bg-sage/10"
                   }`}
                 >
-                  <img src={p.image} alt={p.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                  <img src={p.image} alt={p.title} className={`absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-[1.03] ${p.imageClass || 'object-cover'}`} />
                   <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-surface/95 backdrop-blur-md px-3 py-1 ring-1 ring-border shadow-sm">
                     <span className="eyebrow text-[10px] text-ink font-medium tracking-widest uppercase">{p.tag}</span>
                   </div>
