@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 const links = [
   { to: "/", label: "Home" },
-  // { to: "/founder", label: "Founder" },
+  //f { to: "/founder", label: "Founder" },
   { to: "/people", label: "People" },
   { to: "/teaching", label: "Teaching" },
   // { to: "/research", label: "Research" },
