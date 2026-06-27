@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ResearchEcosystemSphere } from "../components/ResearchEcosystemSphere";
 import { Reveal, RevealChars, RevealWords, Stagger, StaggerItem } from "../components/Reveal";
 
@@ -26,9 +26,9 @@ export const Route = createFileRoute("/")({
 /* ─────────────────────────────────────────────────────── NEWS TICKER */
 
 const announcements = [
-  "🎉 SAHAI Lab secures new NM-ICPS funding for the MindScribe initiative",
-  "📄 New paper accepted in the ACM TKDD journal — Configurable Graph Summarization",
-  "🤝 Funded joint research project completed successfully",
+  "🎉 SAHAI Lab secures new NM-ICPS funding for the MindScribe project from IIT Indore",
+  "📄 New paper published in the ACM TKDD journal — Configurable Graph Summarization",
+  "🤝 ICSSR(India)-JSPS(Japan) Joint Research Programme completed successfully",
   "📢 10 students successfully completed the Summer 2026 Research Internship",
   "🎓 2 conference papers published successfully at ICSCST 2026",
 ];
@@ -77,48 +77,44 @@ function NewsTicker() {
 }
 /* ────────────────────────────────────────────────────────────── HERO */
 
-function TypewriterLab() {
-  const text = "LAB";
-  const [displayedText, setDisplayedText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    let timeout: NodeJS.Timeout | number;
-
-    if (!isDeleting && displayedText.length < text.length) {
-      timeout = setTimeout(() => setDisplayedText(text.slice(0, displayedText.length + 1)), 250);
-    } else if (isDeleting && displayedText.length > 0) {
-      timeout = setTimeout(() => setDisplayedText(text.slice(0, displayedText.length - 1)), 150);
-    } else if (!isDeleting && displayedText.length === text.length) {
-      timeout = setTimeout(() => setIsDeleting(true), 2500);
-    } else if (isDeleting && displayedText.length === 0) {
-      timeout = setTimeout(() => setIsDeleting(false), 800);
-    }
-
-    return () => clearTimeout(timeout as number);
-  }, [displayedText, isDeleting, text]);
-
-  return (
-    <span className="inline-flex items-center">
-      <span className="inline-flex">
-        {Array.from(displayedText).map((char, index) => (
-          <motion.span
-            key={`${index}-${char}`}
-            initial={{ opacity: 0, filter: "blur(4px)", y: 4 }}
-            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            {char}
-          </motion.span>
-        ))}
-      </span>
-    </span>
-  );
-}
-
 function Hero() {
+  const [showHeroLogoCard, setShowHeroLogoCard] = useState(false);
+
   return (
     <section className="relative lg:min-h-[94vh] block lg:flex lg:items-center pt-24 lg:pt-20 pb-20 overflow-hidden">
+      <AnimatePresence>
+        {showHeroLogoCard && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[1000] flex items-center justify-center bg-canvas/80 backdrop-blur-md p-4"
+            onClick={() => setShowHeroLogoCard(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="bg-canvas shadow-2xl ring-1 ring-border rounded-[2rem] p-8 md:p-16 max-w-4xl w-full flex flex-col items-center justify-center relative cursor-default"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setShowHeroLogoCard(false)}
+                className="absolute top-4 right-4 md:top-6 md:right-6 p-2 rounded-full bg-muted/50 hover:bg-muted text-ink/70 hover:text-ink transition-colors"
+                aria-label="Close"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+              </button>
+              <img
+                src="/Real1.png"
+                alt="SAHAI Lab Logo Expanded"
+                className="w-full h-auto max-h-[70vh] object-contain drop-shadow-2xl"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* Backdrop layers — parallax depth */}
       <div className="absolute inset-0 -z-10 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
       <motion.div
@@ -134,82 +130,105 @@ function Hero() {
 
       <div className="container-page flex flex-col items-center">
         {/* Top: Logo and Sphere */}
-        <div className="w-full grid lg:grid-cols-2 gap-16 lg:gap-16 items-center">
-          <div className="flex justify-center items-center lg:justify-end lg:pr-12 min-h-[80vh] lg:min-h-0">
+        <div className="w-full grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="flex flex-col justify-center items-start lg:pr-12 min-h-[80vh] lg:min-h-0 pt-4 lg:pt-8">
             <h1 className="sr-only">SAHAI Lab</h1>
             <Reveal delay={0.1}>
-              <img src="/sahai-logo.png" alt="SAHAI Lab Logo" className="w-[340px] sm:w-[480px] lg:w-[540px] xl:w-[600px] h-auto object-contain drop-shadow-2xl" />
+              <div className="font-display text-6xl sm:text-7xl lg:text-[8.5rem] font-semibold tracking-tight leading-[0.85] text-balance text-ink flex flex-col items-start drop-shadow-sm mb-6">
+                <span className="flex items-end -ml-2 lg:-ml-4">
+                  <button 
+                    onClick={() => setShowHeroLogoCard(true)}
+                    className="relative shrink-0 flex items-center justify-center cursor-zoom-in mr-3 lg:mr-5 group/herologo"
+                  >
+                    <img
+                      src="/cropped1.png"
+                      alt="S"
+                      className="h-[1.2em] object-contain drop-shadow-xl transition-transform duration-300 group-hover/herologo:scale-110"
+                    />
+                  </button>
+                  <span
+                    className="tracking-[0.07em]"
+                    style={{
+                      textShadow: "0px 4px 10px rgba(0,0,0,0.15), 0px 10px 20px rgba(0,0,0,0.15), 0px 20px 30px rgba(0,0,0,0.1)"
+                    }}
+                  >
+                    <span className="text-[#E3770E]">A</span>
+                    H
+                    <span className="text-[#0D5F06]">AI</span>
+                  </span>
+                </span>
+                <span className="font-semibold text-ink/30 mt-2 tracking-[0.07em]">LAB</span>
+              </div>
             </Reveal>
+
+            <div className="space-y-6 lg:space-y-8 w-full text-left">
+              <Reveal delay={0.2}>
+                <h2 className="text-[17px] sm:text-lg lg:text-[22px] leading-relaxed font-medium text-ink max-w-2xl">
+                  <strong className="font-semibold text-ink">
+                    SAHAI (
+                    <span className="text-accent font-semibold text-[1.15em]">S</span>ocially{" "}
+                    <span className="text-accent font-semibold text-[1.15em]">A</span>ware Intelligence for{" "}
+                    <span className="text-accent font-semibold text-[1.15em]">H</span>umanity and L
+                    <span className="text-accent font-semibold text-[1.15em]">A</span>nguage Process
+                    <span className="text-accent font-semibold text-[1.15em]">I</span>ng Lab)
+                  </strong>{" "}
+                  <span>advances human-centered AI through research in Artificial Intelligence, Data Science (Machine Learning, Deep Learning, Data Mining), Natural Language Processing, Indic languages, and multimodal intelligence.</span>
+                </h2>
+              </Reveal>
+              <Reveal delay={0.3}>
+                <p className="text-[16px] sm:text-[17px] lg:text-[22px] text-ink-soft leading-relaxed lg:w-[calc(200%+3rem)] xl:w-[calc(200%+4rem)] max-w-5xl pt-2">
+                  Inspired by the meaning of <strong className="font-semibold text-ink">SAHAI (सहाय in Hindi) - help and support</strong> - we develop intelligent, accessible, and inclusive technologies that address real-world societal challenges. Our research focuses on <strong className="font-semibold text-ink">AI for social good</strong>, creating impactful solutions for education, healthcare, accessibility, governance, and language technologies. We welcome students, researchers, and industry partners to collaborate in building AI that serves humanity and creates lasting societal impact.
+                </p>
+              </Reveal>
+            </div>
           </div>
 
           {/* Ecosystem visualization */}
           <motion.div
-            className="relative w-full max-w-2xl mx-auto flex items-center justify-center lg:justify-start min-h-[85vh] lg:min-h-0"
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1.05 }}
+            className="relative w-full max-w-2xl mx-auto flex items-center justify-center lg:justify-start min-h-[60vh] lg:min-h-0 lg:-mt-44 xl:-mt-56 lg:translate-x-12 xl:translate-x-20"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 0.95 }}
             transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
-          <ResearchEcosystemSphere />
+            <ResearchEcosystemSphere />
 
-          {/* floating indicators */}
-          <motion.div
-            // className="absolute top-2 -right-2 rounded-2xl bg-ink text-canvas p-4 shadow-xl"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: [0, -8, 0] }}
-            transition={{
-              opacity: { duration: 0.7, delay: 1.6 },
-              y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.6 },
-            }}
-          >
-            {/* <div className="eyebrow text-canvas/50 text-[9px] mb-1">Publications</div>
+            {/* floating indicators */}
+            <motion.div
+              // className="absolute top-2 -right-2 rounded-2xl bg-ink text-canvas p-4 shadow-xl"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: [0, -8, 0] }}
+              transition={{
+                opacity: { duration: 0.7, delay: 1.6 },
+                y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.6 },
+              }}
+            >
+              {/* <div className="eyebrow text-canvas/50 text-[9px] mb-1">Publications</div>
             <div className="font-display text-2xl font-semibold">152+</div> */}
-          </motion.div>
-          <motion.div
-            // className="absolute bottom-4 -left-2 rounded-2xl bg-surface ring-1 ring-border p-4 shadow-xl"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: [0, -6, 0] }}
-            transition={{
-              opacity: { duration: 0.7, delay: 1.8 },
-              y: { duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 },
-            }}
-          >
-            {/* <div className="eyebrow text-[9px] mb-1">Patents filed</div> */}
-            {/* <div className="font-display text-2xl font-semibold text-accent">12</div> */}
-          </motion.div>
-          <motion.div
-            // className="absolute top-1/2 -left-6 rounded-2xl bg-surface ring-1 ring-border p-3 shadow-xl hidden md:block"
-            initial={{ opacity: 0, x: -12 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 2.0 }}
-          >
-            {/* <div className="eyebrow text-[9px]">Impact</div>
+            </motion.div>
+            <motion.div
+              // className="absolute bottom-4 -left-2 rounded-2xl bg-surface ring-1 ring-border p-4 shadow-xl"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: [0, -6, 0] }}
+              transition={{
+                opacity: { duration: 0.7, delay: 1.8 },
+                y: { duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 },
+              }}
+            >
+              {/* <div className="eyebrow text-[9px] mb-1">Patents filed</div> */}
+              {/* <div className="font-display text-2xl font-semibold text-accent">12</div> */}
+            </motion.div>
+            <motion.div
+              // className="absolute top-1/2 -left-6 rounded-2xl bg-surface ring-1 ring-border p-3 shadow-xl hidden md:block"
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 2.0 }}
+            >
+              {/* <div className="eyebrow text-[9px]">Impact</div>
             <div className="font-display text-lg font-semibold">h-38</div> */}
-          </motion.div>
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* Bottom: Full width description */}
-        <div className="w-full max-w-5xl mx-auto mt-16 lg:mt-24 text-left space-y-10 pb-8">
-          <Reveal>
-            <h2 className="text-xl sm:text-2xl lg:text-[28px] leading-relaxed font-medium text-ink">
-              <strong className="font-bold text-ink">
-                SAHAI (
-                <span className="text-accent font-bold text-[1.15em]">S</span>ocially{" "}
-                <span className="text-accent font-bold text-[1.15em]">A</span>ware Intelligence for{" "}
-                <span className="text-accent font-bold text-[1.15em]">H</span>umanity and L
-                <span className="text-accent font-bold text-[1.15em]">A</span>nguage Process
-                <span className="text-accent font-bold text-[1.15em]">I</span>ng Lab)
-              </strong>
-              <br className="hidden md:block" />
-              <span className="inline-block mt-3 md:mt-2">advances human-centered AI through research in Artificial Intelligence, Data Science (Machine Learning, Deep Learning, Data Mining), Natural Language Processing, Indic languages, and multimodal intelligence.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="text-lg sm:text-xl lg:text-[22px] text-ink-soft leading-relaxed max-w-5xl mx-auto">
-              Inspired by the meaning of <strong className="font-semibold text-ink">SAHAI (सहाय in Hindi) - help and support</strong> - we develop intelligent, accessible, and inclusive technologies that address real-world societal challenges. Our research focuses on <strong className="font-semibold text-ink">AI for social good</strong>, creating impactful solutions for education, healthcare, accessibility, governance, and language technologies. We welcome students, researchers, and industry partners to collaborate in building AI that serves humanity and creates lasting societal impact.
-            </p>
-          </Reveal>
-        </div>
       </div>
     </section>
   );
@@ -387,7 +406,7 @@ const projects = [
     accent: "accent",
     image: mindscribeImg,
     link: "/projects",
-    linkLabel: "Case study →"
+    linkLabel: "Details →"
   },
   {
     tag: "Funded",
@@ -428,13 +447,12 @@ function FeaturedProjects() {
             <StaggerItem key={p.title}>
               <article className="group h-full grid grid-rows-[auto_1fr] rounded-3xl overflow-hidden bg-surface ring-1 ring-border hover:ring-accent transition-all hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]">
                 <div
-                  className={`relative aspect-[16/9] overflow-hidden border-b border-hairline ${
-                    p.accent === "accent"
-                      ? "bg-accent/10"
-                      : p.accent === "ember"
-                        ? "bg-ember/10"
-                        : "bg-sage/10"
-                  }`}
+                  className={`relative aspect-[16/9] overflow-hidden border-b border-hairline ${p.accent === "accent"
+                    ? "bg-accent/10"
+                    : p.accent === "ember"
+                      ? "bg-ember/10"
+                      : "bg-sage/10"
+                    }`}
                 >
                   <img src={p.image} alt={p.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
                   <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-surface/95 backdrop-blur-md px-3 py-1 ring-1 ring-border shadow-sm">
@@ -583,7 +601,7 @@ function Collaborators() {
     "IIIT Hyderabad",
     "IIT Kanpur",
     "Waseda University, Japan",
-    "University of New South Wales, Australia",
+    "TechSoftX Corporation",
     "IIT Bombay",
     "Blue Yonder",
   ];
