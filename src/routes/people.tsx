@@ -127,7 +127,7 @@ const faculty: Person[] = [
 ];
 const scholars: Person[] = [
   { name: "Abhijith  Balan", role: "Ph.D · Full-Time", interests: "·NLP \n·Named Entity Recognition\n ·Computational Linguistics \n ·Information Retrieval/Extraction", initials: "MI", photo: "images/Scholars/Abhijith_Balan.jpeg" },
-  { name: "Anju  K  B", role: "Ph.D  · QIP Scheme ", interests: "Healthcare AI · clinical NLP", initials: "RS", photo: "" },
+  { name: "Anju  K  B", role: "Ph.D  · QIP Scheme ", interests: " ·NLP\n ·Brain Computer Interface", initials: "RS", photo: "images/Scholars/AnjuKB.jpg" },
   { name: "Sambasiva  Rao  Chindam", role: "Ph.D · Part-Time", interests: "Edge inference · sparse models", initials: "SP", photo: "images/Scholars/sambasivarao.JPG" },
 ];
 const PGstudents: Person[] = [
@@ -156,7 +156,7 @@ const UGstudents: Person[] = [
 const interns: Person[] = [
   { name: "Aditi Baskaran", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "images/Interns/2026/Aditi Baskaran.jpeg" },
   { name: "Nooh K ", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "images/Interns/2026/Nooh_K.png" },
-  { name: "Adarsh SPL", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "" },
+  { name: "Adarsh SPL", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "images/Interns/2026/Adarsh.jpeg" },
   { name: "K. Preetham Reddy", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "images/Interns/2026/PreethamReddy.jpg" },
   { name: "Surya Narayan Ghosh", role: "2026", interests: "Hypergraph Guided Structural Fusion for Nested Biomedical NER", initials: "IO", photo: "images/Interns/2026/SNghosh.jpg" },
   { name: "Golla Madhu Kiran", role: "2026", interests: "Boundary-Aware Parameter-Efficient Tuning for Nested Biomedical Named Entity Recognition", initials: "IO", photo: "images/Interns/2026/MadhuKiranGolla.jpeg" },

@@ -11,6 +11,7 @@ import {
   Sparkles,
   MapPin,
   CalendarDays,
+  BookOpen,
 } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 import { Timeline } from "@/components/ui/timeline";
@@ -132,28 +133,28 @@ function ResearchPage() {
         <Reveal>
           <div className="flex flex-col gap-16 lg:gap-20">
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-ink/5 text-accent">
-                  <MapPin className="h-4 w-4" />
-                </span>
-                <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight text-ink">
-                  Invited Events
-                </h2>
-              </div>
-              <div className="relative w-full overflow-clip">
-                <Timeline data={invitedEvents.map((event, idx) => ({
-                  title: String(idx + 1).padStart(2, "0"),
-                  content: (
-                    <div className="pb-8 border-b border-border/60 hover:translate-x-1 transition-transform duration-300 cursor-default">
-                      <p className="flex items-start gap-4 text-[20px] lg:text-[24px] font-normal leading-relaxed text-ink-soft">
-                        <span className="text-accent mt-3 text-[12px] shrink-0">●</span>
-                        <span>{event}</span>
-                      </p>
-                    </div>
-                  )
-                }))} />
-              </div>
-            </div>
+  <div className="flex items-center gap-3 mb-6">
+    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-ink/5 text-accent">
+      <MapPin className="h-4 w-4" />
+    </span>
+    <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight text-ink">
+      Invited Events
+    </h2>
+  </div>
+  <div className="flex flex-col rounded-[1.25rem] border border-border bg-white shadow-md p-6 lg:p-8">
+    <ul className="divide-y divide-hairline">
+      {invitedEvents.map((event, idx) => (
+        <li
+          key={idx}
+          className="py-4 first:pt-0 last:pb-0 flex items-start gap-3 text-base leading-relaxed text-ink-soft hover:translate-x-1 transition-transform duration-300 cursor-default"
+        >
+          <BookOpen className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+          <span>{event}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
 
             <EventSection
               icon={CalendarDays}
@@ -165,20 +166,20 @@ function ResearchPage() {
       </section>
 
       <section className="bg-ink text-canvas py-24 border-y border-canvas/5">
-        <div className="container-page">
-          <Stagger className="grid lg:grid-cols-3 gap-10" stagger={0.1}>
-            {metrics.map(([title, value, body]) => (
-              <StaggerItem key={title}>
-                <div className="border-t border-canvas/15 pt-6">
-                  <p className="eyebrow text-accent mb-4">{title}</p>
-                  <StatValue value={value} />
-                  <p className="mt-4 text-sm text-canvas/60 leading-relaxed">{body}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
+  <div className="container-page">
+    <Stagger className="grid lg:grid-cols-3 gap-10" stagger={0.1}>
+      {metrics.map(([title, value, body]) => (
+        <StaggerItem key={title}>
+          <div className="border-t border-canvas/15 pt-6">
+            <p className="eyebrow text-accent mb-4">{title}</p>
+            <StatValue value={value} />
+            <p className="mt-4 text-lg text-canvas/70 leading-relaxed">{body}</p>
+          </div>
+        </StaggerItem>
+      ))}
+    </Stagger>
+  </div>
+</section>
     </>
   );
 }
@@ -247,8 +248,8 @@ function EventSection({
       <div className="flex flex-col rounded-[1.25rem] border border-border bg-white shadow-md p-6 lg:p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
         <ul className="divide-y divide-hairline">
           {items.map((event, idx) => (
-            <li key={idx} className="py-5 first:pt-0 last:pb-0 flex items-start gap-4 text-[18px] lg:text-[22px] font-normal leading-relaxed text-ink-soft hover:translate-x-1 transition-transform duration-300 cursor-default">
-              <span className="text-accent mt-2.5 text-[12px] shrink-0">●</span>
+            <li key={idx} className="py-4 first:pt-0 last:pb-0 flex items-start gap-3 text-[19px] leading-relaxed text-ink-soft hover:translate-x-1 transition-transform duration-300 cursor-default">
+              <span className="text-accent mt-0.5 text-[8px] shrink-0">●</span>
               <span>{event}</span>
             </li>
           ))}
