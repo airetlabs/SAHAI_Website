@@ -129,19 +129,15 @@ const scholars: Person[] = [
   { name: "Sambasiva  Rao  Chindam", role: "Ph.D · Part-Time", interests: "·NLP \n· Speech Processing", initials: "SP", photo: "/images/Scholars/sambasivarao.JPG",linkedin:"a" },
 ];
 const PGstudents: Person[] = [
+ 
+   { name: "Rakesh Kumar Rakesh", role: "M.Tech · CSE (2026)", interests: "·Knowledge graph Embedding Based Biomedical Named Entity Recognition", initials: "RKR", photo: "/images/PG/RakeshKumarRakesh.jpeg",linkedin:"a" },
+  { name: "Abhisek Raj", role: "M.Tech · CSE (2025)", interests: "·Predicting Suicidal Ideation Risks and Empathetic Text Generation Using LLM \n· Predicting Suicidal Ideation Risks using LLM and Transfer Learning", initials: "AR", photo: "/images/PG/Abhishek_Raj.jpg",linkedin:"a" },
   { name: "Yash Gogoria", role: "M.Tech · CSE (2024)", interests: "·Coloring Sketches using Conditional GAN    ·Landscape Painting Generation using Generative AI Models", initials: "YG", photo: "",linkedin:"a" },
   { name: "Sachin Kumar Gupt", role: "M.Tech · CSE (2024)", interests: "·Deep Learning Approaches for Covid Chest X-Ray Image Classification \n · Generative AI Model based Hindi Text to Realistic Image Generation ", initials: "SKG", photo: "",linkedin:"a" },
-  { name: "Abhisek Raj", role: "M.Tech · CSE (2025)", interests: "·Predicting Suicidal Ideation Risks and Empathetic Text Generation Using LLM \n· Predicting Suicidal Ideation Risks using LLM and Transfer Learning", initials: "AR", photo: "/images/PG/Abhishek_Raj.jpg",linkedin:"a" },
-  { name: "Rakesh Kumar Rakesh", role: "M.Tech · CSE (2026)", interests: "·Knowledge graph Embedding Based Biomedical Named Entity Recognition", initials: "RKR", photo: "/images/PG/RakeshKumarRakesh.jpeg",linkedin:"a" },
-  { name: "Anurag Kadam", role: "M.Tech · CSE (2027)", interests: "", initials: "RKR", photo: "",linkedin:"a" },
-
+   { name: "Anurag Kadam", role: "M.Tech · CSE (2027)", interests: "", initials: "RKR", photo: "",linkedin:"a" }
 ];
 
 const UGstudents: Person[] = [
-  { name: "Aditya G", role: "B.Tech (2026)", interests: "", initials: "A", photo: "",linkedin:"a" },
-  { name: "Vijay G", role: "B.Tech (2026)", interests: "", initials: "A", photo: "",linkedin:"a" },
-  { name: "Aadit Krishna R", role: "B.Tech (2026)", interests: "", initials: "A", photo: "",linkedin:"a" },
-
   { name: "Srikanth V", role: "B.Tech (2025)", interests: "Enhancing Verizon Computer Support Using Dialogflow and Interaction Analytics", initials: "SV", photo: "",linkedin:"a" },
   { name: "Amarjit", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "A", photo: "",linkedin:"a" },
   { name: "Dharanish Rahul S", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "DRS", photo: "/images/UG/Dharanish Rahul S.jpeg",linkedin:"a" },
@@ -149,6 +145,9 @@ const UGstudents: Person[] = [
   { name: "Joshua Mahadevan", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "JM", photo: "",linkedin:"a" },
   { name: "Lokkamithran", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "LK", photo: "",linkedin:"a" },
   { name: "Mubeena", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "MB", photo: "/images/UG/Mubeena.jpg",linkedin:"a" },
+  { name: "Aditya G", role: "B.Tech (2026)", interests: "", initials: "A", photo: "",linkedin:"a" },
+  { name: "Vijay G", role: "B.Tech (2026)", interests: "", initials: "A", photo: "",linkedin:"a" },
+  { name: "Aadit Krishna R", role: "B.Tech (2026)", interests: "", initials: "A", photo: "",linkedin:"a" },
 ];
 
 const interns: Person[] = [

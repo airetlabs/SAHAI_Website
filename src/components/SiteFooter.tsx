@@ -22,7 +22,7 @@ export function SiteFooter() {
               <br />
               National Institute of Technology Tiruchirappalli.
             </p>
-            <p className="mt-6 text-xs text-canvas/40 font-mono leading-relaxed">
+            <p className="mt-6 text-xs text-white/80 font-mono leading-relaxed">
               Tanjore Main Road, NH-67
               <br />
               Tiruchirappalli — 620015, Tamil Nadu, India
@@ -67,7 +67,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="eyebrow text-canvas/50 mb-5">Find Us</h4>
+            <h4 className="eyebrow text-white mb-5">Find Us</h4>
 
             <div className="overflow-hidden rounded-2xl border border-canvas/10">
               <iframe
@@ -88,8 +88,60 @@ export function SiteFooter() {
             <p className="eyebrow text-canvas/40">
               © {new Date().getFullYear()} SAHAI Lab · All rights reserved
             </p>
-            <p className="text-xs text-canvas/60 uppercase tracking-widest font-semibold">Designed & Developed by</p>
-            <p className="text-sm sm:text-[15px] font-bold text-white tracking-wide mt-1">Abhijith · Surya Ghosh · Nooh · Preetham Reddy · Aditi</p>
+           <p className="text-xs text-canvas/60 uppercase tracking-widest font-semibold">
+  Designed & Developed by
+</p>
+
+<p className="text-sm sm:text-[15px] font-bold text-white tracking-wide mt-1 flex flex-wrap gap-1">
+  <a
+    href="https://www.linkedin.com/in/abhijith-balan-973259222/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-accent transition-colors"
+  >
+    Abhijith
+  </a>
+  <span>·</span>
+
+  <a
+    href="https://www.linkedin.com/in/ghosh-surya-22679b285/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-accent transition-colors"
+  >
+    Surya Ghosh
+  </a>
+  <span>·</span>
+
+  <a
+    href="https://www.linkedin.com/in/nooh-k-71a8a4292/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-accent transition-colors"
+  >
+    Nooh
+  </a>
+  <span>·</span>
+
+  <a
+    href="https://www.linkedin.com/in/katreddy-preetham-reddy"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-accent transition-colors"
+  >
+    Preetham Reddy
+  </a>
+  <span>·</span>
+
+  <a
+    href="https://www.linkedin.com/in/aditi-baskaran/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-accent transition-colors"
+  >
+    Aditi
+  </a>
+</p>
           </div>
 
           <div className="flex items-center gap-6 text-xs text-canvas/50 font-mono">

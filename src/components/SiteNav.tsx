@@ -48,7 +48,7 @@ export function SiteNav() {
             <span className="font-display text-[20px] font-semibold tracking-tight truncate">
               SAH<span className="text-accent">AI </span> Lab
             </span>
-            <span className="eyebrow font-bold text-[15.5px] text-ink/80 mt-0.5 truncate tracking-widest">NIT Tiruchirappalli · CSE</span>
+            <span className="eyebrow font-bold text-[12.5px] text-ink/80 mt-0.5 truncate tracking-widest">NIT Tiruchirappalli ·CSE</span>
           </div>
         </Link>
 
@@ -83,13 +83,13 @@ export function SiteNav() {
               className="h-10 sm:h-12 w-auto object-contain mix-blend-multiply filter contrast-125"
             />
           </a>
-          <Link
-            to="/contact"
-            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-5 py-2.5 text-[15px] font-medium hover:bg-ink-dark transition-all hover:scale-[1.02]"
-          >
-            Join Us
-            <span aria-hidden>→</span>
-          </Link>
+         <Link
+          to="/contact"
+          className="hidden sm:inline-flex items-center gap-1 rounded-full bg-ink text-canvas px-4 py-2 text-sm font-medium hover:bg-ink-dark transition-all hover:scale-[1.02]"
+        >
+          Join Us
+          <span aria-hidden>→</span>
+        </Link>
           <button
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}

@@ -345,7 +345,6 @@
 //     </div>
 //   );
 // }
-
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -358,25 +357,28 @@ type Domain = {
   size: "sm" | "md" | "lg";
 };
 
+// Ring 0 (inner, 4 nodes) evenly spaced at 90° apart.
+// Ring 1 (outer, 3 nodes) staggered at 45/165/285 so they sit
+// between the inner nodes instead of clumping near them.
 const DOMAINS: Domain[] = [
   { id: "dl", label: "Deep Learning", short: "DL", ring: 0, angle: 0, size: "lg" },
   { id: "nlp", label: "Natural Language Processing", short: "NLP", ring: 0, angle: 90, size: "lg" },
   { id: "gen", label: "Generative AI", short: "GenAI", ring: 0, angle: 180, size: "md" },
   { id: "csg", label: "Computational Science for Social Good", short: "CSG", ring: 0, angle: 270, size: "lg" },
-  { id: "kg", label: "Data Mining", short: "DM", ring: 1, angle: 60, size: "md" },
-  { id: "hai", label: "Data Compression", short: "DC", ring: 1, angle: 180, size: "sm" },
-  { id: "hci", label: "Human Computer Interaction", short: "HCI", ring: 1, angle: 300, size: "md" },
+  { id: "kg", label: "Data Mining", short: "DM", ring: 1, angle: 45, size: "md" },
+  { id: "hai", label: "Data Compression", short: "DC", ring: 1, angle: 165, size: "sm" },
+  { id: "hci", label: "Human Computer Interaction", short: "HCI", ring: 1, angle: 285, size: "md" },
 ];
 
 const sizeConfig: Record<Domain["size"], { ball: string; glow: string; shine: string }> = {
-  sm: { ball: "size-4", glow: "size-8", shine: "size-1.5" },
-  md: { ball: "size-6", glow: "size-11", shine: "size-2" },
-  lg: { ball: "size-8", glow: "size-14", shine: "size-2.5" },
+  sm: { ball: "size-3", glow: "size-6", shine: "size-1" },
+  md: { ball: "size-4.5", glow: "size-8", shine: "size-1.5" },
+  lg: { ball: "size-6", glow: "size-10", shine: "size-2" },
 };
 
 export function ResearchEcosystemSphere() {
-  const inner = 36;
-  const outer = 47;
+  const inner = 34;
+  const outer = 49;
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
@@ -407,11 +409,11 @@ export function ResearchEcosystemSphere() {
   };
 
   return (
-    <div className="relative w-full aspect-square">
+    <div className="relative w-full max-w-[500px] mx-auto aspect-square">
       <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_50%,oklch(0.68_0.165_55/0.18),transparent_65%)]" />
       <div className="absolute inset-[8%] rounded-full bg-[radial-gradient(circle_at_30%_30%,oklch(1_0_0/0.6),transparent_60%)] mix-blend-overlay" />
 
-      {[28, 36, 47].map((r, i) => (
+      {[28, 34, 49].map((r, i) => (
         <motion.div
           key={r}
           className={`absolute rounded-full border ${i === 2 ? "border-dashed border-ink/15" : "border-ink/10"}`}
@@ -450,14 +452,13 @@ export function ResearchEcosystemSphere() {
             animate={{ rotate: -360 }}
             transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           />
-          <div className="relative grid place-items-center size-28 sm:size-32 rounded-full bg-gradient-to-br from-ink-soft to-ink backdrop-blur-xl text-canvas shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6),inset_0_-10px_20px_rgba(0,0,0,0.7),inset_0_4px_12px_rgba(255,255,255,0.25)] ring-1 ring-white/20 overflow-hidden">
-            {/* Top 3D reflection (glare) */}
+          <div className="relative grid place-items-center size-20 sm:size-24 rounded-full bg-gradient-to-br from-ink-soft to-ink backdrop-blur-xl text-canvas shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6),inset_0_-10px_20px_rgba(0,0,0,0.7),inset_0_4px_12px_rgba(255,255,255,0.25)] ring-1 ring-white/20 overflow-hidden">
             <div className="absolute -top-[10%] left-[15%] w-[70%] h-[45%] rounded-[100%] bg-gradient-to-b from-white/35 to-transparent opacity-90 pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-tr from-accent/40 to-transparent mix-blend-overlay pointer-events-none" />
-            
+
             <div className="text-center relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
-              <div className="font-display text-2xl sm:text-3xl font-bold tracking-wider bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent drop-shadow-md">SAHAI</div>
-              <div className="eyebrow text-[10px] sm:text-[11px] text-accent font-bold tracking-[0.2em] mt-2 uppercase">Ecosystem</div>
+              <div className="font-display text-xl sm:text-2xl font-bold tracking-wider bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent drop-shadow-md">SAHAI</div>
+              <div className="eyebrow text-[9px] sm:text-[10px] text-accent font-bold tracking-[0.2em] mt-1.5 uppercase">Ecosystem</div>
             </div>
           </div>
         </div>
@@ -467,6 +468,7 @@ export function ResearchEcosystemSphere() {
       {DOMAINS.map((d, i) => {
         const p = position(d);
         const cfg = sizeConfig[d.size];
+        const isGold = d.ring === 0;
         return (
           <motion.div
             key={d.id}
@@ -486,21 +488,25 @@ export function ResearchEcosystemSphere() {
               }}
               className="group relative flex items-center gap-2"
             >
-              {/* sphere — spins on its own axis */}
+              {/* sphere — glossy 3D look + spins on its own axis */}
               <div className={`relative shrink-0 ${cfg.ball}`}>
                 {/* ambient glow, doesn't spin */}
                 <span
                   className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-md ${cfg.glow} ${
-                    d.ring === 0 ? "bg-accent/40" : "bg-ink/25"
+                    isGold ? "bg-accent/40" : "bg-slate-500/30"
                   } animate-pulse`}
                 />
-                {/* base sphere body */}
+                {/* base sphere body — gradient + inset shading for 3D depth */}
                 <span
                   className={`absolute inset-0 rounded-full ${
-                    d.ring === 0 ? "bg-accent" : "bg-ink/90"
-                  } shadow-[inset_-4px_-4px_8px_rgba(0,0,0,0.4),0_6px_12px_rgba(0,0,0,0.3)] ring-1 ring-white/20`}
+                    isGold
+                      ? "bg-gradient-to-br from-accent to-accent/70"
+                      : "bg-gradient-to-br from-slate-600 to-ink"
+                  } shadow-[inset_-3px_-3px_6px_rgba(0,0,0,0.45),inset_2px_2px_4px_rgba(255,255,255,0.15),0_6px_12px_rgba(0,0,0,0.35)] ring-1 ring-white/25`}
                 />
-                {/* rotating shine — this is what sells the "spinning globe" effect */}
+                {/* static top-left glare, like the central node */}
+                <span className="absolute top-[12%] left-[18%] w-[45%] h-[35%] rounded-[100%] bg-white/40 blur-[1px] pointer-events-none" />
+                {/* rotating shine — sells the "spinning globe" effect */}
                 <motion.span
                   className="absolute inset-0 rounded-full overflow-hidden mix-blend-overlay"
                   animate={{ rotate: 360 }}
@@ -517,9 +523,9 @@ export function ResearchEcosystemSphere() {
               </div>
 
               {/* label */}
-              <div className="hidden sm:flex items-center gap-2.5 rounded-full bg-white/90 backdrop-blur-md ring-1 ring-black/5 px-4 py-2 shadow-[0_8px_20px_-6px_rgba(0,0,0,0.15)] group-hover:scale-105 transition-transform cursor-default">
-                <div className={`size-2 rounded-full shadow-[0_0_8px_rgba(0,0,0,0.3)] ${d.ring === 0 ? "bg-accent shadow-accent/50" : "bg-ink/70"}`} />
-                <span className="text-[15px] font-bold text-ink whitespace-nowrap tracking-tight">
+              <div className="hidden sm:flex items-center gap-2 rounded-full bg-white/90 backdrop-blur-md ring-1 ring-black/5 px-3 py-1.5 shadow-[0_8px_20px_-6px_rgba(0,0,0,0.15)] group-hover:scale-105 transition-transform cursor-default">
+                <div className={`size-1.5 rounded-full shadow-[0_0_8px_rgba(0,0,0,0.3)] ${isGold ? "bg-accent shadow-accent/50" : "bg-ink/70"}`} />
+                <span className="text-[13px] font-bold text-ink whitespace-nowrap tracking-tight">
                   {d.label}
                 </span>
               </div>

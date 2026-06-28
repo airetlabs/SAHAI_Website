@@ -6,9 +6,9 @@ import { PageHeader } from "../components/PageHeader";
 import { Reveal, Stagger, StaggerItem, RevealWords } from "../components/Reveal";
 
 // 🔑 Replace with your own EmailJS values
-const EMAILJS_SERVICE_ID = "service_ejbuir2";
-const EMAILJS_TEMPLATE_ID = "template_badvnam";
-const EMAILJS_PUBLIC_KEY = "6I3nmLkqaxo-PzWvt";
+const EMAILJS_SERVICE_ID = "service_t45zms1";
+const EMAILJS_TEMPLATE_ID = "template_dq284ef";
+const EMAILJS_PUBLIC_KEY = "5ISd_sKvuFsWpgHj1";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

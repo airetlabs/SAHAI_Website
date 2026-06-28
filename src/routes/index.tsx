@@ -685,14 +685,14 @@ export const Route = createFileRoute("/")({
 
 const announcements = [
   "🎉 SAHAI Lab secures new NM-ICPS funding for the MindScribe project from IIT Indore",
-  "📄 New paper published in the ACM TKDD journal — Configurable Graph Summarization",
+  "📄 New paper presented in the ACM TKDD journal — Configurable Graph Summarization",
   "🤝 ICSSR(India)-JSPS(Japan) Joint Research Programme completed successfully",
   "📢 10 students successfully completed the Summer 2026 Research Internship",
   "🎓 2 conference papers published successfully at ICSCST 2026",
 ];
 function NewsTicker() {
   return (
-    <div className="fixed top-17 left-0 right-0 z-[55] h-14 bg-ink text-canvas overflow-hidden flex items-center">
+    <div className="fixed top-17 left-0 right-0 z-[55] h-11 bg-ink text-canvas overflow-hidden flex items-center">
       {/* News Label */}
       <a
         href="https://www.nitt.edu/home/"
@@ -819,9 +819,9 @@ function Hero() {
               </div>
             </Reveal>
 
-            <div className="space-y-2 lg:space-y-2 w-full text-left">
+            <div className="space-y-2 lg:space-y-5 w-full text-left">
               <Reveal delay={0.2}>
-                <h2 className="text-[15px] sm:text-lg lg:text-[20px] leading-relaxed font-medium text-ink max-w-2xl">
+                <h2 className="text-[15px] sm:text-lg lg:text-[17px] leading-relaxed font-medium text-ink max-w-2xl">
                   <strong className="font-semibold text-ink">
                     SAHAI (
                     <span className="text-accent font-semibold text-[1.15em]">S</span>ocially{" "}
@@ -834,7 +834,7 @@ function Hero() {
                 </h2>
               </Reveal>
               <Reveal delay={0.3}>
-               <p className="text-[12px] sm:text-[12px] lg:text-[20px] text-ink-soft leading-relaxed lg:w-[calc(200%+4rem)] xl:w-[calc(200%+4rem)] max-w-6xl pt-2">
+               <p className="text-[12px] sm:text-[12px] lg:text-[17px] text-ink-soft leading-relaxed lg:w-[calc(200%+4rem)] xl:w-[calc(200%+4rem)] max-w-6xl pt-2">
                   Inspired by the meaning of <strong className="font-semibold text-ink">SAHAI (सहाय in Hindi) - help and support</strong> - we develop intelligent, accessible, and inclusive technologies that address real-world societal challenges. Our research focuses on <strong className="font-semibold text-ink">AI for social good</strong>, creating impactful solutions for education, healthcare, accessibility, governance, and language technologies. We welcome students, researchers, and industry partners to collaborate in building AI that serves humanity and creates lasting societal impact.
                 </p>
               </Reveal>
@@ -1101,7 +1101,7 @@ function FeaturedProjects() {
                     }`}
                 >
                   <img src={p.image} alt={p.title} className={`absolute inset-0 w-full h-fullf transition-transform duration-700 group-hover:scale-[1.03] ${p.imageClass || 'object-cover'}`} />
-                  <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-surface/95 backdrop-blur-md px-3 py-1 ring-1 ring-border shadow-sm">
+                  <div className="absolute top-4 right-4 inline-flex items-center gap-2 rounded-full bg-surface/95 backdrop-blur-md px-3 py-1 ring-1 ring-border shadow-sm">
                     <span className="eyebrow text-[10px] text-ink font-medium tracking-widest uppercase">{p.tag}</span>
                   </div>
                   <div className="absolute bottom-4 left-4 font-mono text-[10px] text-white/90 drop-shadow-md bg-black/40 px-3 py-1 rounded-full backdrop-blur-md">
