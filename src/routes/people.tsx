@@ -48,7 +48,7 @@ function cleanName(name: string) {
 
 const faculty: Person[] = [
   {
-    name: "Dr.C.  Oswald ",
+    name: "Dr. C. Oswald ",
     role: "Faculty Coordinator",
     interests: (
       <ul className="list-disc pl-5 space-y-1 marker:text-accent">
@@ -364,7 +364,7 @@ function PersonCard({ p, variant, showProjectLabel, hideSocialLabels }: { p: Per
         <div className="min-w-0 flex-1 flex flex-col">
           <div className="flex justify-between items-start gap-2">
             <div>
-              <h3 className={`font-display tracking-tight leading-tight group-hover:text-accent transition-colors ${s.nameSize}`}>
+              <h3 className={`font-display font-semibold tracking-[0.01em] leading-snug group-hover:text-accent transition-colors [word-spacing:0.2em] ${s.nameSize}`}>
                 {cleanName(p.name)}
               </h3>
               <p className={`mt-3.5 font-bold uppercase tracking-[0.18em] text-accent ${s.roleSize}`}>
@@ -380,7 +380,7 @@ function PersonCard({ p, variant, showProjectLabel, hideSocialLabels }: { p: Per
 
           {showProjectLabel ? (
             <div className="mt-2.5">
-              <p className="font-mono font-bold text-[9px] uppercase tracking-[0.18em] text-ink">
+              <p className="font-mono font-bold text-[12px] uppercase tracking-[0.18em] text-ink">
                 Project Title
               </p>
               <div className="mt-1 text-[12.5px] leading-snug text-ink-soft whitespace-pre-line">

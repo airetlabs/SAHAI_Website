@@ -42,13 +42,13 @@ export function SiteNav() {
             className="relative shrink-0 flex items-center justify-center -ml-1 cursor-zoom-in group/logo"
             aria-label="Expand Logo"
           >
-            <img src="/sahai-logo.png" alt="SAHAI Lab Logo" className="h-14 sm:h-16 w-auto object-contain drop-shadow-sm transition-transform duration-300 group-hover/logo:scale-110" />
+            <img src="/sahai-logo.png" alt="SAHAI Lab Logo" className="h-18 sm:h-18 w-auto object-contain drop-shadow-sm transition-transform duration-300 group-hover/logo:scale-110" />
           </button>
           <div className="flex flex-col leading-none min-w-0">
-            <span className="font-display text-[17px] font-semibold tracking-tight truncate">
+            <span className="font-display text-[20px] font-semibold tracking-tight truncate">
               SAH<span className="text-accent">AI </span> Lab
             </span>
-            <span className="eyebrow font-bold text-[10.5px] text-ink/80 mt-0.5 truncate tracking-widest">NIT Tiruchirappalli · CSE</span>
+            <span className="eyebrow font-bold text-[15.5px] text-ink/80 mt-0.5 truncate tracking-widest">NIT Tiruchirappalli · CSE</span>
           </div>
         </Link>
 

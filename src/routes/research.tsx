@@ -165,21 +165,21 @@ function ResearchPage() {
         </Reveal>
       </section>
 
-      <section className="bg-ink text-canvas py-24 border-y border-canvas/5">
+      {/* <section className="bg-ink text-canvas py-24 border-y border-canvas/5"> */}
         <div className="container-page">
           <Stagger className="grid lg:grid-cols-3 gap-10" stagger={0.1}>
             {metrics.map(([title, value, body]) => (
               <StaggerItem key={title}>
                 <div className="border-t border-canvas/15 pt-6">
-                  <p className="eyebrow text-accent mb-4">{title}</p>
-                  <StatValue value={value} />
-                  <p className="mt-4 text-lg text-canvas/70 leading-relaxed">{body}</p>
+                  <p className="eyebrow text-accent mb-4"></p>
+                  {/* <StatValue value={value} /> */}
+                  <p className="mt-4 text-lg text-canvas/70 leading-relaxed">{}</p>
                 </div>
               </StaggerItem>
             ))}
           </Stagger>
         </div>
-      </section>
+      {/* </section> */}
     </>
   );
 }
@@ -201,7 +201,7 @@ function DomainCard({ domain: d, index: i }: { domain: Domain; index: number }) 
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[0.8rem] bg-ink/5 text-ink group-hover:bg-accent/10 group-hover:text-accent transition-colors">
             <Icon className="h-4 w-4" />
           </span>
-          <span className="font-mono text-[10px] font-bold tracking-widest text-ink-soft/70 uppercase">
+          <span className="font-mono text-[18px] font-bold tracking-widest text-ink-soft/70 uppercase">
             {d.id}
           </span>
         </div>
@@ -258,19 +258,21 @@ function EventSection({
   );
 }
 
-function StatValue({ value }: { value: string }) {
-  const match = value.match(/^(\d+)(.*)$/);
-  if (!match) {
-    return <div className="font-display text-4xl font-semibold">{value}</div>;
-  }
-  const [, numStr, suffix] = match;
-  return (
-    <div className="font-display text-4xl font-semibold tracking-tight">
-      <CountUp end={parseInt(numStr, 10)} />
-      {suffix}
-    </div>
-  );
-}
+
+// function StatValue({ value }: { value: string }) {
+//   const match = value.match(/^(\d+)(.*)$/);
+//   if (!match) {
+//     return <div className="font-display text-4xl font-semibold">{value}</div>;
+//   }
+//   const [, numStr, suffix] = match;
+//   return (
+//     <div className="font-display text-4xl font-semibold tracking-tight">
+//       <CountUp end={parseInt(numStr, 10)} />
+//       {suffix}
+//     </div>
+//   );
+// }
+
 
 function CountUp({ end }: { end: number }) {
   const ref = useRef<HTMLSpanElement>(null);
