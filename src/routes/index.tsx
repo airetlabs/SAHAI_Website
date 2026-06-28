@@ -47,7 +47,7 @@
 //           <span className="relative inline-flex h-2 w-2 rounded-full bg-canvas" />
 //         </span>
 
-//         <span className="eyebrow text-canvas text-[17px] tracking-wider">News</span>
+//         <span className="eyebrow text-canvas text-[10px] tracking-wider">News</span>
 //       </a>
 
 //       {/* Scrolling News */}
