@@ -269,7 +269,7 @@ function FounderPortrait() {
     >
       <div className="absolute inset-0 bg-dotgrid opacity-30" />
       <img
-        src="/images/faculty/oswald_sir.jpg"
+        src="/images/Faculty/oswaldsir.jpg"
         alt="Dr. C. Oswald"
         className="absolute inset-0 w-full h-full object-cover"
       />

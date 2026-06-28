@@ -15,7 +15,7 @@ export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
 });
 
-const imageModules = import.meta.glob("/gallery_pics/**/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF,heic,HEIC,jfif,JFIF}", {
+const imageModules = import.meta.glob("../../public/gallery_pics/**/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF,heic,HEIC,jfif,JFIF}", {
   eager: true,
   import: "default",
 }) as Record<string, string>;
@@ -38,8 +38,9 @@ const categoryMap: Record<string, string> = {
   "With students": "Students",
 };
 
-const items = Object.entries(imageModules).map(([path, src], index) => {
-  const relativePath = path.replace("/gallery_pics/", "");
+const items = Object.entries(imageModules).map(([path], index) => {
+  const relativePath = path.replace("../../public/gallery_pics/", "");
+  const publicSrc = `/gallery_pics/${encodeURI(relativePath)}`;
   const topLevelFolder = relativePath.split("/")[0];
   const rawCaption = (relativePath.split("/").pop() || "").replace(/\.[^.]+$/, "");
 
@@ -54,7 +55,7 @@ const items = Object.entries(imageModules).map(([path, src], index) => {
 
   return {
     id: index + 1,
-    src,
+    src: publicSrc,
     cat: categoryMap[topLevelFolder] ?? "Collaborations",
     caption,
     palette: palettes[index % palettes.length],

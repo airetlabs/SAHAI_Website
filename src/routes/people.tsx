@@ -62,7 +62,7 @@ const faculty: Person[] = [
     ),
 
     initials: "AA",
-    photo: "/images/faculty/oswaldsir.jpg",
+    photo: "/images/Faculty/oswaldsir.jpg",
     email: "oswald@nitt.edu",
     personalEmail: "oswald.mecse@gmail.com",
     phone: "0431-250-3223",
