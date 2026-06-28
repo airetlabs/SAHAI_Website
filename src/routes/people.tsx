@@ -62,7 +62,7 @@ const faculty: Person[] = [
     ),
 
     initials: "AA",
-    photo: "/public/images/faculty/oswald_sir.jpg",
+    photo: "/images/faculty/oswald_sir.jpg",
     email: "oswald@nitt.edu",
     personalEmail: "oswald.mecse@gmail.com",
     phone: "0431-250-3223",
@@ -124,15 +124,15 @@ const faculty: Person[] = [
   },
 ];
 const scholars: Person[] = [
-  { name: "Abhijith  Balan", role: "Ph.D · Full-Time", interests: "·NLP \n·Named Entity Recognition\n ·Computational Linguistics \n ·Information Retrieval/Extraction", initials: "MI", photo: "/public/images/Scholars/Abhijith_Balan.jpeg",linkedin:"https://www.linkedin.com/in/abhijith-balan-973259222/" },
-  { name: "Anju  K  B", role: "Ph.D  · QIP Scheme ", interests: " ·NLP\n ·Brain Computer Interface", initials: "RS", photo: "/public/images/Scholars/AnjuKB.jpg",linkedin:"a" },
-  { name: "Sambasiva  Rao  Chindam", role: "Ph.D · Part-Time", interests: "·NLP \n· Speech Processing", initials: "SP", photo: "/public/images/Scholars/sambasivarao.JPG",linkedin:"a" },
+  { name: "Abhijith  Balan", role: "Ph.D · Full-Time", interests: "·NLP \n·Named Entity Recognition\n ·Computational Linguistics \n ·Information Retrieval/Extraction", initials: "MI", photo: "/images/Scholars/Abhijith_Balan.jpeg",linkedin:"https://www.linkedin.com/in/abhijith-balan-973259222/" },
+  { name: "Anju  K  B", role: "Ph.D  · QIP Scheme ", interests: " ·NLP\n ·Brain Computer Interface", initials: "RS", photo: "/images/Scholars/AnjuKB.jpg",linkedin:"a" },
+  { name: "Sambasiva  Rao  Chindam", role: "Ph.D · Part-Time", interests: "·NLP \n· Speech Processing", initials: "SP", photo: "/images/Scholars/sambasivarao.JPG",linkedin:"a" },
 ];
 const PGstudents: Person[] = [
   { name: "Yash Gogoria", role: "M.Tech · CSE (2024)", interests: "·Coloring Sketches using Conditional GAN    ·Landscape Painting Generation using Generative AI Models", initials: "YG", photo: "",linkedin:"a" },
   { name: "Sachin Kumar Gupt", role: "M.Tech · CSE (2024)", interests: "·Deep Learning Approaches for Covid Chest X-Ray Image Classification \n · Generative AI Model based Hindi Text to Realistic Image Generation ", initials: "SKG", photo: "",linkedin:"a" },
-  { name: "Abhisek Raj", role: "M.Tech · CSE (2025)", interests: "·Predicting Suicidal Ideation Risks and Empathetic Text Generation Using LLM \n· Predicting Suicidal Ideation Risks using LLM and Transfer Learning", initials: "AR", photo: "/public/images/PG/Abhishek_Raj.jpg",linkedin:"a" },
-  { name: "Rakesh Kumar Rakesh", role: "M.Tech · CSE (2026)", interests: "·Knowledge graph Embedding Based Biomedical Named Entity Recognition", initials: "RKR", photo: "/public/images/PG/Rakesh Kumar Rakesh .jpeg",linkedin:"a" },
+  { name: "Abhisek Raj", role: "M.Tech · CSE (2025)", interests: "·Predicting Suicidal Ideation Risks and Empathetic Text Generation Using LLM \n· Predicting Suicidal Ideation Risks using LLM and Transfer Learning", initials: "AR", photo: "/images/PG/Abhishek_Raj.jpg",linkedin:"a" },
+  { name: "Rakesh Kumar Rakesh", role: "M.Tech · CSE (2026)", interests: "·Knowledge graph Embedding Based Biomedical Named Entity Recognition", initials: "RKR", photo: "/images/PG/Rakesh Kumar Rakesh .jpeg",linkedin:"a" },
   { name: "Anurag Kadam", role: "M.Tech · CSE (2027)", interests: "", initials: "RKR", photo: "",linkedin:"a" },
 
 ];
@@ -144,39 +144,39 @@ const UGstudents: Person[] = [
 
   { name: "Srikanth V", role: "B.Tech (2025)", interests: "Enhancing Verizon Computer Support Using Dialogflow and Interaction Analytics", initials: "SV", photo: "",linkedin:"a" },
   { name: "Amarjit", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "A", photo: "",linkedin:"a" },
-  { name: "Dharanish Rahul S", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "DRS", photo: "/public/images/UG/Dharanish Rahul S.jpeg",linkedin:"a" },
-  { name: "Mithilesh K", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "MK", photo: "/public/images/UG/Mithilesh K.jpg",linkedin:"a" },
+  { name: "Dharanish Rahul S", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "DRS", photo: "/images/UG/Dharanish Rahul S.jpeg",linkedin:"a" },
+  { name: "Mithilesh K", role: "B.Tech (2024)", interests: "Knowledge Graph based Templatized Question Answering tool for School Level Tamil Grammar", initials: "MK", photo: "/images/UG/Mithilesh K.jpg",linkedin:"a" },
   { name: "Joshua Mahadevan", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "JM", photo: "",linkedin:"a" },
   { name: "Lokkamithran", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "LK", photo: "",linkedin:"a" },
-  { name: "Mubeena", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "MB", photo: "/public/images/UG/Mubeena.jpg",linkedin:"a" },
+  { name: "Mubeena", role: "B.Tech (2024)", interests: "Offensive Text Detection in Code-mixed Dravidian Languages towards Marginalised Groups and Women", initials: "MB", photo: "/images/UG/Mubeena.jpg",linkedin:"a" },
 ];
 
 const interns: Person[] = [
-  { name: "Aditi Baskaran", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "/public/images/Interns/2026/Aditi Baskaran.jpeg",linkedin:"https://www.linkedin.com/in/aditi-baskaran/" },
-  { name: "Nooh K ", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "/public/images/Interns/2026/Nooh_K.png",linkedin:"https://www.linkedin.com/in/nooh-k-71a8a4292/" },
-  { name: "Adarsh SPL", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "/public/images/Interns/2026/Adarsh.jpeg",linkedin:"a" },
-  { name: "K. Preetham Reddy", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "/public/images/Interns/2026/PreethamReddy.jpg",linkedin:"https://www.linkedin.com/in/katreddy-preetham-reddy" },
-  { name: "Surya Narayan Ghosh", role: "2026", interests: "Hypergraph Guided Structural Fusion for Nested Biomedical NER", initials: "IO", photo: "/public/images/Interns/2026/SNghosh.jpg",linkedin:"https://www.linkedin.com/in/ghosh-surya-22679b285/" },
-  { name: "Golla Madhu Kiran", role: "2026", interests: "Boundary-Aware Parameter-Efficient Tuning for Nested Biomedical Named Entity Recognition", initials: "IO", photo: "/public/images/Interns/2026/MadhuKiranGolla.jpeg",linkedin:"https://www.linkedin.com/in/golla-madhu-kiran-6b5a1b322/" },
-  { name: "Madhu Parameswari Ganesan", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "/public/images/Interns/2026/Madhu Parameswari Ganesan.png",linkedin:"https://www.linkedin.com/in/madhu-parameswari-ganesan/" },
-  { name: "Harsha Dhayini R", role: "2026", interests: "Transforming Tamil Ayurvedic Text to Knowledge Graph", initials: "IO", photo: "/public/images/Interns/2026/Harsha.png",linkedin:"a" },
+  { name: "Aditi Baskaran", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "/images/Interns/2026/Aditi Baskaran.jpeg",linkedin:"https://www.linkedin.com/in/aditi-baskaran/" },
+  { name: "Nooh K ", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "/images/Interns/2026/Nooh_K.png",linkedin:"https://www.linkedin.com/in/nooh-k-71a8a4292/" },
+  { name: "Adarsh SPL", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "/images/Interns/2026/Adarsh.jpeg",linkedin:"a" },
+  { name: "K. Preetham Reddy", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "/images/Interns/2026/PreethamReddy.jpg",linkedin:"https://www.linkedin.com/in/katreddy-preetham-reddy" },
+  { name: "Surya Narayan Ghosh", role: "2026", interests: "Hypergraph Guided Structural Fusion for Nested Biomedical NER", initials: "IO", photo: "/images/Interns/2026/SNghosh.jpg",linkedin:"https://www.linkedin.com/in/ghosh-surya-22679b285/" },
+  { name: "Golla Madhu Kiran", role: "2026", interests: "Boundary-Aware Parameter-Efficient Tuning for Nested Biomedical Named Entity Recognition", initials: "IO", photo: "/images/Interns/2026/MadhuKiranGolla.jpeg",linkedin:"https://www.linkedin.com/in/golla-madhu-kiran-6b5a1b322/" },
+  { name: "Madhu Parameswari Ganesan", role: "2026", interests: "Lightweight SLM-Based Academic Evaluation Assistant", initials: "IO", photo: "/images/Interns/2026/Madhu Parameswari Ganesan.png",linkedin:"https://www.linkedin.com/in/madhu-parameswari-ganesan/" },
+  { name: "Harsha Dhayini R", role: "2026", interests: "Transforming Tamil Ayurvedic Text to Knowledge Graph", initials: "IO", photo: "/images/Interns/2026/Harsha.png",linkedin:"a" },
 
 
 
   { name: "Kabilan G", role: "2025", interests: "Enhancements in Nested NER", initials: "IO", photo: "",linkedin:"a" },
-  { name: "Aranganathan S ", role: "2025", interests: "Nested NER in Tamil", initials: "IO", photo: "/public/images/Interns/2025/Aranganathan S _NIT Surathkal.jpeg",linkedin:"a" },
-  { name: "Rohan Jose", role: "2025", interests: "Offensive and Hate Speech Detection of Malayalam  using Deep Learning Techniques", initials: "IO", photo: "/public/images/Interns/2025/Rohan_Jose.jpg",linkedin:"a" },
+  { name: "Aranganathan S ", role: "2025", interests: "Nested NER in Tamil", initials: "IO", photo: "/images/Interns/2025/Aranganathan S _NIT Surathkal.jpeg",linkedin:"a" },
+  { name: "Rohan Jose", role: "2025", interests: "Offensive and Hate Speech Detection of Malayalam  using Deep Learning Techniques", initials: "IO", photo: "/images/Interns/2025/Rohan_Jose.jpg",linkedin:"a" },
   { name: "Hrishikesh Mhaiskar", role: "2025", interests: "Thought Recognition from EEG Signals for Indic Languages.", initials: "IO", photo: "",linkedin:"a" },
-  { name: "Sudhanshu Kumar", role: "2025", interests: "Automated Identification of Mind Wandering States from EEG Signals", initials: "IO", photo: "/public/images/Interns/2025/Sudhanshu_Kumar.jpg",linkedin:"a" },
+  { name: "Sudhanshu Kumar", role: "2025", interests: "Automated Identification of Mind Wandering States from EEG Signals", initials: "IO", photo: "/images/Interns/2025/Sudhanshu_Kumar.jpg",linkedin:"a" },
   { name: "Raushan Kumar ", role: "2025", interests: "Automated Identification of Mind Wandering States from EEG Signals", initials: "IO", photo: "",linkedin:"a" },
   { name: "Swetha N", role: "2025", interests: "An Audio Dataset for code mixed Tamil English Hate and offensive speech detection", initials: "IO", photo: "",linkedin:"a" },
-  { name: "Sudharsan M ", role: "2025", interests: "KG Creation in Tamil Ayurvedic Text", initials: "IO", photo: "/public/images/Interns/2025/Sudharsan M.png",linkedin:"a" },
-  { name: "Faiq Alam", role: "2025", interests: "KG Creation and Reasoning in Indian Context ", initials: "IO", photo: "/public/images/Interns/2025/Faiq_Alam.JPG",linkedin:"a" },
+  { name: "Sudharsan M ", role: "2025", interests: "KG Creation in Tamil Ayurvedic Text", initials: "IO", photo: "/images/Interns/2025/Sudharsan M.png",linkedin:"a" },
+  { name: "Faiq Alam", role: "2025", interests: "KG Creation and Reasoning in Indian Context ", initials: "IO", photo: "/images/Interns/2025/Faiq_Alam.JPG",linkedin:"a" },
   { name: "K.Naveen Ragav ", role: "2025", interests: "", initials: "IO", photo: "" },
-  { name: "Priyanka K.", role: "2025", interests: "KG Creation in Tamil Ayurvedic Text", initials: "IO", photo: "/public/images/Interns/2025/PriyankaK.png",linkedin:"a" },
-  { name: "Kalyan Sudarsan ", role: "2025", interests: "", initials: "IO", photo: "/public/images/Interns/2025/Kalyan .heic" ,linkedin:"a"},
-  { name: "VIJEYASRI T", role: "2025", interests: "REAL-TIME SPEECH ENHANCEMENT FOR DYSARTHRIA INDIVIDUALS USING NLP AND DEEP LEARNING", initials: "IO", photo: "/public/images/Interns/2025/Vijeyasri.T.jpg",linkedin:"a" },
-  { name: "Gobika R ", role: "2025", interests: "REAL-TIME SPEECH ENHANCEMENT FOR DYSARTHRIA INDIVIDUALS USING NLP AND DEEP LEARNING", initials: "IO", photo: "/public/images/Interns/2025/Gobika_R.jpeg.jpg",linkedin:"a" },
+  { name: "Priyanka K.", role: "2025", interests: "KG Creation in Tamil Ayurvedic Text", initials: "IO", photo: "/images/Interns/2025/PriyankaK.png",linkedin:"a" },
+  { name: "Kalyan Sudarsan ", role: "2025", interests: "", initials: "IO", photo: "/images/Interns/2025/Kalyan .heic" ,linkedin:"a"},
+  { name: "VIJEYASRI T", role: "2025", interests: "REAL-TIME SPEECH ENHANCEMENT FOR DYSARTHRIA INDIVIDUALS USING NLP AND DEEP LEARNING", initials: "IO", photo: "/images/Interns/2025/Vijeyasri.T.jpg",linkedin:"a" },
+  { name: "Gobika R ", role: "2025", interests: "REAL-TIME SPEECH ENHANCEMENT FOR DYSARTHRIA INDIVIDUALS USING NLP AND DEEP LEARNING", initials: "IO", photo: "/images/Interns/2025/Gobika_R.jpeg.jpg",linkedin:"a" },
   { name: "Vinithaa P", role: "2025", interests: "MULTI-CLASS SPEECH DISORDER DETECTION USING FRACTAL ANALYSIS AND MFCC", initials: "IO", photo: "",linkedin:"a" },
 
 
@@ -187,14 +187,14 @@ const interns: Person[] = [
   { name: "Gudapadi Nikhil", role: "2024", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
   { name: "R Vinish Krishna", role: "2024", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
   { name: "Vasan R", role: "2024", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
-  { name: "Janarthanan T", role: "2024", interests: "Computer Vision", initials: "IT", photo: "/public/images/Interns/2024/Janarthanan_106121053.jpg",linkedin:"a" },
-  { name: "Arvind Krishna", role: "2024", interests: "Computer Vision", initials: "IT", photo: "/public/images/Interns/2024/Aravind Krishna P M.JPG",linkedin:"a" },
+  { name: "Janarthanan T", role: "2024", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2024/Janarthanan_106121053.jpg",linkedin:"a" },
+  { name: "Arvind Krishna", role: "2024", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2024/Aravind Krishna P M.JPG",linkedin:"a" },
   { name: "Krithik", role: "2024", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
   { name: "Tanush Somishetty", role: "2024", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
 
 
   { name: "Yogesh Perumal", role: "2023", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
-  { name: "Abhijit Baidya", role: "2023", interests: "Computer Vision", initials: "IT", photo: "/public/images/Interns/2023/Abhijit Baidya.jpg",linkedin:"a" },
+  { name: "Abhijit Baidya", role: "2023", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2023/Abhijit Baidya.jpg",linkedin:"a" },
   { name: "Hashim Faisal syed", role: "2023", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
   { name: "Isai Visaahan P M", role: "2023", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
   { name: "Karthik Balaji N V", role: "2023", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
