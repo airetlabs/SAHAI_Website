@@ -88,8 +88,8 @@ export function SiteFooter() {
             <p className="eyebrow text-canvas/40">
               © {new Date().getFullYear()} SAHAI Lab · All rights reserved
             </p>
-            <p className="eyebrow text-white">Designed & Developed by</p>
-            <p className="eyebrow text-white mt-1">Abhijith · Surya Ghosh · Nooh · Preetham Reddy · Aditi</p>
+            <p className="text-xs text-canvas/60 uppercase tracking-widest font-semibold">Designed & Developed by</p>
+            <p className="text-sm sm:text-[15px] font-bold text-white tracking-wide mt-1">Abhijith · Surya Ghosh · Nooh · Preetham Reddy · Aditi</p>
           </div>
 
           <div className="flex items-center gap-6 text-xs text-canvas/50 font-mono">
