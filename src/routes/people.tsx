@@ -52,13 +52,11 @@ const faculty: Person[] = [
     role: "Faculty Coordinator",
     interests: (
       <ul className="list-disc pl-5 space-y-1 marker:text-accent">
-        <li>Machine Learning</li>
-        <li>Deep Learning</li>
-        <li>Data Mining</li>
+        <li>Machine Learning, Deep Learning, Data Mining</li>
         <li>Natural Language Processing</li>
-        <li>Human Computer Interaction</li>
-        <li>Text Mining, Social Media Analytics, Computational Science for Social Good</li>
+        <li>Social Media Analytics, Computational Science for Social Good</li>
         <li>Ontology and Knowledge Graphs, Question-Answering (English and Indian Languages)</li>
+        <li>Human Computer Interaction</li>
         <li>Text/Image Compression, Graph Compression</li>
       </ul>
     ),
@@ -67,7 +65,7 @@ const faculty: Person[] = [
     photo: "images/faculty/oswald_sir.jpg",
     email: "oswald@nitt.edu",
     personalEmail: "oswald.mecse@gmail.com",
-    phone: "+91 (432) 250",
+    phone: "0431-250-3223",
     scholar: "https://scholar.google.com/citations?user=6kX5pyoAAAAJ&hl=en",
     linkedin: "https://www.linkedin.com/in/oswald-c-bb5b37b7/",
     dblp: "https://dblp.uni-trier.de/pid/173/6662.html",
@@ -97,7 +95,7 @@ const faculty: Person[] = [
             </p>
             <p className="leading-relaxed"><strong>Dissertation Topic:</strong> Efficient Algorithms for text and image compression based on Knowledge Engineering</p>
             <p className="leading-relaxed">
-              I am fortunate enough to be supervised by <a href="https://www.iiitdm.ac.in/People/displayProfileFaculty.php?sivaselvanb@iiitdm.ac.in" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Dr. B. Sivaselvan</a>, Associate Professor, Department of CSE, IIITDM Kancheepuram. From him, I have been blessed to learn an amalgamation of moral values, ethics, didactic, along with research. My Doctoral Committee members were <a href="https://www.cse.iitm.ac.in/profile.php?arg=MTA=" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. NS Narayanaswamy</a>, <a href="https://www.iiitdm.ac.in/People/displayProfileFaculty.php?sadagopan@iiitdm.ac.in" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Dr. N. Sadagopan</a> and <a href="https://www.iiitdm.ac.in/People/displayProfileFaculty.php?shalu@iiitdm.ac.in" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Dr. M A Shalu</a> who have upholded and showed me the paths in various tough situations of my Ph.D. tenure. Many thanks to my thesis examiners, <a href="https://raj.cse.uconn.edu/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. Sanguthevar Rajasekaran</a> and <a href="https://www.cse.iitm.ac.in/~ravi/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. Balaraman Ravindran</a> for their valuable advices.
+              I am fortunate enough to be supervised by <a href="https://www.iiitdm.ac.in/people/faculty/sivaselvanb@iiitdm.ac.in" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Dr. B. Sivaselvan</a>, Associate Professor, Department of CSE, IIITDM Kancheepuram. From him, I have been blessed to learn an amalgamation of moral values, ethics, didactic, along with research. My Doctoral Committee members were <a href="https://cse.iitm.ac.in/innerfaculty.php?fname=Narayanaswamy+N+S" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. NS Narayanaswamy</a>, <a href="https://www.iiitdm.ac.in/people/faculty/sadagopan@iiitdm.ac.in" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Dr. N. Sadagopan</a> and <a href="https://www.iiitdm.ac.in/people/faculty/shalu@iiitdm.ac.in" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Dr. M A Shalu</a> who have upholded and showed me the paths in various tough situations of my Ph.D. tenure. Many thanks to my thesis examiners, <a href="https://raj.cse.uconn.edu/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. Sanguthevar Rajasekaran</a> and <a href="https://wsai.iitm.ac.in/~ravi/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. Balaraman Ravindran</a> for their valuable advices.
             </p>
           </div>
         </div>
@@ -110,7 +108,7 @@ const faculty: Person[] = [
           <div className="pl-3.5 space-y-1.5">
             <p className="leading-relaxed">Karunya University, Coimbatore.</p>
             <p className="leading-relaxed"><strong>Dissertation Topic:</strong> Hybrid Particle Swarm Optimization for University Course Timetabling Problem</p>
-            <p className="leading-relaxed"><strong>Advisor:</strong> <a href="https://mysite.kku.edu.sa/site/anandevadurai/home?lan=ar" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Dr. C Anand Devadurai</a></p>
+            <p className="leading-relaxed"><strong>Advisor:</strong> <a href="https://scholar.google.com/citations?user=TGR206kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Dr. C Anand Devadurai</a></p>
           </div>
         </div>
 
@@ -304,7 +302,7 @@ const tierStyles: Record<
   },
 };
 
-function PersonCard({ p, variant, showProjectLabel }: { p: Person; variant: Variant; showProjectLabel?: boolean }) {
+function PersonCard({ p, variant, showProjectLabel, hideSocialLabels }: { p: Person; variant: Variant; showProjectLabel?: boolean; hideSocialLabels?: boolean }) {
   const s = tierStyles[variant];
 
   return (
@@ -364,12 +362,21 @@ function PersonCard({ p, variant, showProjectLabel }: { p: Person; variant: Vari
         </div>
 
         <div className="min-w-0 flex-1 flex flex-col">
-          <h3 className={`font-display tracking-tight leading-tight group-hover:text-accent transition-colors ${s.nameSize}`}>
-            {cleanName(p.name)}
-          </h3>
-          <p className={`mt-3.5 font-bold uppercase tracking-[0.18em] text-accent ${s.roleSize}`}>
-            {p.role}
-          </p>
+          <div className="flex justify-between items-start gap-2">
+            <div>
+              <h3 className={`font-display tracking-tight leading-tight group-hover:text-accent transition-colors ${s.nameSize}`}>
+                {cleanName(p.name)}
+              </h3>
+              <p className={`mt-3.5 font-bold uppercase tracking-[0.18em] text-accent ${s.roleSize}`}>
+                {p.role}
+              </p>
+            </div>
+            {hideSocialLabels && (
+              <a href={p.linkedin && p.linkedin !== "a" ? p.linkedin : "#"} target={p.linkedin && p.linkedin !== "a" ? "_blank" : undefined} rel="noopener noreferrer" className="flex-shrink-0 flex items-center justify-center p-2 rounded-full bg-muted text-ink-soft hover:bg-muted/80 transition-colors group">
+                <Linkedin className="size-4" />
+              </a>
+            )}
+          </div>
 
           {showProjectLabel ? (
             <div className="mt-2.5">
@@ -388,7 +395,7 @@ function PersonCard({ p, variant, showProjectLabel }: { p: Person; variant: Vari
 
           {(p.scholar || p.linkedin || p.dblp || p.academia || p.researchGate || p.scopus) && (
             <div className={`flex flex-wrap gap-3 ${variant === "large" ? "mt-6" : "mt-auto pt-6"}`}>
-              {p.linkedin && (
+              {(!hideSocialLabels && p.linkedin && p.linkedin !== "a") && (
                 <a href={p.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted text-ink-soft hover:bg-muted/80 transition-colors text-xs font-medium group">
                   <Linkedin className="size-3.5" />
                   <span>LinkedIn</span>
@@ -525,7 +532,7 @@ function Section({
           <Stagger className={gridClasses} stagger={0.06}>
             {visiblePeople.map((p, i) => (
               <DirectionalCardReveal key={`${p.name}-${i}`} direction={direction}>
-                <PersonCard p={p} variant={variant} showProjectLabel={showProjectLabel} />
+                <PersonCard p={p} variant={variant} showProjectLabel={showProjectLabel} hideSocialLabels={title !== "Faculty"} />
               </DirectionalCardReveal>
             ))}
           </Stagger>

@@ -110,13 +110,7 @@ function ProjectsPage() {
 
   return (
     <>
-      <PageHeader
-        title={
-          <>
-            Research Grants & <span className="italic font-light text-ink/50">Initiatives.</span>
-          </>
-        }
-      />
+
 
       <section className="container-page pb-24">
         <Reveal>

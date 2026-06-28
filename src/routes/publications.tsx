@@ -542,10 +542,17 @@ function PublicationsPage() {
   });
   const id = useId();
 
+  const groupedPubs = filtered.reduce((acc, pub) => {
+    const year = pub.year.toString();
+    if (!acc[year]) acc[year] = [];
+    acc[year].push(pub);
+    return acc;
+  }, {} as Record<string, Pub[]>);
+
+  const years = Object.keys(groupedPubs).sort((a, b) => Number(b) - Number(a));
+
   return (
     <>
-
-
       <section className="container-page pb-10">
         <Reveal>
           <div className="flex flex-wrap items-center gap-2">
@@ -593,51 +600,62 @@ function PublicationsPage() {
       </section>
 
       <section className="container-page pb-32">
-        <ul className="flex flex-col gap-3 w-full">
-          {filtered.map((pub, index) => (
-            <motion.div
-              layoutId={`card-${pub.title}-${id}`}
-              key={`card-${pub.title}-${id}`}
-              className="relative bg-surface rounded-xl ring-1 ring-border p-4 lg:p-5 flex flex-col md:flex-row justify-between md:items-center transition-all duration-300 hover:bg-canvas hover:-translate-y-1 hover:shadow-md hover:z-10 group"
-            >
-              <div className="flex-1 min-w-0 pr-0 md:pr-6">
-                <motion.h3
-                  layoutId={`title-${pub.title}-${id}`}
-                  className="font-display font-semibold text-lg text-ink text-left leading-snug group-hover:text-accent transition-colors"
-                >
-                  {pub.title}
-                </motion.h3>
-                <motion.p
-                  layoutId={`description-${pub.title}-${id}`}
-                  className="text-sm text-ink-soft text-left mt-1.5"
-                >
-                  {pub.authors}
-                </motion.p>
-                <motion.p
-                  layoutId={`fullvenue-${pub.title}-${id}`}
-                  className="text-xs italic text-ink-soft text-left mt-1"
-                >
-                  {pub.fullVenue || pub.venue}
-                </motion.p>
+        <div className="flex flex-col gap-16 w-full">
+          {years.map((year) => (
+            <div key={year} className="flex flex-col md:flex-row gap-6 md:gap-12">
+              <div className="md:w-32 shrink-0 md:pt-4">
+                <h2 className="font-display text-4xl md:text-5xl font-bold text-ink sticky top-24">
+                  {year}
+                </h2>
               </div>
-              
-              {pub.link ? (
-                <motion.a
-                  layoutId={`button-${pub.title}-${id}`}
-                  href={pub.link}
-                  target="_blank"
-                  className="px-4 py-2 text-xs rounded-full font-medium bg-canvas ring-1 ring-border hover:bg-ink hover:text-canvas text-ink mt-4 md:mt-0 md:ml-4 transition-colors shrink-0 md:self-center self-start"
-                >
-                  Read Paper
-                </motion.a>
-              ) : (
-                <div className="px-4 py-2 text-xs rounded-full font-medium mt-4 md:mt-0 md:ml-4 shrink-0 invisible pointer-events-none hidden md:block">
-                  Read Paper
-                </div>
-              )}
-            </motion.div>
+              <ul className="flex flex-col gap-3 flex-1 min-w-0">
+                {groupedPubs[year].map((pub, index) => (
+                  <motion.div
+                    layoutId={`card-${pub.title}-${id}`}
+                    key={`card-${pub.title}-${id}`}
+                    className="relative bg-surface rounded-xl ring-1 ring-border p-4 lg:p-5 flex flex-col md:flex-row justify-between md:items-center transition-all duration-300 hover:bg-canvas hover:-translate-y-1 hover:shadow-md hover:z-10 group"
+                  >
+                    <div className="flex-1 min-w-0 pr-0 md:pr-6">
+                      <motion.h3
+                        layoutId={`title-${pub.title}-${id}`}
+                        className="font-display font-semibold text-lg text-ink text-left leading-snug group-hover:text-accent transition-colors"
+                      >
+                        {pub.title}
+                      </motion.h3>
+                      <motion.p
+                        layoutId={`description-${pub.title}-${id}`}
+                        className="text-sm text-ink-soft text-left mt-1.5"
+                      >
+                        {pub.authors}
+                      </motion.p>
+                      <motion.p
+                        layoutId={`fullvenue-${pub.title}-${id}`}
+                        className="text-xs italic text-ink-soft text-left mt-1"
+                      >
+                        {pub.fullVenue || pub.venue}
+                      </motion.p>
+                    </div>
+                    
+                    {pub.link ? (
+                      <motion.a
+                        layoutId={`button-${pub.title}-${id}`}
+                        href={pub.link}
+                        target="_blank"
+                        className="px-4 py-2 text-xs rounded-full font-medium bg-canvas ring-1 ring-border hover:bg-ink hover:text-canvas text-ink mt-4 md:mt-0 md:ml-4 transition-colors shrink-0 md:self-center self-start"
+                      >
+                        Read Paper
+                      </motion.a>
+                    ) : (
+                      <div className="px-4 py-2 text-xs rounded-full font-medium mt-4 md:mt-0 md:ml-4 shrink-0 invisible pointer-events-none hidden md:block">
+                        Read Paper
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
     </>
   );
