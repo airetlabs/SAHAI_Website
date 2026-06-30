@@ -81,7 +81,7 @@ const faculty: Person[] = [
             <span className="size-1.5 rounded-full bg-accent inline-block"></span> Postdoctoral Fellowship
           </h4>
           <p className="leading-relaxed pl-3.5">
-            In my Postdoctoral fellowship, I am blessed to be mentored by <a href="https://www.cse.iitk.ac.in/users/arnabb/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. Arnab Bhattacharya</a>, Professor, Dept. of Computer Science and Engineering, IIT Kanpur from Feb 2021 - July 2022. It has been a turning point in my research career. Since then I have been inspired to work in the field of Natural Language Processing with a passion towards Indic Languages which I continue still.
+            In my Postdoctoral fellowship, I am blessed to be mentored by <a href="https://www.cse.iitk.ac.in/users/arnabb/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. Arnab Bhattacharya</a>, Professor, Dept. of Computer Science and Engineering, IIT Kanpur from Feb 2021 - July 2022. It has been a turning point in my research career since then.I have been inspired to work in the field of Natural Language Processing with a passion towards Indic Languages which I continue still.
           </p>
         </div>
 
