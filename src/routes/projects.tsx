@@ -115,16 +115,16 @@ const projectData: ProjectItem[] = [
     status: "Ongoing",
     title: "AI4Education",
     description:
-      "This project develops a lightweight AI tool to help faculty with academic evaluation and feedback. It uses a Small Language Model (SLM) that runs locally, ensuring data privacy, reducing workload, and supporting fair and consistent assessment.",
+      "This project develops a lightweight AI tool to help faculty with academic evaluation and feedback. It uses Small Language Model (SLM) that runs locally, ensuring data privacy, reducing workload, and supporting fair and consistent assessment.",
     team: [
       {
         name: "Dr.-Ing. Prince Gideon Kubendran Amos",
-        affiliation: "Dept. of Metallurgical and Materials Engineering , NIT Tiruchirappalli",
+        affiliation: "Assistant Professor, Dept. of Metallurgical and Materials Engineering , NIT Tiruchirapalli",
         link: "https://www.nitt.edu/home/academics/departments/meta/faculty/prince/",
       },
       {
         name: "Dr. Anu Kuriakose",
-        affiliation: "Dept. of Humanities and Social Sciences, NIT Tiruchirappalli",
+        affiliation: "Assistant Professor, Dept. of Humanities and Social Sciences, NIT Tiruchirapalli",
         link: "https://www.nitt.edu/home/academics/departments/humanities/faculty/anuk/",
       },
     ],

@@ -81,7 +81,7 @@ const faculty: Person[] = [
             <span className="size-1.5 rounded-full bg-accent inline-block"></span> Postdoctoral Fellowship
           </h4>
           <p className="leading-relaxed pl-3.5">
-            In my Postdoctoral fellowship, I am blessed to be mentored by <a href="https://www.cse.iitk.ac.in/users/arnabb/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. Arnab Bhattacharya</a>, Professor, Dept. of Computer Science and Engineering, IIT Kanpur from Feb 2021 - July 2022. It has been a turning point in my research career since then.I have been inspired to work in the field of Natural Language Processing with a passion towards Indic Languages which I continue still.
+            In my Postdoctoral fellowship, I am blessed to be mentored by <a href="https://www.cse.iitk.ac.in/users/arnabb/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Prof. Arnab Bhattacharya</a>, Professor, Dept. of Computer Science and Engineering, IIT Kanpur from Feb 2021 - July 2022. It has been a turning point in my research career since then. I have been inspired to work in the field of Natural Language Processing with a passion towards Indic Languages which I continue still.
           </p>
         </div>
 
@@ -186,8 +186,8 @@ const interns: Person[] = [
   { name: "Nagul Pranav", role: "2024", interests: "Computer Vision", initials: "IO", photo: "public/images/Interns/2024/KSNaghulPranav.jpeg",linkedin:"https://www.linkedin.com/in/naghul-pranav-k-s" },
   { name: "Balaji", role: "2024", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
   { name: "Gudapadi Nikhil", role: "2024", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
-  { name: "R Vinish Krishna", role: "2024", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
-  { name: "Vasan R", role: "2024", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2024/Vasan-pic.png",linkedin:"a" },
+  { name: "R Vinish Krishna", role: "2024", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2024/Vinish.jpeg",linkedin:"a" },
+  { name: "Vasan R", role: "2024", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2024/Vasan-pic.png",linkedin:"https://www.linkedin.com/in/vasan-r?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
   { name: "Janarthanan T", role: "2024", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2024/Janarthanan_106121053.jpg",linkedin:"https://www.linkedin.com/in/janarthanan-t-335bb625b" },
   { name: "Arvind Krishna", role: "2024", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2024/Aravind Krishna P M.JPG",linkedin:"https://www.linkedin.com/in/aravind-krishna-p-m/" },
   { name: "Krithik", role: "2024", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
@@ -196,15 +196,15 @@ const interns: Person[] = [
 
   { name: "Yogesh Perumal", role: "2023", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
   { name: "Abhijit Baidya", role: "2023", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2023/Abhijit Baidya.jpg",linkedin:"https://www.linkedin.com/in/abhijitbaidya/" },
-  { name: "Hashim Faisal syed", role: "2023", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
+  { name: "Hashim Faisal syed", role: "2023", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2023/HashimFaisal.jpg",linkedin:"a" },
   { name: "Isai Visaahan P M", role: "2023", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2023/Isaivisaahan.jpg",linkedin:"a" },
-  { name: "Karthik Balaji N V", role: "2023", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2023/karthik.jpeg",linkedin:"a" },
+  { name: "Karthik Balaji N V", role: "2023", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2023/karthik.jpg",linkedin:"a" },
   { name: "Kirthik B", role: "2023", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
   { name: "Nisha Preethika S", role: "2023", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2023/preethika.jpeg",linkedin:"a" },
   { name: "Piyush Sonekar", role: "2023", interests: "Computer Vision", initials: "IT", photo: "" ,linkedin:"a"},
   { name: "Prabhakar", role: "2023", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
   { name: "Raunak Rajpal", role: "2023", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
-  { name: "Sreenidhi N", role: "2023", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
+  { name: "Sreenidhi N", role: "2023", interests: "Computer Vision", initials: "IT", photo: "/images/Interns/2023/Sreenidhi.jpg",linkedin:"a" },
   { name: "Vasukumar P", role: "2023", interests: "Computer Vision", initials: "IT", photo: "",linkedin:"a" },
 ];
 
