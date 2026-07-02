@@ -93,7 +93,6 @@ const projectData: ProjectItem[] = [
       "Shyam Sundaram S",
       "Akash A",
       "Oswald C",
-      "Dept. of CSE, VIT Chennai.",
     ],
     hue: "from-[#D0C0A8] to-[#E0D4C0]",
     image:"images/Algo_visualiser.png"
@@ -106,7 +105,7 @@ const projectData: ProjectItem[] = [
     description:
       "A specialized tool designed to visually demonstrate the Hungarian algorithm for solving assignment problems, making mathematical optimization concepts intuitive and highly accessible.",
     link: "https://hungvisual.github.io/HungVis/",
-    team: ["Shubh Todi", "Oswald C", "Department of CSE, VIT Chennai."],
+    team: ["Shubh Todi", "Oswald C",],
     hue: "from-[#B8B0D0] to-[#D0C8E0]",
   },
   {
