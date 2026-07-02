@@ -18,7 +18,7 @@ export function SiteFooter() {
             <p className="text-sm text-canvas/60 leading-relaxed max-w-md">
               Socially Aware Intelligence for Humanity and LAnguage ProcessIng Lab
               <br />
-              CSE Department,
+              #303, Department of CSE,
               <br />
               National Institute of Technology Tiruchirappalli.
             </p>
